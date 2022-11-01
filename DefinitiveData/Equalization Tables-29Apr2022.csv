@@ -1,0 +1,45 @@
+﻿Incl-Excl,Verno,Book-Page,Book,Page,Sale-Price,Assessed,Ratio,PC,MC,SC,Trim,Date,Seller,Buyer,Notes
+Included,10,4562-0293,4562,293,500000,451200,90.2,14,,,,10/6/20,Stowe,Del Pozzo,
+Included,34,4570-0692,4570,692,339000,332100,98,14,,,,11/2/20,Anderson,Bishop,
+Included,45,4573-0833,4573,833,50000,50200,100.4,22,,,,11/10/20,Bastianelli,Chamberliain,
+Included,48,4575-0214,4575,214,329933,282700,85.7,11,,,,11/16/20,Caruso,Noel,
+Included,54,4576-0498,4576,498,175000,171600,98.1,19,,,,11/18/20,Boaks,Clifford,
+Included,64,4581-0400,4581,400,100000,113900,113.9,22,,,,12/3/20,JFK Rentals,Mundy,
+Included,69,4582-0650,4582,650,240533,261800,108.8,11,,,,12/8/20,Beaupre,Lundberg,Resale to 329
+Included,102,4593-0343,4593,343,525000,508600,96.9,11,,,,1/12/21,Curtis,Gruber/Mesiano,
+Included,139,4601-0508,4601,508,525000,432400,82.4,11,,,,2/19/21,Dickson,Clark,
+Included,162,4612-0260,4612,260,405000,420500,103.8,11,,,,3/17/21,Jenks,Clafin Lane Prop,
+Included,169,4614-0724,4614,724,1435000,1339400,93.3,11,,,,3/5/21,Russ,Torti,
+Included,189,4622-0621,4622,621,700000,610900,87.3,11,,,,4/19/21,Barker,Doyle,
+Included,219,4635-0378,4635,378,288800,364900,126.4,11,,,,5/28/21,Jellison,Yukica,
+Included,245,4644-0627,4644,627,525000,393500,75,11,,,,6/29/21,Dahlen,Boydston,
+Included,263,4647-0864,4647,864,525000,380500,72.5,11,,,,7/9/21,Sheffield,Caffry,
+Included,265,4647-0931,4647,931,600000,325300,54.2,11,70,,,7/9/21,Weeks,Hamel,
+Included,283,4652-0053,4652,53,775000,686800,88.6,11,70,,,7/23/21,Milanese,Briggs,
+Included,304,4657-0199,4657,199,675000,488300,72.3,11,,,,8/10/21,Gerngross,Barraclough,
+Included,316,4659-0112,4659,112,216000,197400,91.4,14,,,,8/17/21,Keith,Rice,
+Included,326,4662-0466,4662,466,2500000,2398500,95.9,11,70,,,8/30/21,Barnum,Holmes,
+Included,327,4662-0861,4662,861,345000,365300,105.9,11,,,,8/30/21,Menard,Mendyka,
+Included,331,4664-0310,4664,310,789000,630000,79.8,11,,,,9/2/21,Sinkus,Culler,
+Included,339,4666-0182,4666,182,390000,377100,96.7,14,,,,9/13/21,AIP LLC,Stern,
+Included,346,4667-0619,4667,619,169600,323000,190.4,11,,,Yes,9/17/21,McCarthy,Parker,This property is in a flood zone and in need of renovation per mis. Please trim
+Excluded,3,4561-0481,4561,481,1950000,1993400,102.2,11,70,,,10/5/20,Kuvin,Taylor,RSA 79-A Current Use
+Excluded,18,4564-0344,4564,344,100000,236800,236.8,11,81,,,10/13/20,Gray,Estes,Estate Sale With Fiduciary Covenants Resale to 309
+Excluded,35,4570-0715,4570,715,1500000,1244000,82.9,11,90,,,11/2/20,Sahr,Burlison,RSA 79-A Current Use
+Excluded,80,4585-0612,4585,612,600000,554000,92.3,22,90,,,12/16/20,Spaulding,Hoyt,RSA 79-A Current Use
+Excluded,82,4586-0837,4586,837,1845000,9700,0.5,22,19,,,12/21/20,Berguerian,Trustees of DC,Multi-Town Property PARTIALLY IN HANOVER
+Excluded,94,4590-0116,4590,116,163933,200600,122.4,11,13,,,12/31/20,Odell,Welling,Improvements +/- (Post Sale/PreAssmt) - Be
+Excluded,114,4596-0046,4596,46,580000,574400,99,11,90,,,1/21/21,Holzer,Downs,RSA 79-A Current Use
+Excluded,137,4601-0158,4601,158,260000,349100,134.3,11,13,,,2/8/21,Dres,Carter,Improvements +/- (Post Sale/PreAssmt) - Be
+Excluded,163,4612-0972,4612,972,400000,422400,105.6,22,90,,,3/19/21,Granlund,Roby,RSA 79-A Current Use
+Excluded,164,4613-0016,4613,16,125000,498900,399.1,11,11,,,3/19/21,Russ,Ploog,Property Sold Not Separately Assessed LOT LINE ADJUSTMENT
+Excluded,171,4616-0421,4616,421,2500000,459000,18.4,22,40,,,3/31/21,Smarts Mtn,Bear Hill Cons,Business Affiliates as Grantor/Grantee
+Excluded,184,4621-0264,4621,264,615000,596500,97,11,90,,,4/15/21,Brightman,Salkin,RSA 79-A Current Use
+Excluded,200,4629-0330,4629,330,131533,215400,163.8,11,81,,,5/10/21,Piper,Cloud,Estate Sale With Fiduciary Covenants
+Excluded,221,4635-0438,4635,438,2800,220100,7860.7,17,11,,,5/8/21,Diskson,Fecteau Residential,Property Sold Not Separately Assessed
+Excluded,276,4650-0312,4650,312,725000,620500,85.6,11,90,,,7/9/21,Rich,Wilson,RSA 79-A Current Use
+Excluded,309,4658-0160,4658,160,412000,236800,57.5,11,14,,,8/13/21,Estes,Schwartz,Improvements +/- (Post Assmt/Pre Sale) Resale of 18
+Excluded,312,4658-0326,4658,326,219000,206700,94.4,14,11,,,8/13/21,LLL,Santos,Property Sold Not Separately Assessed THIS WAS SUBDIVIED AFTER 4/1/2021
+Excluded,314,4658-0842,4658,842,1230000,1036200,84.2,11,90,,,8/16/21,Bent,Price,RSA 79-A Current Use
+Excluded,329,4664-0291,4664,291,307000,261800,85.3,11,89,,,9/2/21,Lundberg,Gahagan,Resale in EQ Period Resale of 69
+Excluded,353,4671-0361,4671,361,450000,566000,125.8,11,11,,,9/30/21,Roundabout,Washburn,Property Sold Not Separately Assessed

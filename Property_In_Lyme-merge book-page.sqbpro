@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/richb/Documents/Projects/Tax Fairness in Lyme/Property_In_Lyme.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser structure pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="6769"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,20:mainAssess_Apprais_Sales"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- Deeds where map/lot/unit is not NULL
+SELECT
+	GC_Type,GC_Date,
+	GC_Book, GC_Page,
+	SD_Map, SD_Lot, SD_Unit,
+	GC_Party2,
+	SD_Street_Address, GC_Notes
+FROM GraftonCtyRoD l
+left JOIN ScrapedData r
+on GC_Book = SD_Book AND
+	GC_Page = SD_Page
+where GC_Type = &quot;DEED&quot; and SD_Map is NOT NULL
+order by GC_Date
+;</sql><sql name="SQL 3">WITH table_0 AS (
+  SELECT
+    gc_type,
+    gc_book,
+    gc_page
+  FROM
+    &quot;GraftonCtyRoD&quot;
+  WHERE
+    gc_type = 'DEED'
+),
+non_null_deeds AS (
+--   SELECT
+    table_0.*,
+    &quot;scrapedData&quot;.*
+  FROM
+    table_0
+    JOIN &quot;scrapedData&quot; ON table_0.gc_book = &quot;scrapedData&quot;.sd_book
+    AND table_0.gc_page = &quot;scrapedData&quot;.sd_page
+),
+used_sales AS (
+  SELECT
+    sc_map,
+    sc_lot,
+    sc_unit,
+    sc_location
+  FROM
+    &quot;SalesConsidered61&quot;
+)
+SELECT
+  gc_type,
+  gc_book,
+  gc_page
+FROM
+  non_null_deeds
+  JOIN used_sales USING()</sql><current_tab id="0"/></tab_sql></sqlb_project>

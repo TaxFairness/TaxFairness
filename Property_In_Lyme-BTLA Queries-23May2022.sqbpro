@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/richb/Documents/Projects/Tax Fairness in Lyme/Property_In_Lyme.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="6769"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,20:mainAssess_Apprais_Sales"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Assess_Apprais_Sales" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="38"/><column index="2" value="33"/><column index="3" value="47"/><column index="4" value="216"/><column index="5" value="96"/><column index="6" value="41"/><column index="7" value="82"/><column index="8" value="88"/><column index="9" value="84"/><column index="10" value="103"/><column index="11" value="82"/><column index="12" value="88"/><column index="13" value="75"/><column index="14" value="107"/><column index="15" value="86"/><column index="16" value="93"/><column index="17" value="80"/><column index="18" value="106"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="RecentSales" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="4" mode="0"/></sort><column_widths><column index="1" value="113"/><column index="2" value="102"/><column index="3" value="300"/><column index="4" value="222"/><column index="5" value="119"/><column index="6" value="56"/><column index="7" value="48"/><column index="8" value="55"/><column index="9" value="91"/><column index="10" value="122"/><column index="11" value="121"/><column index="12" value="96"/><column index="13" value="81"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="SalesConsidered61" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="157"/><column index="3" value="56"/><column index="4" value="48"/><column index="5" value="54"/><column index="6" value="163"/><column index="7" value="81"/><column index="8" value="72"/><column index="9" value="51"/><column index="10" value="66"/><column index="11" value="81"/><column index="12" value="82"/><column index="13" value="76"/><column index="14" value="87"/><column index="15" value="87"/><column index="16" value="76"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="SalesNotUsed" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="300"/><column index="2" value="52"/><column index="3" value="59"/><column index="4" value="92"/><column index="5" value="85"/><column index="6" value="67"/><column index="7" value="119"/><column index="8" value="147"/><column index="9" value="61"/><column index="10" value="58"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ScrapedData3" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="10" mode="0"/></sort><column_widths><column index="1" value="54"/><column index="2" value="300"/><column index="3" value="216"/><column index="4" value="126"/><column index="5" value="58"/><column index="6" value="49"/><column index="7" value="56"/><column index="8" value="95"/><column index="9" value="128"/><column index="10" value="114"/><column index="11" value="96"/><column index="12" value="124"/><column index="13" value="141"/><column index="14" value="119"/><column index="15" value="119"/><column index="16" value="137"/><column index="17" value="136"/><column index="18" value="123"/><column index="19" value="122"/><column index="20" value="108"/><column index="21" value="114"/><column index="22" value="104"/><column index="23" value="108"/><column index="24" value="114"/><column index="25" value="104"/><column index="26" value="112"/><column index="27" value="118"/><column index="28" value="108"/><column index="29" value="112"/><column index="30" value="118"/><column index="31" value="108"/><column index="32" value="75"/><column index="33" value="75"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ZoningPermits" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="9" mode="0"/></sort><column_widths><column index="1" value="116"/><column index="2" value="123"/><column index="4" value="72"/><column index="5" value="56"/><column index="6" value="80"/><column index="7" value="48"/><column index="8" value="54"/><column index="9" value="216"/><column index="10" value="251"/><column index="11" value="300"/><column index="12" value="94"/><column index="13" value="72"/><column index="14" value="103"/></column_widths><filter_values><column index="9" value="post"/></filter_values><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- Which properties have changed appraisal, land or improvement assessment from 2020 to 2021
+SELECT 
+	sd_map, Sd_lot,sd_unit,
+	SD_Street_Address,
+	-- SD_Lot_Size,
+	SD_App_Tot2020,
+	SD_App_Tot2021,
+	printf(&quot;%1.1f%&quot;,100*(SD_App_Tot2021 - sd_app_tot2020)/ SD_App_Tot2020) as &quot;Appr. pct&quot;,
+	sd_app_land2020,
+	sd_app_land2021,
+	printf(&quot;%1.1f%&quot;,100*(sd_app_land2021 - sd_app_land2020)/ sd_app_Land2020) as &quot;Land. pct&quot;,
+	sd_app_imp2020,
+	sd_app_imp2021,
+	printf(&quot;%1.1f%&quot;,100*(sd_app_imp2021 - sd_app_imp2020)/ sd_app_Imp2020) as &quot;Impr. pct&quot;
+
+from ScrapedData3
+where SD_Street_Address like &quot;%post pond%&quot;
+-- order by 100*(sd_app_land2021 - sd_app_land2020)/ sd_app_land2021 
+order by cast(SD_Street_Address as decimal)
+;</sql><sql name="SQL 3">-- Underappraisal of Recent Sales that were considered in the revaluation
+-- Why were these sales considered? Why weren't these appraised at their sale price?
+SELECT
+	r.SD_PID,
+	l.SC_Map, l.SC_Lot, L.SC_Unit,
+	l.SC_Location,
+	l.SC_SalePrice,
+	r.SD_App_Tot2021,
+	printf(&quot;%,d&quot;,(r.SD_App_Tot2021 - l.SC_SalePrice)) as &quot;Underappraisal&quot;,
+	printf(&quot;%1.1f%&quot;,(r.SD_App_Tot2021 - l.SC_SalePrice)*100/r.SD_App_Tot2020) as &quot;Percent&quot;
+from SalesConsidered61 l
+left JOIN ScrapedData3 r
+
+on SC_Map = SD_Map AND SC_Lot = SD_Lot AND SC_Unit = SD_Unit
+
+-- where l.sc_location like &quot;%river%&quot;
+-- where r.SD_App_Tot2021 &lt;&gt; NULL
+-- order by r.SD_App_Tot2021 DESC
+order by (r.SD_App_Tot2021 - l.SC_SalePrice)*100/r.SD_App_Tot2020 DESC
+;
+</sql><sql name="SQL 3">-- Underappraisal of Recent Sales that were NOT considered
+-- Why were these sales not considered?
+SELECT
+	r.SD_PID as PID,
+	l.NU_Map as Map, 
+	l.NU_Lot as Lot, 
+	L.NU_Unit as Unit,
+	r.SD_Street_Address as &quot;Street Address&quot;,
+	printf(&quot;$%,d&quot;,l.NU_SalesPrice) as &quot;SalesPrice&quot;,
+	printf(&quot;$%,d&quot;,r.SD_App_Tot2021) as &quot;Appraisal 2021&quot;,
+	printf(&quot;%1.1f%&quot;,(r.SD_App_Tot2021 - l.NU_SalesPrice)*100/r.SD_App_Tot2021) as &quot;Difference&quot;
+	-- r.sd_ass_tot2021,
+	-- r.SD_Ass_Land2021,
+	-- r.SD_Ass_Imp2021,
+	-- printf(&quot;%,d&quot;,(r.SD_App_Tot2021 - l.NU_SalesPrice)) as &quot;Underappraisal&quot;
+from SalesNotUsed l
+left JOIN ScrapedData3 r
+
+on NU_Map = SD_Map AND NU_Lot = SD_Lot AND NU_Unit = SD_Unit
+
+--where r.SD_Street_Address like &quot;%orford%&quot;
+-- where (r.SD_App_Tot2021 - l.NU_SalesPrice)*100/r.SD_App_Tot2021 &lt; 10 AND
+--	(r.SD_App_Tot2021 - l.NU_SalesPrice)*100/r.SD_App_Tot2021 &gt; -10 
+
+-- order by r.SD_App_Tot2021 DESC
+-- Order by the under-appraisal percentage
+order by (r.SD_App_Tot2021 - l.NU_SalesPrice)*100/r.SD_App_Tot2021 DESC
+;
+</sql><sql name="SQL 4">-- SELECT 
+	l.ZP_Map, 
+	l.ZP_Lot, 
+	l.ZP_Unit, 
+	l.ZP_Address, 
+	l.ZP_DateIssued as &quot;Date&quot;,
+	l.ZP_Description,
+	l.ZP_EstCost as &quot;Est. Cost&quot;,
+	r.SD_Prev_Assess2020,
+	(r.SD_Prev_Assess2020+l.ZP_EstCost) as &quot;Computed Assess.&quot;,
+	r.SD_Assessment2021,
+	(r.SD_Assessment2021-(r.SD_Prev_Assess2020+l.ZP_EstCost)) as &quot;Delta&quot;
+from ZoningPermits l
+LEFT JOIN ScrapedData r
+on l.ZP_Map = r.SD_Map and
+	l.ZP_Lot = r.SD_Lot and
+	l.ZP_Unit = r.SD_Unit
+WHERE l.ZP_DateIssued &gt; &quot;2020-01-01&quot;
+ORDER by ZP_DateIssued
+;
+</sql><sql name="SQL 6">-- Get distribution of parcel sizes
+SELECT
+	sd_Map, Sd_Lot, SD_Unit,
+	SD_Street_Address,
+	SD_Num_Buildings,
+	SD_Lot_Size,
+	SD_Zoning_District
+FROM ScrapedData3
+where 
+	SD_Lot_Size &gt; 0 AND
+	SD_Num_Buildings &gt; 0 AND
+	SD_Zoning_District = &quot;RD&quot; or SD_Zoning_District = &quot;&quot;
+	--SD_Street_Address like &quot;%dorchester%&quot; AND
+	--SD_Street_Address &gt;= &quot;130 Dorchester&quot; AND
+	--SD_Street_Address &lt;= &quot;188 Dorchster&quot;
+ORDER BY SD_Lot_Size
+;</sql><sql name="SQL 7">select 
+SD_Zoning_District,
+count(SD_Zoning_District)
+from ScrapedData3
+group by SD_Zoning_District
+;</sql><sql name="SQL 8">-- Get assessed value of parcels that match criteria
+SELECT
+	count(*),
+	printf(&quot;%,d&quot;,sum(sd_lot_size)) as &quot;Total Acres&quot;,
+	printf(&quot;$%,d&quot;,sum(SD_Ass_Tot2021)) as &quot;Total assessed&quot;
+FROM ScrapedData3
+where 
+	SD_Lot_Size &gt; 0 
+	and SD_Num_Buildings &gt; 0 
+	-- (SD_Zoning_District = &quot;RD&quot; or SD_Zoning_District = &quot;&quot; )
+	and SD_Street_Address like &quot;%breck%&quot; 
+	AND SD_Lot_Size &lt; 5
+-- ORDER BY SD_Lot_Size
+;</sql><sql name="SQL 9">SELECT
+   SD_Num_Buildings,SD_App_Tot2021
+   
+FROM ScrapedData3
+WHERE SD_Num_Buildings &gt; 0
+ORDER BY SD_App_Tot2021
+;
+</sql><sql name="SQL 10">SELECT	
+ nu_Map, nu_Lot, nu_Unit from SalesNotUsed
+EXCEPT 
+select SD_Map, SD_Lot, SD_Unit from ScrapedData3
+;</sql><sql name="SQL 11">select 
+	SC_Map as Map, 
+	SC_Lot as Lot, 
+	SC_Unit as Unit,
+	SC_SaleDate as SaleDate,
+	SC_Location as Location
+from 
+	SalesConsidered61 
+
+UNION
+
+select
+	NU_Map, NU_Lot, NU_Unit,
+	NU_SaleDate,
+	&quot;NotUsed&quot;
+from 
+	SalesNotUsed
+order by SaleDate	
+;</sql><current_tab id="8"/></tab_sql></sqlb_project>
