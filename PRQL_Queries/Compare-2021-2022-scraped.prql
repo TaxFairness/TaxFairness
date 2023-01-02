@@ -1,0 +1,47 @@
+# compare ScrapedData3 & ScrapedData5 (11Dec2022)
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from l = ScrapedData5 
+join side:left r = ScrapedData3 [ ==SD_Map, ==SD_Lot, ==SD_Unit ]
+#filter [ l.SD_App_Tot2020 != r.SD_App_Tot2020 ]
+select [
+  l.SD_Map, 
+  l.SD_Lot, 
+  l.SD_Unit,
+  l.SD_Street_Address,
+  old2020=(dollars r.SD_App_Tot2020),
+  new2020=(dollars l.SD_App_Tot2020),
+  old2021=(dollars r.SD_App_Tot2021),
+  new2021=(dollars l.SD_App_Tot2021),
+]
+
+# This SQL actually works
+# SELECT
+#   l.sd_PID,
+#   l."SD_Map",
+#   l."SD_Lot",
+#   l."SD_Unit",
+#   l."SD_Street_Address",
+#   r.SD_Street_Address,
+#   l.SD_Owner,
+#   printf("$%,d", r."SD_App_Tot2020") AS old2020,
+#   printf("$%,d", l."SD_App_Tot2020") AS new2020,
+#   printf("$%,d", r."SD_App_Tot2021") AS old2021,
+#   printf("$%,d", l."SD_App_Tot2021") AS new2021,
+#   printf("$%,d", (l."SD_App_Tot2021"-r.SD_App_Tot2021)) AS Diff
+# FROM
+#   "ScrapedData5" AS l
+#   left JOIN "ScrapedData3" AS r ON 
+#   l."SD_Map" = r."SD_Map"
+#   AND l."SD_Lot" = r."SD_Lot"
+#   AND l."SD_Unit" = r."SD_Unit"
+# where l.SD_App_Imp2021 != r.SD_App_Imp2021
+# order by cast(l.SD_PID as integer)

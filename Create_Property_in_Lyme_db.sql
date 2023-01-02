@@ -142,6 +142,99 @@ CREATE TABLE "ScrapedData4" (
 "SD_Empty2" TEXT
 );
 
+CREATE TABLE "ScrapedData5" (
+"SD_PID" TEXT,
+"SD_Owner" TEXT,
+"SD_Street_Address" TEXT,
+"SD_MBLU" TEXT,
+"SD_Map" INTEGER,
+"SD_Lot" INTEGER,
+"SD_Unit" TEXT,
+"SD_Book_Page" TEXT,
+"SD_Book" TEXT,
+"SD_Page" TEXT,
+"SD_Assessment2021" INTEGER,
+"SD_Appraisal2021" INTEGER,
+"SD_Lot_Size" INTEGER,
+"SD_Land_Use_Code" TEXT,
+"SD_Description" TEXT,
+"SD_Zoning_District" TEXT,
+"SD_Num_Buildings" INTEGER,
+"SD_Recent_Sale_Price" INTEGER,
+"SD_Recent_Sale_Date" TEXT,
+"SD_Prev_Sale_Price" INTEGER,
+"SD_Prev_Sale_Date" TEXT,
+"SD_Ass_Imp2021" INTEGER,
+"SD_Ass_Land2021" INTEGER,
+"SD_Ass_Tot2021" INTEGER,
+"SD_Ass_Imp2020" INTEGER,
+"SD_Ass_Land2020" INTEGER,
+"SD_Ass_Tot2020" INTEGER,
+"SD_App_Imp2021" INTEGER,
+"SD_App_Land2021" INTEGER,
+"SD_App_Tot2021" INTEGER,
+"SD_App_Imp2020" INTEGER,
+"SD_App_Land2020" INTEGER,
+"SD_App_Tot2020" INTEGER,
+"SD_Empty1" TEXT,
+"SD_Empty2" TEXT
+);
+
+CREATE TABLE "ScrapedData6" (
+"SD_PID" TEXT,
+"SD_Owner" TEXT,
+"SD_Street_Address" TEXT,
+"SD_MBLU" TEXT,
+"SD_Map" INTEGER,
+"SD_Lot" INTEGER,
+"SD_Unit" TEXT,
+"SD_Subunit" TEXT,
+"SD_Book_Page" TEXT,
+"SD_Book" TEXT,
+"SD_Page" TEXT,
+"SD_Assessment2021" INTEGER,
+"SD_Appraisal2021" INTEGER,
+"SD_Lot_Size" INTEGER,
+"SD_Land_Use_Code" TEXT,
+"SD_Description" TEXT,
+"SD_Zoning_District" TEXT,
+"SD_Num_Buildings" INTEGER,
+"SD_Recent_Sale_Price" INTEGER,
+"SD_Recent_Sale_Date" TEXT,
+"SD_Prev_Sale_Price" INTEGER,
+"SD_Prev_Sale_Date" TEXT,
+"SD_Ass_Imp2021" INTEGER,
+"SD_Ass_Land2021" INTEGER,
+"SD_Ass_Tot2021" INTEGER,
+"SD_Ass_Imp2020" INTEGER,
+"SD_Ass_Land2020" INTEGER,
+"SD_Ass_Tot2020" INTEGER,
+"SD_App_Imp2021" INTEGER,
+"SD_App_Land2021" INTEGER,
+"SD_App_Tot2021" INTEGER,
+"SD_App_Imp2020" INTEGER,
+"SD_App_Land2020" INTEGER,
+"SD_App_Tot2020" INTEGER,
+"SD_Empty1" TEXT,
+"SD_Empty2" TEXT,
+"Collected" TEXT,
+"Notes" TEXT
+);
+
+CREATE TABLE "OwnershipHistory"
+(
+"OH_Owner" TEXT,
+"OH_Sale Price" INTEGER,
+"OH_Certificate" TEXT,
+"OH_Book&Page" TEXT,
+"OH_Book" INTEGER,
+"OH_Page" INTEGER,
+"OH_Sale Date" TEXT,
+"OH_PID" INTEGER,
+"Collected" TEXT,
+"Notes" TEXT
+);
+
 CREATE TABLE "TownAssessment"
 (
 "TA_Owner Name" TEXT,
@@ -540,7 +633,7 @@ select distinct
 	"AA_Assessment_Total" 
 from RawAsVsAPDina;
 
-CREATE VIEW "GCRoD_Deeds" AS 
+CREATE VIEW "Actual_Deeds" AS 
 SELECT
 	GC_Type,GC_Date,
 	GC_Book, GC_Page,
@@ -548,7 +641,7 @@ SELECT
 	GC_Party1, GC_Party2,
 	SD_Street_Address, GC_Notes
 FROM GraftonCtyRoD l
-left JOIN ScrapedData4 r
+left JOIN ScrapedData5 r
 on GC_Book = SD_Book AND
 	GC_Page = SD_Page
 where GC_Type = "DEED" 

@@ -1,0 +1,45 @@
+# Compare both 2020-2021 files to see if they're the same (and remove one)
+# lyme old to new 21-1202-from-xls-cleaned.csv & 
+# Old-NewValues2021-21Nov2021.csv
+
+# Results:
+# 6 on the common - unit number confusion
+# 15 Whipple Hill Old_Value changed between 2021 & 2022
+# 
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# Trim out whitespace from a column
+func trim v -> s'trim({v})'
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from LymeOldtoNew2022
+join OldVsNew [
+  (trim ON_Map) == (trim LO2_Map), 
+  (trim ON_Lot) == (trim LO2_Lot), 
+  (trim ON_Unit) == (trim LO2_Unit)
+]
+filter ((trim ON_Map) != "")
+filter LO2_Map==408
+# derive [
+#   OldPctV= (pct ON_NewValue LO2_OldValue),
+#   NewPctV= (pct LO2_OldValue LO2_NewValue),
+# ]
+# filter NewPctV != 0 
+# select [
+#   ON_Map,
+#   ON_Lot,
+#   ON_Unit,
+#   ON_Location,
+#   LO2_Location,
+#   ON_OldValue,
+#   ON_NewValue,
+#   LO2_OldValue,
+#   LO2_NewValue,
+#   OldPct=(prtpct OldPctV),
+#   NewPct=(prtpct NewPctV),
+# ]
+# sort NewPctV

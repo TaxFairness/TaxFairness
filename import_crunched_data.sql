@@ -1,22 +1,29 @@
 # Import data from the CSV files from various data sources
 # This empties the databasetables, then imports the requisite files
 
+delete from ConservationEasements;
+delete from Equalization2022;
+delete from GraftonCtyRoD;
+delete from LymeOldToNew2022;
+delete from LymeOldToNew211202;
+delete from LymeUseCodes;
+delete from OldVsNew;
+delete from PA342022;
+delete from RawAsVsAPDina;
+delete from RecentSales;
+delete from SalesConsidered61;
+delete from SalesNotUsed;
 delete from ScrapedData;
 delete from ScrapedData2;
 delete from ScrapedData3;
+delete from ScrapedData4;
+delete from ScrapedData5;
 delete from TownAssessment;
+delete from VGSIinLyme;
 delete from VisionOccCodes;
-delete from RecentSales;
 delete from ZoningPermits;
-delete from OldVsNew;
-delete from LymeUseCodes;
-delete from LymeOldToNew211202;
-delete from ConservationEasements;
-delete from SalesConsidered61;
-delete from SalesNotUsed;
-delete from Equalization2022;
-delete from PA342022;
-
+delete from ScrapedData6;
+delete from OwnershipHistory;
 
 .mode csv
 .import "DefinitiveData/ScrapedData-21Nov2021.csv" ScrapedData
@@ -37,8 +44,11 @@ delete from PA342022;
 .import "DefinitiveData/PA-34-29Aug2022.csv" PA342022
 .import "DefinitiveData/ScrapedData4-30Aug2022.csv" ScrapedData4
 .import "DefinitiveData/2022 OldToNew-JToland-11Oct2022.csv" LymeOldToNew2022
+.import "DefinitiveData/ScrapedData5-11Dec2022.csv" ScrapedData5
+.import "DefinitiveData/ScrapedData-31Dec2022.csv" ScrapedData6
+.import "DefinitiveData/OwnershipHistory-collected-31Dec2022.csv" OwnershipHistory
 
-delete from VGSIinLyme;
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
-.import "DefinitiveData/GCRoD-1Apr2019-13Sep2022.txt" GraftonCtyRoD
+.import "DefinitiveData/GCRoD-All-Data.txt" GraftonCtyRoD
+

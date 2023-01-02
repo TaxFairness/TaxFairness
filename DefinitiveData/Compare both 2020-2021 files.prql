@@ -1,0 +1,33 @@
+# Compare both 2020-2021 files to see if they're the same (and remove one)
+# lyme old to new 21-1202-from-xls-cleaned.csv & 
+# Old-NewValues2021-21Nov2021.csv
+
+# Results:
+# 15 Whipple Hill & 10 Market street differ by < 0.5%
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+func trim v -> s'trim({v})'
+
+from OldVsNew
+join side:left LymeOldToNew211202 [
+  (trim ON_Map) == (trim LO_Map), 
+  (trim ON_Lot) == (trim LO_Lot), 
+  (trim ON_Unit) == (trim LO_Unit)
+]
+filter ((trim ON_Map) != "")
+filter OldPct != 0 
+select [
+  ON_Map,
+  ON_Lot,
+  ON_Unit,
+  ON_Location,
+  LO_Location,
+  ON_OldValue,
+  LO_OldValue,
+  OldPct=(pct ON_OldValue LO_OldValue),
+  ON_NewValue,
+  LO_NewValue,
+  NewPct=(pct ON_NewValue LO_NewValue),
+]

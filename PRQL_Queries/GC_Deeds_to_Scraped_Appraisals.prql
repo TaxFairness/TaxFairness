@@ -1,0 +1,64 @@
+# Compare Grafton County Deeds to scraped data appraisals
+
+from GraftonCtyRoD
+join  side:left OwnershipHistory [
+  GC_Book == OH_Book,
+  GC_Page == OH_Page,
+]
+join side:left ScrapedData6 [
+  SD_PID == OH_PID
+]
+filter GC_Type == "DEED"
+select [
+  SD_PID,
+  GC_Type,GC_Date,
+	GC_Book, GC_Page,
+	SD_Map, SD_Lot, SD_Unit,
+	GC_Party1, GC_Party2,
+  SD_Owner,
+	SD_Street_Address, GC_Notes
+]
+sort GC_Date
+
+
+# WITH table_0 AS (
+#   SELECT
+#     SD_PID,
+#     GC_Type,
+#     GC_Date,
+#     GC_Book,
+#     GC_Page,
+#     SD_Map,
+#     SD_Lot,
+#     SD_Unit,
+#     GC_Party1,
+#     GC_Party2,
+#     SD_Owner,
+#     SD_Street_Address,
+#     GC_Notes
+#   FROM
+#     "GraftonCtyRoD"
+#     LEFT JOIN "OwnershipHistory" ON GC_Book = OH_Book
+#     AND GC_Page = OH_Page
+#     LEFT JOIN "ScrapedData6" ON SD_PID = OH_PID
+# )
+# SELECT
+#   "SD_PID",
+#   "GC_Type",
+#   "GC_Date",
+#   "GC_Book",
+#   "GC_Page",
+#   "SD_Map",
+#   "SD_Lot",
+#   "SD_Unit",
+#   "GC_Party1",
+#   "GC_Party2",
+#   "SD_Owner",
+#   "SD_Street_Address",
+#   "GC_Notes"
+# FROM
+#   table_0
+# WHERE
+#   GC_Type = 'DEED'
+# ORDER BY
+#   "GC_Date"
