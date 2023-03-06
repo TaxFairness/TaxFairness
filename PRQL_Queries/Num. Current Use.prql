@@ -1,0 +1,5 @@
+# Number of properties with Current Use
+
+from ScrapedData6
+filter (SD_Assessment2021 != SD_Appraisal2021)
+select count

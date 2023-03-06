@@ -1,0 +1,27 @@
+# Land Only - compare the appraisals of
+# "land only" parcels - no improvements
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from ScrapedData3
+# filter SD_App_Imp2020 == 0
+select [ 
+  SD_Street_Address,
+  FullApp2021 = (dollars SD_App_Tot2021),
+  LandApp2020=(dollars SD_App_Land2020),
+  LandApp2021=(dollars SD_App_Land2021),
+  NumBuildings=SD_Num_Buildings,
+  Improv = (dollars SD_App_Imp2021),
+  TotAppr = (dollars SD_App_Tot2021),
+  fpct = ((pct SD_App_Land2020 SD_App_Land2021) | round 1 ),
+]
+filter fpct != ""
+sort fpct
+take 20

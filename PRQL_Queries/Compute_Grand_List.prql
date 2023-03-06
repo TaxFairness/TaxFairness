@@ -1,0 +1,61 @@
+# Compute Grand List 
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+
+let hiVal = 0.61  # appraised at 61% of sales price
+let loVal = 0.85  # appraised at 85% of sales price
+# let hiVal = 0.80  # appraised at 80% of sales price
+# let loVal = 0.90  # appraised at 90% of sales price
+
+from sd=ScrapedData9
+join side:left tx=TaxableProperties [
+  sd.SD_Map == tx.TX_Map,
+  sd.SD_Lot == tx.TX_Lot,
+  sd.SD_Unit == tx.TX_Unit,
+]
+# Exclude tax exempt properties
+filter tx.TX_isTaxable != "E"
+
+# This sums the 2021 assessed values 
+# Sum is $406,133,900
+# MS-1 form shows about $412M - close enough.
+# select [
+#   sum sd.SD_Assessment2021
+# ]
+
+select [
+  CorrectedAssmt = switch [
+  sd.SD_Appraisal2021 == sd.SD_Assessment2021 -> sd.SD_Assessment2021,
+  sd.SD_Appraisal2021 != sd.SD_Assessment2021 and sd.SD_Appraisal2021 < 500000 ->  sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021/loVal,
+  sd.SD_Appraisal2021 != sd.SD_Assessment2021 and sd.SD_Appraisal2021 >= 500000 ->    sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021/hiVal,
+],
+  # CorrectedAssmt = sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021*loVal,
+  sd.SD_Street_Address,
+  corr=(dollars CorrectedAssmt),
+  appr=(dollars sd.SD_Appraisal2021),
+  assm=(dollars sd.SD_Assessment2021),
+  land=(dollars sd.SD_Ass_Land2021),
+  impr=(dollars sd.SD_Ass_Imp2021),
+]
+# # sum of properties at 1.0 factors is 
+# # $406,136,200 - close enough
+aggregate [
+  sum CorrectedAssmt,
+  ct = count,
+]
+
+# After applying 61% & 85% factors, sum
+# of CorrectedAssmt is $476,515,950
+# about a 17% increase in grand list 
+
+# Using 80% & 90%, we get:
+# $433,900,208
+# a 6% increase in the grand list

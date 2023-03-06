@@ -1,7 +1,7 @@
-from foo
-derive var = switch [
-score <= 10 -> "low",
-score <= 30 -> "medium",
-score <= 70 -> "high",
-true -> "very high",
-]
+# from foo
+# derive var = switch [
+# score <= 10 -> "low",
+# score <= 30 -> "medium",
+# score <= 70 -> "high",
+# true -> "very high",
+# ]

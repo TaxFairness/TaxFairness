@@ -1,0 +1,35 @@
+# Testing intersect
+# Find properties that exist both in the NotUsed
+# and SalesConsidered61 table
+# The join with ScrapedData to get Street address
+
+let nu = (
+  from SalesNotUsed
+  select [
+    NU_Map,
+    NU_Lot,
+    NU_Unit,
+  ]
+)
+
+let sc = (
+  from SalesConsidered61
+  select [
+    SC_Map,
+    SC_Lot,
+    SC_Unit,
+  ]
+)
+from nu
+intersect sc
+#--------
+join side:left ScrapedData3 [
+  NU_Map == SD_Map,
+  NU_Lot == SD_Lot,
+  NU_Unit == SD_Unit,
+]
+
+# Working SQL query
+# select NU_Map, NU_Lot, NU_Unit from SalesNotUsed
+# INTERSECT
+# select SC_Map, SC_Lot, SC_Unit from SalesConsidered61

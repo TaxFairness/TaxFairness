@@ -23,7 +23,10 @@ delete from VGSIinLyme;
 delete from VisionOccCodes;
 delete from ZoningPermits;
 delete from ScrapedData6;
-delete from OwnershipHistory;
+delete from ScrapedData7;
+delete from ScrapedData9;
+delete from OwnerHistory;
+vacuum;
 
 .mode csv
 .import "DefinitiveData/ScrapedData-21Nov2021.csv" ScrapedData
@@ -46,9 +49,15 @@ delete from OwnershipHistory;
 .import "DefinitiveData/2022 OldToNew-JToland-11Oct2022.csv" LymeOldToNew2022
 .import "DefinitiveData/ScrapedData5-11Dec2022.csv" ScrapedData5
 .import "DefinitiveData/ScrapedData-31Dec2022.csv" ScrapedData6
-.import "DefinitiveData/OwnershipHistory-collected-31Dec2022.csv" OwnershipHistory
+.import "DefinitiveData/GCRoD-All-Data.csv" GraftonCtyRoD
+.import "DefinitiveData/ScrapedData_2023-01-25_16-09-50.csv" ScrapedData7
+.import "DefinitiveData/old-new-7Jan2022-HQ-24Jan2023.csv" TaxableProperties
+.import "DefinitiveData/AssmtHistory_2023-03-01_16-51-30.csv" AssessHistory
+.import "DefinitiveData/ApprlHistory_2023-03-01_16-51-30.csv" AppraisHistory
+.import "DefinitiveData/OwnerHistory_2023-03-01_16-51-30.csv" OwnerHistory
+.import "DefinitiveData/ScrapeData_2023-03-01_16-51-30.csv" ScrapedData9
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
-.import "DefinitiveData/GCRoD-All-Data.txt" GraftonCtyRoD
+
 

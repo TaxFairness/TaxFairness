@@ -1,0 +1,30 @@
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from ScrapedData3
+# Step 1: Calculate important columns
+select [
+   SD_Map, SD_Lot,
+   App_Tot2020,    	   
+   SD_App_Tot2021,
+   pctchange = (pct App_Tot2020 SD_App_Tot2021),
+]
+
+# Step 2: Sort the table by pctchange
+sort [-pctchange]
+
+# Step 3: Format the column headings and contents
+select [
+   Map = SD_Map, 		# 
+   Lot = SD_Lot,
+   Appraisal2020 = (dollars App_Tot2020),       
+   `Appraisal 2021` = (dollars SD_App_Tot2021),
+   `Percent Change` = (prtpct pctchange),
+]
+take 20

@@ -1,9 +1,9 @@
 # Assess 2020, 2021, 2022
 
-from OldVsNew
-join side:left [ON_Map]
+from ovn = OldVsNew
+join side:left oth=othertable [==ON_Map]
 select [
-  ON_Location,
-  ON_OldValue,
-  ON_NewValue
+  ovn.ON_Location,
+  ovn.ON_OldValue,
+  ovn.ON_NewValue
 ]

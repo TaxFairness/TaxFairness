@@ -1,24 +1,38 @@
 # Compare Grafton County Deeds to scraped data appraisals
+# Join GCRoD with OwnershipHistory on the Book&Page
+#   (this also includes PID)
+# Then join with ScrapedData (on PID) to get current data
+# Filter out DEEDs
+# Then select the desired columns 
 
-from GraftonCtyRoD
-join  side:left OwnershipHistory [
-  GC_Book == OH_Book,
-  GC_Page == OH_Page,
+
+# within a b p - return true if a & b are within p% of each other
+func within a b p -> s"(abs({a}-{b})< {a}*{p}/100)"
+
+from g=GraftonCtyRoD
+join  side:left o=OwnerHistory [
+  g.GC_Book == o.OH_Book,
+  g.GC_Page == o.OH_Page,
 ]
-join side:left ScrapedData6 [
-  SD_PID == OH_PID
+join side:left sd=ScrapedData6 [
+  sd.SD_PID == o.OH_PID
 ]
-filter GC_Type == "DEED"
+filter g.GC_Type == "DEED"
 select [
-  SD_PID,
-  GC_Type,GC_Date,
-	GC_Book, GC_Page,
-	SD_Map, SD_Lot, SD_Unit,
-	GC_Party1, GC_Party2,
-  SD_Owner,
-	SD_Street_Address, GC_Notes
+  sd.SD_PID,
+  g.GC_Type,g.GC_Date,
+	g.GC_Book, g.GC_Page,
+	sd.SD_Map, sd.SD_Lot, sd.SD_Unit,
+	g.GC_Party1, g.GC_Party2,
+  sd.SD_Owner,
+	sd.SD_Street_Address, g.GC_Notes,
+  g.GC_Consideration,
+  g.GC_TransferTax, 
+  sd.SD_Recent_Sale_Price,
+  sd.SD_App_Tot2021,
 ]
 sort GC_Date
+# filter (! (within SD_App_Tot2021 GC_Consideration 2))
 
 
 # WITH table_0 AS (
@@ -35,7 +49,11 @@ sort GC_Date
 #     GC_Party2,
 #     SD_Owner,
 #     SD_Street_Address,
-#     GC_Notes
+#     GC_Notes,
+#     GC_Consideration,
+#     GC_TransferTax,
+#     SD_Recent_Sale_Price,
+#     SD_App_Tot2021
 #   FROM
 #     "GraftonCtyRoD"
 #     LEFT JOIN "OwnershipHistory" ON GC_Book = OH_Book
@@ -55,10 +73,17 @@ sort GC_Date
 #   "GC_Party2",
 #   "SD_Owner",
 #   "SD_Street_Address",
-#   "GC_Notes"
+#   "GC_Notes",
+#   "GC_Consideration",
+#   "GC_TransferTax",
+#   "SD_Recent_Sale_Price",
+#   "SD_App_Tot2021"
 # FROM
 #   table_0
 # WHERE
 #   GC_Type = 'DEED'
+#   AND NOT (
+#     abs("SD_App_Tot2021" - "GC_Consideration") < "SD_App_Tot2021" * 2 / 100
+#   )
 # ORDER BY
 #   "GC_Date"

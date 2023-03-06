@@ -1,0 +1,48 @@
+# Recent Sales & Ratios - mimics Actual Deeds view in database
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from gc=GraftonCtyRoD
+join side:left sd=ScrapedData9 [
+  gc.GC_Book == sd.SD_Book, 
+  gc.GC_Page == sd.SD_Page,
+]
+filter gc.GC_Date >= "2021-09-01"
+filter gc.GC_Date <= "2023-01-13"
+filter gc.GC_Type == "DEED"
+# filter gc.GC_TransferTax != ""
+# filter gc.GC_TransferTax != null
+select [
+  gc.GC_Book, gc.GC_Page, gc.GC_Date,
+  sd.SD_PID, sd.SD_Map, sd.SD_Lot, sd.SD_Unit,
+  sd.SD_Street_Address, 
+  gc.GC_Consideration, 
+  gc.GC_TransferTax,
+  ConsidComp=gc.GC_TransferTax/0.015,
+  sd.SD_Appraisal,
+  sd.SD_Assessment,
+]
+sort [gc.GC_Date]
+# filter sd.SD_Appraisal != sd.SD_Assessment
+
+# CREATE VIEW "Actual_Deeds" AS 
+# SELECT
+# 	GC_Type,GC_Date,
+# 	GC_Book, GC_Page,
+# 	SD_PID, SD_Map, SD_Lot, SD_Unit,
+# 	GC_Party1, GC_Party2,
+# 	SD_Street_Address, GC_Notes
+# FROM GraftonCtyRoD l
+# left JOIN ScrapedData9 r
+# on GC_Book = SD_Book AND
+# 	GC_Page = SD_Page
+# where GC_Type = "DEED" 
+# order by GC_Date
+# ;
