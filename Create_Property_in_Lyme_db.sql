@@ -302,13 +302,13 @@ CREATE TABLE "ScrapedData9" (
 CREATE TABLE "OwnerHistory"
 (
 "OH_Owner" TEXT,
-"OH_Sale Price" INTEGER,
+"OH_Sale_Price" INTEGER,
 "OH_Certificate" TEXT,
-"OH_Book&Page" TEXT,
+"OH_Book_Page" TEXT,
 "OH_Book" INTEGER,
 "OH_Page" INTEGER,
 "OH_Instrument" TEXT,
-"OH_Sale Date" TEXT,
+"OH_Sale_Date" TEXT,
 "OH_PID" INTEGER,
 "OH_CollectedOn" TEXT
 );
@@ -375,7 +375,7 @@ CREATE TABLE "RecentSales"
 "RS_Map" INTEGER,
 "RS_Lot" INTEGER,
 "RS_Unit" TEXT,
-"RS_Book-Page" TEXT,
+"RS_Book_Page" TEXT,
 "RS_RecentSalePrice" INTEGER,
 "RS_RecentSaleDate" TEXT,
 "RS_TransferTax" INTEGER,
@@ -572,7 +572,7 @@ CREATE TABLE "Equalization2022"
 (
 	"EQ22_IncExc" TEXT,
 	"EQ22_Verno" INTEGER,
-	"EQ22_BookPage" TEXT,
+	"EQ22_Book_Page" TEXT,
 	"EQ22_Book" INTEGER,
 	"EQ22_Page" INTEGER,
 	"EQ22_SalePrice" INTEGER,
@@ -603,7 +603,7 @@ CREATE TABLE "PA342022"
 	"PA_Lot"  INTEGER,
 	"PA_Unit" TEXT,
 	"PA_Acres" INTEGER,
-	"PA_BookPage" TEXT,
+	"PA_Book_Page" TEXT,
 	"PA_Book" INTEGER,
 	"PA_Page" INTEGER,
 	"PA_SalePrice" INTEGER,
@@ -623,7 +623,7 @@ CREATE TABLE "GraftonCtyRoD" (
 "GC_Date" TEXT,
 "GC_Time" TEXT,
 "GC_Type" TEXT,
-"GC_BookPage" TEXT,
+"GC_Book_Page" TEXT,
 "GC_Book" INTEGER,
 "GC_Page" INTEGER,
 "GC_PageCount" TEXT,
@@ -638,6 +638,41 @@ CREATE TABLE "GraftonCtyRoD" (
 "GC_CollectedOn" TEXT
 )
 ;
+
+CREATE TABLE "RatioStudy2021" (
+"RS_Verno" TEXT,
+"RS_Book_Page" TEXT,
+"RS_Book" TEXT,
+"RS_Page" TEXT,
+"RS_Sale_Price" INTEGER,
+"RS_Assessed_Value" INTEGER,
+"RS_Ratio" INTEGER,
+"RS_PC" TEXT,
+"RS_MC" TEXT,
+"RS_SC" TEXT,
+"RS_ExclReason" TEXT,
+"RS_Notes" TEXT,
+"RS_CollectedOn" TEXT
+);
+
+CREATE TABLE "RatioStudy2022" (
+"RS_Verno" TEXT,
+"RS_Old_Verno" TEXT,
+"RS_Book_Page" TEXT,
+"RS_Book" TEXT,
+"RS_Page" TEXT,
+"RS_Sale_Price" INTEGER,
+"RS_Assessed_Value" INTEGER,
+"RS_Ratio" INTEGER,
+"RS_PC" TEXT,
+"RS_MC" TEXT,
+"RS_SC" TEXT,
+"RS_ExclReason" TEXT,
+"RS_Notes" TEXT,
+"RS_CollectedOn" TEXT
+);
+
+-- VIEWS --
 
 # Current Appraisal values (from Todd's latest spreadsheet via Dina) plus scraped values
 CREATE VIEW "Assess_Apprais_Sales" as 

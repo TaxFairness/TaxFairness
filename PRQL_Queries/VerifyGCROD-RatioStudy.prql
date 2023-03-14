@@ -1,0 +1,48 @@
+# Compare 2021 Ratio Study to latest ScrapedData 
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from gc=GraftonCtyRoD
+filter gc.GC_Type == "DEED"
+filter gc.GC_Date >= '2021-04-01'
+filter gc.GC_Date <= '2022-09-30'
+filter (gc.GC_TransferTax != "-" )
+filter gc.GC_TransferTax >= 100
+
+sort gc.GC_Date
+
+join side:left sd=ScrapedData9 [
+  gc.GC_Book == sd.SD_Book,
+  gc.GC_Page == sd.SD_Page,
+  ]
+join side:left oh=OwnerHistory [
+  gc.GC_Book == oh.OH_Book,
+  gc.GC_Page == oh.OH_Page,
+  ]
+join side:left rs=RatioStudy2022 [
+  rs.RS_Book == sd.SD_Book,
+  rs.RS_Page == sd.SD_Page,
+  ]
+select [
+  gc.GC_Date,
+  oh.OH_Sale_Date,
+  sd.SD_Street_Address,
+  gc.GC_Book_Page,
+  sd.SD_PID,
+  oh.OH_PID,
+  oh.OH_Sale_Price,
+  sd.SD_Assessment,
+  sd.SD_Appraisal,
+  gc.GC_TransferTax,
+  rs.RS_Sale_Price,
+  rs.RS_Assessed_Value,
+  rs.RS_ExclReason,
+  rs.RS_Notes,
+]

@@ -1,0 +1,43 @@
+# Compare 2021 Ratio Study to latest ScrapedData 
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from rs=RatioStudy2022
+join side:left sd=ScrapedData9 [
+  rs.RS_Book == sd.SD_Book,
+  rs.RS_Page == sd.SD_Page,
+  ]
+join side:left oh=OwnerHistory [
+  rs.RS_Book == oh.OH_Book,
+  rs.RS_Page == oh.OH_Page,
+  ]
+select [
+  oh.OH_Sale_Date,
+  sd.SD_Street_Address,
+  rs.RS_Book_Page,
+  sd.SD_Book_Page,
+  oh.OH_Book_Page,
+  sd.SD_PID,
+  oh.OH_PID,
+  sd.SD_Map, sd.SD_Lot, sd.SD_Unit,
+  rs.RS_Sale_Price,
+  oh.OH_Sale_Price,
+  rs.RS_Assessed_Value,
+  sd.SD_Assessment,
+  rs.RS_ExclReason,
+  rs.RS_Notes,
+]
+# filter (rs.RS_Sale_Price != oh.OH_Sale_Price or rs.RS_Assessed_Value != sd.SD_Assessment)
+join side:left zp=ZoningPermits [
+  zp.ZP_Map == sd.SD_Map,
+  zp.ZP_Lot == sd.SD_Lot,
+  zp.ZP_Unit == sd.SD_Unit,
+]
+filter zp.ZP_DateIssued > "2021-01-01 "

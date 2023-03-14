@@ -56,6 +56,8 @@ vacuum;
 .import "DefinitiveData/ApprlHistory_2023-03-01_16-51-30.csv" AppraisHistory
 .import "DefinitiveData/OwnerHistory_2023-03-01_16-51-30.csv" OwnerHistory
 .import "DefinitiveData/ScrapeData_2023-03-01_16-51-30.csv" ScrapedData9
+.import "DefinitiveData/2021_final_ratiostudy.csv" RatioStudy2021
+.import "DefinitiveData/2022_final_ratiostudy.csv" RatioStudy2022
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
