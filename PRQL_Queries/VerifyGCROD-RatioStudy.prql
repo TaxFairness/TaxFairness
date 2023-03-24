@@ -14,35 +14,66 @@ filter gc.GC_Type == "DEED"
 filter gc.GC_Date >= '2021-04-01'
 filter gc.GC_Date <= '2022-09-30'
 filter (gc.GC_TransferTax != "-" )
-filter gc.GC_TransferTax >= 100
+# filter gc.GC_TransferTax >= 100
 
 sort gc.GC_Date
 
-join side:left sd=ScrapedData9 [
-  gc.GC_Book == sd.SD_Book,
-  gc.GC_Page == sd.SD_Page,
-  ]
+# join side:left sd=ScrapedData9 [
+#   gc.GC_Book == sd.SD_Book,
+#   gc.GC_Page == sd.SD_Page,
+#   ]
 join side:left oh=OwnerHistory [
   gc.GC_Book == oh.OH_Book,
   gc.GC_Page == oh.OH_Page,
   ]
 join side:left rs=RatioStudy2022 [
-  rs.RS_Book == sd.SD_Book,
-  rs.RS_Page == sd.SD_Page,
+  rs.RS_Book == gc.GC_Book,
+  rs.RS_Page == gc.GC_Page,
   ]
+join side:left sd=ScrapedData9 [
+  sd.SD_PID == oh.OH_PID
+]
+# join side:left zp=ZoningPermits [
+#   zp.ZP_Map == sd.SD_Map,
+#   zp.ZP_Lot == sd.SD_Lot,
+#   zp.ZP_Unit == sd.SD_Unit,
+# ]
 select [
-  gc.GC_Date,
-  oh.OH_Sale_Date,
-  sd.SD_Street_Address,
-  gc.GC_Book_Page,
+  `Book&Page`=gc.GC_Book_Page,
+  Map=sd.SD_Map, 
+  Lot=sd.SD_Lot, 
+  Unit=sd.SD_Unit,
   sd.SD_PID,
   oh.OH_PID,
-  oh.OH_Sale_Price,
-  sd.SD_Assessment,
-  sd.SD_Appraisal,
-  gc.GC_TransferTax,
-  rs.RS_Sale_Price,
-  rs.RS_Assessed_Value,
-  rs.RS_ExclReason,
-  rs.RS_Notes,
+  Ignored=case [
+    rs.RS_ExclReason == null => "???",
+    true => ""
+  ],
+  Included=case [
+    rs.RS_ExclReason == "" => "Included",
+    true => ""
+  ],
+  Excluded=rs.RS_Notes,
+  # Reason="",
+  Step1="",
+  Step2="",
+  Step3="",
+  GraftonDate=gc.GC_Date,
+  VisionDate=oh.OH_Sale_Date,
+  
+  `Location/New Owner`=sd.SD_Street_Address ?? gc.GC_Party2,
+  SalePrice=(dollars oh.OH_Sale_Price),
+  Apprl=(dollars sd.SD_Appraisal),
+  Assmt=(dollars sd.SD_Assessment),
+  CUDisc=(dollars (sd.SD_Appraisal-sd.SD_Assessment)),
+  TransTax=(dollars gc.GC_TransferTax),
+  CompPrice=(dollars gc.GC_TransferTax/0.015),
+
+  # PermitDate=zp.ZP_DateIssued,
+  # Description=zp.ZP_Description,
+  # EstCost=(dollars zp.ZP_EstCost),
+  # rs.RS_Sale_Price,
+  # rs.RS_Assessed_Value,
+  # rs.RS_ExclReason,
+  # rs.RS_Notes,
 ]

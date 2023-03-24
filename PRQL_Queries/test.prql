@@ -1,4 +1,9 @@
-# from foo
+# Pseudo-LIKE function - filter (like col "string")
+func like fld str -> s"{fld} like '%' || {str} || '%' "
+
+from foo
+select bar
+filter (like bar "a-string")
 # derive var = switch [
 # score <= 10 -> "low",
 # score <= 30 -> "medium",

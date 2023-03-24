@@ -1,0 +1,13 @@
+# ScrapedData search for recent sales
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+from ScrapedData7
+select [
+  SD_Street_Address,
+  Apprl = (dollars SD_Appraisal2021), 
+  Assmt = (dollars SD_Assessment2021),
+  SD_CollectedOn,
+]
+sort [SD_Street_Address]

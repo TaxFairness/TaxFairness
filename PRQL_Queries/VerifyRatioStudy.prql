@@ -1,4 +1,4 @@
-# Compare 2021 Ratio Study to latest ScrapedData 
+# Compare 2022 Ratio Study to Zoning Permits
 
 # dollars displays a numeric value as dollars with commas
 func dollars d -> s"""printf("$%,d",{d})"""
@@ -10,28 +10,48 @@ func pct o n -> 100.0*( n - o ) / o
 func prtpct v -> s'printf("%1.1f%", {v})'
 
 from rs=RatioStudy2022
-join side:left sd=ScrapedData9 [
-  rs.RS_Book == sd.SD_Book,
-  rs.RS_Page == sd.SD_Page,
-  ]
+
 join side:left oh=OwnerHistory [
   rs.RS_Book == oh.OH_Book,
   rs.RS_Page == oh.OH_Page,
   ]
+join side:left sd=ScrapedData9 [
+  oh.OH_PID == sd.SD_PID,
+  ]
+join side:left zp=ZoningPermits [
+  zp.ZP_Map == sd.SD_Map,
+  zp.ZP_Lot == sd.SD_Lot,
+  zp.ZP_Unit == sd.SD_Unit,
+]
 select [
-  oh.OH_Sale_Date,
-  sd.SD_Street_Address,
-  rs.RS_Book_Page,
-  sd.SD_Book_Page,
-  oh.OH_Book_Page,
+  Book=rs.RS_Book,
+  Page=rs.RS_Page,
+  Map=sd.SD_Map, 
+  Lot=sd.SD_Lot, 
+  Unit=sd.SD_Unit,
   sd.SD_PID,
   oh.OH_PID,
-  rs.RS_Sale_Price,
-  oh.OH_Sale_Price,
-  rs.RS_Assessed_Value,
-  sd.SD_Assessment,
-  sd.SD_Appraisal,
-  rs.RS_ExclReason,
-  rs.RS_Notes,
+  Ignored=case [
+    rs.RS_ExclReason == null => "???",
+    true => ""
+  ],
+  Included=case [
+    rs.RS_ExclReason == "" => "Included",
+    true => ""
+  ],
+  ExclCode=rs.RS_Notes,
+
+  Reason="",
+  
+  Step1="",
+  Step2="",
+  Step3="",
+  VisionDate=oh.OH_Sale_Date,
+  
+  Location=sd.SD_Street_Address,
+  
+
+  PermitDate=zp.ZP_DateIssued,
+  Description=zp.ZP_Description,
+  EstCost=(dollars zp.ZP_EstCost),
 ]
-filter (rs.RS_Sale_Price != oh.OH_Sale_Price or rs.RS_Assessed_Value != sd.SD_Assessment)

@@ -1,0 +1,17 @@
+# ScrapedData search for recent sales
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# Pseudo-LIKE function - filter (like col "string")
+func like fld str -> s"{fld} like '%' || {str} || '%' "
+
+from ScrapedData9
+select [
+  SD_Street_Address,
+  (dollars SD_Appraisal),
+  (dollars SD_Assessment),
+  SD_CollectedOn,
+]
+filter (like SD_Street_Address "Orford")
+sort [SD_Street_Address]
