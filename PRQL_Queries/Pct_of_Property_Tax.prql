@@ -1,0 +1,68 @@
+# Tax per acre based on zoning district
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from ScrapedData9
+# filter SD_Appraisal != SD_Assessment
+derive District = case [
+  SD_Zoning_District == "" => "Unknown",
+  SD_Zoning_District == "ES" => "RD",
+  SD_Zoning_District == "R" => "RD",
+  SD_Zoning_District == "SFR" => "RD",
+  SD_Zoning_District == "URD" => "RD",
+  SD_Zoning_District == "CD" => "LCD",
+  SD_Zoning_District == "LDC" => "LCD",
+  true => SD_Zoning_District
+]
+group District (
+aggregate [
+  Acres= ( (sum SD_Lot_Size)),
+  NumParcels = count,
+  Apprl = (sum SD_Appraisal),
+  Assmt = (sum SD_Assessment),
+  Tax = (sum SD_Assessment*23.98/1000),
+  ]
+)
+select [
+  District,
+  Acres,
+  NumParcels,
+  Appraisal = (dollars Apprl),
+  Assessment = (dollars Assmt),
+  TotalTax = (dollars Tax),
+  Tax,
+  dollperacre = Tax / Acres,
+]
+sort [ - dollperacre ]
+select [
+  District,
+  Acres,
+  NumParcels,
+  Appraisal,
+  Assessment,
+  Tax = (dollars Tax),
+  DollarsPerAcre = (dollars dollperacre)
+]
+
+# SD_Zoning_District	Total_Acres	Apprl_Value	Assmt_Value	Total_Tax	Tax/acre
+# MFD	7,057	$13,543,300 	$3,614,200 	$86,668 	$12.28 
+# SD	556	$625,400 	$625,400 	$14,997 	$26.97 
+# ELD	2,335	$18,208,900 	$12,792,200 	$306,756 	$131.37 
+# SKIWAY	619	$7,274,300 	$6,651,800 	$159,510 	$257.69 
+# R	45	$890,200 	$547,900 	$13,138 	$291.96 
+# RD	18,360	$364,332,250 	$296,120,300 	$7,100,964 	$386.76 
+# 	1,794	$47,670,400 	$42,944,900 	$1,029,818 	$574.03 
+# ES	7	$526,000 	$526,000 	$12,613 	$1,801.86 
+# SFR	4	$469,900 	$469,900 	$11,268 	$2,817.00 
+# LCD	430	$72,596,400 	$71,263,600 	$1,708,901 	$3,974.19 
+# BD	52	$8,820,600 	$8,660,700 	$207,683 	$3,993.90 
+# URD	8	$1,339,400 	$1,339,400 	$32,118 	$4,014.75 
+# CD	0	$195,600 	$195,600 	$4,690 	#DIV/0!
+# LDC	0	$40,300 	$40,300 	$966 	#DIV/0!

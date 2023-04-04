@@ -2,11 +2,11 @@
 func like fld str -> s"{fld} like '%' || {str} || '%' "
 
 from foo
-select bar
+select [bar,score]
 filter (like bar "a-string")
-# derive var = switch [
-# score <= 10 -> "low",
-# score <= 30 -> "medium",
-# score <= 70 -> "high",
-# true -> "very high",
-# ]
+derive var = case [
+(score <= 10) => "low",
+(score <= 30) => "medium",
+(score <= 70) => "high",
+true => "very high",
+]

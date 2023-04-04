@@ -1,0 +1,30 @@
+# Find blank or mislabeled Zoning District properties
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+func pct o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+func prtpct v -> s'printf("%1.1f%", {v})'
+
+from ScrapedData9
+derive District = case [
+  SD_Zoning_District == "" => "Unknown",
+  SD_Zoning_District == "ES" => "Unknown",
+  SD_Zoning_District == "R" => "Unknown",
+  SD_Zoning_District == "SFR" => "Unknown",
+  SD_Zoning_District == "URD" => "Unknown",
+  SD_Zoning_District == "CD" => "Unknown",
+  SD_Zoning_District == "LDC" => "Unknown",
+  true => SD_Zoning_District
+]
+select [
+  SD_Map, SD_Lot, SD_Unit,
+  SD_Street_Address,
+  `Zoning District` = District,
+  `Vision shows` = SD_Zoning_District,
+]
+filter `Zoning District` == "Unknown"
+sort [SD_Map, SD_Lot]
