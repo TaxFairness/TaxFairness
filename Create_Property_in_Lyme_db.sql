@@ -672,6 +672,17 @@ CREATE TABLE "RatioStudy2022" (
 "RS_CollectedOn" TEXT
 );
 
+CREATE TABLE "MS1_Data" (
+"MS1_Null" TEXT,
+"MS1_Row" TEXT,
+"MS1_Description" TEXT,
+"MS1_AC_CT" TEXT,
+"MS1_Valuation" INTEGER,
+"MS1_Key" TEXT,
+"MS1_Category" TEXT,
+"MS1_Year" TEXT
+);
+
 -- VIEWS --
 
 # Current Appraisal values (from Todd's latest spreadsheet via Dina) plus scraped values

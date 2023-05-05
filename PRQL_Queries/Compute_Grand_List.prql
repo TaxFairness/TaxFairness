@@ -1,4 +1,4 @@
-# Compute Grand List 
+# Correct Grand List for under-appraisal
 
 # dollars displays a numeric value as dollars with commas
 func dollars d -> s"""printf("$%,d",{d})"""
@@ -32,10 +32,10 @@ filter tx.TX_isTaxable != "E"
 # ]
 
 select [
-  CorrectedAssmt = switch [
-  sd.SD_Appraisal2021 == sd.SD_Assessment2021 -> sd.SD_Assessment2021,
-  sd.SD_Appraisal2021 != sd.SD_Assessment2021 and sd.SD_Appraisal2021 < 500000 ->  sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021/loVal,
-  sd.SD_Appraisal2021 != sd.SD_Assessment2021 and sd.SD_Appraisal2021 >= 500000 ->    sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021/hiVal,
+  CorrectedAssmt = case [
+  sd.SD_Appraisal2021 == sd.SD_Assessment2021 => sd.SD_Assessment2021,
+  sd.SD_Appraisal2021 != sd.SD_Assessment2021 and sd.SD_Appraisal2021 < 500000 =>  sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021/loVal,
+  sd.SD_Appraisal2021 != sd.SD_Assessment2021 and sd.SD_Appraisal2021 >= 500000 =>    sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021/hiVal,
 ],
   # CorrectedAssmt = sd.SD_Ass_Land2021+sd.SD_Ass_Imp2021*loVal,
   sd.SD_Street_Address,

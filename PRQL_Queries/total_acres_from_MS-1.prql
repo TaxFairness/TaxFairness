@@ -1,0 +1,12 @@
+# Total acres from MS-1 report
+
+# float displays a numeric value as value with one decimal point  
+func fp d -> s"""printf("%.1f",{d})"""
+
+from MS1_Data
+filter (MS1_Row == "1H" || MS1_Row == "1I")
+group [MS1_Year] (
+  aggregate [
+    Acres = (fp (sum MS1_AC_CT))
+  ]
+)
