@@ -299,6 +299,45 @@ CREATE TABLE "ScrapedData9" (
 "SD_Empty2" TEXT
 );
 
+CREATE TABLE "ScrapedData10" (
+"SD_PID" TEXT,
+"SD_Owner" TEXT,
+"SD_Street_Address" TEXT,
+"SD_MBLU" TEXT,
+"SD_Map" INTEGER,
+"SD_Lot" INTEGER,
+"SD_Unit" TEXT,
+"SD_Subunit" TEXT,
+"SD_Book_Page" TEXT,
+"SD_Book" TEXT,
+"SD_Page" TEXT,
+"SD_Assessment" INTEGER,
+"SD_Appraisal" INTEGER,
+"SD_Lot_Size" INTEGER,
+"SD_Land_Use_Code" TEXT,
+"SD_Description" TEXT,
+"SD_Zoning_District" TEXT,
+"SD_Num_Buildings" INTEGER,
+"SD_Recent_Sale_Price" INTEGER,
+"SD_Recent_Sale_Date" TEXT,
+"SD_Prev_Sale_Price" INTEGER,
+"SD_Prev_Sale_Date" TEXT,
+"SD_Ass_ImpCurr" INTEGER,
+"SD_Ass_LandCurr" INTEGER,
+"SD_Ass_TotCurr" INTEGER,
+"SD_Ass_ImpPrev" INTEGER,
+"SD_Ass_LandPrev" INTEGER,
+"SD_Ass_TotPrev" INTEGER,
+"SD_App_ImpCurr" INTEGER,
+"SD_App_LandCurr" INTEGER,
+"SD_App_TotCurr" INTEGER,
+"SD_App_ImpPrev" INTEGER,
+"SD_App_LandPrev" INTEGER,
+"SD_App_TotPrev" INTEGER,
+"SD_CollectedOn" TEXT,
+"SD_Empty2" TEXT
+);
+
 CREATE TABLE "OwnerHistory"
 (
 "OH_Owner" TEXT,
@@ -409,7 +448,9 @@ CREATE TABLE "ZoningPermits"
 "ZP_Address" TEXT,
 "ZP_Applicant" TEXT,
 "ZP_Description" TEXT,
-"ZP_EstCost" INTEGER
+"ZP_EstCost" INTEGER,
+"ZP_CollectedOn" TEXT,
+"ZP_Duplicate" TEXT
 );
 
 CREATE TABLE "OldVsNew"
@@ -681,6 +722,28 @@ CREATE TABLE "MS1_Data" (
 "MS1_Key" TEXT,
 "MS1_Category" TEXT,
 "MS1_Year" TEXT
+);
+
+CREATE TABLE "Buildings" (
+"BL_PID" TEXT,
+"BL_Building #" TEXT,
+"BL_Year Built" TEXT,
+"BL_Living Area" INTEGER,
+"BL_Replacement Cost" INTEGER,
+"BL_Percent Good" INTEGER,
+"BL_Value after Depreciation" INTEGER,
+"BL_Style" TEXT,
+"BL_Model" TEXT,
+"BL_Grade" TEXT,
+"BL_Stories" TEXT,
+"BL_Total Bedrooms" TEXT,
+"BL_Total Bthrms" TEXT,
+"BL_Total Half Baths" TEXT,
+"BL_Total Rooms" TEXT,
+"BL_Num Kitchens" TEXT,
+"BL_Gross Floor Area" INTEGER,
+"BL_Living_Area" INTEGER,
+"BL_CollectedOn" TEXT
 );
 
 -- VIEWS --

@@ -1,0 +1,6 @@
+# Total land area of Lyme
+
+from ScrapedData9 
+aggregate(
+  sum SD_Lot_Size
+)

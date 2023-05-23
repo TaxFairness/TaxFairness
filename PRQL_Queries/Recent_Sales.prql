@@ -1,0 +1,99 @@
+# Recent sales (in last three years) sorted by sale price
+# For Michael Whitman - 16May2023
+
+# dollars displays a numeric value as dollars with commas
+func dollars d -> s"""printf("$%,d",{d})"""
+
+# Compare Grafton County Deeds to scraped data appraisals
+# Join GCRoD with OwnershipHistory on the Book&Page
+#   (this also includes PID)
+# Then join with ScrapedData (on PID) to get current data
+# Filter out DEEDs
+# Then select the desired columns 
+
+# within a b p - return true if a & b are within p% of each other
+func within a b p -> s"(abs({a}-{b})< {a}*{p}/100)"
+
+from g=GraftonCtyRoD
+join  side:left o=OwnerHistory [
+  g.GC_Book == o.OH_Book,
+  g.GC_Page == o.OH_Page,
+]
+join side:left sd=ScrapedData9 [
+  sd.SD_PID == o.OH_PID
+]
+filter g.GC_Type == "DEED"
+filter g.GC_Date >= "2020-01-01"
+select [
+  PID=sd.SD_PID,
+  # g.GC_Type,
+  Date=g.GC_Date,
+	# g.GC_Book, g.GC_Page,
+	# sd.SD_Map, sd.SD_Lot, sd.SD_Unit,
+	# g.GC_Party1, g.GC_Party2,
+  Owner=sd.SD_Owner,
+	Address=sd.SD_Street_Address,
+  # g.GC_Notes,
+  `Sale Price` = g.GC_Consideration,
+  `TransferTax` = g.GC_TransferTax, 
+  `Recent Sale` = sd.SD_Recent_Sale_Price,
+  Appraisal=sd.SD_Appraisal,
+]
+filter Owner != null
+filter `Sale Price` >= 550000 && `Sale Price` <= 850000
+sort `Sale Price`
+# filter (! (within SD_App_Tot2021 GC_Consideration 2))
+
+
+# WITH table_0 AS (
+#   SELECT
+#     SD_PID,
+#     GC_Type,
+#     GC_Date,
+#     GC_Book,
+#     GC_Page,
+#     SD_Map,
+#     SD_Lot,
+#     SD_Unit,
+#     GC_Party1,
+#     GC_Party2,
+#     SD_Owner,
+#     SD_Street_Address,
+#     GC_Notes,
+#     GC_Consideration,
+#     GC_TransferTax,
+#     SD_Recent_Sale_Price,
+#     SD_App_Tot2021
+#   FROM
+#     "GraftonCtyRoD"
+#     LEFT JOIN "OwnershipHistory" ON GC_Book = OH_Book
+#     AND GC_Page = OH_Page
+#     LEFT JOIN "ScrapedData6" ON SD_PID = OH_PID
+# )
+# SELECT
+#   "SD_PID",
+#   "GC_Type",
+#   "GC_Date",
+#   "GC_Book",
+#   "GC_Page",
+#   "SD_Map",
+#   "SD_Lot",
+#   "SD_Unit",
+#   "GC_Party1",
+#   "GC_Party2",
+#   "SD_Owner",
+#   "SD_Street_Address",
+#   "GC_Notes",
+#   "GC_Consideration",
+#   "GC_TransferTax",
+#   "SD_Recent_Sale_Price",
+#   "SD_App_Tot2021"
+# FROM
+#   table_0
+# WHERE
+#   GC_Type = 'DEED'
+#   AND NOT (
+#     abs("SD_App_Tot2021" - "GC_Consideration") < "SD_App_Tot2021" * 2 / 100
+#   )
+# ORDER BY
+#   "GC_Date"

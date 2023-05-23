@@ -1,0 +1,14 @@
+# Buildings in Lyme
+# Add street address and assessed&appraised values to the Buildings table
+
+from s=ScrapedData9
+select [
+  SD_PID,
+  SD_Map, SD_Lot, SD_Unit,
+  SD_Street_Address,
+  SD_Appraisal,
+  SD_Assessment,
+  SD_App_ImpCurr,
+]
+sort [SD_Map, SD_Lot, SD_Unit]
+join side:left b=Buildings [b.BL_PID == s.SD_PID]
