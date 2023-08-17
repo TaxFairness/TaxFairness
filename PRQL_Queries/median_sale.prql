@@ -1,0 +1,21 @@
+# Median sale from Grafton County Register of Deeds
+# Sales from 1 Jan 2022 to date
+# Sale price > $10,000 (avoids nominal transfer tax)
+
+let dollars = d -> s"""printf('$%,d',{d})"""
+
+from GraftonCtyRoD
+filter ( GC_Type == "DEED" )
+derive Price = case {
+  GC_Consideration == "-" => GC_TransferTax/0.015,
+  true => GC_Consideration,
+}
+filter (Price > 10000)
+sort Price
+select { 
+  GC_Date, 
+  GC_Consideration,
+  GC_TransferTax,
+  `Sale Price` = (dollars Price),
+}
+filter ( GC_Date >= "2022-01-01" )

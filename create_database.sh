@@ -16,4 +16,5 @@ sqlite3 Property_In_Lyme.sqlite < Create_Property_in_Lyme_db.sql
 # Import the concatenated CSV files into the tables
 sqlite3 Property_In_Lyme.sqlite < import_crunched_data.sql
 
+sleep 5			# Give a chance to examine error messages
 open Property_In_Lyme.sqlite

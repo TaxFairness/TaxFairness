@@ -1,19 +1,19 @@
 # Acres of Current Use
 
 # dollars displays a numeric value as dollars with commas
-func dollars d -> s"""printf("$%,d",{d})"""
+let dollars = d -> s"""printf("$%,d",{d})"""
 
 # pct computes the amount (percent) the new differs from old
-func pct o n -> 100.0*( n - o ) / o
+let pct = o n -> 100.0*( n - o ) / o
 
 # prtpct prints a floating point number with "%"
-func prtpct v -> s'printf("%1.1f%", {v})'
+let prtpct = v -> s'printf("%1.1f%", {v})'
 
 from ScrapedData9
 # filter SD_Appraisal != SD_Assessment
-aggregate [
-  total_acres=sum SD_Lot_Size,
-  ]
+aggregate {
+  total_acres= sum SD_Lot_Size,
+}
 
 # 24,176 of 31,273 acres (77%) of land in Lyme
 # have Current Use Tax treatment

@@ -1,12 +1,22 @@
-# Pseudo-LIKE function - filter (like col "string")
-func like fld str -> s"{fld} like '%' || {str} || '%' "
+# module useful_functions
 
-from foo
-select [bar,score]
-filter (like bar "a-string")
-derive var = case [
-(score <= 10) => "low",
-(score <= 30) => "medium",
-(score <= 70) => "high",
-true => "very high",
+# Pseudo-LIKE function - filter (like col "string")
+let like = fld str -> s"{fld} like '%' || {str} || '%' "
+
+# from foo
+# select {bar,score}
+# filter (like bar "a-string")
+# derive var = case {
+# (score <= 10) => "low",
+# (score <= 30) => "medium",
+# (score <= 70) => "high",
+# true => "very high",
+# }
+
+let favorite_artists = [
+    {artist_id = 120, last_listen = @2023-05-18},
+    {artist_id = 7, last_listen = @2023-05-16},
 ]
+
+favorite_artists
+join artists side:left (==artist_id)

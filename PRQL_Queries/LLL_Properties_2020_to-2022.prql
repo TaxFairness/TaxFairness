@@ -1,0 +1,25 @@
+# LLL Property Assess & Apprais - 2020 to 2022
+
+from sd2=ScrapedData3
+# join side:left sd10 = ScrapedData10 [sd2.SD_Map == sd10.SD_Map, sd2.SD_Lot == sd10.SD_Lot]
+select {
+StreetAddress = sd2.SD_Street_Address,
+Map = sd2.SD_Map,
+Lot = sd2.SD_Lot,
+Unit = sd2.SD_Unit,
+`2020LandAss` = sd2.SD_Ass_Land2020,
+`2020ImprAss` = sd2.SD_Ass_Imp2020,
+`2020TotAss` = sd2.SD_Ass_Tot2020,
+# `2020LandApp` = sd_App_Land2020,
+# `2020ImprApp` = SD_App_Imp2020,
+# `2020TotApp` = SD_App_Tot2020,
+
+`2021LandAss` = sd2.SD_Ass_Land2021,
+`2021ImprAss` = sd2.SD_Ass_Imp2021,
+`2021TotAss` = sd2.SD_Ass_Tot2021,
+
+# `2022LandAss` = sd10.SD_Ass_LandCurr,
+# `2022ImprAss` = sd10.SD_Ass_ImpCurr,
+# `2022TotAss` = sd10.SD_Ass_TotCurr,
+}
+filter ( Map == "408" && (Lot == "22" || Lot == "20"))

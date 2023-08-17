@@ -1,0 +1,22 @@
+# Do we have three years of appraised and assessed values in your database? 
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf('$%,d',{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s"printf('%1.1f%', {v})"
+
+from sd=ScrapedData9
+join side:left ap=AppraisHistory (ap.AP_PID == sd.SD_PID)
+join side:left as=AssessHistory (as.AS_PID == sd.SD_PID && ap.AP_Year == as.AS_Year)
+select {
+  sd.SD_PID, sd.SD_Map,sd.SD_Lot, sd.SD_Unit,
+  sd.SD_Street_Address,
+  ap.AP_Year,
+  ap.AP_Total,
+  as.AS_Total
+}
+sort {ap.AP_Year, sd.SD_PID}

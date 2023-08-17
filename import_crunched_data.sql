@@ -53,9 +53,6 @@ vacuum;
 .import "DefinitiveData/ScrapedData_2023-01-25_16-09-50.csv" ScrapedData7
 .import "DefinitiveData/old-new-7Jan2022-HQ-24Jan2023.csv" TaxableProperties
 .import "DefinitiveData/ScrapeData_2023-03-01_16-51-30.csv" ScrapedData9
-.import "DefinitiveData/AssmtHistory_2023-05-02_21-19-11.csv" AssessHistory
-.import "DefinitiveData/ApprlHistory_2023-05-02_21-19-11.csv" AppraisHistory
-.import "DefinitiveData/OwnerHistory_2023-05-02_21-19-11.csv" OwnerHistory
 .import "DefinitiveData/ScrapeData10_2023-05-02_21-19-11.csv" ScrapedData10
 .import "DefinitiveData/2021_final_ratiostudy.csv" RatioStudy2021
 .import "DefinitiveData/2022_final_ratiostudy.csv" RatioStudy2022
@@ -63,6 +60,11 @@ vacuum;
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
-.import "DefinitiveData/Buildings____2023-05-10_07-45-28.tsv" Buildings
+.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/AssmtHistory.tsv" AssessHistory
+.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/ApprlHistory.tsv" AppraisHistory
+.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/OwnerHistory.tsv" OwnerHistory
+.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/Buildings___.tsv" Buildings
+.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/ScrapeData11.tsv" ScrapedData11
+
 
 

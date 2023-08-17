@@ -1,0 +1,17 @@
+# Median appraised value of homes
+
+# module useful_functions.prql
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf('$%,d',{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s"printf('%1.1f%'', {v})"
+
+from ScrapedData10
+filter SD_App_ImpCurr != 0
+select { SD_App_TotCurr }
+sort { SD_App_TotCurr }
