@@ -539,23 +539,40 @@ CREATE TABLE "LymeOldToNew211202"
 
 CREATE TABLE "LymeOldToNew2022"
 (
-"LO2_AcctNumber" TEXT,
-"LO2_PID" TEXT,
-"LO2_MBLU" TEXT,
-"LO2_Map" INTEGER,
-"LO2_Lot" INTEGER,
-"LO2_Unit" TEXT,
-"LO2_Location" TEXT,
-"LO2_Owner" TEXT,
-"LO2_UseCode" TEXT,
-"LO2_OldValue" INTEGER,
-"LO2_NewValue" INTEGER,
-"LO2_Ratio" REAL,
-"LO2_Empty" TEXT,
-"LO2_Difference" INTEGER,
-"LO2_Empty2" TEXT
+"LO_AcctNumber" TEXT,
+"LO_PID" TEXT,
+"LO_MBLU" TEXT,
+"LO_Map" INTEGER,
+"LO_Lot" INTEGER,
+"LO_Unit" TEXT,
+"LO_Location" TEXT,
+"LO_Owner" TEXT,
+"LO_UseCode" TEXT,
+"LO_OldValue" INTEGER,
+"LO_NewValue" INTEGER,
+"LO_Ratio" REAL,
+"LO_Empty" TEXT,
+"LO_Difference" INTEGER,
+"LO_Empty2" TEXT
 );
 
+CREATE TABLE "LymeOldToNew2023"
+(
+"LO_AcctNumber" TEXT,
+"LO_PID" TEXT,
+"LO_MBLU" TEXT,
+"LO_Map" INTEGER,
+"LO_Lot" INTEGER,
+"LO_Unit" TEXT,
+"LO_Location" TEXT,
+"LO_Owner" TEXT,
+"LO_UseCode" TEXT,
+"LO_OldValue" INTEGER,
+"LO_NewValue" INTEGER,
+"LO_Ratio" REAL,
+"LO_Difference" INTEGER,
+"LO_Date_Collected" TEXT
+);
 
 # This table has multiple rows per property
 # Use the UniqueAssessVsApprais view for actual work

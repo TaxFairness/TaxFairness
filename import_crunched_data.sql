@@ -57,6 +57,7 @@ vacuum;
 .import "DefinitiveData/2021_final_ratiostudy.csv" RatioStudy2021
 .import "DefinitiveData/2022_final_ratiostudy.csv" RatioStudy2022
 .import "DefinitiveData/MS-1_Summary.csv" MS1_Data
+.import "DefinitiveData/2023_draft_oldtonew-21Sep2023.csv" LymeOldToNew2023
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme

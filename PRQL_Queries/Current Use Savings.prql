@@ -1,0 +1,51 @@
+# Current Use Savings
+# Compare parcel's Appraised and Assessed values
+# Compute tax savings at 2022 tax rate
+
+prql target:sql.sqlite
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf('$%,d',{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s"printf('%1.1f%', {v})"
+
+let taxrate = 23.98       # 2022 Tax Rate
+
+from sd = ScrapedData11   # use Aug 2023 values
+select {
+  Map=SD_Map,
+  Lot=SD_Lot,
+  Unit=SD_Unit,
+  SD_App_LandCurr,
+  SD_Ass_LandCurr,
+  Adrs=SD_Street_Address,
+  Acres= SD_Lot_Size,  
+  SD_Recent_Sale_Date,
+  SD_Recent_Sale_Price,
+  taxAppr    = SD_App_LandCurr*taxrate/1000.0,
+  taxAssm    = SD_Ass_LandCurr*taxrate/1000.0,
+  delta      = (taxAppr - taxAssm),  
+  pc         = (SD_App_LandCurr-SD_Ass_LandCurr)*100.0 / SD_App_LandCurr,
+}
+filter SD_App_LandCurr != SD_Ass_LandCurr # only Current Use Property
+
+sort {-delta}
+
+select {
+  Map, Lot, Unit,
+  #Adrs,
+  Acres,
+  `Land Appraisal`  = (dollars SD_App_LandCurr),
+  `Land Assessment` = (dollars SD_Ass_LandCurr),
+  TaxPaid           = (dollars taxAssm),
+  `Tax Savings`     = (dollars delta),
+  `Percent Saved`   = (prtpct pc)
+}
+
+# select [
+#   (dollars (sum delta))
+# ]
