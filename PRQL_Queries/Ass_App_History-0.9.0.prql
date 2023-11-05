@@ -1,5 +1,5 @@
 # Do we have three years of appraised and assessed values in your database? 
-
+# Convert to PRQL 0.10.0
 # dollars displays a numeric value as dollars with commas
 let dollars = d -> s"""printf('$%,d',{d})"""
 

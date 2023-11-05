@@ -41,7 +41,7 @@ It contains:
      text file that could be imported into a spreadsheet. Source data is in _Old-New Values_ folder.
      Table is named **OldVsNew**
 
-   - **Recent_Sales_Data_from_Rusty-31Oct2021.csv**
+   - **Recent\_Sales\_Data\_from\_Rusty-31Oct2021.csv**
      Values for recent sales (from April 2020 to date) collected from the Grafton County
      Register of Deeds collected by R. Keith.
      Table is named **Recentsales**

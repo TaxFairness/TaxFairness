@@ -1,13 +1,14 @@
 # Tax per acre based on zoning district
+# Converted to PRQL 0.10.0 format
 
 # dollars displays a numeric value as dollars with commas
-func dollars d -> s"""printf("$%,d",{d})"""
+let dollars = d -> s"""printf("$%,d",{d})"""
 
 # pct computes the amount (percent) the new differs from old
-func pct o n -> 100.0*( n - o ) / o
+let pct = o n -> 100.0*( n - o ) / o
 
 # prtpct prints a floating point number with "%"
-func prtpct v -> s'printf("%1.1f%", {v})'
+let prtpct = v -> s"printf('%1.1f%', {v})"
 
 from ScrapedData9
 # filter SD_Appraisal != SD_Assessment
@@ -22,15 +23,15 @@ derive District = case [
   true => SD_Zoning_District
 ]
 group District (
-aggregate [
+aggregate {
   Acres= ( (sum SD_Lot_Size)),
-  NumParcels = count,
+  NumParcels = count this,
   Apprl = (sum SD_Appraisal),
   Assmt = (sum SD_Assessment),
-  Tax = (sum SD_Assessment*23.98/1000),
-  ]
+  Tax = (sum SD_Assessment) *23.98/1000,
+}
 )
-select [
+select {
   District,
   Acres,
   NumParcels,
@@ -39,9 +40,9 @@ select [
   TotalTax = (dollars Tax),
   Tax,
   dollperacre = Tax / Acres,
-]
-sort [ - dollperacre ]
-select [
+}
+sort { - dollperacre }
+select {
   District,
   Acres,
   NumParcels,
@@ -49,7 +50,7 @@ select [
   Assessment,
   Tax = (dollars Tax),
   DollarsPerAcre = (dollars dollperacre)
-]
+}
 
 # SD_Zoning_District	Total_Acres	Apprl_Value	Assmt_Value	Total_Tax	Tax/acre
 # MFD	7,057	$13,543,300 	$3,614,200 	$86,668 	$12.28 

@@ -1,17 +1,20 @@
 # Properties whose Improvements, Land, or Total Assessment changed
 # Between 2020, 2021, and 2022
+# Update to PRQL 0.10.0 language
+
+prql target:sql.sqlite
 
 # dollars displays a numeric value as dollars with commas
-func dollars d -> s"""printf("$%,d",{d})"""
+let dollars = d -> s"""printf("$%,d",{d})"""
 
 # pct computes the amount (percent) the new differs from old
-func pct o n -> 100.0*( n - o ) / o
+let pct = o n -> 100.0*( n - o ) / o
 
 # prtpct prints a floating point number with "%"
-func prtpct v -> s'printf("%1.1f%", {v})'
+let prtpct = v -> s'printf("%1.1f%", {v})'
 
 from ScrapedData3
-derive [
+derive {
   AppLandInc=(pct SD_App_Land2020 SD_App_Land2021),
   AppImprInc=(pct SD_App_Imp2020 SD_App_Imp2021),
   AppTotInc=(pct SD_App_Tot2020 SD_App_Tot2021),
@@ -24,8 +27,8 @@ derive [
   Tax2020=Rate2020*SD_Ass_Tot2020/1000,
   Tax2021=Rate2021*SD_Ass_Tot2021/1000,
   TaxIncr=(pct Tax2020 Tax2021),
-]
-select [
+}
+select {
   Map=SD_Map,
   Lot=SD_Lot,
   Unit=SD_Unit,
@@ -60,7 +63,7 @@ select [
   `Tax 2020` = (dollars Tax2020),
   `Tax 2021` = (dollars Tax2021),
   `Tax Incr%` = (prtpct TaxIncr)
-]
+}
 # sort TaxIncr
-sort [Map, Lot, Unit]
+sort {Map, Lot, Unit}
 #  filter SD_Street_Address == "foo"

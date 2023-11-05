@@ -1,0 +1,20 @@
+# Size of buildings in Lyme 
+
+from b=buildings
+join s=scrapeddata11 (b.BL_PID == s.SD_PID)
+filter b.BL_Style != "Accessory Bldg"
+filter b.BL_Style != "Vacant Land"
+filter b.BL_Style != "Camp"
+filter b.BL_Model == "Residential"
+# filter BL_Grade != "Below Average"
+select {
+  b.BL_PID,
+  s.SD_Street_Address,
+  `Sq Ft` = b.BL_Gross_Floor_Area,
+  `Living Area` = b.BL_Living_Area,
+  Bedrooms = b.BL_Total_Bedrooms,
+  Baths = b.BL_Total_Bthrms,
+  Kitchens =b.BL_Num_Kitchens,
+  Grade = b.BL_Grade,
+}
+sort `Living Area`

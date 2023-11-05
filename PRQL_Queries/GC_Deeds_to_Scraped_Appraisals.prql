@@ -4,21 +4,20 @@
 # Then join with ScrapedData (on PID) to get current data
 # Filter out DEEDs
 # Then select the desired columns 
-
+# Converted to PRQL 0.10.0
 
 # within a b p - return true if a & b are within p% of each other
-func within a b p -> s"(abs({a}-{b})< {a}*{p}/100)"
+let within = a b p -> s"(abs({a}-{b})< {a}*{p}/100)"
 
 from g=GraftonCtyRoD
-join  side:left o=OwnerHistory [
-  g.GC_Book == o.OH_Book,
-  g.GC_Page == o.OH_Page,
-]
-join side:left sd=ScrapedData6 [
+join  side:left o=OwnerHistory (
+  g.GC_Book == o.OH_Book && g.GC_Page == o.OH_Page
+)
+join side:left sd=ScrapedData6 (
   sd.SD_PID == o.OH_PID
-]
+)
 filter g.GC_Type == "DEED"
-select [
+select {
   sd.SD_PID,
   g.GC_Type,g.GC_Date,
 	g.GC_Book, g.GC_Page,
@@ -30,8 +29,8 @@ select [
   g.GC_TransferTax, 
   sd.SD_Recent_Sale_Price,
   sd.SD_App_Tot2021,
-]
-sort GC_Date
+}
+sort {GC_Date}
 # filter (! (within SD_App_Tot2021 GC_Consideration 2))
 
 

@@ -1,23 +1,26 @@
 # Land Only - compare the appraisals of
 # "land only" parcels - no improvements
+# Update to PRQL 0.10.0 language
+
+prql target:sql.sqlite
 
 # dollars displays a numeric value as dollars with commas
-func dollars d -> s"""printf("$%,d",{d})"""
+let dollars = d -> s"""printf("$%,d",{d})"""
 
 # pct computes the amount (percent) the new differs from old
-func pct o n -> 100.0*( n - o ) / o
+let pct = o n -> 100.0*( n - o ) / o
 
 # prtpct prints a floating point number with "%"
-func prtpct v -> s'printf("%1.1f%", {v})'
+let prtpct = v -> s'printf("%1.1f%", {v})'
 
 from sd = ScrapedData3
 # filter SD_App_Imp2020 == 0
-join side:left tx = TaxableProperties [
-  sd.SD_Map == tx.TX_Map,
-  sd.SD_Lot == tx.TX_Lot,
-  sd.SD_Unit == tx.TX_Unit,
- ]
-select [ 
+join side:left tx = TaxableProperties (
+      sd.SD_Map == tx.TX_Map
+ \ && sd.SD_Lot == tx.TX_Lot
+ \ && sd.SD_Unit == tx.TX_Unit
+)
+select { 
   sd.SD_Owner,
   sd.SD_Street_Address,
   # FullApp2021 = (dollars SD_App_Tot2021),
@@ -32,7 +35,7 @@ select [
   fpct = ((pct sd.SD_App_Tot2020 sd.SD_App_Tot2021) | round 1 ),
   Percent = (prtpct fpct),
   Diff = (dollars sd.SD_App_Tot2021 - sd.SD_App_Tot2020),
-]
+}
 # filter fpct != ""
 sort fpct
 # take 20

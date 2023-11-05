@@ -25,7 +25,12 @@ delete from ZoningPermits;
 delete from ScrapedData6;
 delete from ScrapedData7;
 delete from ScrapedData9;
+delete from ScrapedData10;
+delete from ScrapedData11;
 delete from OwnerHistory;
+delete from Buildings;
+delete from AssessHistory;
+delete from AppraisHistory;
 vacuum;
 
 .mode csv
@@ -58,14 +63,16 @@ vacuum;
 .import "DefinitiveData/2022_final_ratiostudy.csv" RatioStudy2022
 .import "DefinitiveData/MS-1_Summary.csv" MS1_Data
 .import "DefinitiveData/2023_draft_oldtonew-21Sep2023.csv" LymeOldToNew2023
+.import "DefinitiveData/Lyme_CAMA_2022-HQ_10Oct2023.csv" CAMA2022
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
-.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/AssmtHistory.tsv" AssessHistory
-.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/ApprlHistory.tsv" AppraisHistory
-.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/OwnerHistory.tsv" OwnerHistory
-.import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/Buildings___.tsv" Buildings
 .import "DefinitiveData/ScrapedData/ScrapedData-17Aug2023/ScrapeData11.tsv" ScrapedData11
+.import "DefinitiveData/ScrapedData/ScrapedData-24Oct2023/ScrapeData12.tsv" ScrapedData12
+.import "DefinitiveData/ScrapedData/ScrapedData-24Oct2023/AssmtHistory.tsv" AssessHistory
+.import "DefinitiveData/ScrapedData/ScrapedData-24Oct2023/ApprlHistory.tsv" AppraisHistory
+.import "DefinitiveData/ScrapedData/ScrapedData-24Oct2023/OwnerHistory.tsv" OwnerHistory
+.import "DefinitiveData/ScrapedData/ScrapedData-24Oct2023/Buildings___.tsv" Buildings
 
 
 

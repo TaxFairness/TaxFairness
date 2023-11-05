@@ -1,13 +1,14 @@
 # Compare 2021 Ratio Study to latest ScrapedData 
+# Converted to PRQL 0.10.0 format
 
 # dollars displays a numeric value as dollars with commas
-func dollars d -> s"""printf("$%,d",{d})"""
+let dollars = d -> s"""printf("$%,d",{d})"""
 
 # pct computes the amount (percent) the new differs from old
-func pct o n -> 100.0*( n - o ) / o
+let pct = o n -> 100.0*( n - o ) / o
 
 # prtpct prints a floating point number with "%"
-func prtpct v -> s'printf("%1.1f%", {v})'
+let prtpct = v -> s"printf('%1.1f%', {v})"
 
 from gc=GraftonCtyRoD
 filter gc.GC_Type == "DEED"
@@ -22,23 +23,21 @@ sort gc.GC_Date
 #   gc.GC_Book == sd.SD_Book,
 #   gc.GC_Page == sd.SD_Page,
 #   ]
-join side:left oh=OwnerHistory [
-  gc.GC_Book == oh.OH_Book,
-  gc.GC_Page == oh.OH_Page,
-  ]
-join side:left rs=RatioStudy2022 [
-  rs.RS_Book == gc.GC_Book,
-  rs.RS_Page == gc.GC_Page,
-  ]
-join side:left sd=ScrapedData9 [
+join side:left oh=OwnerHistory (
+  gc.GC_Book == oh.OH_Book && gc.GC_Page == oh.OH_Page
+)
+join side:left rs=RatioStudy2022 (
+  rs.RS_Book == gc.GC_Book && rs.RS_Page == gc.GC_Page
+)
+join side:left sd=ScrapedData9 (
   sd.SD_PID == oh.OH_PID
-]
+)
 # join side:left zp=ZoningPermits [
 #   zp.ZP_Map == sd.SD_Map,
 #   zp.ZP_Lot == sd.SD_Lot,
 #   zp.ZP_Unit == sd.SD_Unit,
 # ]
-select [
+select {
   `Book&Page`=gc.GC_Book_Page,
   Map=sd.SD_Map, 
   Lot=sd.SD_Lot, 
@@ -76,4 +75,4 @@ select [
   # rs.RS_Assessed_Value,
   # rs.RS_ExclReason,
   # rs.RS_Notes,
-]
+}

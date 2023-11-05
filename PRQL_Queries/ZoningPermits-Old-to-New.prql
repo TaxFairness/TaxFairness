@@ -1,0 +1,56 @@
+# Compare Old-to-New prices to recent Zoning Permits
+
+# some setup stuff... Ignore these lines
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf('$%,d',{d})"""
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s"printf('%1.1f%', {v})"
+
+# --- start reading here ---
+# starting with the list ("table") of zoning permits
+from zp = ZoningPermits
+
+# only keep the ones between 1/1/2022 and 4/1/2023
+filter (zp.ZP_DateIssued <= "2023-04-01" && zp.ZP_DateIssued >= "2022-01-01")
+
+# connect each zoning permit with its entry from the Old-to-New table,
+#    matching on the Map, Lot, Unit in each
+join side:left on=LymeOldToNew2023 (
+  zp.ZP_Map == on.LO_Map && zp.ZP_Lot == on.LO_Lot && zp.ZP_Unit == on.LO_Unit
+)
+
+# And connect that table to the Owner's name from the "Owner History" table,
+#    matching on the Vision PID
+join side:left oh=OwnerHistory (
+  on.LO_PID == oh.OH_PID
+)
+
+# Only keep the info for the latest owner
+group {oh.OH_PID} (
+  sort (-oh.OH_Sale_Date)
+  take 1
+)
+
+# compute the difference between old and new
+derive {
+  diff = on.LO_NewValue-on.LO_OldValue,
+}
+
+# sort by the difference
+sort diff
+
+# and finally select the columns to be displayed
+select {
+  PermitNum = zp.ZP_PermitNumber,
+  PermitDate = zp.ZP_DateIssued,
+  Address = zp.ZP_Address, 
+  Applicant = zp.ZP_Applicant,
+  Project = zp.ZP_Description,
+  OldValue = (dollars on.LO_OldValue),
+  NewValue = (dollars on.LO_NewValue),
+  Delta = (dollars diff),
+  EstCost = (dollars zp.ZP_EstCost),
+  Owner = on.LO_Owner,
+}

@@ -6,12 +6,12 @@ let like = fld str -> s"{fld} like '%' || {str} || '%' "
 # from foo
 # select {bar,score}
 # filter (like bar "a-string")
-# derive var = case {
+# derive var = case [
 # (score <= 10) => "low",
 # (score <= 30) => "medium",
 # (score <= 70) => "high",
 # true => "very high",
-# }
+# ]
 
 let favorite_artists = [
     {artist_id = 120, last_listen = @2023-05-18},
