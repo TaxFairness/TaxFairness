@@ -1,0 +1,20 @@
+# Horsing around with the TaxRates table
+
+let two_dig = v -> s"printf('%1.1f', {v})"
+
+from TaxRates
+filter TR_Tax_Year == "2022"
+select {
+  TR_Municipality,
+  TR_Tax_Year,
+  TR_Total_Rate,
+  RawComp=TR_Total_Commitment * 1000.0 / TR_Valuation,
+  Delta = RawComp - TR_Total_Rate,
+}
+sort { -Delta }
+select {
+  TR_Municipality,
+  TR_Tax_Year,
+  TR_Total_Rate,
+  Delta = (two_dig Delta),
+}

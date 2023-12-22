@@ -900,6 +900,21 @@ CREATE TABLE "Buildings" (
 "BL_CollectedOn" TEXT
 );
 
+CREATE TABLE "TaxRates" (
+"TR_Municipality" TEXT,
+"TR_Tax_Year" TEXT,
+"TR_DateComputed" TEXT,
+"TR_Valuation" INTEGER,
+"TR_Valuation_with_Utilities" INTEGER,
+"TR_Municipal" INTEGER,
+"TR_County" INTEGER,
+"TR_State_Ed" INTEGER,
+"TR_Local_Ed" INTEGER,
+"TR_Total_Rate" INTEGER,
+"TR_Total_Commitment" INTEGER,
+"TR_CollectedOn" TEXT
+);
+
 -- VIEWS --
 
 # Current Appraisal values (from Todd's latest spreadsheet via Dina) plus scraped values

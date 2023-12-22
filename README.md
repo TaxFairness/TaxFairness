@@ -37,8 +37,7 @@ It contains:
    - **Old-NewValues2021-21Nov2021.csv**
      Lyme gave a printout of old and new valuations to John Biglow who scanned
      it to produce Old-NewValues.pdf.
-     Rich used [https://onlineocr.net](https://onlineocr.net) to convert it to a
-     text file that could be imported into a spreadsheet. Source data is in _Old-New Values_ folder.
+     Source data is in _Old-New Values_ folder.
      Table is named **OldVsNew**
 
    - **Recent\_Sales\_Data\_from\_Rusty-31Oct2021.csv**
@@ -62,10 +61,8 @@ It contains:
 
    - **Town-Assessment-from-PDF-16Feb2022.csv**
      This contains the Assessed value by owner.
-     Original source data comes from town website on 21Oct2021 at:
-     https://www.lymenh.gov/sites/g/files/vyhlif4636/f/uploads/assessed\_value\_by\_owner\_21-0909_0.pdf
-     It was massaged by PDF OCR X Enterprise Edition and a bunch of regexes to produce
-     the Town Assessment-from PDF-12Oct2021.xlsx spreadsheet.
+     Original source data on [town website on 21Oct2021.](
+     https://www.lymenh.gov/sites/g/files/vyhlif4636/f/uploads/assessed\_value\_by\_owner\_21-0909_0.pdf)
      Data cleaned up in separate pass on 16Feb2022.
      Table is named **TownAssessment**
 
@@ -106,6 +103,16 @@ It contains:
 
 3. Assorted "raw data" files that hav been processed to produce
    the files in the **DefinitiveData** folder
+
+## Convert from PDF to Excel
+
+* https://www.ilovepdf.com/ works on Town Budget
+
+* Rich used [https://onlineocr.net](https://onlineocr.net) to convert it to a
+     text file that could be imported into a spreadsheet. 
+* PDF OCR X Enterprise Edition and a bunch of regexes to produce
+     the Town Assessment-from PDF-12Oct2021.xlsx spreadsheet.
+
 
 ## Why use a database?
 

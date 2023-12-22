@@ -64,6 +64,7 @@ vacuum;
 .import "DefinitiveData/MS-1_Summary.csv" MS1_Data
 .import "DefinitiveData/2023_draft_oldtonew-21Sep2023.csv" LymeOldToNew2023
 .import "DefinitiveData/Lyme_CAMA_2022-HQ_10Oct2023.csv" CAMA2022
+.import "DefinitiveData/NH_DRA_Muni_Tax_Rates.csv" TaxRates
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
