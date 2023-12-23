@@ -26,7 +26,7 @@ move_pid_to_front() {
         print $0
     }' "$filename" > temp_file && mv temp_file "$filename"
 
-    echo "Second-to-last column moved to the front in $filename"
+    # echo "Second-to-last column moved to the front in $filename"
 }
 
 # Check if correct number of arguments provided
