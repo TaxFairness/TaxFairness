@@ -3,7 +3,7 @@
 This repository contains information about properties in Lyme retrieved from various sources.
 It contains:
 
-1. A SQLite database (named **Property_In_Lyme.sqlite**) with a variety of data files, imported from...
+1. A SQLite database (named **Property\_In\_Lyme.sqlite**) with a variety of data files, imported from...
 
 2. The **DefinitiveData** folder. This contains all the highly-massaged output files that get read into the SQLite database. The import process gets data from the following files:
 
@@ -16,7 +16,7 @@ It contains:
      appraised & assessed values.
      Table is named **AsVsAPDina**
 
-   - **Land_Use_Codes_from_VGSI.txt**
+   - **Land\_Use\_Codes\_from\_VGSI.txt**
      Values of "land use codes" scraped from vgsi.com page -
      a two-column tab-delimited file that with four-digit codes plus telegraphic descriptions.
      Table is named **VGSIinLyme**
@@ -165,10 +165,10 @@ The import process uses these files:
 - **create_database.sh** - a script to reliably create the tables & views of the SQLite database.
   Run this script with `sh create_database.sh` - it does all the work.
 
-- **Create_Property_in_Lyme.db.sql** - a series of SQL statements
+- **Create\_Property\_in\_Lyme.db.sql** - a series of SQL statements
   to create a new (empty) database with each of the tables setup up (but empty).
 
-- **import_into_database.sh** - a helper script to import the
+- **import\_into\_database.sh** - a helper script to import the
   various files into tables of the SQLite database
 
 ## Using the Database
@@ -176,7 +176,7 @@ The import process uses these files:
 You can Google for tutorials about _DB Browser for SQLite_.
 Here are some tips for getting started:
 
-- Click _Open Database_ and select **Property_In_Lyme.sqlite** to open the database
+- Click _Open Database_ and select **Property\_In\_Lyme.sqlite** to open the database
 - The _Database Structure_ tab simply lists the various tables available.
   Not terribly interesting.
 - The _Edit Pragmas_ tab lets you optimize the database performance.
@@ -203,7 +203,7 @@ Here are some tips for getting started:
 The _Database Structure_ tab shows both tables (above) and _Views_ that are
 automatically constructed from the data from various tables...
 
-- **Assess_Apprais_Sales**
+- **Assess\_Apprais\_Sales**
   A view that's a combination of ScrapedData, the OldVsNew PDF file,
   and RecentSales tables, adding in the LandClass.
   Updated to include 2Dec2021 values for Appraised values.
