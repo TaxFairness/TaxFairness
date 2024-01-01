@@ -379,6 +379,7 @@ CREATE TABLE "ScrapedData11" (
 
 CREATE TABLE "OwnerHistory"
 (
+"OH_PID" INTEGER,
 "OH_Owner" TEXT,
 "OH_Sale_Price" INTEGER,
 "OH_Certificate" TEXT,
@@ -387,27 +388,26 @@ CREATE TABLE "OwnerHistory"
 "OH_Page" INTEGER,
 "OH_Instrument" TEXT,
 "OH_Sale_Date" TEXT,
-"OH_PID" INTEGER,
 "OH_CollectedOn" TEXT
 );
 
 CREATE TABLE "AppraisHistory"
 (
+"AP_PID" INTEGER,
 "AP_Year" TEXT,
 "AP_Improv" INTEGER,
 "AP_Land" INTEGER,
 "AP_Total" INTEGER,
-"AP_PID" INTEGER,
 "AP_CollectedOn" TEXT
 );
 
 CREATE TABLE "AssessHistory"
 (
+"AS_PID" INTEGER,
 "AS_Year" TEXT,
 "AS_Improv" INTEGER,
 "AS_Land" INTEGER,
 "AS_Total" INTEGER,
-"AS_PID" INTEGER,
 "AS_CollectedOn" TEXT
 );
 

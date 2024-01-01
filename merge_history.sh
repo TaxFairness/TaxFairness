@@ -1,9 +1,10 @@
 #! /bin/sh
 
-# merge_history.sh - collect all the "history" files from the Tax Fairness
+# merge_history.sh - collect all the "history" files from the RawData/ScrapedData
 # directory and merge them, removing duplicate lines. (These may have been
 # caused by multiple runs of the scrapevgsi.py program at different times 
-# in a year.) Retain the earliest line of any set of identical lines.
+# in a year.) Retain the earliest line of any set of identical lines (to preserve
+# the date of the first change of a value.)
 
 # Ask ChatGPT:
 
@@ -21,20 +22,20 @@
 # which is the date stamp. I will pass a parameter to the script that 
 # has the total number of columns in the file.
 
-remove_duplicates_with_marker() {
+remove_duplicates() {
 
     pattern="$1"  # TSV file name
     columns="$2"  # Total number of columns
 
 # Find all history.tsv files within subdirectories of DefinitiveData/ScrapedData
-find DefinitiveData/ScrapedData -type f -name "$pattern*.tsv" -print0 |
+find "Raw Data/ScrapedData" -type f -name "$pattern*.tsv" -print0 |
 while IFS= read -r -d '' file; do
     # Combine all history.tsv files into a single file
     cat "$file"
 done > TEST_1combined_all_files.tsv
 
-# If the file is not the "Buildings..." file (that already has PID at the front),
-# move the PID to the front of combined_all_files.tsv
+# Move the PID to the front of combined_all_files.tsv
+# ... unless the file is  "Buildings..." file (it already has PID at the front),
 if test "$pattern" == "${pattern#*Buildings}"; then
     sh move_pid_to_front.sh TEST_1combined_all_files.tsv "$columns"
 fi
@@ -45,23 +46,26 @@ sed -E 's/\$//g' < TEST_1combined_all_files.tsv \
 
 # Sort the combined file based on the first five columns and the date stamp
 # sort -t$'\t' -k1,5 no_dollars.tsv > sorted_combined.tsv
-sort -t$'\t' -k1,$(("$columns" - 1)) TEST_2no_dollars.tsv > TEST_3sorted_combined.tsv
+sort -t$'\t' -k1,$((columns - 1)) TEST_2no_dollars.tsv > TEST_3sorted_combined.tsv
 
-sort -t$'\t' filename
+# sort -t$'\t' filename
 
 # Remove duplicates, keeping the oldest date stamp
 awk -F$'\t' '!seen[$1,$2,$3,$4,$5]++' TEST_3sorted_combined.tsv > TEST_4no_duplicates.tsv
 
+# remove blank lines
+sed -i -e '/^[[:blank:]]*$/d' TEST_4no_duplicates.tsv
+
 # Move the processed file back to the original directory
-# mv no_duplicates.tsv DefinitiveData/ScrapedData/combined_history.tsv
+mv TEST_4no_duplicates.tsv DefinitiveData/"$pattern".tsv
 
 # Clean up temporary files                                                                                                                        
-# rm TEST_*.tsv
+rm TEST_*.tsv
 
 }
 
 # Call the function with arguments: file pattern and total columns
-# remove_duplicates_with_marker "AssmtHistory" 6
-# remove_duplicates_with_marker "ApprlHistory" 6
-# remove_duplicates_with_marker "OwnerHistory" 10
-remove_duplicates_with_marker "Buildings" 19
+remove_duplicates "AssmtHistory" 6
+remove_duplicates "ApprlHistory" 6
+remove_duplicates "OwnerHistory" 10
+remove_duplicates "Buildings" 19
