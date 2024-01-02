@@ -69,3 +69,7 @@ remove_duplicates "AssmtHistory" 6
 remove_duplicates "ApprlHistory" 6
 remove_duplicates "OwnerHistory" 10
 remove_duplicates "Buildings" 19
+
+# Convert all dates from mm/dd/yyyy to yyyy-mm-dd
+#sed -i -E 's#([0-9]{2})/([0-9]{2})/([0-9]{4})#\3-\1-\2#g' DefinitiveData/OwnerHistory.tsv
+sed -i '' -E 's#([0-9]{2})/([0-9]{2})/([0-9]{4})#\3-\1-\2#g' DefinitiveData/OwnerHistory.tsv
