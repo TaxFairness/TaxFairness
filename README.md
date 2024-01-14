@@ -216,19 +216,21 @@ The remainder of this document has SQL queries to copy/paste.
 
 ## Merging the xxxHistory files
 
-The _Raw Data/ScrapedData_ folder contains folders with dates
-in the  names that give the date of the "scrape".
-The _ApprlHistory, AssmtHistory, Buildings,_ and _OwnerHistory_ files
-contain the last few (generally three) entries.
+The _Raw Data/ScrapedData_ folder contains historical "scrapes" in separate folders. Those folders show the date
+in their name. 
+
+The _ScrapedData_ file has the current info from each property page.
+The _ApprlHistory, AssmtHistory, Buildings,_ and _OwnerHistory_ history files
+contain the last few (generally three) entries from tables in those pages.
 But subsequent scrapes will lose the oldest info.
 
 The `merge_history.sh` script merges all those history files
 removing duplicate lines, and retaining the oldest entry (as shown
 in the CollectedOn column).
-These are saved in the top level of the _DefinitiveData_ folder,
+The result files are saved in the top level of the _DefinitiveData_ folder,
 where they will be imported into the database.
 
-To use it, after each `scrapevgsi.py run`,
+After each `scrapevgsi.py` run,
 copy all the five files into a new folder with the date in
 the folder name, and move it to the _Raw Data/ScrapedData_ folder.
 
