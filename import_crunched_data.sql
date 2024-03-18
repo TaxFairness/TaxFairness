@@ -68,12 +68,13 @@ vacuum;
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
-.import "Raw Data/ScrapedData/ScrapedData-17Aug2023/ScrapeData11.tsv" ScrapedData11
-.import "Raw Data/ScrapedData/ScrapedData-24Oct2023/ScrapeData12.tsv" ScrapedData12
-.import "DefinitiveData/AssmtHistory.tsv" AssessHistory
-.import "DefinitiveData/ApprlHistory.tsv" AppraisHistory
-.import "DefinitiveData/OwnerHistory.tsv" OwnerHistory
-.import "DefinitiveData/Buildings.tsv" Buildings
+.import "RawData/ScrapedData/ScrapedData-17Aug2023/ScrapeData11.tsv" ScrapedData11
+.import "RawData/ScrapedData/ScrapedData-24Oct2023/ScrapeData12.tsv" ScrapedData12
+.import "RawData/ScrapedData/ScrapedData-13Mar2024/ScrapeDataXX.tsv" ScrapedData13
+.import "DefinitiveData/MergedAssmtHistory.tsv" AssessHistory
+.import "DefinitiveData/MergedApprlHistory.tsv" AppraisHistory
+.import "DefinitiveData/MergedOwnerHistory.tsv" OwnerHistory
+.import "DefinitiveData/MergedBuildings.tsv" Buildings
 
 
 

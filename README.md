@@ -106,7 +106,7 @@ It contains:
 
 ## Convert from PDF to Excel
 
-* https://www.ilovepdf.com/ works on Town Budget
+* [https://www.ilovepdf.com/pdf\_to\_excel](https://www.ilovepdf.com/pdf_to_excel) works on Town Budget
 
 * Rich used [https://onlineocr.net](https://onlineocr.net) to convert it to a
      text file that could be imported into a spreadsheet. 

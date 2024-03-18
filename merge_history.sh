@@ -5,6 +5,10 @@
 # caused by multiple runs of the scrapevgsi.py program at different times 
 # in a year.) Retain the earliest line of any set of identical lines (to preserve
 # the date of the first change of a value.)
+# 
+# Usage:
+#    cd TaxFairness
+#    sh ./merge_history.sh  # Moves merged files into DefinitiveData directory
 
 # Ask ChatGPT:
 
@@ -28,48 +32,46 @@ remove_duplicates() {
     columns="$2"  # Total number of columns
 
 # Find all history.tsv files within subdirectories of DefinitiveData/ScrapedData
-find "Raw Data/ScrapedData" -type f -name "$pattern*.tsv" -print0 |
+find "RawData/ScrapedData" -type f -name "$pattern*.tsv" -print0 |
 while IFS= read -r -d '' file; do
     # Combine all history.tsv files into a single file
     cat "$file"
 done > TEST_1combined_all_files.tsv
 
+# NO LONGER NECESSARY - I pruned the datasets and manually fixed the files
 # Move the PID to the front of combined_all_files.tsv
 # ... unless the file is  "Buildings..." file (it already has PID at the front),
-if test "$pattern" == "${pattern#*Buildings}"; then
-    sh move_pid_to_front.sh TEST_1combined_all_files.tsv "$columns"
-fi
+# if test "$pattern" == "${pattern#*Buildings}"; then
+#     sh move_pid_to_front.sh TEST_1combined_all_files.tsv "$columns"
+# fi
 
-# Remove "$" and ","
+# Remove "$" and "," 
 sed -E 's/\$//g' < TEST_1combined_all_files.tsv \
-| sed -E 's/,//g' > TEST_2no_dollars.tsv
+| sed -E 's/,//g'  > TEST_2no_dollars.tsv
+
+# remove blank lines
+sed -E '/^[[:blank:]]*$/d' < TEST_2no_dollars.tsv > TEST_3no_blanks.tsv
 
 # Sort the combined file based on the first five columns and the date stamp
 # sort -t$'\t' -k1,5 no_dollars.tsv > sorted_combined.tsv
-sort -t$'\t' -k1,$((columns - 1)) TEST_2no_dollars.tsv > TEST_3sorted_combined.tsv
+sort -t$'\t' -k1,$((columns - 1)) TEST_3no_blanks.tsv > TEST_4sorted_combined.tsv
 
 # sort -t$'\t' filename
 
 # Remove duplicates, keeping the oldest date stamp
-awk -F$'\t' '!seen[$1,$2,$3,$4,$5]++' TEST_3sorted_combined.tsv > TEST_4no_duplicates.tsv
+awk -F$'\t' '!seen[$1,$2,$3,$4,$5]++' TEST_4sorted_combined.tsv > TEST_5no_duplicates.tsv
 
-# remove blank lines
-sed -i -e '/^[[:blank:]]*$/d' TEST_4no_duplicates.tsv
-
-# Move the processed file back to the original directory
-mv TEST_4no_duplicates.tsv DefinitiveData/"$pattern".tsv
+# Move the processed file back to the DefinitiveData directory
+mv TEST_5no_duplicates.tsv DefinitiveData/Merged"$pattern".tsv
 
 # Clean up temporary files                                                                                                                        
 rm TEST_*.tsv
 
 }
 
+# Process all the history files, and move them to the DefinitiveData directory
 # Call the function with arguments: file pattern and total columns
 remove_duplicates "AssmtHistory" 6
 remove_duplicates "ApprlHistory" 6
 remove_duplicates "OwnerHistory" 10
 remove_duplicates "Buildings" 19
-
-# Convert all dates from mm/dd/yyyy to yyyy-mm-dd
-#sed -i -E 's#([0-9]{2})/([0-9]{2})/([0-9]{4})#\3-\1-\2#g' DefinitiveData/OwnerHistory.tsv
-sed -i '' -E 's#([0-9]{2})/([0-9]{2})/([0-9]{4})#\3-\1-\2#g' DefinitiveData/OwnerHistory.tsv
