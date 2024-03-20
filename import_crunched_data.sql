@@ -1,36 +1,46 @@
 # Import data from the CSV files from various data sources
 # This empties the databasetables, then imports the requisite files
 
+delete from CAMA2022;
 delete from ConservationEasements;
 delete from Equalization2022;
 delete from GraftonCtyRoD;
 delete from LymeOldToNew2022;
+delete from LymeOldToNew2023;
 delete from LymeOldToNew211202;
 delete from LymeUseCodes;
+delete from MS1_Data;
 delete from OldVsNew;
 delete from PA342022;
+delete from RatioStudy2021;
+delete from RatioStudy2022;
 delete from RawAsVsAPDina;
 delete from RecentSales;
 delete from SalesConsidered61;
 delete from SalesNotUsed;
 delete from ScrapedData;
+delete from ScrapedData1;
 delete from ScrapedData2;
 delete from ScrapedData3;
 delete from ScrapedData4;
 delete from ScrapedData5;
-delete from TownAssessment;
-delete from VGSIinLyme;
-delete from VisionOccCodes;
-delete from ZoningPermits;
 delete from ScrapedData6;
 delete from ScrapedData7;
 delete from ScrapedData9;
 delete from ScrapedData10;
 delete from ScrapedData11;
-delete from OwnerHistory;
-delete from Buildings;
-delete from AssessHistory;
+delete from TaxableProperties;
+delete from TaxRates;
+delete from TownAssessment;
+delete from VisionOccCodes;
+delete from ZoningPermits;
+	
 delete from AppraisHistory;
+delete from AssessHistory;
+delete from Buildings;
+delete from OwnerHistory;
+delete from VGSIinLyme;
+
 vacuum;
 
 .mode csv
@@ -70,7 +80,6 @@ vacuum;
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
 .import "RawData/ScrapedData/ScrapedData11-17Aug2023/ScrapeData11.tsv" ScrapedData11
-.import "RawData/ScrapedData/ScrapedData12-24Oct2023/ScrapeData12.tsv" ScrapedData12
 .import "DefinitiveData/MergedAssmtHistory.tsv" AssessHistory
 .import "DefinitiveData/MergedApprlHistory.tsv" AppraisHistory
 .import "DefinitiveData/MergedOwnerHistory.tsv" OwnerHistory
