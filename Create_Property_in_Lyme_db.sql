@@ -2,7 +2,7 @@
 
 #INSERT INTO  "dates" (startDate,endDate) VALUES ('2014-01-01','2014-12-31');
 
-CREATE TABLE "ScrapedData" (
+CREATE TABLE "ScrapedData1" (
 "SD_PID" TEXT,
 "SD_Street_Address" TEXT,
 "SD_MBLU" TEXT,
@@ -373,6 +373,46 @@ CREATE TABLE "ScrapedData11" (
 "SD_App_ImpPrev" INTEGER,
 "SD_App_LandPrev" INTEGER,
 "SD_App_TotPrev" INTEGER,
+"SD_CollectedOn" TEXT,
+"SD_Empty2" TEXT
+);
+
+CREATE TABLE "ScrapedData" (
+"SD_PID" TEXT,
+"SD_Owner" TEXT,
+"SD_Street_Address" TEXT,
+"SD_MBLU" TEXT,
+"SD_Map" INTEGER,
+"SD_Lot" INTEGER,
+"SD_Unit" TEXT,
+"SD_Subunit" TEXT,
+"SD_Book_Page" TEXT,
+"SD_Book" INTEGER,
+"SD_Page" INTEGER,
+"SD_Assessment" INTEGER,
+"SD_Appraisal" INTEGER,
+"SD_Lot_Size" INTEGER,
+"SD_Land_Use_Code" TEXT,
+"SD_Description" TEXT,
+"SD_Zoning_District" TEXT,
+"SD_Num_Buildings" INTEGER,
+"SD_Recent_Sale_Price" INTEGER,
+"SD_Recent_Sale_Date" TEXT,
+"SD_Prev_Sale_Price" INTEGER,
+"SD_Prev_Sale_Date" TEXT,
+"SD_Ass_ImpCurr" INTEGER,
+"SD_Ass_LandCurr" INTEGER,
+"SD_Ass_TotCurr" INTEGER,
+"SD_Ass_ImpPrev" INTEGER,
+"SD_Ass_LandPrev" INTEGER,
+"SD_Ass_TotPrev" INTEGER,
+"SD_App_ImpCurr" INTEGER,
+"SD_App_LandCurr" INTEGER,
+"SD_App_TotCurr" INTEGER,
+"SD_App_ImpPrev" INTEGER,
+"SD_App_LandPrev" INTEGER,
+"SD_App_TotPrev" INTEGER,
+"SD_Version" INTEGER,
 "SD_CollectedOn" TEXT,
 "SD_Empty2" TEXT
 );

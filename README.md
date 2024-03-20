@@ -214,6 +214,15 @@ automatically constructed from the data from various tables...
 
 The remainder of this document has SQL queries to copy/paste.
 
+## Merging new ScrapeData files
+
+- Import the ScrapeDataXX file into a new tab in the _DefinitiveData/ScrapedData.xlsx_ file
+- Update its "Version" column to the proper value
+- Copy all rows, and paste into the All-Scraped-Data tab
+- Ensure all dollar values are simple numbers, dates are yyyy-mm-dd
+- Export the all-scrapes tab as CSV
+- Import using the regular _build-database.sh_ script
+
 ## Merging the xxxHistory files
 
 The _Raw Data/ScrapedData_ folder contains historical "scrapes" in separate folders. Those folders show the date

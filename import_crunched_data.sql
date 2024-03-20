@@ -34,7 +34,7 @@ delete from AppraisHistory;
 vacuum;
 
 .mode csv
-.import "DefinitiveData/ScrapedData-21Nov2021.csv" ScrapedData
+.import "DefinitiveData/ScrapedData-21Nov2021.csv" ScrapedData1
 .import "DefinitiveData/Town-Assessment-from-PDF-16Feb2022.csv" TownAssessment
 .import "DefinitiveData/Vision-Occupancy-Codes.csv" VisionOccCodes
 .import "DefinitiveData/Recent Sales Data from Rusty-31Oct2021.csv" RecentSales
@@ -65,12 +65,12 @@ vacuum;
 .import "DefinitiveData/2023_draft_oldtonew-21Sep2023.csv" LymeOldToNew2023
 .import "DefinitiveData/Lyme_CAMA_2022-HQ_10Oct2023.csv" CAMA2022
 .import "DefinitiveData/NH_DRA_Muni_Tax_Rates.csv" TaxRates
+.import "DefinitiveData/ScrapedData.csv" ScrapedData
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
-.import "RawData/ScrapedData/ScrapedData-17Aug2023/ScrapeData11.tsv" ScrapedData11
-.import "RawData/ScrapedData/ScrapedData-24Oct2023/ScrapeData12.tsv" ScrapedData12
-.import "RawData/ScrapedData/ScrapedData-13Mar2024/ScrapeDataXX.tsv" ScrapedData13
+.import "RawData/ScrapedData/ScrapedData11-17Aug2023/ScrapeData11.tsv" ScrapedData11
+.import "RawData/ScrapedData/ScrapedData12-24Oct2023/ScrapeData12.tsv" ScrapedData12
 .import "DefinitiveData/MergedAssmtHistory.tsv" AssessHistory
 .import "DefinitiveData/MergedApprlHistory.tsv" AppraisHistory
 .import "DefinitiveData/MergedOwnerHistory.tsv" OwnerHistory
