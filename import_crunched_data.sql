@@ -76,6 +76,7 @@ vacuum;
 .import "DefinitiveData/Lyme_CAMA_2022-HQ_10Oct2023.csv" CAMA2022
 .import "DefinitiveData/NH_DRA_Muni_Tax_Rates.csv" TaxRates
 .import "DefinitiveData/ScrapedData.csv" ScrapedData
+.import "DefinitiveData/Equalization and Property Values-2022-tables-by-county.csv" MuniPropVals
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme

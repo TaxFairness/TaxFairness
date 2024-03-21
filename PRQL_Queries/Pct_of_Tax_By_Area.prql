@@ -1,0 +1,70 @@
+# Tax per acre based on zoning district
+# Converted to PRQL 0.10.0 format
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s"printf('%1.1f%', {v})"
+
+let TaxRate = 25.35
+
+from ScrapedData
+filter (SD_Version == 14)
+
+select {
+  adrs=SD_Street_Address,
+  district=SD_Zoning_District,
+  asmt=SD_Assessment,
+  acres=case [
+    SD_Lot_Size == 0 => 0.1,
+    true => SD_Lot_Size
+  ],
+  Tax=asmt*TaxRate/1000.0,
+  DolPerAcre=Tax/acres,
+}
+sort {DolPerAcre}
+
+# derive District = case [
+#   SD_Zoning_District == "" => "Unknown",
+#   SD_Zoning_District == "ES" => "RD",
+#   SD_Zoning_District == "R" => "RD",
+#   SD_Zoning_District == "SFR" => "RD",
+#   SD_Zoning_District == "URD" => "RD",
+#   SD_Zoning_District == "CD" => "LCD",
+#   SD_Zoning_District == "LDC" => "LCD",
+#   true => SD_Zoning_District
+# ]
+# group District (
+# aggregate {
+#   Acres= ( (sum SD_Lot_Size)),
+#   NumParcels = count this,
+#   Apprl = (sum SD_Appraisal),
+#   Assmt = (sum SD_Assessment),
+#   Tax = (sum SD_Assessment) *TaxRate/1000,
+# }
+# )
+# select {
+#   District,
+#   Acres,
+#   NumParcels,
+#   Appraisal = (dollars Apprl),
+#   Assessment = (dollars Assmt),
+#   TotalTax = (dollars Tax),
+#   Tax,
+#   dollperacre = Tax / Acres,
+# }
+# sort { - dollperacre }
+# select {
+#   District,
+#   Acres,
+#   NumParcels,
+#   Appraisal,
+#   Assessment,
+#   Tax = (dollars Tax),
+#   DollarsPerAcre = (dollars dollperacre)
+# }
+

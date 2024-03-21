@@ -1,6 +1,5 @@
-# Properties > $500K in Current Use
-# 14Feb2023
-# Update to PRQL 0.10.0 language
+# Properties with appraisals > $50K
+# that are in Current Use
 
 prql target:sql.sqlite
 
@@ -12,22 +11,28 @@ let pct = o n -> 100.0*( n - o ) / o
 
 # prtpct prints a floating point number with "%"
 let prtpct = v -> s'printf("%1.1f%", {v})'
-let taxrate = 23.96
+# let taxrate = 23.96 # 2022
+let taxrate = 25.35 # 2023
 
-from sd = ScrapedData7
+
+from sd = ScrapedData
+filter (SD_Version == 14)  # use latest 
 select {
-  appr=SD_Appraisal2021,
-  assm= SD_Assessment2021,
+  adrs=SD_Street_Address,
+  appr=SD_Appraisal,
+  assm= SD_Assessment,
   taxAppr = appr*taxrate/1000,
   taxAssm = assm*taxrate/1000,
   delta= taxAppr - taxAssm,
-  deltaprt = (dollars delta),
+  `Tax Savings` = (dollars delta),
   pct = prtpct ( pct taxAssm taxAppr)
 }
 filter appr > 50_000
 filter appr != assm
 sort taxAssm / taxAppr
 
-# select [
-#   (dollars (sum delta))
-# ]
+# Total up all the tax savings for Current Use
+select {
+  `Total Savings to Lyme Residents`=(dollars (sum delta))
+}
+take 1

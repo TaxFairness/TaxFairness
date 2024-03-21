@@ -1,0 +1,16 @@
+# Find properties that don't have a Zoning District
+
+from ScrapedData
+filter (SD_Version == 14)
+select {
+  PID=SD_PID,
+  Address=SD_Street_Address,
+  Map=SD_Map, 
+  Lot=SD_Lot, 
+  Unit=SD_Unit,
+  # NumBldgs=SD_Num_Buildings,
+  District=SD_Zoning_District,
+}
+sort {PID}
+filter (District == "") # || NumBldgs != 1)
+# sort {NumBldgs}
