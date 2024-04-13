@@ -1,5 +1,6 @@
 # Tax per acre based on zoning district
-# Converted to PRQL 0.10.0 format
+
+prql target:sql.sqlite
 
 # dollars displays a numeric value as dollars with commas
 let dollars = d -> s"""printf("$%,d",{d})"""
@@ -13,21 +14,32 @@ let prtpct = v -> s"printf('%1.1f%', {v})"
 # twodig prints a floating point number with two decimal places
 let twodig = v -> s"printf('%1.2f', {v})"
 
-let TaxRate = 25.35
+let TaxRate = 25.35 # 2023 tax rate
 
 from ScrapedData
 filter (SD_Version == 14)
 # filter SD_Appraisal != SD_Assessment
 derive District = case [
+  SD_Description ~= "CONDO" => "Condo",
   SD_Zoning_District == "" => "Unknown",
-  SD_Zoning_District == "ES" => "RD",
-  SD_Zoning_District == "R" => "RD",
-  SD_Zoning_District == "SFR" => "RD",
-  SD_Zoning_District == "URD" => "RD",
-  SD_Zoning_District == "CD" => "LCD",
-  SD_Zoning_District == "LDC" => "LCD",
+  SD_Zoning_District == "RD" => "Rural",
+  SD_Zoning_District == "ES" => "Rural",
+  SD_Zoning_District == "R" => "Rural",
+  SD_Zoning_District == "SFR" => "Rural",
+  SD_Zoning_District == "URD" => "Rural",
+  SD_Zoning_District == "SD" => "Rural",
+  SD_Zoning_District == "BD" => "Commercial",
+  SD_Zoning_District == "CD" => "Lyme Common/Center",
+  SD_Zoning_District == "LDC" => "Lyme Common/Center",
+  SD_Zoning_District == "LCD" => "Lyme Common/Center",
+  SD_Zoning_District == "SKIWAY" => "Skiway",
+  SD_Zoning_District == "ELD" => "East Lyme",
+  SD_Zoning_District == "MFD" => "Mtn/Forest",
   true => SD_Zoning_District
 ]
+
+# sort (District)
+
 group District (
 aggregate {
   Acres= ( (sum SD_Lot_Size)),
@@ -41,7 +53,7 @@ select {
   District,
   Acres,
   NumParcels,
-  AvgAcres=Acres/NumParcels,
+  AverageAcres=Acres/NumParcels,
   Appraisal = (dollars Apprl),
   Assessment = (dollars Assmt),
   TotalTax = (dollars Tax),
@@ -51,21 +63,21 @@ select {
 sort { - dollperacre }
 select {
   District,
-  Acres,
-  (twodig AvgAcres),
   NumParcels,
+  `Total Acres` = Acres,
+  `Avg. Acre per lot`=(twodig AverageAcres),
   Appraisal,
   Assessment,
   Tax = (dollars Tax),
-  DollarsPerAcre = (dollars dollperacre)
+  DollarsPerAcre = (dollars dollperacre),
 }
 
-# District	Acres	NumParcels	Appraisal	Assessment	Tax	DollarsPerAcre
-# LCD	430.85	149	$73,607,400	$72,435,400	$1,836,237	$4,261
-# BD	52	20	$8,820,600	$8,660,400	$219,541	$4,221
-# Unknown	1822.65	109	$46,781,000	$41,854,300	$1,061,006	$582
-# RD	18411.52	706	$368,985,350	$300,944,100	$7,628,932	$414
-# SKIWAY	619.79	4	$7,274,300	$6,649,800	$168,572	$271
-# ELD	2335.21	53	$18,388,500	$12,967,000	$328,713	$140
-# SD	556	1	$625,400	$625,400	$15,853	$28
-# MFD	7057.96	37	$13,543,300	$3,596,500	$91,171	$12
+# District	NumParcels	Total Acres	Avg. Acre per lot	Appraisal	Assessment	Tax	DollarsPerAcre
+# Lyme Common/Center	139	430.85	3.10	$70,896,600	$69,724,600	$1,767,518	$4,102
+# Commercial	2	52	26.00	$2,728,900	$2,568,700	$65,116	$1,252
+# Unknown	85	1822.65	21.44	$44,037,300	$39,110,600	$991,453	$543
+# Rural	707	18967.52	26.83	$369,610,750	$301,569,500	$7,644,786	$403
+# Skiway	4	619.79	154.95	$7,274,300	$6,649,800	$168,572	$271
+# East Lyme	52	2335.21	44.91	$18,388,500	$12,967,000	$328,713	$140
+# Mtn/Forest	37	7057.96	190.76	$13,543,300	$3,596,500	$91,171	$12
+# Condo	53	0	0.00	$11,546,200	$11,546,200	$292,696	$0

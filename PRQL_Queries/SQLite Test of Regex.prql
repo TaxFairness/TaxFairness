@@ -1,0 +1,21 @@
+# Testing Regex in SQLite
+
+prql target:sql.sqlite
+
+from ScrapedData
+filter (SD_Version == 14)
+# filter (SD_Street_Address ~= "ORFORD ")
+
+derive StateRoad = case [
+  SD_Street_Address ~= "ORFORD " => "1",
+  SD_Street_Address ~= "DARTMOUTH COLLEGE" => "1",
+  SD_Street_Address ~= "DORCHESTER" => "1",
+  SD_Street_Address ~= "EAST THETFORD" => "1",
+
+  true => "",
+]
+
+select {
+  SD_Street_Address,
+  StateRoad,
+}

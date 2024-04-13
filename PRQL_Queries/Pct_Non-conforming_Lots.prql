@@ -1,0 +1,434 @@
+# Percentage of lot sizes that don't conform to the Ordinance
+
+prql target:sql.sqlite
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s'printf("%1.1f%", {v})'
+
+# let TaxRate = 25.35
+
+from sd=ScrapedData
+filter (SD_Version == 14)
+join bl=Buildings (sd.SD_PID == bl.BL_PID)
+# filter SD_Appraisal != SD_Assessment
+
+# group SD_Zoning_District (
+# aggregate {
+#   Acres = ( (sum SD_Lot_Size)),
+#   Assmt = (sum SD_Assessment),
+#   Tax = Assmt*TaxRate/1000,
+# }
+# )
+
+derive District = case [
+  # SD_Zoning_District == "" => "-",
+  sd.SD_Zoning_District == "ES" => "RD",
+  sd.SD_Zoning_District == "R" => "RD",
+  sd.SD_Zoning_District == "SFR" => "RD",
+  sd.SD_Zoning_District == "URD" => "RD",
+  sd.SD_Zoning_District == "LCD" => "LCD",
+  sd.SD_Zoning_District == "CD" => "LCD",
+  sd.SD_Zoning_District == "LDC" => "LCD",
+  sd.SD_Zoning_District == "SD" => "RD",
+  # true => "RD" # default to Rural District
+]
+derive StateRoad = case [
+  sd.SD_Street_Address ~= "ORFORD " => "1",
+  sd.SD_Street_Address ~= "DARTMOUTH COLLEGE" => "1",
+  sd.SD_Street_Address ~= "DORCHESTER" => "1",
+  sd.SD_Street_Address ~= "EAST THETFORD" => "1",
+  true => "",
+]
+# filter (SD_Street_Address ~= "ORFORD ")
+derive MinLotSize = case [
+  District == "LCD" => 1.0,  # Lyme Common District or Lyme Center
+  District == "BD" => 2.0,
+  District == "SKIWAY" => 2.0,
+  District == "RD" && StateRoad => 3.0,
+  District == "RD" => 5.0,
+  District == "ELD" => 15.0,
+  District == "MFD" => 50.0,
+  true => "?",
+]
+derive Allowed = case [
+    sd.SD_Lot_Size >= MinLotSize => "",
+    true => "Lot too small"
+  ]
+filter !(sd.SD_Description ~= "CONDO")
+filter (Allowed == "Lot too small")
+filter (sd.SD_Lot_Size != 0)
+filter (bl.BL_Style != "Vacant Land")
+filter (bl.BL_Style != "Accessory Bldg")
+select {
+  sd.SD_PID,
+  sd.SD_Street_Address,
+  sd.SD_Zoning_District,
+  District,
+  StateRoad,
+  MinLotSize,
+  sd.SD_Lot_Size,
+  Allowed,
+  bl.BL_Year_Built,
+  bl.BL_Style,
+}
+# sort { MinLotSize, sd.SD_Lot_Size }
+sort {BL_Year_Built}
+# sort { sd.SD_PID }
+# 350 rows (of 1079) 
+# SD_Street_Address	SD_Zoning_District	District	StateRoad	MinLotSize	SD_Lot_Size	Allowed
+# 2 PLEASANT ST (JAILHOUSE)	LCD	LCD		1.0	0.07	Lot too small
+# 5 DORCHESTER RD	LCD	LCD	1	1.0	0.09	Lot too small
+# 5 MARKET ST 	LCD	LCD		1.0	0.1	Lot too small
+# 15 MAIN ST  	LCD	LCD		1.0	0.14	Lot too small
+# 6 JOHN THOMSON WY (L/O)	LDC	LCD		1.0	0.16	Lot too small
+# 4 ON THE COMMON 	LCD	LCD		1.0	0.18	Lot too small
+# 38 HIGH ST 	LCD	LCD		1.0	0.22	Lot too small
+# 166 DORCHESTER RD	LCD	LCD	1	1.0	0.22	Lot too small
+# 1 HAMILTON LN	LCD	LCD		1.0	0.26	Lot too small
+# 6 MARKET ST	LCD	LCD		1.0	0.29	Lot too small
+# 13 MAIN ST	LCD	LCD		1.0	0.31	Lot too small
+# 7 DORCHESTER RD 	LCD	LCD	1	1.0	0.31	Lot too small
+# 1 DORCHESTER RD	LCD	LCD	1	1.0	0.33	Lot too small
+# 7 MARKET ST 	LCD	LCD		1.0	0.34	Lot too small
+# 173 DORCHESTER RD	LCD	LCD	1	1.0	0.34	Lot too small
+# 8 MARKET ST 	LCD	LCD		1.0	0.37	Lot too small
+# 39 UNION ST (LITTLE COMMON)	LCD	LCD		1.0	0.38	Lot too small
+# 36 UNION ST	LCD	LCD		1.0	0.39	Lot too small
+# 4 MARKET ST 	LCD	LCD		1.0	0.4	Lot too small
+# 7 MAIN ST	LCD	LCD		1.0	0.4	Lot too small
+# 179 DORCHESTER RD	LCD	LCD	1	1.0	0.42	Lot too small
+# 21 DORCHESTER RD 	LCD	LCD	1	1.0	0.43	Lot too small
+# 175 DORCHESTER RD	LCD	LCD	1	1.0	0.43	Lot too small
+# 38 UNION ST (LIBRARY)	LCD	LCD		1.0	0.44	Lot too small
+# 29 UNION ST	LCD	LCD		1.0	0.44	Lot too small
+# 171 DORCHESTER RD	LCD	LCD	1	1.0	0.45	Lot too small
+# 30 UNION ST 	LCD	LCD		1.0	0.46	Lot too small
+# 162 DORCHESTER RD 	LCD	LCD	1	1.0	0.48	Lot too small
+# 42 DORCHESTER RD	LCD	LCD	1	1.0	0.49	Lot too small
+# 165 DORCHESTER RD	LCD	LCD	1	1.0	0.5	Lot too small
+# 32 HIGH ST	LCD	LCD		1.0	0.52	Lot too small
+# 2 BAKER HILL RD	LCD	LCD		1.0	0.53	Lot too small
+# 188 DORCHESTER RD 	LCD	LCD	1	1.0	0.54	Lot too small
+# 19 MARKET ST	LCD	LCD		1.0	0.55	Lot too small
+# 4 EAST THETFORD RD 	LCD	LCD	1	1.0	0.55	Lot too small
+# 8 HIGH ST	LCD	LCD		1.0	0.58	Lot too small
+# 181 DORCHESTER RD	LCD	LCD	1	1.0	0.59	Lot too small
+# 169 DORCHESTER RD 	LCD	LCD	1	1.0	0.6	Lot too small
+# 12 CREAMERY LN	LCD	LCD		1.0	0.61	Lot too small
+# 3 MAIN ST	LCD	LCD		1.0	0.63	Lot too small
+# 12 ON THE COMMON	LCD	LCD		1.0	0.65	Lot too small
+# 36 HIGH ST	LCD	LCD		1.0	0.66	Lot too small
+# 27 UNION ST 	LCD	LCD		1.0	0.67	Lot too small
+# 8 EAST THETFORD RD	LCD	LCD	1	1.0	0.67	Lot too small
+# 176 DORCHESTER RD	LCD	LCD	1	1.0	0.67	Lot too small
+# 30 PLEASANT ST	LCD	LCD		1.0	0.69	Lot too small
+# 6 EAST THETFORD RD 	LCD	LCD	1	1.0	0.7	Lot too small
+# 32 PLEASANT ST	LCD	LCD		1.0	0.7	Lot too small
+# 14 HIGH ST	LCD	LCD		1.0	0.76	Lot too small
+# 16 ON THE COMMON	LCD	LCD		1.0	0.78	Lot too small
+# 12+14 PLEASANT ST	LCD	LCD		1.0	0.8	Lot too small
+# 15 MAIN ST  	LCD	LCD		1.0	0.8	Lot too small
+# 2 HAMILTON LN	LCD	LCD		1.0	0.81	Lot too small
+# 185 DORCHESTER RD	LCD	LCD	1	1.0	0.87	Lot too small
+# 16 PLEASANT ST	LCD	LCD		1.0	0.9	Lot too small
+# 49 HIGH ST 	LCD	LCD		1.0	0.95	Lot too small
+# 5 MAIN ST	LCD	LCD		1.0	0.96	Lot too small
+# 40 DORCHESTER RD	LCD	LCD	1	1.0	0.98	Lot too small
+# 17 UNION ST 	LCD	LCD		1.0	0.99	Lot too small
+# 629 DORCHESTER RD	ELD	RD	1	3.0	0.17	Lot too small
+# 130 DORCHESTER RD	RD	RD	1	3.0	0.34	Lot too small
+# 637 DORCHESTER RD (LAND ONLY)	ELD	RD	1	3.0	0.37	Lot too small
+# 229 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.38	Lot too small
+# 232 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.4	Lot too small
+# 166 DARTMOUTH COLLEGE HY 	RD	RD	1	3.0	0.47	Lot too small
+# 15 ORFORD RD	RD	RD	1	3.0	0.47	Lot too small
+# 641 DORCHESTER RD	ELD	RD	1	3.0	0.47	Lot too small
+# 246 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.53	Lot too small
+# 379 DORCHESTER RD (LAND ONLY)	RD	RD	1	3.0	0.54	Lot too small
+# 517 DORCHESTER RD (BEALE CEM	ELD	RD	1	3.0	0.57	Lot too small
+# 141 DORCHESTER RD	RD	RD	1	3.0	0.61	Lot too small
+# 241 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.62	Lot too small
+# 625 DORCHESTER RD	ELD	RD	1	3.0	0.62	Lot too small
+# 240 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.67	Lot too small
+# 168 DORCHESTER RD		RD	1	3.0	0.71	Lot too small
+# 2 EAST THETFORD RD 		RD	1	3.0	0.72	Lot too small
+# 376 DORCHESTER RD	RD	RD	1	3.0	0.8	Lot too small
+# 167 DORCHESTER RD		RD	1	3.0	0.82	Lot too small
+# 102 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.83	Lot too small
+# 147 DORCHESTER RD	RD	RD	1	3.0	0.86	Lot too small
+# 155 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.87	Lot too small
+# 623 DORCHESTER RD	ELD	RD	1	3.0	0.87	Lot too small
+# 634 DORCHESTER RD	ELD	RD	1	3.0	0.88	Lot too small
+# 393 ORFORD RD	RD	RD	1	3.0	0.9	Lot too small
+# 234 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	0.92	Lot too small
+# 53 EAST THETFORD RD 	RD	RD	1	3.0	1	Lot too small
+# 638 DORCHESTER RD	ELD	RD	1	3.0	1	Lot too small
+# 1 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	1.1	Lot too small
+# 233 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	1.1	Lot too small
+# 201 DORCHESTER RD		RD	1	3.0	1.1	Lot too small
+# 300 DARTMOUTH COLLEGE HY 	RD	RD	1	3.0	1.2	Lot too small
+# 13 ORFORD RD 	RD	RD	1	3.0	1.3	Lot too small
+# 197 DORCHESTER RD	RD	RD	1	3.0	1.4	Lot too small
+# 355 ORFORD RD		RD	1	3.0	1.4	Lot too small
+# 643 DORCHESTER RD	ELD	RD	1	3.0	1.43	Lot too small
+# 208 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	1.5	Lot too small
+# 150 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	1.5	Lot too small
+# 150 DORCHESTER RD		RD	1	3.0	1.5	Lot too small
+# 132 DORCHESTER RD 		RD	1	3.0	1.5	Lot too small
+# 228 DORCHESTER RD	RD	RD	1	3.0	1.56	Lot too small
+# 84 ORFORD RD	RD	RD	1	3.0	1.59	Lot too small
+# 24 ORFORD RD	RD	RD	1	3.0	1.6	Lot too small
+# 320 ORFORD RD	RD	RD	1	3.0	1.75	Lot too small
+# 658 DORCHESTER RD 	ELD	RD	1	3.0	1.91	Lot too small
+# 218 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	2	Lot too small
+# 187 ORFORD RD	RD	RD	1	3.0	2	Lot too small
+# 35 ORFORD RD	RD	RD	1	3.0	2	Lot too small
+# 227 DORCHESTER RD	RD	RD	1	3.0	2	Lot too small
+# 632 DORCHESTER RD 	ELD	RD	1	3.0	2.06	Lot too small
+# 149 ORFORD RD	RD	RD	1	3.0	2.1	Lot too small
+# 61 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	2.2	Lot too small
+# 105 ORFORD RD (LAND ONLY)	RD	RD	1	3.0	2.2	Lot too small
+# 150 ORFORD RD	RD	RD	1	3.0	2.2	Lot too small
+# 361 DORCHESTER RD 	RD	RD	1	3.0	2.2	Lot too small
+# 188 DARTMOUTH COLLEGE HY		RD	1	3.0	2.26	Lot too small
+# 359 DORCHESTER RD	RD	RD	1	3.0	2.32	Lot too small
+# 77 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	2.4	Lot too small
+# 396 ORFORD RD	RD	RD	1	3.0	2.5	Lot too small
+# 186 ORFORD RD	RD	RD	1	3.0	2.6	Lot too small
+# 125 EAST THETFORD RD	RD	RD	1	3.0	2.63	Lot too small
+# 100 ORFORD RD	RD	RD	1	3.0	2.67	Lot too small
+# 202 DORCHESTER RD	RD	RD	1	3.0	2.69	Lot too small
+# 174 DARTMOUTH COLLEGE HY	RD	RD	1	3.0	2.9	Lot too small
+# 171 ACORN HILL RD (LAND ONLY)	RD	RD		5.0	0.04	Lot too small
+# 111 NORTH THETFORD RD	RD	RD		5.0	0.06	Lot too small
+# 40 GOOSE POND RD		RD		5.0	0.07	Lot too small
+# 301 RIVER RD	RD	RD		5.0	0.14	Lot too small
+# 299 RIVER RD	RD	RD		5.0	0.15	Lot too small
+# 307 RIVER RD 	RD	RD		5.0	0.15	Lot too small
+# 69 POST POND LN	RD	RD		5.0	0.15	Lot too small
+# 110 POST POND LN	RD	RD		5.0	0.15	Lot too small
+# 65 POST POND LN	RD	RD		5.0	0.17	Lot too small
+# 174 GOOSE POND RD	RD	RD		5.0	0.17	Lot too small
+# 51 POST POND LN	RD	RD		5.0	0.18	Lot too small
+# 169 BAKER HILL RD 	RD	RD		5.0	0.19	Lot too small
+# 108 POST POND LN	RD	RD		5.0	0.2	Lot too small
+# 303 RIVER RD	RD	RD		5.0	0.21	Lot too small
+# 101 GRAFTON TK	ELD	RD		5.0	0.24	Lot too small
+# 114 POST POND LN	RD	RD		5.0	0.25	Lot too small
+# 193 GOOSE POND RD	RD	RD		5.0	0.3	Lot too small
+# 88 POST POND LN	RD	RD		5.0	0.31	Lot too small
+# 153 PINNACLE RD	RD	RD		5.0	0.32	Lot too small
+# 7 SLOAN LN	RD	RD		5.0	0.33	Lot too small
+# 57 NORTH THETFORD RD	RD	RD		5.0	0.33	Lot too small
+# 30 SHOESTRAP RD	RD	RD		5.0	0.34	Lot too small
+# 123 RIVER RD	RD	RD		5.0	0.34	Lot too small
+# 597 RIVER RD (PORTER CEMETERY		RD		5.0	0.36	Lot too small
+# 311 RIVER RD	RD	RD		5.0	0.37	Lot too small
+# 323 RIVER RD	RD	RD		5.0	0.38	Lot too small
+# 47 POST POND LN 	RD	RD		5.0	0.39	Lot too small
+# 4 BROOK LN	RD	RD		5.0	0.41	Lot too small
+# 45 POST POND LN		RD		5.0	0.42	Lot too small
+# 32 POST POND LN	RD	RD		5.0	0.43	Lot too small
+# 156 GOOSE POND RD	RD	RD		5.0	0.45	Lot too small
+# 154 GOOSE POND RD	RD	RD		5.0	0.45	Lot too small
+# 53 POST POND LN		RD		5.0	0.46	Lot too small
+# 172 GOOSE POND RD	RD	RD		5.0	0.46	Lot too small
+# 138 GOOSE POND RD	RD	RD		5.0	0.47	Lot too small
+# 14 BAKER HILL RD	RD	RD		5.0	0.47	Lot too small
+# 30 MARKET ST 	RD	RD		5.0	0.5	Lot too small
+# 8 SLOAN LN	RD	RD		5.0	0.51	Lot too small
+# 49 POST POND LN	RD	RD		5.0	0.52	Lot too small
+# 67 POST POND LN	RD	RD		5.0	0.52	Lot too small
+# 2 MAPLE LN	RD	RD		5.0	0.53	Lot too small
+# 36 GOOSE POND RD	RD	RD		5.0	0.54	Lot too small
+# 327 RIVER RD	RD	RD		5.0	0.58	Lot too small
+# 176 GOOSE POND RD	RD	RD		5.0	0.6	Lot too small
+# 136 RIVER RD 	RD	RD		5.0	0.63	Lot too small
+# 102 BEAR HILL LN	RD	RD		5.0	0.63	Lot too small
+# 61 POST POND LN		RD		5.0	0.64	Lot too small
+# 5 SLOAN LN 	RD	RD		5.0	0.66	Lot too small
+# 339 RIVER RD		RD		5.0	0.66	Lot too small
+# 319 RIVER RD	RD	RD		5.0	0.69	Lot too small
+# 4 PINNACLE RD	RD	RD		5.0	0.69	Lot too small
+# 67+69 PINNACLE RD	RD	RD		5.0	0.7	Lot too small
+# 10 PINNACLE RD	RD	RD		5.0	0.71	Lot too small
+# 327 BAKER HILL RD	RD	RD		5.0	0.76	Lot too small
+# 82 RIVER RD	RD	RD		5.0	0.83	Lot too small
+# 530 RIVER RD	RD	RD		5.0	0.86	Lot too small
+# 62 ACORN HILL RD	RD	RD		5.0	0.87	Lot too small
+# 50 PINNACLE RD	RD	RD		5.0	0.89	Lot too small
+# 51 RIVER RD	RD	RD		5.0	0.9	Lot too small
+# 142 GOOSE POND RD	RD	RD		5.0	0.91	Lot too small
+# 107 BEAR HILL LN	RD	RD		5.0	0.91	Lot too small
+# 315 RIVER RD	RD	RD		5.0	0.92	Lot too small
+# 669 RIVER RD	RD	RD		5.0	0.93	Lot too small
+# 116 RIVER RD	RD	RD		5.0	0.94	Lot too small
+# 172 ACORN HILL RD	RD	RD		5.0	0.94	Lot too small
+# 103 BEAR HILL LN	RD	RD		5.0	0.94	Lot too small
+# 48 SHOESTRAP RD	RD	RD		5.0	0.95	Lot too small
+# 535 RIVER RD	RD	RD		5.0	0.96	Lot too small
+# 121 MUD TURTLE POND RD	RD	RD		5.0	0.96	Lot too small
+# 71 BAKER HILL RD	RD	RD		5.0	0.97	Lot too small
+# 115 FLINT HILL RD	RD	RD		5.0	0.97	Lot too small
+# 526 RIVER RD 	RD	RD		5.0	0.98	Lot too small
+# 652+654 RIVER RD	RD	RD		5.0	0.98	Lot too small
+# 76 FRANKLIN HILL RD 	RD	RD		5.0	0.99	Lot too small
+# 130 RIVER RD	RD	RD		5.0	1	Lot too small
+# 111 RIVER RD (HEWES BROOK PRE	RD	RD		5.0	1	Lot too small
+# 161 RIVER RD	RD	RD		5.0	1	Lot too small
+# 150 WHIPPLE HILL RD		RD		5.0	1	Lot too small
+# 162 GOOSE POND RD 	RD	RD		5.0	1.03	Lot too small
+# 158 GOOSE POND RD	RD	RD		5.0	1.04	Lot too small
+# 54 GOOSE POND RD 	RD	RD		5.0	1.1	Lot too small
+# 97 PRESTON RD 	RD	RD		5.0	1.1	Lot too small
+# 131 MUD TURTLE POND RD	RD	RD		5.0	1.1	Lot too small
+# 2 ACORN HILL RD	RD	RD		5.0	1.1	Lot too small
+# 305 BAKER HILL RD	RD	RD		5.0	1.1	Lot too small
+# 5 FLINT HILL RD	RD	RD		5.0	1.1	Lot too small
+# 47 GOOSE POND RD 	RD	RD		5.0	1.2	Lot too small
+# 658 RIVER RD	RD	RD		5.0	1.2	Lot too small
+# 182 GOOSE POND RD	RD	RD		5.0	1.2	Lot too small
+# 107 FLINT HILL RD 	RD	RD		5.0	1.26	Lot too small
+# 30 WILMOTT WY (LAND ONLY)	RD	RD		5.0	1.3	Lot too small
+# 131 RIVER RD 	RD	RD		5.0	1.3	Lot too small
+# 8 PUSHEE FALLS LN	RD	RD		5.0	1.3	Lot too small
+# 52 PICO RD	RD	RD		5.0	1.3	Lot too small
+# 57 POST POND LN	RD	RD		5.0	1.31	Lot too small
+# 6 SPRING HILL LN		RD		5.0	1.5	Lot too small
+# 51 GOOSE POND RD	RD	RD		5.0	1.5	Lot too small
+# 57 GOOSE POND RD	RD	RD		5.0	1.5	Lot too small
+# 6 WILMOTT WY	RD	RD		5.0	1.5	Lot too small
+# 101 RIVER RD	RD	RD		5.0	1.55	Lot too small
+# 591 RIVER RD	RD	RD		5.0	1.6	Lot too small
+# 4 PUSHEE FALLS LN	RD	RD		5.0	1.6	Lot too small
+# 157 GOOSE POND RD 	RD	RD		5.0	1.7	Lot too small
+# 25 BRECK HILL RD 	RD	RD		5.0	1.7	Lot too small
+# 1 FLINT HILL RD 	RD	RD		5.0	1.7	Lot too small
+# 5 WILMOTT WY	RD	RD		5.0	1.7	Lot too small
+# 534 RIVER RD	RD	RD		5.0	1.78	Lot too small
+# 39 SHOESTRAP RD (OLD DUMP)	RD	RD		5.0	1.8	Lot too small
+# 139 RIVER RD	RD	RD		5.0	1.8	Lot too small
+# 207 RIVER RD	RD	RD		5.0	1.8	Lot too small
+# 668 RIVER RD	RD	RD		5.0	1.8	Lot too small
+# 101 BEAR HILL LN	RD	RD		5.0	1.8	Lot too small
+# 616 RIVER RD 	RD	RD		5.0	1.8	Lot too small
+# 175 NORTH THETFORD RD	RD	RD		5.0	1.84	Lot too small
+# 148 GOOSE POND RD	RD	RD		5.0	1.9	Lot too small
+# 61 RIVER RD	RD	RD		5.0	1.9	Lot too small
+# 183 GOOSE POND RD	RD	RD		5.0	1.9	Lot too small
+# 205 BAKER HILL RD	RD	RD		5.0	1.93	Lot too small
+# 153 GOOSE POND RD	RD	RD		5.0	2	Lot too small
+# 71 PRESTON RD		RD		5.0	2	Lot too small
+# 88 NORTH THETFORD RD	RD	RD		5.0	2	Lot too small
+# 135 MUD TURTLE POND RD	RD	RD		5.0	2	Lot too small
+# 111 WHIPPLE HILL RD		RD		5.0	2	Lot too small
+# 31 PINNACLE RD	RD	RD		5.0	2	Lot too small
+# 124 BAKER HILL RD	RD	RD		5.0	2	Lot too small
+# 14 CANAAN LEDGE LN		RD		5.0	2	Lot too small
+# 6 CANAAN LEDGE LN	ELD	RD		5.0	2	Lot too small
+# 4 CANAAN LEDGE LN	ELD	RD		5.0	2	Lot too small
+# 2 CANAAN LEDGE LN	ELD	RD		5.0	2	Lot too small
+# 72 GRAFTON TK 	ELD	RD		5.0	2	Lot too small
+# 70 GRAFTON TK	ELD	RD		5.0	2	Lot too small
+# 34 WILMOTT WY	RD	RD		5.0	2.01	Lot too small
+# 17 NORTH THETFORD RD	RD	RD		5.0	2.03	Lot too small
+# 59 PICO RD	RD	RD		5.0	2.07	Lot too small
+# 25 WILMOTT WY	RD	RD		5.0	2.1	Lot too small
+# 3 MAPLE LN	RD	RD		5.0	2.1	Lot too small
+# 48 ISAAC PERKINS RD	RD	RD		5.0	2.1	Lot too small
+# 203 GOOSE POND RD 	RD	RD		5.0	2.1	Lot too small
+# 10 CANAAN LEDGE LN	ELD	RD		5.0	2.1	Lot too small
+# 17 FLINT HILL RD	RD	RD		5.0	2.1	Lot too small
+# 105 RIVER RD	RD	RD		5.0	2.1	Lot too small
+# 155 RIVER RD	RD	RD		5.0	2.15	Lot too small
+# 234 RIVER RD	RD	RD		5.0	2.18	Lot too small
+# 108 NORTH THETFORD RD	RD	RD		5.0	2.2	Lot too small
+# 41 POST POND LN	RD	RD		5.0	2.2	Lot too small
+# 67 + 69 BAKER HILL RD	RD	RD		5.0	2.2	Lot too small
+# 18 CANAAN LEDGE LN		RD		5.0	2.2	Lot too small
+# 159 BAKER HILL RD	RD	RD		5.0	2.26	Lot too small
+# 5 BROOK LN 	RD	RD		5.0	2.3	Lot too small
+# 133+137 RIVER RD	RD	RD		5.0	2.3	Lot too small
+# 131 NORTH THETFORD RD	RD	RD		5.0	2.3	Lot too small
+# 1 CUTTING HILL LN	RD	RD		5.0	2.3	Lot too small
+# 143 RIVER RD	RD	RD		5.0	2.33	Lot too small
+# 66 FRANKLIN HILL RD	RD	RD		5.0	2.34	Lot too small
+# 7 HEWS LN	RD	RD		5.0	2.4	Lot too small
+# 8 HEWS LN	RD	RD		5.0	2.4	Lot too small
+# 608 RIVER RD 	RD	RD		5.0	2.4	Lot too small
+# 70 FRANKLIN HILL RD	RD	RD		5.0	2.41	Lot too small
+# 65 PICO RD	RD	RD		5.0	2.44	Lot too small
+# 12 WILMOTT WY	RD	RD		5.0	2.5	Lot too small
+# 9 GREGORY RD	RD	RD		5.0	2.5	Lot too small
+# 320 BAKER HILL RD 	RD	RD		5.0	2.6	Lot too small
+# 104 GOOSE POND RD	RD	RD		5.0	2.6	Lot too small
+# 8 GOODELL LN	RD	RD		5.0	2.7	Lot too small
+# 12 MAPLE LN	RD	RD		5.0	2.7	Lot too small
+# 24 BRECK HILL RD	RD	RD		5.0	2.7	Lot too small
+# 17 CANAAN LEDGE LN (L/O)	ELD	RD		5.0	2.7	Lot too small
+# 13 HEWS LN	RD	RD		5.0	2.8	Lot too small
+# 18 NORTH THETFORD RD	RD	RD		5.0	2.8	Lot too small
+# 149 GOOSE POND RD	RD	RD		5.0	2.82	Lot too small
+# 321 BAKER HILL RD 	RD	RD		5.0	2.89	Lot too small
+# 34 ACORN HILL RD	RD	RD		5.0	2.9	Lot too small
+# 60 BLISS LN	RD	RD		5.0	2.9	Lot too small
+# 171 GOOSE POND RD	RD	RD		5.0	2.9	Lot too small
+# 58 ORFORDVILLE RD	RD	RD		5.0	2.9	Lot too small
+# 43 BRECK HILL RD	RD	RD		5.0	2.92	Lot too small
+# 96 GRAFTON TK	ELD	RD		5.0	2.95	Lot too small
+# 17 MAPLE LN	RD	RD		5.0	3	Lot too small
+# 667 RIVER RD	RD	RD		5.0	3	Lot too small
+# 11 PINNACLE RD	RD	RD		5.0	3	Lot too small
+# 54 BLISS LN	RD	RD		5.0	3	Lot too small
+# 8 FLINT HILL RD	RD	RD		5.0	3	Lot too small
+# 11  PRESTON RD	RD	RD		5.0	3.01	Lot too small
+# 69 WASHBURN HILL RD	RD	RD		5.0	3.1	Lot too small
+# 45 PINNACLE RD	RD	RD		5.0	3.1	Lot too small
+# 100 GRAFTON TK	ELD	RD		5.0	3.1	Lot too small
+# 137 ORFORDVILLE RD	RD	RD		5.0	3.1	Lot too small
+# 48 NORTH THETFORD RD		RD		5.0	3.2	Lot too small
+# 41 ISAAC PERKINS RD	RD	RD		5.0	3.2	Lot too small
+# 12 SMITH MOUNTAIN RD	RD	RD		5.0	3.2	Lot too small
+# 1 FRANKLIN HILL RD	RD	RD		5.0	3.24	Lot too small
+# 121 PINNACLE RD	RD	RD		5.0	3.3	Lot too small
+# 64 WASHBURN HILL RD	RD	RD		5.0	3.31	Lot too small
+# 11 MAPLE LN	RD	RD		5.0	3.4	Lot too small
+# 161 GOOSE POND RD		RD		5.0	3.44	Lot too small
+# 45 POUT POND LN		RD		5.0	3.46	Lot too small
+# 38 RIVER RD	RD	RD		5.0	3.5	Lot too small
+# 117 RIVER RD	RD	RD		5.0	3.5	Lot too small
+# 97 PICO RD	RD	RD		5.0	3.6	Lot too small
+# 16 DAVISON LN		RD		5.0	3.6	Lot too small
+# 43 FRANKLIN HILL RD	RD	RD		5.0	3.65	Lot too small
+# 1 PLEASANT ST (OLD CEMETERY		RD		5.0	3.7	Lot too small
+# 331 RIVER RD	RD	RD		5.0	3.7	Lot too small
+# 16 POST POND LN	RD	RD		5.0	3.7	Lot too small
+# 13 NORTH THETFORD RD	RD	RD		5.0	3.72	Lot too small
+# 2 SHOESTRAP RD	RD	RD		5.0	3.78	Lot too small
+# 100 NORTH THETFORD RD 	RD	RD		5.0	3.8	Lot too small
+# 22 NORTH THETFORD RD	RD	RD		5.0	3.8	Lot too small
+# 53 ACORN HILL RD	RD	RD		5.0	3.8	Lot too small
+# 125 BRECK HILL RD 	RD	RD		5.0	4.06	Lot too small
+# 215 BAKER HILL RD	RD	RD		5.0	4.06	Lot too small
+# 35 PINNACLE RD	RD	RD		5.0	4.1	Lot too small
+# 16 BRITTON LN	RD	RD		5.0	4.1	Lot too small
+# 47 ISAAC PERKINS RD	RD	RD		5.0	4.1	Lot too small
+# 54 BAKER HILL RD	SFR	RD		5.0	4.13	Lot too small
+# 50 POST POND LN	RD	RD		5.0	4.2	Lot too small
+# 52 NORTH THETFORD RD 		RD		5.0	4.2	Lot too small
+# 99 FLINT HILL RD	RD	RD		5.0	4.2	Lot too small
+# 10 WHIPPLE HILL RD-GRAVELPIT	RD	RD		5.0	4.27	Lot too small
+# 62 RIVER RD	RD	RD		5.0	4.4	Lot too small
+# 45 ACORN HILL RD	RD	RD		5.0	4.4	Lot too small
+# 330 RIVER RD	RD	RD		5.0	4.48	Lot too small
+# 33 NORTH THETFORD RD	RD	RD		5.0	4.7	Lot too small
+# 15 TURNER LN		RD		5.0	4.7	Lot too small
+# 30 NORTH THETFORD RD	RD	RD		5.0	4.9	Lot too small
+# 21 WILMOTT WY	RD	RD		5.0	4.91	Lot too small
+# 37 LAMPHIRE HILL LN	RD	RD		5.0	4.93	Lot too small
