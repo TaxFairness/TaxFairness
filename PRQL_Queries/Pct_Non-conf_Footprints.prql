@@ -1,0 +1,188 @@
+# =======================================
+# Total Footprint statistics for Lyme Residences
+# For each building on the property:
+# - Compute "fooprint" by dividing gross floor area by # stories
+# - Add in 450sf for 15 x 30 foot driveway
+# Divide that by total lot size (x 43560 to get SF)
+#
+# 
+#
+# =======================================
+
+prql target:sql.sqlite
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s'printf("%1.1f%", {v})'
+
+# sig_fig - print a value with n decimal places
+# inserts comma for thousands/millions 
+let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
+
+# isStateRoad == 1 if it's a state road
+let isStateRoad = road -> case [
+  road ~= "ORFORD " => 1,
+  road ~= "DARTMOUTH COLLEGE" => 1,
+  road ~= "DORCHESTER" => 1,
+  road ~= "EAST THETFORD" => 1,
+  true => 0,
+]
+# Clean up zoning districts
+let CleanZoningDistrict = zd -> case [
+  zd == "ES" => "RD",
+  zd == "R" => "RD",
+  zd == "SFR" => "RD",
+  zd == "URD" => "RD",
+  zd == "LCD" => "LCD",
+  zd == "CD" => "LCD",
+  zd == "LDC" => "LCD",
+  zd == "SD" => "RD",
+  zd == "" => "Unknown",
+  true => zd,
+]
+# SubDistrict distinguishes between on-state-road and not
+# Also might (but doesn't) distinguish between Lyme Center and Lyme Common
+# Produces pleasing printable name
+let SubDistrict = dist road -> case [
+  dist == "LCD" => "LymeCommon/Ctr",
+  dist == "BD" => "Commercial",
+  dist == "RD" && road == 1 => "Rural-State Road",
+  dist == "RD" && road == 0 => "Rural-Town Road",
+  dist == "ELD" => "EastLyme",
+  dist == "SKIWAY" => "Skiway",
+  dist == "MFD" => "MtnForest",
+  true => dist,
+]
+# Return current min lot size for a zoning district
+let CurrentMinLotSize = zd -> case [
+  zd == "LymeCommon/Ctr" => 1.0,
+  zd == "Commercial" => 2.0,
+  zd == "Rural-State Road" => 3.0,
+  zd == "Rural-Town Road" => 5.0,
+  zd == "EastLyme" => 15.0,
+  zd == "Skiway" => 2.0,
+  zd == "MtnForest" => 50.0,
+  true => "?",
+]
+# Return allowed percent coverage for a zoning district
+let AllowedPctCoverage = zd -> case [
+  zd == "LymeCommon/Ctr" => 12.0,
+  zd == "Commercial" => 20.0,
+  zd == "Rural-State Road" => 12.0,
+  zd == "Rural-Town Road" => 12.0,
+  zd == "EastLyme" => 12.0,
+  zd == "Skiway" => 2.0,
+  zd == "MtnForest" => 2.0,
+  true => "?",
+]
+# Return allowed square feet (as percentage of lot size) for any building in a zoning district
+let AllowedBldgFtprt = zd -> case [
+  zd == "LymeCommon/Ctr" => 6.0,    # percent
+  zd == "Commercial" => 10.0,       # percent
+  zd == "Rural-State Road" => 2.0,  # percent
+  zd == "Rural-Town Road" => 2.0,   # percent
+  zd == "EastLyme" => 2.0,          # percent
+  zd == "Skiway" => 2.0,            # percent
+  zd == "MtnForest" => 2.0,         # percent
+  true => "?",
+]
+# Return Gross Floor Area for a zoning district
+let AllowedGFA = zd -> case [
+  zd == "LymeCommon/Ctr" => 6000.0,
+  zd == "Commercial" => 14000.0,
+  zd == "Rural-State Road" => 14000.0,
+  zd == "Rural-Town Road" => 14000.0,
+  zd == "EastLyme" => 14000.0,
+  zd == "Skiway" => 14000.0,
+  zd == "MtnForest" => 14000.0,
+  true => "?",
+]
+
+# ============ begin  query ==============
+from buildings
+filter BL_Model == "Residential"
+# filter BL_BuildingNum == 1
+select {
+  BL_PID,
+  BL_Gross_Floor_Area,
+  BL_Stories,
+  BL_Year_Built,
+  # ComputedFootprint=BL_Gross_Floor_Area / BL_Stories * 1.0,
+  # # Allowance for 15 x 30 ft driveway
+  # BldgPlusDriveway = ComputedFootprint + 450,
+  # Era = case [
+  #   BL_Year_Built < 1900 => 1,
+  #   BL_Year_Built < 1983 => 2,
+  #   BL_Year_Built < 2000 => 3,
+  #   true => 4,
+  # ]
+}
+# Sum up the computed footprint for each building on a PID
+group { BL_PID } (
+  aggregate {
+    TotalFtprt = sum (BL_Gross_Floor_Area / BL_Stories),
+    blgs = count this,
+  }
+)
+
+join sd=ScrapedData (this.BL_PID == that.SD_PID)
+filter SD_Version == 14
+filter SD_Lot_Size != 0
+
+# Clean up districts
+derive { District = CleanZoningDistrict sd.SD_Zoning_District }
+# ZDistrict distinguishes between on-state-road and not
+# Also distinguishes between Lyme Center and Lyme Common
+# Only care about Rural, assume all on town roads
+derive { ZDistrict = SubDistrict District (isStateRoad sd.SD_Street_Address) }
+derive { PermittedCoverage = AllowedPctCoverage ZDistrict }
+
+# filter SD_Lot_Size < 1.5
+# filter SD_Zoning_District != "RD"
+derive { ComputedLotCoverage = TotalFtprt * 100.0 / (SD_Lot_Size * 43560) }
+# sort {ComputedLotCoverage}
+sort { ZDistrict, ComputedLotCoverage }
+select {
+  ZDistrict,
+  SD_PID,
+  `Total Footprint` = TotalFtprt,
+  `Lot (ac)` = SD_Lot_Size,
+  PermittedCoverage,
+  ComputedLotCoverage,
+}
+# TooFull is boolean showing whether the footprint > Max Lot Coverage 
+derive TooFull = case [
+    ZDistrict == "LymeCommon/Ctr" && ComputedLotCoverage > 12.0 => 1,
+    ComputedLotCoverage > 2.0 => 1,
+    true => 0
+  ]
+# filter ComputedLotCoverage >= 12.0
+
+# Now group by district to see how many are non-conforming
+derive `Zoning District` = ZDistrict
+group { ZDistrict } (
+  aggregate {
+    MinLotSize = CurrentMinLotSize `Zoning District`,
+    TotalParcels = count this,
+    `AllowedCoverage` = (prtpct (min PermittedCoverage)),
+    # MinCoverage = (prtpct (min ComputedLotCoverage)),
+    MaxCoverage = (prtpct (max ComputedLotCoverage)),
+    NumOverCoverage = sum TooFull,
+  }
+)
+derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
+sort { MinLotSize }
+
+#  === Percent of properties where lot coverage is too high =========
+# ZDistrict	FullParcels	TotalParcels	PctFullParcels
+# EastLyme	9	29	31.0%
+# LymeCommon/Ctr	86	102	84.3%
+# MtnForest	0	4	0.0%
+# Rural-Town Road	158	496	31.9%
+# Skiway	0	1	0.0%
+# Unknown	22	59	37.3%

@@ -988,7 +988,7 @@ CREATE TABLE "MS1_Data" (
 
 CREATE TABLE "Buildings" (
 "BL_PID" TEXT,
-"BL_Building #" TEXT,
+"BL_BuildingNum" TEXT,
 "BL_Year_Built" TEXT,
 "BL_Living_Area1" INTEGER,
 "BL_Replacement_Cost" INTEGER,

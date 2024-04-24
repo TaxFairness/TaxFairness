@@ -1,0 +1,55 @@
+# =======================================
+# Footprint statistics for Lyme Residences
+# Compute "fooprint" by dividing gross floor area by # stories
+# Add in 450sf for 15 x 30 foot driveway
+# Divide that by total lot size (x 43560 to get SF)
+# =======================================
+
+prql target:sql.sqlite
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s'printf("%1.1f%", {v})'
+
+# sig_fig - print a value with n decimal places
+# inserts comma for thousands/millions 
+let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
+
+from buildings
+filter BL_Model == "Residential"
+filter BL_BuildingNum == 1
+select {
+  BL_PID,
+  BL_Gross_Floor_Area,
+  BL_Stories,
+  BL_Year_Built,
+  ComputedFootprint=BL_Gross_Floor_Area / BL_Stories * 1.0,
+  # Allowance for 15 x 30 ft driveway
+  BldgPlusDriveway = ComputedFootprint + 450,
+  Era = case [
+    BL_Year_Built < 1900 => 1,
+    BL_Year_Built < 1983 => 2,
+    BL_Year_Built < 2000 => 3,
+    true => 4,
+  ]
+}
+join ScrapedData (this.BL_PID == that.SD_PID)
+filter SD_Version == 14
+filter SD_Lot_Size != 0
+filter SD_Lot_Size < 1.5
+filter SD_Zoning_District != "RD"
+derive { ComputedLotCoverage = BldgPlusDriveway * 100.0 / (SD_Lot_Size * 43560) }
+sort {ComputedLotCoverage}
+select {
+  SD_Zoning_District,
+  SD_PID,
+  ComputedFootprint,
+  SD_Lot_Size,
+  ComputedLotCoverage,
+}
+filter ComputedLotCoverage >= 12.0
