@@ -125,6 +125,7 @@ select {
 # Sum up the computed footprint for each building on a PID
 group { BL_PID } (
   aggregate {
+    BiggestFtprt = max (BL_Gross_Floor_Area / BL_Stories),
     TotalFtprt = sum (BL_Gross_Floor_Area / BL_Stories),
     blgs = count this,
   }
@@ -149,34 +150,45 @@ derive { ComputedLotCoverage = TotalFtprt * 100.0 / (SD_Lot_Size * 43560) }
 sort { ZDistrict, ComputedLotCoverage }
 select {
   ZDistrict,
+  SD_Lot_Size,
   SD_PID,
   `Total Footprint` = TotalFtprt,
   `Lot (ac)` = SD_Lot_Size,
   PermittedCoverage,
   ComputedLotCoverage,
+  BiggestFtprt,
+  pctFootprint=BiggestFtprt / (43560* SD_Lot_Size),
+  Allowed = (AllowedBldgFtprt ZDistrict),
+
+
 }
 # TooFull is boolean showing whether the footprint > Max Lot Coverage 
 derive TooFull = case [
-    ZDistrict == "LymeCommon/Ctr" && ComputedLotCoverage > 12.0 => 1,
-    ComputedLotCoverage > 2.0 => 1,
+    ComputedLotCoverage > AllowedPctCoverage ZDistrict => 1,
     true => 0
   ]
-# filter ComputedLotCoverage >= 12.0
 
+# TooBig is boolean if max building is > allowed
+derive TooBig = case [
+  BiggestFtprt *100.0/ (43560* SD_Lot_Size) > (AllowedBldgFtprt ZDistrict) => 1,
+  true => 0
+  ]
+sort {pctFootprint}
 # Now group by district to see how many are non-conforming
 derive `Zoning District` = ZDistrict
-group { ZDistrict } (
-  aggregate {
-    MinLotSize = CurrentMinLotSize `Zoning District`,
-    TotalParcels = count this,
-    `AllowedCoverage` = (prtpct (min PermittedCoverage)),
-    # MinCoverage = (prtpct (min ComputedLotCoverage)),
-    MaxCoverage = (prtpct (max ComputedLotCoverage)),
-    NumOverCoverage = sum TooFull,
-  }
-)
-derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
-sort { MinLotSize }
+# group { ZDistrict } (
+#   aggregate {
+#     MinLotSize = CurrentMinLotSize `Zoning District`,
+#     TotalParcels = count this,
+#     `AllowedCoverage` = (prtpct (min PermittedCoverage)),
+#     # MinCoverage = (prtpct (min ComputedLotCoverage)),
+#     MaxCoverage = (prtpct (max ComputedLotCoverage)),
+#     NumOverCoverage = sum TooFull,
+#     NumTooBig = sum TooBig,
+#   }
+# )
+# derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
+# sort { MinLotSize }
 
 #  === Percent of properties where lot coverage is too high =========
 # ZDistrict	FullParcels	TotalParcels	PctFullParcels
