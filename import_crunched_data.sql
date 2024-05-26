@@ -77,6 +77,7 @@ vacuum;
 .import "DefinitiveData/NH_DRA_Muni_Tax_Rates.csv" TaxRates
 .import "DefinitiveData/ScrapedData.csv" ScrapedData
 .import "DefinitiveData/Equalization and Property Values-2022-tables-by-county.csv" MuniPropVals
+.import "DefinitiveData/Corrected_Zoning_Districts.csv" CorrectedZoningDistrict
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme

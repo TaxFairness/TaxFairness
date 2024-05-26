@@ -453,38 +453,19 @@ CREATE TABLE "MuniPropVals"
 "MP_CollectedOn" TEXT
 );
 
-# Full name of columns from spreadsheet
-# "MP_Municipality" INTEGER,
-# "MP_RSA_79-A_Current_Use_Land" INTEGER,
-# "MP_RSA_79-B_Conservation_Restriction__Land" INTEGER,
-# "MP_RSA_79-C_Discretionary_Easement__Land" INTEGER,
-# "MP_RSA_79-D_Discretionary_Preservation_Easement_Land" INTEGER,
-# "MP_RSA_79-F_Land_Under_Farm_Structures" INTEGER,
-# "MP_Residential__Land" INTEGER,
-# "MP_Commercial_Industrial_Land" INTEGER,
-# "MP_Residential_Buildings" INTEGER,
-# "MP_Manufactured_Housing" INTEGER,
-# "MP_Commercial_Industrial_Buildings" INTEGER,
-# "MP_RSA_79-D_Discretionary_Preservation_Easement__Buildings" INTEGER,
-# "MP_RSA_79-F_Farm_Structures" INTEGER,
-# "MP_Public_Water_Utilities" INTEGER,
-# "MP_Gas_Oil_Utilities" INTEGER,
-# "MP_Electric_Utilities" INTEGER,
-# "MP_Other" INTEGER,
-# "MP_Mature_Wood_Timber" INTEGER,
-# "MP_Gross_Valuation" INTEGER,
-# "MP_Educational_Special_Exemptions" INTEGER,
-# "MP_Modified_Assessed_Valuation" INTEGER,
-# "MP_Blind_Exemption" INTEGER,
-# "MP_Elderly_Exemption" INTEGER,
-# "MP_Local_Optional_Exemptions" INTEGER,
-# "MP_Net_Valuation" INTEGER,
-# "MP_Gross_Property_Taxes" INTEGER,
-# "MP_Less_Veterans_Credits" INTEGER,
-# "MP_Net_Tax_Commitment" INTEGER,
-# "MP_2022_Tax_Rate" INTEGER,
-# "MP_2022_Residents_Tax" INTEGER,
-# 
+
+CREATE TABLE "CorrectedZoningDistrict"
+(
+"CZD_PID" INTEGER,
+"CZD_Address" TEXT,
+"CZD_Map" INTEGER,
+"CZD_Lot" INTEGER,
+"CZD_Unit" TEXT,
+"CZD_Vision" TEXT,
+"CZD_Actual" TEXT,
+"CZD_CollectedOn" TEXT
+);
+
 CREATE TABLE "OwnerHistory"
 (
 "OH_PID" INTEGER,

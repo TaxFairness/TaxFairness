@@ -30,6 +30,7 @@ let isStateRoad = road -> case [
   road ~= "DARTMOUTH COLLEGE" => 1,
   road ~= "DORCHESTER" => 1,
   road ~= "EAST THETFORD" => 1,
+  road ~= "NORTH THETFORD" => 1,
   true => 0,
 ]
 # Clean up zoning districts

@@ -9,11 +9,16 @@ let pct = o n -> 100.0*( n - o ) / o
 # prtpct prints a floating point number with "%"
 let prtpct = v -> s'printf("%1.1f%", {v})'
 
-from ScrapedData9
-# filter SD_Appraisal != SD_Assessment
+from ScrapedData
+filter SD_CollectedOn == "2024-03-13" # Get recent version
+
+filter SD_Appraisal != SD_Assessment
 aggregate {
   total_acres= sum SD_Lot_Size,
 }
 
 # 24,176 of 31,273 acres (77%) of land in Lyme
 # have Current Use Tax treatment
+
+# 13Mar2024 values:
+# 24,143 of 31,286 total acres (77%)
