@@ -1,10 +1,11 @@
 # =======================================
-# Find threshold for only 10% non-conforming lots
-# Much trickiness was used to clean data:
-# - Fudge the zoning districts to make up for Vision errors
+# Percentage of lot sizes that don't conform to the Ordinance
+# To clean data:
+# - Tweak up the zoning districts to make up for Vision errors
 # - Properties in Rural district with addresses on state roads 
-#   (Orford, Dorchester, East Thetford, Dartmouth College)
-#   get 3 acre minimum
+#   get 3 acre minimum (Orford, Dorchester,
+#   East & North Thetford, Dartmouth College Highway)
+#   join with CorrectedZoningDistrict table
 # - Ignore condo's
 # - Ignore parcels with lotsize = 0
 # - Set "TooSmall" to 1 if < min. lot size
@@ -31,9 +32,11 @@ let isStateRoad = road -> case [
   road ~= "DARTMOUTH COLLEGE" => 1,
   road ~= "DORCHESTER" => 1,
   road ~= "EAST THETFORD" => 1,
+  road ~= "NORTH THETFORD" => 1,
   true => 0,
 ]
 # Clean up zoning districts
+# Returns two or three character district
 let CleanZoningDistrict = zd -> case [
   zd == "ES" => "RD",
   zd == "R" => "RD",
@@ -43,10 +46,11 @@ let CleanZoningDistrict = zd -> case [
   zd == "CD" => "LCD",
   zd == "LDC" => "LCD",
   zd == "SD" => "RD",
-  zd == "" => "Unknown",
+  zd == "" => null,
   true => zd,
 ]
 # SubDistrict distinguishes between on-state-road and not
+# Take a two/three character district, return pleasing name
 # Also might (but doesn't) distinguish between Lyme Center and Lyme Common
 # Produces pleasing printable name
 let SubDistrict = dist road -> case [
@@ -70,45 +74,39 @@ let CurrentMinLotSize = zd -> case [
   zd == "MtnForest" => 50.0,
   true => "?",
 ]
-# Return lot size that produces only 10% non-conforming in a zoning district
-# These values are determined by trial and error
-let Pct10 = zd -> case [
-  zd == "LymeCommon/Ctr" => 0.35,  # Lyme Common District or Lyme Center
+# Return current min lot size for a zoning district
+let MinLotSize90Pct = zd -> case [
+  zd == "LymeCommon/Ctr" => 0.35,
   zd == "Commercial" => 2.0,
   zd == "Skiway" => 2.0,
-  zd == "Rural-State Road" => 0.9,
+  zd == "Rural-State Road" => 1.0,
   zd == "Rural-Town Road" => 0.95,
-  zd == "EastLyme" => 0.75,
+  zd == "EastLyme" => 0.65,
   zd == "MtnForest" => 20.0,
   true => "?",
 ]
-
 # ============ begin  query ==============
-
 # Using scraped data version 14 from Vision
 from sd=ScrapedData
 filter (SD_Version == 14)
+join side:left czd = CorrectedZoningDistrict (sd.SD_PID == czd.CZD_PID)
 
 derive { StateRoad = isStateRoad sd.SD_Street_Address }
 
 # Clean up districts
 derive { District = CleanZoningDistrict sd.SD_Zoning_District }
+derive { RealDistrict = District ?? czd.CZD_Actual }
 
 # ZDistrict distinguishes between on-state-road and not
-# Also distinguishes between Lyme Center and Lyme Common
-derive { ZDistrict = SubDistrict District StateRoad }
+derive { ZDistrict = SubDistrict RealDistrict StateRoad }
 
-# For each zoning district, display the minimum lot size
-derive { CurrentMin = CurrentMinLotSize ZDistrict }
-
-# and the proposed size (only 10% non-conforming)
-derive { Pct10LotSize = Pct10 ZDistrict }
+# For each zoning district, add in the minimum lot size
+derive { MinLot = CurrentMinLotSize ZDistrict }
+# derive { MinLot = MinLotSize90Pct ZDistrict }
 
 # "TooSmall" is boolean showing whether the lot is smaller than MinLotSize 
-derive TooSmall = case [
-    sd.SD_Lot_Size >= Pct10LotSize => 0,
-    true => 1
-  ]
+derive TooSmall = sd.SD_Lot_Size < MinLot
+
 # Ignore condo's and zero-size lots
 filter !(sd.SD_Description ~= "CONDO")
 filter (sd.SD_Lot_Size != 0)
@@ -116,19 +114,23 @@ filter (sd.SD_Lot_Size != 0)
 select {
   sd.SD_PID,
   sd.SD_Street_Address,
-  StateRoad,
-  sd.SD_Zoning_District,
+  # StateRoad,
+  # sd.SD_Zoning_District,
+  # RealDistrict,
   ZDistrict,
-  CurrentMin,
-  Pct10LotSize,
+  MinLot,
   sd.SD_Lot_Size,
   TooSmall,
 }
-# Group by zoning district
+# sort { ZDistrict, sd.SD_Lot_Size }
+sort { SD_PID }
+#
+# ===== Comment out remainder to get list of all parcels =====
+# ===== Remainder groups by zoning district              =====
+#
 group { ZDistrict } (
   aggregate {
-    `Current min (ac)` = min CurrentMin,
-    `"10%" min (ac)` = min Pct10LotSize,
+    `Current min (ac)` = min MinLot,
     TotalAcres = (sig_fig (sum sd.SD_Lot_Size) 1),
     SmallParcels = sum TooSmall,
     TotalParcels = count this,
@@ -139,13 +141,22 @@ derive PctSmallParcels = (prtpct 100.0*SmallParcels/TotalParcels)
 # Sort by zoning district
 sort { `Current min (ac)` }
 
-# ======== Percentile10 Results from April 2024 ==========
-# ZDistrict	Current min (ac)	Proposed min (ac)	TotalAcres	SmallParcels	TotalParcels	PctSmallParcels
-# LymeCommon/Ctr	1.0	0.35	430.9	15	139	10.8%
-# EastLyme	15.0	0.75	2,335.2	6	51	11.8%
-# Rural-State Road	3.0	0.9	3,567.6	14	134	10.4%
-# Rural-Town Road	5.0	0.95	15,399.9	59	572	10.3%
-# Commercial	2.0	2.0	52.0	0	1	0.0%
-# Skiway	2.0	2.0	619.8	0	4	0.0%
-# MtnForest	50.0	20.0	7,058.0	4	37	10.8%
-# Unknown	?	?	1,822.7	82	82	100.0%
+# ======== Results from April 2024 ==========
+# ZDistrict	Current min (ac)	TotalAcres	SmallParcels	TotalParcels	PctSmallParcels
+# LymeCommon/Ctr	1	468.5	62	147	42.20%
+# Commercial	2	52	0	1	0.00%
+# Skiway	2	619.8	0	4	0.00%
+# Rural-State Road	3	4,252.10	57	178	32.00%
+# Rural-Town Road	5	16,489.20	198	599	33.10%
+# EastLyme	15	2,346.40	31	54	57.40%
+# MtnForest	50	7,058.00	9	37	24.30%
+
+# Acreage needed to achieve 90% conformity
+# ZDistrict	Current min (ac)	TotalAcres	SmallParcels	TotalParcels	PctSmallParcels
+# LymeCommon/Ctr	0.35	468.5	15	147	10.2%
+# EastLyme	0.65	2,346.4	6	54	11.1%
+# Rural-Town Road	0.95	16,489.2	63	599	10.5%
+# Rural-State Road	1.0	4,252.1	18	178	10.1%
+# Commercial	2.0	52.0	0	1	0.0%
+# Skiway	2.0	619.8	0	4	0.0%
+# MtnForest	20.0	7,058.0	4	37	10.8%
