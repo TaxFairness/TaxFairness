@@ -15,7 +15,6 @@
 # - Ignore condo's
 # - Ignore parcels with lotsize = 0
 # - Ignore vacant land
-# - Set "TooSmall" to 1 if < min. lot size
 # =======================================
 
 prql target:sql.sqlite
@@ -192,40 +191,43 @@ select {
   PID = sd.SD_PID,
   `Street Address` = sd.SD_Street_Address,
   ZoningDistr = ZDistrict,
+  LotSize = sd.SD_Lot_Size,
   NumBldgs,
 
    # Examine Building Footprints
   MaxAllowedFprtPct = (AllowedBldgFprtPct ZDistrict),
   BiggestBldgFprt,
   MaxAllowedBldg = sd.SD_Lot_Size * 43560 * MaxAllowedFprtPct / 100.0,
-  BldgTooBig = BiggestBldgFprt > MaxAllowedBldg,
+  BldgNonConforming = BiggestBldgFprt > MaxAllowedBldg,
 
   # Examine Lot Coverage
-  MaxAllowedLotCoverage = (AllowedLotCoverage ZDistrict),
   TotalBldgFprt,
   DrivewayFprt,
   LotCoverageSF = TotalBldgFprt+DrivewayFprt,
   LotCoveragePct = LotCoverageSF * 100.0 / (43560 * sd.SD_Lot_Size),
-  CoverageTooBig = LotCoveragePct > MaxAllowedLotCoverage,
+  MaxAllowedLotCoverage = (AllowedLotCoverage ZDistrict),
+  CoverageNonConforming = LotCoveragePct > MaxAllowedLotCoverage,
 
   # Examine Total Gross Floor Area
-  MaxAllowedGFA = (AllowedGFA ZDistrict),
   TotalGFA,
-  GFATooBig = TotalGFA > MaxAllowedGFA
+  MaxAllowedGFA = (AllowedGFA ZDistrict),
+  GFANonConforming = TotalGFA > MaxAllowedGFA
 }
 sort { PID }
-# # ===== Format the columns for display =====
+
+# ===== Format the columns for display =====
 # select {
 #   PID,
 #   `Street Address`,
 #   ZoningDistr,
+#   LotSize = sig_fig LotSize 2,
 #   NumBldgs,
 
 #   # Examine Building Footprints
 #   BiggestBuilding=(sig_fig BiggestBldgFprt 0),
 #   MaxAllowedSF = (sig_fig MaxAllowedBldg 0),
 #   MaxAllowedBldgPct=prtpct MaxAllowedFprtPct,
-#   BldgTooBig,
+#   BldgNonConforming,
 
 #   # Examine Lot Coverage
 #   BuildingSF = (sig_fig TotalBldgFprt 2),
@@ -233,28 +235,28 @@ sort { PID }
 #   TotalSF = (sig_fig LotCoverageSF 2),
 #   ActCoverage =(prtpct LotCoveragePct),
 #   AllowedCoverage = prtpct MaxAllowedLotCoverage,
-#   CoverageTooBig,
+#   CoverageNonConforming,
 
 #   # Examine Total Gross Floor Area
 #   GrossFloorArea = TotalGFA,
 #   AllowedFloorArea = MaxAllowedGFA,
-#   MaxFloorAreaTooBig = TotalGFA > MaxAllowedGFA
+#   GFANonConforming = TotalGFA > MaxAllowedGFA
 # }
-# sort { PID }
+# sort { ZoningDistr, -BldgNonConforming, -CoverageNonConforming, -GFANonConforming }
 
 # ===== Groupings =====
 
-# # ===== Group (too) large buildings by zoning district =====
-# #
+# ===== Group (too) large buildings by zoning district =====
+#
 # group { ZoningDistr } (
 #   aggregate {
 #     `MaxBldgFprt%` = min MaxAllowedFprtPct,
-#     BigBuildings = sum BldgTooBig,
+#     NonConfBuildings = sum BldgNonConforming,
 #     Total = count this,
 #   }
 # )
 # # Compute the percent of small parcels vs all parcels
-# derive PctBigBuildings = (prtpct 100.0*BigBuildings/Total)
+# derive PctNonConforming = (prtpct 100.0*NonConfBuildings/Total)
 # # Sort by zoning district
 # sort { ZoningDistr }
 
@@ -263,27 +265,27 @@ sort { PID }
 # group { ZoningDistr } (
 #   aggregate {
 #     `MaxLotCoverage` = prtpct (min MaxAllowedLotCoverage),
-#     FullLots = sum CoverageTooBig,
+#     NonConformingLots = sum CoverageNonConforming,
 #     Total = count this,
 #   }
 # )
 # # Compute the percent of small parcels vs all parcels
-# derive PctHighCoverage = (prtpct 100.0*FullLots/Total)
+# derive PctNonConforming = (prtpct 100.0*NonConformingLots/Total)
 # # Sort by zoning district
 # sort { ZoningDistr }
 
 # ===== Group Gross Floor Area by zoning district =====
 #
-group { ZoningDistr } (
-  aggregate {
-    `Allowed Gross Floor Area` = min MaxAllowedGFA,
-    GFATooBig = sum GFATooBig,
-    Total = count this,
-  }
-)
-# Compute the percent of small parcels vs all parcels
-derive PctBigBuildings = (prtpct 100.0*GFATooBig/Total)
-# Sort by zoning district
-sort { ZoningDistr }
+# group { ZoningDistr } (
+#   aggregate {
+#     `Allowed Gross Floor Area` = min MaxAllowedGFA,
+#     NonConforming = sum GFANonConforming,
+#     Total = count this,
+#   }
+# )
+# # Compute the percent of small parcels vs all parcels
+# derive PctNonConforming = (prtpct 100.0*NonConforming/Total)
+# # Sort by zoning district
+# sort { ZoningDistr }
 
 # ===== Results shown in separate spreadsheet
