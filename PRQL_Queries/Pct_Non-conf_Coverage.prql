@@ -24,12 +24,15 @@ let prtpct = v -> s'printf("%1.1f%", {v})'
 # inserts comma for thousands/millions 
 let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
 
+# implement a "like" function in lieu of a regex
+let like = fld str -> s"{fld} like '%' || {str} || '%' "
+
 # isStateRoad == 1 if it's a state road
 let isStateRoad = road -> case [
-  road ~= "ORFORD " => 1,
-  road ~= "DARTMOUTH COLLEGE" => 1,
-  road ~= "DORCHESTER" => 1,
-  road ~= "EAST THETFORD" => 1,
+  (like road "ORFORD ") => 1,
+  (like road "DARTMOUTH COLLEGE") => 1,
+  (like road "DORCHESTER") => 1,
+  (like road "THETFORD") => 1,
   true => 0,
 ]
 # Clean up zoning districts
@@ -176,19 +179,19 @@ derive TooBig = case [
 sort {pctFootprint}
 # Now group by district to see how many are non-conforming
 derive `Zoning District` = ZDistrict
-# group { ZDistrict } (
-#   aggregate {
-#     MinLotSize = CurrentMinLotSize `Zoning District`,
-#     TotalParcels = count this,
-#     `AllowedCoverage` = (prtpct (min PermittedCoverage)),
-#     # MinCoverage = (prtpct (min ComputedLotCoverage)),
-#     MaxCoverage = (prtpct (max ComputedLotCoverage)),
-#     NumOverCoverage = sum TooFull,
-#     NumTooBig = sum TooBig,
-#   }
-# )
-# derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
-# sort { MinLotSize }
+group { ZDistrict } (
+   aggregate {
+     MinLotSize = CurrentMinLotSize `Zoning District`,
+     TotalParcels = count this,
+     `AllowedCoverage` = (prtpct (min PermittedCoverage)),
+     # MinCoverage = (prtpct (min ComputedLotCoverage)),
+     MaxCoverage = (prtpct (max ComputedLotCoverage)),
+     NumOverCoverage = sum TooFull,
+     NumTooBig = sum TooBig,
+   }
+ )
+ derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
+ sort { MinLotSize }
 
 #  === Percent of properties where lot coverage is too high =========
 # ZDistrict	FullParcels	TotalParcels	PctFullParcels

@@ -32,13 +32,15 @@ let prtpct = v -> s'printf("%1.1f%", {v})'
 # inserts comma for thousands/millions 
 let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
 
+# implement a "like" function in lieu of a regex
+let like = fld str -> s"{fld} like '%' || {str} || '%' "
+
 # isStateRoad == 1 if it's a state road
 let isStateRoad = road -> case [
-  road ~= "ORFORD " => 1,
-  road ~= "DARTMOUTH COLLEGE" => 1,
-  road ~= "DORCHESTER" => 1,
-  road ~= "EAST THETFORD" => 1,
-  road ~= "NORTH THETFORD" => 1,
+  (like road "ORFORD ") => 1,
+  (like road "DARTMOUTH COLLEGE") => 1,
+  (like road "DORCHESTER") => 1,
+  (like road "THETFORD") => 1,
   true => 0,
 ]
 # Clean up zoning districts
@@ -166,7 +168,7 @@ group { BL_PID } (
 join sd=ScrapedData (this.BL_PID == that.SD_PID)
 filter SD_Version == 14 # latest data
 filter SD_Lot_Size != 0               # ignore zero lot size
-filter !(SD_Description ~= "CONDO")
+filter !(like SD_Description "CONDO")
 filter BiggestBldgFprt != null
 
 join side:left czd = CorrectedZoningDistrict (sd.SD_PID == czd.CZD_PID)

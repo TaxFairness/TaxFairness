@@ -1,0 +1,19 @@
+# Test script for horsing around with qStudio
+
+prql target:sql.sqlite
+
+from ScrapedData
+select { SD_Street_Address, SD_Version }
+# filter (text.contains "THETford" SD_Street_Address)
+filter SD_Street_Address ~= "THET"
+
+st0
+st1
+st2
+st3
+st4
+st5
+# st6
+st7
+st8
+st9

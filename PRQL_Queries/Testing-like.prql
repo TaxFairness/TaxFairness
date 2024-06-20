@@ -1,0 +1,4 @@
+func like fld str -> s"{fld} like '%' || {str} || '%' "
+# and use it like this...
+from ScrapedData
+filter (like SD_Street_Address "THETFORD")

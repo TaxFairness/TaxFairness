@@ -26,13 +26,15 @@ let prtpct = v -> s'printf("%1.1f%", {v})'
 # inserts comma for thousands/millions 
 let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
 
+# implement a "like" function in lieu of a regex
+let like = fld str -> s"{fld} like '%' || {str} || '%' "
+
 # isStateRoad == 1 if it's a state road
 let isStateRoad = road -> case [
-  road ~= "ORFORD " => 1,
-  road ~= "DARTMOUTH COLLEGE" => 1,
-  road ~= "DORCHESTER" => 1,
-  road ~= "EAST THETFORD" => 1,
-  road ~= "NORTH THETFORD" => 1,
+  (like road "ORFORD ") => 1,
+  (like road "DARTMOUTH COLLEGE") => 1,
+  (like road "DORCHESTER") => 1,
+  (like road "THETFORD") => 1,
   true => 0,
 ]
 # Clean up zoning districts
@@ -108,7 +110,7 @@ derive { MinLot = CurrentMinLotSize ZDistrict }
 derive TooSmall = sd.SD_Lot_Size < MinLot
 
 # Ignore condo's and zero-size lots
-filter !(sd.SD_Description ~= "CONDO")
+filter !(like sd.SD_Description "CONDO")
 filter (sd.SD_Lot_Size != 0)
 # Pick the interesting columns
 select {

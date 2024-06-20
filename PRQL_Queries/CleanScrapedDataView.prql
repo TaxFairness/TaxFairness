@@ -1,0 +1,130 @@
+# =======================================
+# Generate a "CleanedScrapedData" SQL View that derives the following:
+# - Select the current zoning data (SD_Version=14 as of 2024-03-13)
+# - Tweak up the zoning districts 
+#   - Correct Vision inconsistencies (ES,R,SFR,UFD,SD,etc => "RD" )
+#   - Join with CorrectedZoningDistrict to add districts that Vision lacks
+#   - Properties in Rural district with addresses on state roads 
+#      get 3 acre minimum (Orford, Dorchester,
+#      East & North Thetford, Dartmouth College Highway)
+#   - ZDistrict is coded value (RD, LCD, etc.)
+#   - RealDistrict is nice printable names 
+# - Create StateRoad column
+# - Someday, join in the Conservation data
+# =======================================
+
+prql target:sql.sqlite
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s'printf("%1.1f%", {v})'
+
+# sig_fig - print a value with n decimal places
+# inserts comma for thousands/millions 
+let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
+
+# implement a "like" function in lieu of a regex
+let like = fld str -> s"{fld} like '%' || {str} || '%' "
+
+# isStateRoad == 1 if it's a state road
+let isStateRoad = road -> case [
+  (like road "ORFORD ") => 1,
+  (like road "DARTMOUTH COLLEGE") => 1,
+  (like road "DORCHESTER") => 1,
+  (like road "THETFORD") => 1, # North Thetford and East Thetford
+  true => 0,
+]
+# Clean up zoning districts
+# Returns two or three character district
+# or null if it's ""
+let CleanZoningDistrict = zd -> case [
+  zd == "ES" => "RD",
+  zd == "R" => "RD",
+  zd == "SFR" => "RD",
+  zd == "URD" => "RD",
+  zd == "SD" => "RD",
+  zd == "LCD" => "LCD",
+  zd == "CD" => "LCD",
+  zd == "LDC" => "LCD",
+  zd == "" => null,
+  true => zd,
+]
+# SubDistrict distinguishes between on-state-road and not
+# Take a two/three character district, return pleasing name
+# Also might (but doesn't) distinguish between Lyme Center and Lyme Common
+let SubDistrict = dist road -> case [
+  dist == "RD" && road == 1 => "Rural-State Road",
+  dist == "RD" && road == 0 => "Rural-Town Road",
+  dist == "BD" => "Commercial",
+  dist == "LCD" => "LymeCommon/Ctr",
+  dist == "ELD" => "EastLyme",
+  dist == "SKIWAY" => "Skiway",
+  dist == "MFD" => "MtnForest",
+  true => dist,
+]
+
+# ============ begin  query ==============
+
+from sd=ScrapedData
+filter SD_CollectedOn == '2024-03-13' # latest data
+join side:left czd = CorrectedZoningDistrict (sd.SD_PID == czd.CZD_PID)
+
+derive { StateRoad = isStateRoad sd.SD_Street_Address }
+
+# Fix zoning districts
+# DistrictName distinguishes between on-state-road and not
+derive { zd = CleanZoningDistrict sd.SD_Zoning_District }
+derive { District =  zd ?? czd.CZD_Actual }
+derive { DistrictName = SubDistrict District StateRoad }
+
+select {
+    PID=sd.SD_PID,
+    Owner=sd.SD_Owner,
+    Street_Address=sd.SD_Street_Address,
+    MBLU=sd.SD_MBLU,
+    Map=sd.SD_Map,
+    Lot=sd.SD_Lot,
+    Unit=sd.SD_Unit,
+    Subunit=sd.SD_Subunit,
+    Book_Page=sd.SD_Book_Page,
+    Book=sd.SD_Book,
+    Page=sd.SD_Page,
+    Assessment=sd.SD_Assessment,
+    Appraisal=sd.SD_Appraisal,
+    Lot_Size=sd.SD_Lot_Size,
+    Land_Use_Code=sd.SD_Land_Use_Code,
+    Description=sd.SD_Description,
+    #Zoning_District=sd.SD_Zoning_District,
+    District,
+    #ZDistrict,
+    DistrictName,
+    StateRoad,
+    Num_Buildings=sd.SD_Num_Buildings,
+    Recent_Sale_Price=sd.SD_Recent_Sale_Price,
+    Recent_Sale_Date=sd.SD_Recent_Sale_Date,
+    Prev_Sale_Price=sd.SD_Prev_Sale_Price,
+    Prev_Sale_Date=sd.SD_Prev_Sale_Date,
+    Ass_ImpCurr=sd.SD_Ass_ImpCurr,
+    Ass_LandCurr=sd.SD_Ass_LandCurr,
+    Ass_TotCurr=sd.SD_Ass_TotCurr,
+    Ass_ImpPrev=sd.SD_Ass_ImpPrev,
+    Ass_LandPrev=sd.SD_Ass_LandPrev,
+    Ass_TotPrev=sd.SD_Ass_TotPrev,
+    App_ImpCurr=sd.SD_App_ImpCurr,
+    App_LandCurr=sd.SD_App_LandCurr,
+    App_TotCurr=sd.SD_App_TotCurr,
+    App_ImpPrev=sd.SD_App_ImpPrev,
+    App_LandPrev=sd.SD_App_LandPrev,
+    App_TotPrev=sd.SD_App_TotPrev,
+    Version=sd.SD_Version,
+    CollectedOn=sd.SD_CollectedOn,
+}
+
+sort { PID }
+# Check for fixed-up districts
+# filter (sd.SD_Zoning_District != ZDistrict)
