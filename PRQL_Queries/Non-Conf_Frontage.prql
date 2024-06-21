@@ -1,0 +1,77 @@
+# Non-conforming minimum road frontage
+
+# sig_fig - print a value with n decimal places
+# inserts comma for thousands/millions 
+let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s'printf("%1.1f%", {v})'
+
+# MinRoadFrontage distinguishes between on-state-road and not
+# Take a two/three character district, return minimum road frontage
+let MinRoadFrontage = dist -> case [
+  dist == "RD" => 300,
+  dist == "BD" => 200,
+  dist == "LCD" => 100,
+  dist == "ELD" => 600,
+  dist == "SKIWAY" => 600,
+  dist == "MFD" => 1000,
+  true => 5000,
+]
+
+# MinRoadFrontage distinguishes between on-state-road and not
+# Take a two/three character district, return minimum road frontage
+let MinRoadFrontage90 = dist -> case [
+  dist == "RD" => 180,
+  dist == "BD" => 100,
+  dist == "LCD" => 70,
+  dist == "ELD" => 125,
+  dist == "SKIWAY" => 300,
+  dist == "MFD" => 700,
+  true => 5000,
+]
+from sd=CleanScrapedData
+join ef=EasementsFrontage (sd.PID == ef.EF_PID)
+
+filter sd.Lot_Size != 0
+
+select {
+    sd.PID,
+    sd.Street_Address,
+    sd.Map, sd.Lot, sd.Unit,
+    sd.DistrictName,
+    MinFront = (MinRoadFrontage sd.District),
+    ef.EF_Frontage,
+    noFront = case [
+        ef.EF_Frontage == 0 => 1,
+        true => 0,
+    ],
+    nonConf = case [
+        ef.EF_Frontage ==0 => 0,
+        ef.EF_Frontage > MinFront => 0,
+        true => 1,                      # 1 means non-conforming
+    ],
+    
+}
+group { sd.DistrictName } (
+  aggregate {
+    `Current min (ft)` = min MinFront,
+    NoFrontage = sum noFront,
+    NarrowParcels = sum nonConf,
+    TotalParcels = count this,
+  }
+)
+derive PercentNoFrontage = (prtpct NoFrontage * 100.0 / TotalParcels)
+derive PercentNonConf = (prtpct NarrowParcels * 100.0 / TotalParcels)
+
+select {
+    DistrictName,
+    `Current min (ft)`,
+    NarrowParcels,
+    TotalParcels,
+    PercentNonConf,
+    NoFrontage,
+    PercentNoFrontage,
+    }
+
+sort { sd.DistrictName }

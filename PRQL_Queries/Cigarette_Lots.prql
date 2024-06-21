@@ -1,0 +1,28 @@
+# Find cigarette lots - greater than 4:1 requirement
+# Take the lot frontage, use the lot size to determine the depth of a rectangular lot
+
+# sig_fig - print a value with n decimal places
+# inserts comma for thousands/millions 
+let sig_fig = v n -> s"printf('%,1.{n}f', {v})"
+
+from sd=CleanScrapedData
+join ef=EasementsFrontage (sd.PID == ef.EF_PID)
+filter ef.EF_Frontage != 0
+filter sd.Lot_Size != 0
+select {
+  sd.Street_Address,
+  sd.Map,sd.Lot,
+  sd.Lot_Size,
+  ef.EF_MapAcres,
+  frontage = ef.EF_Frontage,
+  sfarea = sd.Lot_Size*43560.0,
+  depth = sfarea/frontage,
+  ratio = case [
+    depth > frontage => depth / frontage,
+    true => frontage / depth,
+  ],
+
+}
+filter ratio > 4.0
+filter sd.Lot_Size > 1.0
+sort { ratio }

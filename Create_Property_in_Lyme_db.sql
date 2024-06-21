@@ -953,7 +953,7 @@ CREATE TABLE "TaxRates" (
 );
 -- VIEWS --
 
-CREATE VIEW "1CleanScrapedData" as
+CREATE VIEW "CleanScrapedData" as
 
 WITH table_1 AS (
   SELECT
