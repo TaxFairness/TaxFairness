@@ -3,10 +3,15 @@
 # For each building on the property:
 # - Compute "fooprint" by dividing gross floor area by # stories
 # - Add in 450sf for 15 x 30 foot driveway
-# Divide that by total lot size (x 43560 to get SF)
+# This gives the "Computed Lot Coverage" for that parcel
+# Divide that by total lot size (x 43560 to get SF) to get % lot coverage
 #
-# 
-#
+# AllowedCoverage - percent lot coverage allowed by Ordinance
+# MaxCoverage - Maximum lot coverage for the lots in the district
+# NumOverCoverage - Number number of parcels whose lot coverage is non-conforming
+# NumTooBig - Number of parcels with building footprint that is non-conforming
+# PctFullParcels - Percentage of parcels whose lot coverage is non-conforming
+# PctBldgTooBig - Percentage of parcels with a non-conforming building footprint
 # =======================================
 
 prql target:sql.sqlite
@@ -72,8 +77,8 @@ let CurrentMinLotSize = zd -> case [
   zd == "MtnForest" => 50.0,
   true => "?",
 ]
-# Return allowed percent coverage for a zoning district
-let AllowedPctCoverage = zd -> case [
+# Return allowed percent Lot Coverage for a zoning district
+let AllowedCoveragePct = zd -> case [
   zd == "LymeCommon/Ctr" => 12.0,
   zd == "Commercial" => 20.0,
   zd == "Rural-State Road" => 12.0,
@@ -83,7 +88,7 @@ let AllowedPctCoverage = zd -> case [
   zd == "MtnForest" => 2.0,
   true => "?",
 ]
-# Return allowed square feet (as percentage of lot size) for any building in a zoning district
+# Return maximum building percentage of lot size for a zoning district
 let AllowedBldgFtprt = zd -> case [
   zd == "LymeCommon/Ctr" => 6.0,    # percent
   zd == "Commercial" => 10.0,       # percent
@@ -125,79 +130,130 @@ select {
   #   true => 4,
   # ]
 }
-# Sum up the computed footprint for each building on a PID
+# Sum up the computed footprint/GFA for each building on a PID
 group { BL_PID } (
   aggregate {
-    BiggestFtprt = max (BL_Gross_Floor_Area / BL_Stories),
-    TotalFtprt = sum (BL_Gross_Floor_Area / BL_Stories),
-    blgs = count this,
+    BiggestFtprt_sf = math.round 0 (max (BL_Gross_Floor_Area / BL_Stories)),
+    TotalFtprt_sf = math.round 0 (sum (BL_Gross_Floor_Area / BL_Stories)),
+    TotalGFA_sf = sum(BL_Gross_Floor_Area),
+    NumBldgs = count this,
   }
 )
 
 join sd=ScrapedData (this.BL_PID == that.SD_PID)
-filter SD_Version == 14
-filter SD_Lot_Size != 0
+filter SD_Version == 14 # Use the latest data
+filter SD_Lot_Size != 0 # Ignore condo's, etc.
 
 # Clean up districts
-derive { District = CleanZoningDistrict sd.SD_Zoning_District }
-# ZDistrict distinguishes between on-state-road and not
+derive { zdist = CleanZoningDistrict sd.SD_Zoning_District }
+# ZoningDistrict distinguishes between on-state-road and not
 # Also distinguishes between Lyme Center and Lyme Common
 # Only care about Rural, assume all on town roads
-derive { ZDistrict = SubDistrict District (isStateRoad sd.SD_Street_Address) }
-derive { PermittedCoverage = AllowedPctCoverage ZDistrict }
+derive { ZoningDistrict = SubDistrict zdist (isStateRoad sd.SD_Street_Address) }
+derive { PermittedCoverage = AllowedCoveragePct ZoningDistrict }
 
 # filter SD_Lot_Size < 1.5
 # filter SD_Zoning_District != "RD"
-derive { ComputedLotCoverage = TotalFtprt * 100.0 / (SD_Lot_Size * 43560) }
-# sort {ComputedLotCoverage}
-sort { ZDistrict, ComputedLotCoverage }
+derive { ComputedLotCoverage_pct = math.round 1 TotalFtprt_sf * 100.0 / (SD_Lot_Size * 43560) }
+# sort {ComputedLotCoverage_pct}
+# sort { ZoningDistrict, ComputedLotCoverage_pct }
 select {
-  ZDistrict,
-  SD_Lot_Size,
-  SD_PID,
-  `Total Footprint` = TotalFtprt,
-  `Lot (ac)` = SD_Lot_Size,
-  PermittedCoverage,
-  ComputedLotCoverage,
-  BiggestFtprt,
-  pctFootprint=BiggestFtprt / (43560* SD_Lot_Size),
-  Allowed = (AllowedBldgFtprt ZDistrict),
-
-
+  ZoningDistrict,
+  PID=SD_PID,
+  StreetAddress=SD_Street_Address,
+  LotSize_ac = SD_Lot_Size,
+  # SD_Lot_Size,
+  NumBldgs,
+  TotalFtprt_sf,
+  TotalGFA_sf,
+  ComputedLotCoverage_pct,
+  BiggestFtprt_sf,
+  # PermittedCoverage,
+  pctFootprint=BiggestFtprt_sf / (43560 * LotSize_ac),
+  PermittedCoverage=ComputedLotCoverage_pct*(AllowedCoveragePct ZoningDistrict)/100,
+  PermittedMaxFtprt=AllowedBldgFtprt ZoningDistrict,
+  PermittedGFA=AllowedGFA ZoningDistrict,
 }
-# TooFull is boolean showing whether the footprint > Max Lot Coverage 
-derive TooFull = case [
-    ComputedLotCoverage > AllowedPctCoverage ZDistrict => 1,
+# LotTooSmall is boolean showing whether the lot < min lot size 
+derive LotTooSmall = case [
+    LotSize_ac < CurrentMinLotSize ZoningDistrict => 1,
     true => 0
   ]
 
-# TooBig is boolean if max building is > allowed
-derive TooBig = case [
-  BiggestFtprt *100.0/ (43560* SD_Lot_Size) > (AllowedBldgFtprt ZDistrict) => 1,
+# TooFull is boolean showing whether the footprint > Max Lot Coverage 
+derive CovTooBig = case [
+    ComputedLotCoverage_pct > AllowedCoveragePct ZoningDistrict => 1,
+    true => 0
+  ]
+
+# BldgTooBig is boolean if max building is > allowed
+derive BldgTooBig = case [
+  BiggestFtprt_sf *100.0/ (43560 * LotSize_ac) > (AllowedBldgFtprt ZoningDistrict) => 1,
   true => 0
   ]
-sort {pctFootprint}
+
+# GFATooBig is a boolean if the GFA for a lot is > allowed
+derive GFATooBig = case [
+  TotalGFA_sf > (AllowedGFA ZoningDistrict) => 1,
+  true => 0
+  ]
+ 
+select {
+  ZoningDistrict,
+  PID,
+  StreetAddress,
+  LotSize_ac,
+  # SD_Lot_Size,
+  NumBldgs,
+  TotalFtprt_sf,
+  BiggestFtprt_sf,
+  TotalGFA_sf,
+  LotTooSmall,
+  LotSize_ac,
+  AllowedLotSize_ac = CurrentMinLotSize ZoningDistrict,
+  ComputedLotCoverage_pct,
+  # PermittedCoverage,
+  pctFootprint=BiggestFtprt_sf / (43560 * LotSize_ac),
+  PermittedCoverage=ComputedLotCoverage_pct*(AllowedCoveragePct ZoningDistrict)/100,
+  PermittedMaxFtprt=AllowedBldgFtprt ZoningDistrict,
+  PermittedGFA=AllowedGFA ZoningDistrict,
+}
+
+# sort {pctFootprint}
 # Now group by district to see how many are non-conforming
-derive `Zoning District` = ZDistrict
-group { ZDistrict } (
-   aggregate {
-     MinLotSize = CurrentMinLotSize `Zoning District`,
-     TotalParcels = count this,
-     `AllowedCoverage` = (prtpct (min PermittedCoverage)),
-     # MinCoverage = (prtpct (min ComputedLotCoverage)),
-     MaxCoverage = (prtpct (max ComputedLotCoverage)),
-     NumOverCoverage = sum TooFull,
-     NumTooBig = sum TooBig,
-   }
- )
- derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
- sort { MinLotSize }
+# group { ZoningDistrict } (
+#    aggregate {
+#      MinLotSize = CurrentMinLotSize `Zoning District`,
+#      TotalParcels = count this,
+#      `AllowedCoverage` = (prtpct (min PermittedCoverage)),
+#      # MinCoverage = (prtpct (min ComputedLotCoverage)),
+#      MaxCoverage = (prtpct (max ComputedLotCoverage)),
+#      NumSmallLots = sum LotTooSmall,
+#      NumOverCoverage = sum LotTooFull,
+#      NumBldgTooBig = sum BldgTooBig,
+#      NumOverGFA = sum GFATooBig,
+#    }
+#  )
+# derive PctLotTooSmall = (prtpct 100.0*NumSmallLots/TotalParcels)
+# derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
+# derive PctBldgTooBig = (prtpct 100.0*NumBldgTooBig/TotalParcels)
+# derive PctGFATooBig = (prtpct 100.0*NumOverGFA/TotalParcels)
+
+#  sort { MinLotSize }
+sort { ZoningDistrict }
+# filter (like ZoninhDistrict "Rural")
+# filter (
+#   # CovTooBig == 1 
+#   BldgTooBig == 1 
+#   # \ || GFATooBig == 1
+#   )
 
 #  === Percent of properties where lot coverage is too high =========
-# ZDistrict	FullParcels	TotalParcels	PctFullParcels
-# EastLyme	9	29	31.0%
-# LymeCommon/Ctr	86	102	84.3%
-# MtnForest	0	4	0.0%
-# Rural-Town Road	158	496	31.9%
-# Skiway	0	1	0.0%
-# Unknown	22	59	37.3%
+# ZoningDistrict	MinLotSize	TotalParcels	AllowedCoverage	MaxCoverage	NumOverCoverage	NumBldgTooBig	PctFullParcels	PctBldgTooBig
+# LymeCommon/Ctr	1.0	102	12.0%	33.6%	16	36	15.7%	35.3%
+# Skiway	2.0	1	2.0%	0.0%	0	0	0.0%	0.0%
+# Rural-State Road	3.0	112	12.0%	13.2%	1	40	0.9%	35.7%
+# Rural-Town Road	5.0	384	12.0%	23.8%	9	111	2.3%	28.9%
+# EastLyme	15.0	29	12.0%	17.8%	2	16	6.9%	55.2%
+# MtnForest	50.0	4	2.0%	1.0%	0	0	0.0%	0.0%
+# Unknown	?	59	0.0%	21.4%	0	0	0.0%	0.0%

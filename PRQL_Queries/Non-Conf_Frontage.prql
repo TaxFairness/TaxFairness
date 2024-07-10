@@ -21,8 +21,9 @@ let MinRoadFrontage = dist -> case [
 
 # MinRoadFrontage distinguishes between on-state-road and not
 # Take a two/three character district, return minimum road frontage
+# MinRoadFrontage90 sets thresholds so that 90% of parcels in Lyme conform
 let MinRoadFrontage90 = dist -> case [
-  dist == "RD" => 180,
+  dist == "RD" => 175,
   dist == "BD" => 100,
   dist == "LCD" => 70,
   dist == "ELD" => 125,
@@ -75,3 +76,23 @@ select {
     }
 
 sort { sd.DistrictName }
+
+# ===== Current conformance =====
+# DistrictName	Current min (ft)	NarrowParcels	TotalParcels	PercentNonConf	NoFrontage	PercentNoFrontage
+# Commercial	200	0	1	0.0%	0	0.0%
+# EastLyme	600	37	54	68.5%	0	0.0%
+# LymeCommon/Ctr	100	40	147	27.2%	9	6.1%
+# MtnForest	1000	6	37	16.2%	19	51.4%
+# Rural-State Road	300	51	178	28.7%	16	9.0%
+# Rural-Town Road	300	158	599	26.4%	48	8.0%
+# Skiway	600	0	4	0.0%	2	50.0%
+
+# ===== 90% Conforming =====
+# DistrictName	Current min (ft)	NarrowParcels	TotalParcels	PercentNonConf	NoFrontage	PercentNoFrontage
+# Commercial	100	0	1	0.0%	0	0.0%
+# EastLyme	125	6	54	11.1%	0	0.0%
+# LymeCommon/Ctr	70	14	147	9.5%	9	6.1%
+# MtnForest	700	4	37	10.8%	19	51.4%
+# Rural-State Road	175	17	178	9.6%	16	9.0%
+# Rural-Town Road	175	67	599	11.2%	48	8.0%
+# Skiway	300	0	4	0.0%	2	50.0%

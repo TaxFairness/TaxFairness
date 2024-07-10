@@ -113,6 +113,7 @@ It contains:
 * PDF OCR X Enterprise Edition and a bunch of regexes to produce
      the Town Assessment-from PDF-12Oct2021.xlsx spreadsheet.
 
+* [PDFtables.com](https://pdftables.com) seemed to work for one dataset...
 
 ## Why use a database?
 
