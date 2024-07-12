@@ -2,6 +2,8 @@
 
 prql target:sql.sqlite
 
+OLD- No longer used
+
 # dollars displays a numeric value as dollars with commas
 let dollars = d -> s"""printf("$%,d",{d})"""
 
