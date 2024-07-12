@@ -5,22 +5,26 @@
 # with the current dimensional controls of the Lyme Zoning Ordinance
 #
 # - Lot Size
-# - Lot Coverage
 # - Largest building footprint
+# - Lot Coverage
+# - Gross Floor Area
 # - Road Frontage
 #
-# For each building on the property:
-# - Compute "fooprint" by dividing gross floor area by # stories
-# - Add in 450sf for 15 x 30 foot driveway
-# This gives the "Computed Lot Coverage" for that parcel
-# Divide that by total lot size (x 43560 to get SF) to get % lot coverage
+# For each property, display whether it conforms to
+# the attributes above, and relevant data points
+# 
+# Each attribute shows these data:
+# - ActAttribute - the actual (or computed) value
+# - AllowedAttribute - the Ordinance value
+# All attributes have _sf, _pct, _ft suffixes
+#   to show the correct units
+# 
+# Finally, summarize each zoning district for
+# the percentage of non-conforming attributes
 #
-# AllowedCoverage - percent lot coverage allowed by Ordinance
-# MaxCoverage - Maximum lot coverage for the lots in the district
-# NumOverCoverage - Number number of parcels whose lot coverage is non-conforming
-# NumTooBig - Number of parcels with building footprint that is non-conforming
-# PctFullParcels - Percentage of parcels whose lot coverage is non-conforming
-# PctBldgTooBig - Percentage of parcels with a non-conforming building footprint
+# Property data are limited to:
+# - LotSize > 0 (no condo's etc.)
+# 
 # =======================================
 
 prql target:sql.sqlite
@@ -134,8 +138,7 @@ let AllowedRoadFrontage = zd -> case [
 ]
 # ============ begin  query ==============
 from buildings
-filter BL_Model == "Residential"
-# filter BL_BuildingNum == 1
+# filter BL_Model == "Residential"
 select {
   BL_PID,
   BL_Gross_Floor_Area,
@@ -152,13 +155,10 @@ group { BL_PID } (
   }
 )
 
-# Join building infor for each parcel with the recent scraped data
+# Join building info for each parcel with the recent scraped data
 join sd=CleanScrapedData (this.BL_PID == that.PID)
 join ef=EasementsFrontage (this.BL_PID == that.EF_PID)
-filter sd.CollectedOn == "2024-03-13" # Use the latest data
 filter sd.Lot_Size != 0               # Ignore condo's, etc.
-# filter SD_Lot_Size < 1.5
-# filter SD_Zoning_District != "RD"
 
 # ===== Clean up districts -  ZDistrict is internal two/three character name
 derive { ZDistrict = CleanZoningDistrict sd.District }
@@ -224,11 +224,11 @@ select {
   ZoningDistrict,
   PID = sd.PID,
   StreetAddress=sd.Street_Address,
-  ActLotSize_ac,
-  # SD_Lot_Size,
   NumBldgs,
-  ActLotCoverage_sf,
-  ActGFA_sf,
+  # ActLotSize_ac,
+  # ActLotCoverage_sf,
+  # ActGFA_sf,
+
   # Lot size
   LotTooSmall,
   ActLotSize_ac,
@@ -259,7 +259,7 @@ select {
   AllowedFrontage_ft,
 }
 
-# Now group by district to see how many are non-conforming
+# ===== Summarize by district to get percentage non-conforming =====
 group { ZoningDistrict } (
    aggregate {
     #  MinLotSize = (AllowedMinLotSize ZoningDistrict),
@@ -279,11 +279,13 @@ derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
 derive PctBldgTooBig = (prtpct 100.0*NumBldgTooBig/TotalParcels)
 derive PctGFATooBig = (prtpct 100.0*NumOverGFA/TotalParcels)
 derive PctLotTooNarrow = (prtpct 100.0*NumNarrowLots/TotalParcels)
-
-#  sort { MinLotSize }
 sort { ZoningDistrict }
+
+# === Filters for testing results ===
+
 # filter (like StreetAddress "84 ORFORD")
-# filter (like ZoninhDistrict "Rural")
+# filter (like ZoningDistrict "Rural")
+
 # filter (
 #   # LotTooSmall == 1
 #   BldgTooBig == 1 
@@ -293,11 +295,11 @@ sort { ZoningDistrict }
 #   )
 
 #  === Percent of properties where lot coverage is too high =========
-# ZoningDistrict	MinLotSize	TotalParcels	AllowedCoverage	MaxCoverage	NumOverCoverage	NumBldgTooBig	PctFullParcels	PctBldgTooBig
-# LymeCommon/Ctr	1.0	102	12.0%	33.6%	16	36	15.7%	35.3%
-# Skiway	2.0	1	2.0%	0.0%	0	0	0.0%	0.0%
-# Rural-State Road	3.0	112	12.0%	13.2%	1	40	0.9%	35.7%
-# Rural-Town Road	5.0	384	12.0%	23.8%	9	111	2.3%	28.9%
-# EastLyme	15.0	29	12.0%	17.8%	2	16	6.9%	55.2%
-# MtnForest	50.0	4	2.0%	1.0%	0	0	0.0%	0.0%
-# Unknown	?	59	0.0%	21.4%	0	0	0.0%	0.0%
+# ZoningDistrict	TotalParcels	NumSmallLots	NumOverCoverage	NumBldgTooBig	NumOverGFA	NumNarrowLots	PctLotTooSmall	PctFullParcels	PctBldgTooBig	PctGFATooBig	PctLotTooNarrow
+# Commercial	1	0	0	0	0	0	0.0%	0.0%	0.0%	0.0%	0.0%
+# EastLyme	54	31	2	17	0	37	57.4%	3.7%	31.5%	0.0%	68.5%
+# LymeCommon/Ctr	147	62	30	57	37	47	42.2%	20.4%	38.8%	25.2%	32.0%
+# MtnForest	37	9	0	0	0	25	24.3%	0.0%	0.0%	0.0%	67.6%
+# Rural-State Road	178	57	2	49	3	62	32.0%	1.1%	27.5%	1.7%	34.8%
+# Rural-Town Road	599	198	12	132	13	198	33.1%	2.0%	22.0%	2.2%	33.1%
+# Skiway	4	0	0	0	2	2	0.0%	0.0%	0.0%	50.0%	50.0%
