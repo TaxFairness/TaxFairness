@@ -163,7 +163,7 @@ Simply correct the file there, and re-run the import script.
 
 The import process uses these files:
 
-- **create_database.sh** - a script to reliably create the tables & views of the SQLite database.
+- **build_database.sh** - a script to reliably create the tables & views of the SQLite database.
   Run this script with `sh create_database.sh` - it does all the work.
 
 - **Create\_Property\_in\_Lyme.db.sql** - a series of SQL statements
@@ -204,6 +204,11 @@ Here are some tips for getting started:
 The _Database Structure_ tab shows both tables (above) and _Views_ that are
 automatically constructed from the data from various tables...
 
+- **CleanScrapedData**
+  Data from the current ScrapedDataXX, ("CollectedOn" == ???) joined with
+  CorrectedZoningDistrict info
+  and ultimately the easement and frontage data
+    
 - **Assess\_Apprais\_Sales**
   A view that's a combination of ScrapedData, the OldVsNew PDF file,
   and RecentSales tables, adding in the LandClass.
@@ -217,11 +222,19 @@ The remainder of this document has SQL queries to copy/paste.
 
 ## Merging new ScrapeData files
 
-- Import the ScrapeDataXX file into a new tab in the _DefinitiveData/ScrapedData.xlsx_ file
+- Copy/paste the new ScrapeDataXX file into a new tab in the _DefinitiveData/ScrapedData.xlsx_ file
+- Remove the "Problem with ... PID" rows.
+(Sort, delete, sort by PID)
 - Update its "Version" column to the proper value
-- Copy all rows, and paste into the All-Scraped-Data tab
-- Ensure all dollar values are simple numbers, dates are yyyy-mm-dd
-- Export the all-scrapes tab as CSV
+- Copy all rows, and append into the "All-Scraped-Data" tab
+- Ensure all dollar value columns are formatted as simple numbers:
+   - **Recent Sale**
+   - **Previous Sale**
+   - and **Curr. Ass. Imp** .. **Prev. App. Tot**
+- Ensure **Recent Sale Date**, **Prev Sale Date**, and **CollectedOn** columns are formatted as `yyyy-mm-dd`
+- Export the All-Scraped-Data tab as CSV
+- Run `sh merge_history.sh`
+- Update _Create\_Property\_in\_Lyme\_db.sql_ to look for current **CollectedOn** date, around line 1000
 - Import using the regular _build-database.sh_ script
 
 ## Merging the xxxHistory files

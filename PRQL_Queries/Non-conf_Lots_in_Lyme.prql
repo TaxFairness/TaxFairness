@@ -181,7 +181,7 @@ derive LotTooSmall = case [
 # derive ActBiggestBldg_sf from above
 derive AllowedBldgFtprt_sf  = (math.round 1 ActLotSize_ac * 43560 * (AllowedBldgFtprt ZoningDistrict) / 100.0)
 derive     ActBldgFtprt_pct = (math.round 1 (ActBiggestBldg_sf * 100.0 / (43560 * ActLotSize_ac)))
-derive AllowedBldgFtprt_pct = (AllowedBldgFtprt ZoningDistrict)
+derive AllowedBldgFtprt_pct = (math.round 1 (AllowedBldgFtprt ZoningDistrict))
 derive BldgTooBig = case [
   ActBiggestBldg_sf > AllowedBldgFtprt_sf => 1,
   true => 0
@@ -224,10 +224,8 @@ select {
   ZoningDistrict,
   PID = sd.PID,
   StreetAddress=sd.Street_Address,
+  `LotSize(ac)`=ActLotSize_ac,
   NumBldgs,
-  # ActLotSize_ac,
-  # ActLotCoverage_sf,
-  # ActGFA_sf,
 
   # Lot size
   LotTooSmall,
@@ -259,40 +257,42 @@ select {
   AllowedFrontage_ft,
 }
 
-# ===== Summarize by district to get percentage non-conforming =====
-group { ZoningDistrict } (
-   aggregate {
-    #  MinLotSize = (AllowedMinLotSize ZoningDistrict),
-     TotalParcels = count this,
-    #  `AllowedCoverage` = (prtpct (min PermittedCoverage)),
-     # MinCoverage = (prtpct (min ComputedLotCoverage)),
-    #  MaxCoverage = (prtpct (max ComputedLotCoverage)),
-     NumSmallLots = sum LotTooSmall,
-     NumOverCoverage = sum CovTooBig,
-     NumBldgTooBig = sum BldgTooBig,
-     NumOverGFA = sum GFATooBig,
-     NumNarrowLots = sum FrontageTooSmall,
-   }
- )
-derive PctLotTooSmall = (prtpct 100.0*NumSmallLots/TotalParcels)
-derive PctFullParcels = (prtpct 100.0*NumOverCoverage/TotalParcels)
-derive PctBldgTooBig = (prtpct 100.0*NumBldgTooBig/TotalParcels)
-derive PctGFATooBig = (prtpct 100.0*NumOverGFA/TotalParcels)
-derive PctLotTooNarrow = (prtpct 100.0*NumNarrowLots/TotalParcels)
-sort { ZoningDistrict }
+# # ===== Summarize by district to get percentage non-conforming =====
+# group { ZoningDistrict } (
+#    aggregate {
+#     #  MinLotSize = (AllowedMinLotSize ZoningDistrict),
+#      TotalParcels = count this,
+#     #  `AllowedCoverage` = (prtpct (min PermittedCoverage)),
+#      # MinCoverage = (prtpct (min ComputedLotCoverage)),
+#     #  MaxCoverage = (prtpct (max ComputedLotCoverage)),
+#      NumLotTooSmall = sum LotTooSmall,
+#      NumBldgTooBig = sum BldgTooBig,
+#      NumOverCoverage = sum CovTooBig,
+#      NumGFATooBig = sum GFATooBig,
+#      NumLotTooNarrow = sum FrontageTooSmall,
+#    }
+#  )
+# derive `LotTooSmall%` = (prtpct 100.0*NumLotTooSmall/TotalParcels)
+# derive `BldgTooBig%` = (prtpct 100.0*NumBldgTooBig/TotalParcels)
+# derive `OverCoverage%` = (prtpct 100.0*NumOverCoverage/TotalParcels)
+# derive `GFATooBig%` = (prtpct 100.0*NumGFATooBig/TotalParcels)
+# derive `LotTooNarrow%` = (prtpct 100.0*NumLotTooNarrow/TotalParcels)
 
 # === Filters for testing results ===
 
 # filter (like StreetAddress "84 ORFORD")
 # filter (like ZoningDistrict "Rural")
+# filter (text.contains "Rural")
 
-# filter (
-#   # LotTooSmall == 1
-#   BldgTooBig == 1 
-#   # CovTooBig == 1
-#   # GFATooBig == 1
-#   # FrontageTooSmall == 1
-#   )
+filter (
+  # LotTooSmall == 1
+  # BldgTooBig == 1 
+  # CovTooBig == 1
+  # GFATooBig == 1
+  FrontageTooSmall == 1
+  )
+sort { ZoningDistrict }
+
 
 #  === Percent of properties where lot coverage is too high =========
 # ZoningDistrict	TotalParcels	NumSmallLots	NumOverCoverage	NumBldgTooBig	NumOverGFA	NumNarrowLots	PctLotTooSmall	PctFullParcels	PctBldgTooBig	PctGFATooBig	PctLotTooNarrow

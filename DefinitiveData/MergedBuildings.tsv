@@ -1,3 +1,4 @@
+1	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2024-07-15
 10	1	1934	2496	283827	83	235600	Cape Cod	Residential	Average +10	2	4	2	0	8	01	4056	2496	2023-08-17
 100000	1	2007	2849	814475	93	757500	Modern/Contemp	Residential	Excellent	1.5	4	3	2	11	 	6919	2849	2023-08-17
 100021	1	2004	5705	1065284	91	969400	Modern/Contemp	Residential	Excellent	1.75	4	5	1	12	 	7762	5705	2023-08-17
@@ -23,6 +24,7 @@
 100265	1	2013	2052	411452	96	395000	Colonial	Residential	Good	2	3	2	2	6	 	3417	2052	2023-08-17
 100282	1	1999	2676	604153	81	489400	Colonial	Residential	Good +10	2	3	3	1	9	01	4997	2676	2023-08-17
 1003	1	1830	1784	193003	76	146700	Conventional	Residential	Average +10	2	3	2	0	8	01	3302	1784	2023-08-17
+1003	2	2023	974	188644	60	113200	Apt/Garage	Residential	Average +20	2	2	1	 	 	 	3922	974	2024-07-15
 100302	1	1997	1965	276703	83	229700	Modern/Contemp	Residential	Average +20	2	2	2	0	7	01	3388	1965	2023-08-17
 100322	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 100361	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -48,7 +50,9 @@
 100582	1	1982	1470	289317	85	245900	Condominium	Res Condo	Good +10	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	2670	1470	2023-08-17
 100583	1	1987	9335	1639660	68	1115000	Private School	Commercial	Average +10	2	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	10310	9335	2023-08-17
 100583	2	1989	3091	342336	60	205400	Private School	Commercial	Minimum	1.5	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	4	MISSING-Num Kitchens:	4032	3091	2023-08-17
+100583	2	1989	3091	502093	60	301300	Private School	Commercial	Average +10	1.5	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	4	MISSING-Num Kitchens:	4032	3091	2024-07-15
 100583	3	1998	2828	314226	40	125700	Private School	Commercial	Minimum	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	2828	2828	2023-08-17
+100583	3	2016	10908	2024309	94	1902900	Private School	Commercial	Average +10	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	24770	10908	2024-07-15
 100583	4	2019	314	106586	90	95900	Private School	Commercial	Average +10	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	821	314	2023-08-17
 1006	1	1925	1162	156045	80	124800	Cape Cod	Residential	Average +10	1.75	2	1	1	5	01	1692	1162	2023-08-17
 100602	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -58,6 +62,7 @@
 100722	1	2006	2368	421807	87	367000	Colonial	Residential	Average +20	2	4	3	1	7	 	3660	2368	2023-08-17
 100742	1	2008	3078	695213	91	632600	Modern/Contemp	Residential	Good +20	1.75	2	3	0	7	 	7364	3078	2023-08-17
 100822	1	1986	1140	207947	71	147600	Ranch	Residential	Average +10	1	2	2	0	4	01	2984	1140	2023-08-17
+100822	1	1986	1140	216524	71	153700	Ranch	Residential	Average +10	1	2	2	0	4	01	2984	1140	2024-07-15
 100863	1	1999	1512	185418	83	153900	Cape Cod	Residential	Average	1.75	3	2	0	6	01	2764	1512	2023-08-17
 1009	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 101	1	1840	1755	227439	65	147800	Office Bldg	Commercial	Average	1.5	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	2376	1755	2023-08-17
@@ -85,6 +90,7 @@
 101342	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 101362	1	2020	3416	485647	99	480800	Modern/Contemp	Residential	Good	2	3	2	1	6	 	8065	3416	2023-08-17
 101382	1	2002	1687	256597	87	223200	Cape Cod	Residential	Average +20	1.75	2	2	0	6	01	3944	1687	2023-08-17
+101382	1	2002	1687	266674	87	232000	Cape Cod	Residential	Average +20	1.75	2	2	0	6	01	3944	1687	2024-07-15
 101442	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 101462	1	2016	3934	944742	97	916400	Modern/Contemp	Residential	Excellent	2	3	3	1	8	 	8281	3934	2023-08-17
 101483	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -122,6 +128,7 @@
 102759	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102763	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102766	1	1970	1714	251821	76	191400	Cape Cod	Residential	Average +20	1.75	3	2	0	9	01	3426	1714	2023-08-17
+102766	1	1970	1738	254085	76	193100	Cape Cod	Residential	Average +20	1.75	3	2	0	9	01	3464	1738	2024-07-15
 102768	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102770	1	2016	3296	497577	97	482600	Modern/Contemp	Residential	Good +10	2	4	2	0	8	01	4313	3296	2023-08-17
 102771	1	1992	1288	198711	77	153000	Ranch	Residential	Average	1	3	2	0	8	01	2836	1288	2023-08-17
@@ -130,16 +137,19 @@
 102814	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102815	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102834	1	2018	2997	869575	98	852200	Modern/Contemp	Residential	Excellent	2	3	3	1	8	 	9365	2997	2023-08-17
+102854	1	1971	1096	106120	63	66900	Ranch	Residential	Minimum	1	2	1	0	6	 	2008	1096	2024-07-15
 102854	1	1971	1148	106120	63	66900	Ranch	Residential	Minimum	1	2	1	0	6	 	2008	1148	2023-08-17
 102874	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102875	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102876	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102896	1	2023	2204	307977	70	215600	Cape Cod	Residential	Good	1.75	3	2	1	5	 	3944	2204	2023-08-17
+102896	1	2023	2204	392272	100	392300	Modern/Contemp	Residential	Good	1.75	3	3	1	5	 	4395	2204	2024-07-15
 102897	1	1927	960	63900	47	30000	Camp	Residential	Average +10	1.5	3	1	0	5	 	1455	960	2023-08-17
 102897	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102897	3	1949	1000	57681	40	23100	Camp	Residential	Average	1	3	2	0	5	 	1180	1000	2023-08-17
 102897	4	1931	712	39277	40	15700	Camp	Residential	Average	1	3	1	0	5	 	862	712	2023-08-17
 102916	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+102937	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2024-07-15
 102956	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 102976	1	1930	720	80529	30	24200	Clubs/Lodge/Ha	Industrial	Minimum	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	1	MISSING-Num Kitchens:	896	720	2023-08-17
 102996	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -158,6 +168,8 @@
 103178	1	1850	545	55991	60	33600	Public School	Commercial	Minimum	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	1	MISSING-Num Kitchens:	545	545	2023-08-17
 103197	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103197	1	2020	675	184566	98	180900	Office Bldg	Commercial	Average	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	2330	675	2023-10-24
+103197	1	2020	675	186456	98	182700	Office Bldg	Commercial	Average	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	2425	675	2024-07-15
+103218	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2024-07-15
 103220	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103222	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103224	1	1784	2356	308132	60	184900	Antique	Residential	Average +10	1.75	3	2	0	8	 	4866	2356	2023-08-17
@@ -183,10 +195,16 @@
 103250	1	1926	864	49451	50	24700	Camp	Residential	Average	1	3	1	 	5	 	1074	864	2023-08-17
 103251	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103252	1	2023	3154	340205	30	102100	Cape Cod	Residential	Average +20	2	3	2	1	5	 	4034	3154	2023-08-17
+103252	1	2023	3154	376973	70	263900	Cape Cod	Residential	Average +20	2	3	2	1	5	 	5316	3154	2024-07-15
 103253	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103254	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103255	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 103257	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-12-18
+103258	1	8018	1764	252029	95	239400	Condominium	Res Condo	Good	2	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	2111	1764	2024-07-15
+103259	1	1818	1824	252029	95	239400	Condominium	Res Condo	Good	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	4	MISSING-Num Kitchens:	2723	1824	2024-07-15
+103260	1	1818	1472	234373	95	222700	Condominium	Res Condo	Good	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	2209	1472	2024-07-15
+103261	1	2023	1518	238250	100	238300	Condominium	Res Condo	Good	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	2220	1518	2024-07-15
+103262	1	2023	1404	233169	75	174900	Condominium	Res Condo	Good	1.5	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	4	MISSING-Num Kitchens:	2808	1404	2024-07-15
 1033	1	1981	2730	379217	72	273000	Modern/Contemp	Residential	Average +20	1.75	4	2	0	10	01	5684	2730	2023-08-17
 1034	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1035	1	1978	1664	244343	61	149000	Modern/Contemp	Residential	Average +10	2	4	2	0	7	01	3304	1664	2023-08-17
@@ -205,6 +223,7 @@
 1049	2	1972	720	26665	10	2700	Mobile Home	Mobile Home	Minimum	1	3	1	0	5	 	720	720	2023-08-17
 105	1	1885	2542	301897	72	217400	Stor/Off/Apt	Commercial	Average +10	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	9	MISSING-Num Kitchens:	4992	2542	2023-08-17
 1051	1	2003	1188	68479	87	59600	Mobile Home	Mobile Home	Average +20	1	3	2	0	5	01	1276	1188	2023-08-17
+1051	1	2003	1188	70205	87	61100	Mobile Home	Mobile Home	Average +20	1	3	2	0	5	01	1660	1188	2024-07-15
 1052	1	1890	1056	138841	72	100000	Cape Cod	Residential	Below Average	1.5	3	1	0	5	01	2727	1056	2023-08-17
 1053	1	1778	4762	867364	85	737300	Antique	Residential	Good +10	1.75	7	5	0	13	01	9002	4762	2023-08-17
 1053	2		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -270,6 +289,7 @@
 1120	1	1966	2976	409553	90	368600	Modern/Contemp	Residential	Average +20	2	3	2	0	8	01	5448	2976	2023-08-17
 1120	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1121	1	1969	1651	255587	85	217200	Modern/Contemp	Residential	Average +10	1	2	2	0	8	01	4075	1651	2023-08-17
+1121	1	1969	1771	262193	80	209800	Modern/Contemp	Residential	Average +10	1	2	2	0	8	01	4033	1771	2024-07-15
 1122	1	1982	840	41037	59	24200	Mobile Home	Mobile Home	Average	1	3	1	1	5	01	855	840	2023-08-17
 1123	1	1966	672	38078	65	24800	Mobile Home	Mobile Home	Below Average	1	3	1	0	4	01	1831	672	2023-08-17
 1124	1	1991	924	45118	77	34700	Mobile Home	Mobile Home	Average	1	3	2	0	5	01	999	924	2023-08-17
@@ -330,6 +350,7 @@
 1201	1	2003	2184	309570	87	269300	Cape Cod	Residential	Average +20	1.5	3	2	1	9	00	4604	2184	2023-08-17
 1202	1	2001	1972	320719	88	282200	Cape Cod	Residential	Average +20	1.5	3	2	1	9	01	5068	1972	2023-08-17
 1203	1	1970	1308	239824	76	182300	Raised Ranch	Residential	Average +20	1	3	2	0	4	01	3022	1308	2023-08-17
+1203	1	1970	1308	255340	76	194100	Raised Ranch	Residential	Average +20	1	3	2	0	4	01	3022	1308	2024-07-15
 1204	1	1975	1974	219170	85	186300	Conventional	Residential	Average +10	2	3	2	1	6	01	3736	1974	2023-08-17
 1206	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1207	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -344,9 +365,11 @@
 122	1	1860	2522	331594	80	265300	Antique	Residential	Average +10	2	5	3	0	10	02	3420	2522	2023-08-17
 1222	1	1796	2052	176616	10	17700	Antique	Residential	Minimum	1.5	6	1	0	10	01	4212	2052	2023-08-17
 1222	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+1222	3	2010	3779	508058	93	472500	Apt/Garage	Residential	Good +10	2	1	1	1	 	 	7544	3779	2024-07-15
 1222	3	2010	4017	508058	80	406400	Apt/Garage	Residential	Good +10	2	1	1	1	 	 	7544	4017	2023-08-17
 1223	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1225	1	1995	1942	244739	81	198200	Raised Ranch	Residential	Average	1	4	3	0	8	01	4172	1942	2023-08-17
+1225	2	2023	1152	172657	70	120900	Apt/Garage	Residential	Average +10	2	1	1	1	 	 	2304	1152	2024-07-15
 1226	1	1995	3476	861256	83	714800	Modern/Contemp	Residential	Excellent	2	3	3	1	9	01	7111	3476	2023-08-17
 1226	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1227	1	1989	3731	558450	73	407700	Modern/Contemp	Residential	Good	1.75	4	3	0	9	01	7872	3731	2023-08-17
@@ -485,6 +508,7 @@
 1438	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1439	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 144	1	1925	1367	155495	85	132200	Cape Cod	Residential	Average	1.5	2	1	0	5	01	2535	1367	2023-08-17
+144	1	1925	1551	190580	75	142900	Cape Cod	Residential	Average	1.5	2	1	0	5	01	3527	1551	2024-07-15
 1440	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1441	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1442	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -496,6 +520,7 @@
 1449	1	1950	1162	77522	72	55800	Camp	Residential	Average +10	2	3	1	1	5	01	1478	1162	2023-08-17
 1450	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 1451	1	1945	1152	141332	76	107400	Ranch	Residential	Average	1	2	1	0	4	01	1320	1152	2023-08-17
+1455	1	1988	1825	294354	75	220800	Modern/Contemp	Residential	Average +20	2	3	3	0	6	01	3679	1825	2024-07-15
 1455	1	1988	2065	294354	75	220800	Modern/Contemp	Residential	Average +20	2	3	3	0	6	01	3679	2065	2023-08-17
 1456	1	1938	570	23040	65	15000	Camp	Residential	Minimum	1	1	1	0	2	01	698	570	2023-08-17
 1457	1	1981	1400	141689	69	97800	Cape Cod	Residential	Below Average	1.75	3	2	0	5	01	2042	1400	2023-08-17
@@ -543,6 +568,7 @@
 170	2	2008	4782	953524	96	915400	Town Hall	Industrial	Good	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	8	MISSING-Num Kitchens:	4928	4782	2023-08-17
 171	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 172	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+172	1	2023	2408	354786	65	230600	Colonial	Residential	Average +20	2	3	2	1	 	 	3612	2408	2024-07-15
 173	1	1988	2577	512170	90	461000	Colonial	Residential	Good	2	4	3	1	8	01	4960	2577	2023-08-17
 174	1	1994	1344	174435	77	134300	Ranch	Residential	Below Average	1	3	2	0	5	01	2856	1344	2023-08-17
 176	1	1981	1300	211752	72	152500	Ranch	Residential	Average	1	3	2	0	6	01	3372	1300	2023-08-17
@@ -550,6 +576,7 @@
 178	1	1900	1881	272687	85	231800	Cape Cod	Residential	Average +10	1.75	3	3	0	7	01	3812	1881	2023-08-17
 179	1	1890	1453	168856	80	135100	Cape Cod	Residential	Average	1.75	4	1	1	8	01	2598	1453	2023-08-17
 18	1	1796	1643	242538	80	194000	Antique	Residential	Average +10	1.5	2	2	0	7	01	3644	1643	2023-08-17
+18	1	1796	1643	252156	80	201700	Antique	Residential	Average +10	1.5	2	2	0	7	01	3644	1643	2024-07-15
 180	1	1997	3514	731918	81	592900	Modern/Contemp	Residential	Good +20	2	3	4	1	11	01	6752	3514	2023-08-17
 181	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 182	1	1989	3015	575524	85	489200	Modern/Contemp	Residential	Good +10	2	4	3	1	12	01	6897	3015	2023-08-17
@@ -559,6 +586,7 @@
 188	1	1964	2611	326504	90	293900	Ranch	Residential	Average	2	3	3	0	9	01	6936	2611	2023-08-17
 188	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 188	3	2021	1296	278706	100	278700	Apt/Cust Stbl	Residential	Average +20	2	1	1	 	4	 	7016	1296	2023-08-17
+188	3	2021	1296	306346	100	306300	Apt/Cust Stbl	Residential	Good	2	1	1	 	4	 	7016	1296	2024-07-15
 189	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 19	1	1900	1464	166720	75	125000	Ranch	Residential	Average	1	1	1	0	4	01	1464	1464	2023-08-17
 190	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -567,6 +595,7 @@
 194	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 195	1	1795	2539	359536	90	323600	Antique	Residential	Average +20	1.5	4	2	1	9	01	4290	2539	2023-08-17
 197	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+2	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2024-07-15
 20	1	1935	3131	411733	90	370600	Cape Cod	Residential	Good	1.5	4	2	1	9	01	5612	3131	2023-08-17
 201	1	1781	2298	354262	80	283400	Antique	Residential	Average +20	1.5	5	2	0	8	01	4960	2298	2023-08-17
 202	1	2013	1820	304700	97	295600	Cape Cod	Residential	Good +10	1.75	3	3	0	5	 	2276	1820	2023-08-17
@@ -623,19 +652,23 @@
 253	1	1968	2234	276437	75	207300	Modern/Contemp	Residential	Average +10	2	3	2	0	7	01	3898	2234	2023-08-17
 254	1	1817	2716	350894	90	315800	Antique	Residential	Average +10	1.5	5	2	0	9	01	5420	2716	2023-08-17
 254	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+255	1	1930	4280	735991	77	566700	Colonial	Residential	Average +20	2	3	5	0	8	01	7192	4280	2024-07-15
 255	1	1930	4610	735991	70	515200	Colonial	Residential	Average +20	2	3	5	0	8	01	7192	4610	2023-08-17
 256	1	2014	2128	372697	96	357800	Ranch	Residential	Average +10	1	5	3	1	9	01	4256	2128	2023-08-17
 256	2	2016	2646	442900	94	416300	Office Bldg	Commercial	Average	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	4776	2646	2023-08-17
 256	3	2015	768	123809	97	120100	Ranch	Residential	Average	1	2	1	0	3	 	1548	768	2023-08-17
+256	4	2016	3948	526330	90	473700	Office Bldg	Commercial	Average	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	7422	3948	2024-07-15
 256	4	2016	4116	526330	90	473700	Office Bldg	Commercial	Average	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	7422	4116	2023-08-17
 257	1	1890	1008	97174	55	53400	Conventional	Residential	Below Average	1.5	3	2	0	4	01	2058	1008	2023-08-17
 258	1	1985	1933	320635	75	240500	Condominium	Res Condo	Good +20	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	6	MISSING-Num Kitchens:	2294	1933	2023-08-17
 259	1	2005	13094	2578041	86	2217100	Private School	Commercial	Good	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	13540	13094	2023-08-17
 259	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+26	1	1912	1184	157316	66	103800	Ranch	Residential	Below Average	1	2	2	0	5	01	2384	1184	2024-07-15
 26	1	1912	1536	157316	66	103800	Ranch	Residential	Below Average	1	2	2	0	5	01	2384	1536	2023-08-17
-260	1	1965	540	118345	65	76900	Raised Ranch	Residential	Below Average	1	2	1	0	5	01	3342	540	2023-08-17
+260	1	1965	540	118345	55	65100	Raised Ranch	Residential	Below Average	1	2	1	0	5	01	3342	540	2024-07-15
 267	1	1971	1012	67008	72	48200	Mobile Home	Mobile Home	Average +20	1	3	1	0	5	01	2141	1012	2023-08-17
 27	1	1968	2462	354457	90	319000	Cape Cod	Residential	Average +10	1.5	5	4	0	12	01	5848	2462	2023-08-17
+27	1	1968	2966	429118	87	373300	Cape Cod	Residential	Average +10	1.5	5	4	0	12	01	7312	2966	2024-07-15
 270	1	1988	1013	64943	73	47400	Mobile Home	Mobile Home	Average +10	1	2	2	0	5	01	1429	1013	2023-08-17
 271	1	1985	2134	223608	80	178900	Conventional	Residential	Average +10	1.75	3	3	0	6	01	3488	2134	2023-08-17
 271	2	2001	912	130386	85	110800	Studio/Garage	Residential	Average +20	1.75	00	0	1	2	00	2492	912	2023-08-17
@@ -648,6 +681,7 @@
 278	1	1958	1120	239576	60	143700	Ranch	Residential	Average +20	1	2	2	0	5	01	2847	1120	2023-08-17
 278	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 279	1	1958	1238	207998	72	149800	Ranch	Residential	Average	1	2	1	0	4	01	3010	1238	2023-08-17
+28	1	1997	1852	317053	81	256800	Ranch	Residential	Average +20	1	3	2	1	7	01	4586	1852	2024-07-15
 28	1	1997	2732	317053	81	256800	Ranch	Residential	Average +20	1	3	2	1	7	01	4586	2732	2023-08-17
 280	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 283	1	1950	288	12244	60	7300	Camp	Residential	Minimum	1	00	0	0	2	01	1043	288	2023-08-17
@@ -667,13 +701,16 @@
 297	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 298	1	1949	1305	222995	72	160600	Ranch	Residential	Average	1	3	2	0	6	01	3856	1305	2023-08-17
 299	1	1947	1435	148190	65	96300	Cape Cod	Residential	Below Average	1.75	2	1	0	5	01	2742	1435	2023-08-17
+3	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2024-07-15
 30	1	1774	1818	290841	85	247200	Antique	Residential	Average +20	1.75	3	2	0	7	01	3824	1818	2023-08-17
 300	1	1952	1107	141424	72	101800	Cape Cod	Residential	Average	1.5	3	1	1	5	01	2052	1107	2023-08-17
 301	1	1817	1988	257705	72	185500	Antique	Residential	Average	1.5	3	1	1	7	01	5043	1988	2023-08-17
 303	1	1850	3142	377545	85	320900	Family Conver.	Residential	Average +10	2	5	2	0	12	01	5545	3142	2023-08-17
+303	1	1850	3142	385029	85	327300	Family Conver.	Residential	Average +10	2	5	2	0	12	01	5545	3142	2024-07-15
 303	2	1989	1404	84883	58	49200	Studio/Garage	Residential	Below Average	1.5	 	0	0	 	 	2808	1404	2024-03-13
 306	1	1984	2018	324426	73	236800	Colonial	Residential	Average +20	2	3	1	1	8	01	4202	2018	2023-08-17
 307	1	1986	3285	522801	90	470500	Cape Cod	Residential	Good +10	1.75	3	3	1	8	01	6852	3285	2023-08-17
+307	1	1986	3285	524052	90	471600	Cape Cod	Residential	Good +10	1.75	3	3	1	8	01	6912	3285	2024-07-15
 308	1	1898	2510	339681	80	271700	Antique	Residential	Average +10	1.75	4	2	0	8	01	5036	2510	2023-08-17
 309	1	1989	2087	363534	73	265400	Modern/Contemp	Residential	Good	1.75	2	2	1	8	01	4188	2087	2023-08-17
 310	1	2007	2714	555743	91	505700	Modern/Contemp	Residential	Good +10	2	4	3	1	9	 	6079	2714	2023-08-17
@@ -689,6 +726,7 @@
 321	1	1966	1116	144755	50	72400	Ranch	Residential	Below Average	1	3	2	0	7	01	1884	1116	2023-08-17
 322	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 323	1	1965	1103	170768	85	145200	Ranch	Residential	Average	1	2	1	0	5	01	2179	1103	2023-08-17
+323	1	1965	1103	178035	85	151300	Ranch	Residential	Average	1	2	1	0	5	01	2179	1103	2024-07-15
 324	1	2006	1838	349566	91	318100	Cape Cod	Residential	Good +10	1.75	3	2	1	7	 	3766	1838	2023-08-17
 325	1	1998	6020	863353	86	742500	Profess. Bldg	Commercial	Average +10	2	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	6210	6020	2023-08-17
 326	1	1797	2849	299391	76	227500	Conventional	Residential	Average +20	1.5	4	2	1	10	01	5878	2849	2023-08-17
@@ -710,14 +748,18 @@
 34	1	1850	3217	440756	85	374600	Antique	Residential	Average +10	1.75	4	3	0	10	01	6416	3217	2023-08-17
 340	1	1989	2550	447488	79	353500	Modern/Contemp	Residential	Good	2	4	3	0	9	01	5180	2550	2023-08-17
 341	1	1991	1590	175012	75	131300	Cape Cod	Residential	Average	1.5	2	1	0	4	01	2570	1590	2023-08-17
+341	1	1991	1590	189341	75	142000	Cape Cod	Residential	Average	1.5	2	2	0	5	01	2570	1590	2024-07-15
 341	2	1996	600	70369	79	55600	Apt/Garage	Residential	Below Average	1	2	1	0	3	01	1344	600	2023-08-17
+341	2	1996	600	99202	79	78400	Apt/Garage	Residential	Below Average	1	2	1	0	3	01	1944	600	2024-07-15
 343	1	1968	1554	308498	76	234500	Modern/Contemp	Residential	Average +20	1	4	2	0	8	01	3690	1554	2023-08-17
 344	1	2010	1568	282006	93	262300	Colonial	Residential	Average +20	2	3	1	1	5	 	2624	1568	2023-08-17
 345	1	1780	2400	339512	80	271600	Antique	Residential	Average +20	2	3	2	1	7	01	4092	2400	2023-08-17
+345	1	1780	2400	352571	80	282100	Antique	Residential	Average +20	2	3	2	1	7	01	4092	2400	2024-07-15
 346	1	2005	1700	282338	86	242800	Private School	Commercial	Average	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	1905	1700	2023-08-17
 347	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 347	2		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 348	1	1930	2736	258039	85	219300	Conventional	Residential	Average +10	1.75	4	2	0	10	01	4940	2736	2023-08-17
+348	1	1930	2906	267054	85	227000	Conventional	Residential	Average +10	1.75	4	2	0	10	01	5015	2906	2024-07-15
 349	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 35	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 350	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -728,6 +770,7 @@
 359	1	1940	950	144242	55	79300	Ranch	Residential	Average	1	3	1	0	6	01	2458	950	2023-08-17
 36	1	1790	8514	747858	50	373900	Stor/Off/Apt	Commercial	Average +10	2	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	13455	8514	2023-08-17
 360	1	1930	1496	160372	76	121900	Ranch	Residential	Below Average	1	1	1	0	6	01	2773	1496	2023-08-17
+360	1	1930	1496	162181	76	123300	Ranch	Residential	Below Average	1	1	1	0	6	01	2773	1496	2024-07-15
 361	1	1852	3147	431483	76	327900	Antique	Residential	Average +10	1.75	4	3	0	11	01	7375	3147	2023-08-17
 361	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 363	1	1965	1944	430950	90	387900	Colonial	Residential	Good	2	4	2	1	7	01	3840	1944	2023-08-17
@@ -750,6 +793,7 @@
 379	1	2001	1008	64755	85	55000	Mobile Home	Mobile Home	Average +20	1	2	2	0	4	01	1316	1008	2023-08-17
 380	1	1962	1440	208372	80	166700	Ranch	Residential	Average +10	1	3	1	1	6	01	2740	1440	2023-08-17
 381	1	1948	1870	99294	67	66500	Ranch	Residential	Minimum	1	2	1	0	4	01	2086	1870	2023-08-17
+381	1	1948	935	99294	67	66500	Ranch	Residential	Minimum	1	2	1	0	4	01	2086	935	2024-07-15
 382	1	1979	1524	184458	76	140200	Split-Level	Residential	Average	2	3	1	0	6	01	1860	1524	2023-08-17
 383	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 384	1	1968	952	165604	60	99400	Ranch	Residential	Below Average	1	5	2	0	8	01	2932	952	2023-08-17
@@ -770,6 +814,7 @@
 398	1	2014	4344	786223	96	754800	Cape Cod	Residential	Excellent+10	1.75	4	2	1	8	01	6219	4344	2023-08-17
 399	1	1994	1660	284678	90	256200	Modern/Contemp	Residential	Good	2.5	2	2	1	6	01	2125	1660	2023-08-17
 399	2	2003	573	105415	87	91700	Studio/Garage	Residential	Good	1.75	 	0	1	 	 	1348	573	2023-08-17
+4	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2024-07-15
 40	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 400	1	1768	4116	484113	70	338900	Family Conver.	Residential	Average	2	7	5	1	12	02	7854	4116	2023-08-17
 401	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -783,8 +828,10 @@
 415	1	1824	2196	310184	72	223300	Antique	Residential	Average +10	1.5	3	1	0	8	01	5613	2196	2023-08-17
 415	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 417	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+418	1	1964	3324	508460	80	406800	Cape Cod	Residential	Good +10	1.75	4	3	1	9	01	6304	3324	2024-07-15
 418	1	1964	3692	508460	80	406800	Cape Cod	Residential	Good +10	1.75	4	3	1	9	01	6304	3692	2023-08-17
 42	1	1969	1990	304983	72	219600	Cape Cod	Residential	Average +10	1.5	3	2	1	10	01	5395	1990	2023-08-17
+427	1	1988	2956	464425	68	315800	Colonial	Residential	Average +20	2	4	2	1	9	01	5229	2956	2024-07-15
 427	1	1988	3388	464425	68	315800	Colonial	Residential	Average +20	2	4	2	1	9	01	5229	3388	2023-08-17
 429	1	1984	3547	671386	76	510300	Modern/Contemp	Residential	Good +10	1.75	4	3	1	11	01	7607	3547	2023-08-17
 43	1	1850	1344	159425	85	135500	Conventional	Residential	Average +20	2	2	1	1	4	01	1794	1344	2023-08-17
@@ -830,14 +877,16 @@
 463	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 465	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 469	1	1988	4241	759166	90	683200	Colonial	Residential	Good	2.5	4	4	1	11	01	7511	4241	2023-08-17
+469	1	1988	4241	774934	90	697400	Colonial	Residential	Good	2.5	5	4	1	11	01	7703	4241	2024-07-15
 469	1	1988	4433	774934	90	697400	Colonial	Residential	Good	2.5	5	4	1	11	01	7703	4433	2024-03-13
 472	1	1993	3744	890899	79	703800	Colonial	Residential	Good +20	2	4	3	1	10	01	9640	3744	2023-08-17
 473	1	1995	3480	655505	81	531000	Colonial	Residential	Good +10	2	4	2	1	9	01	6349	3480	2023-08-17
 474	1	2003	2836	401303	89	357200	Cape Cod	Residential	Good	1.75	3	2	1	9	 	5786	2836	2024-03-13
 475	1	1778	3368	440562	65	286400	Family Conver.	Residential	Average +20	2	5	2	0	11	02	5948	3368	2023-08-17
 475	2		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
-476	1	1964	2743	380422	72	273900	Cape Cod	Residential	Average +20	1.75	4	3	1	7	01	5577	2743	2023-08-17
+476	1	1964	2743	380422	35	133100	Cape Cod	Residential	Average +20	1.75	4	3	1	7	01	5577	2743	2024-07-15
 476	2	2022	4331	1134894	70	794400	Colonial	Residential	Good +20	2	5	5	2	 	 	9140	4331	2023-08-17
+476	2	2022	4798	1144024	100	1144000	Colonial	Residential	Good +20	2	5	4	1	 	 	9887	4798	2024-07-15
 478	1	1785	3027	312355	72	224900	Family Conver.	Residential	Average	1.5	4	2	1	8	01	5252	3027	2023-08-17
 478	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 479	1	1825	4924	785086	90	706600	Cape Cod	Residential	Excellent	1.75	5	3	1	10	01	7294	4924	2023-08-17
@@ -860,6 +909,7 @@
 491	1	1806	3034	458366	70	320900	Antique	Residential	Average +20	2	4	3	1	10	01	5368	3034	2024-03-13
 491	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 492	1	1986	1024	149160	72	107400	Ranch	Residential	Average	1	3	1	0	5	01	2048	1024	2023-08-17
+492	1	1986	896	149160	72	107400	Ranch	Residential	Average	1	3	1	0	5	01	2048	896	2024-07-15
 493	1	1776	3270	455389	80	364300	Antique	Residential	Average +20	2	5	2	0	10	01	7356	3270	2023-08-17
 493	1	1776	3270	473222	80	378600	Antique	Residential	Average +20	2	5	2	0	10	01	7356	3270	2024-03-13
 493	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -902,22 +952,28 @@
 526	1	1962	1080	152957	76	116200	Ranch	Residential	Below Average	1	1	2	0	5	01	2240	1080	2024-03-13
 527	1	1998	2940	372289	83	309000	Cape Cod	Residential	Average +20	1.75	3	2	0	8	01	6566	2940	2024-03-13
 529	1	1979	1492	214559	67	143800	Modern/Contemp	Residential	Average	1.75	3	2	1	7	01	2697	1492	2023-08-17
+529	1	1979	1502	214490	67	143700	Modern/Contemp	Residential	Average	1.75	3	2	1	7	01	2602	1502	2024-07-15
 53	1	1880	1038	124700	75	93500	Condominium	Res Condo	Average	1.5	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	4	MISSING-Num Kitchens:	1384	1038	2023-08-17
 530	1	1905	3330	459477	90	413500	Conventional	Residential	Good +20	2	5	3	1	10	01	4938	3330	2023-08-17
+530	1	1905	3418	486815	90	438100	Conventional	Residential	Good +20	2	5	3	1	10	01	5089	3418	2024-07-15
 532	1	1991	800	80496	41	33000	Ranch	Residential	Minimum	1	1	1	0	4	01	1760	800	2023-08-17
 533	1	1968	3556	635065	85	539800	Modern/Contemp	Residential	Good +10	2	3	3	1	9	01	6630	3556	2023-08-17
 537	1	1790	3450	586430	90	527800	Antique	Residential	Good +10	1.5	4	3	1	10	02	5889	3450	2023-08-17
 538	1	1790	2416	338217	90	304400	Antique	Residential	Average +10	1.5	3	2	0	8	01	6436	2416	2023-08-17
 54	1	1880	761	86567	75	64900	Condominium	Res Condo	Average	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	4	MISSING-Num Kitchens:	1208	761	2023-08-17
 540	1	1988	2220	398087	73	290600	Colonial	Residential	Average +20	2	3	2	0	8	01	4672	2220	2023-08-17
+540	1	1988	2220	404145	73	295000	Colonial	Residential	Average +20	2	3	2	0	8	01	4880	2220	2024-07-15
+542	1	1976	1449	222909	67	149300	Raised Ranch	Residential	Average	1	3	2	0	6	01	3613	1449	2024-07-15
 542	1	1976	1449	225124	67	150800	Raised Ranch	Residential	Average	1	3	2	0	6	01	3613	1449	2023-08-17
 543	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 544	1	2018	1566	85299	73	62300	Mobile Home	Mobile Home	Average +20	1	3	2	0	5	01	1595	1566	2023-08-17
 545	1	1979	1376	139392	72	100400	Ranch	Residential	Below Average	1	1	1	0	4	01	1611	1376	2023-08-17
 546	1	1970	1008	148804	65	96700	Raised Ranch	Residential	Below Average	1	3	2	0	7	01	2256	1008	2023-08-17
+547	1	1982	1920	219539	76	166800	Cape Cod	Residential	Average +10	1.75	3	2	0	6	01	2960	1920	2024-07-15
 547	1	1982	1920	222828	76	169300	Cape Cod	Residential	Average +10	1.75	3	2	0	6	01	2960	1920	2023-08-17
 55	1	1880	1150	123941	65	80600	Condominium	Res Condo	Average	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	5	MISSING-Num Kitchens:	1226	1150	2023-08-17
 552	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+557	1	1974	960	140774	72	101400	Ranch	Residential	Average	1	3	1	0	6	01	1920	960	2024-07-15
 557	1	1974	960	144769	72	104200	Ranch	Residential	Average	1	3	1	0	6	01	1938	960	2023-08-17
 558	1	1993	1888	100196	45	45100	Mobile Home	Mobile Home	Average +20	1	3	2	0	5	01	2156	1888	2023-08-17
 559	1	1988	2220	363035	75	272300	Modern/Contemp	Residential	Good	2	3	2	1	6	01	3583	2220	2023-08-17
@@ -925,9 +981,10 @@
 560	1	1850	1480	177823	65	115600	Cape Cod	Residential	Average	1	2	1	1	5	01	2886	1480	2023-08-17
 561	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 563	1	1770	2604	392401	80	313900	Antique	Residential	Good	1.5	3	3	0	8	01	3472	2604	2023-08-17
+563	1	1770	2604	406931	80	325500	Antique	Residential	Good	1.5	3	3	0	8	01	3472	2604	2024-07-15
 564	1	1963	2174	519074	90	467200	Ranch	Residential	Good +20	1	3	2	1	8	01	5192	2174	2023-08-17
 564	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
-565	1	1991	2392	263217	74	194800	Cape Cod	Residential	Average +10	1.75	3	2	1	6	02	3496	2392	2023-08-17
+565	1	1991	2392	263217	74	194800	Cape Cod	Residential	Average +10	1.75	3	2	1	6	02	3490	2392	2024-07-15
 569	1	1996	6726	845314	64	541000	B&B/Inn	Commercial	Average +20	2	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	13756	6726	2023-08-17
 569	2	1996	744	122963	81	99600	Cape Cod	Residential	Average	1.75	2	1	1	3	01	2154	744	2023-08-17
 569	3		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -936,11 +993,13 @@
 570	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 570	3	1990	1064	56636	50	28300	Mobile Home	Mobile Home	Average +10	1	3	2	0	5	 	1064	1064	2023-08-17
 571	1	1790	1580	180058	76	136800	Cape Cod	Residential	Average	1.5	2	1	0	5	01	3341	1580	2023-08-17
+572	1	1970	1248	187930	80	150300	Ranch	Residential	Below Average	1	3	2	0	5	01	2848	1248	2024-07-15
 572	1	1970	1440	187930	80	150300	Ranch	Residential	Below Average	1	3	2	0	5	01	2848	1440	2023-08-17
+575	1	1983	3306	775548	80	620400	Modern/Contemp	Residential	Good +20	1.5	4	3	1	10	01	7705	3306	2024-07-15
 575	1	1983	3306	858157	87	746600	Modern/Contemp	Residential	Excellent	1.5	5	3	1	10	01	7705	3306	2023-10-24
 575	1	1983	3530	901539	90	811400	Modern/Contemp	Residential	Excellent	1.5	4	4	1	10	01	7705	3530	2023-08-17
 575	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
-575	3	1985	480	57007	67	38200	Studio/Garage	Residential	Average	1.5	00	0	0	2	 	1920	480	2023-08-17
+575	3	1985	480	57007	67	38200	Studio/Garage	Residential	Average	1.5	 	0	0	2	 	1920	480	2024-07-15
 576	1	1983	3989	777381	90	699600	LeCamp	Residential	Excellent+10	1.5	1	2	0	5	01	7446	3989	2023-08-17
 576	2	2004	2568	794950	89	707500	LeCamp	Residential	Excellent+10	1	2	4	1	6	01	6402	2568	2023-08-17
 576	3	1996	336	23784	79	18800	Camp	Residential	Average +20	1	00	0	0	1	01	644	336	2023-08-17
@@ -954,6 +1013,7 @@
 581	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 581	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 582	1	2019	8670	1693263	99	1676300	Modern/Contemp	Residential	Excellent+10	1.75	4	3	1	10	 	16286	8670	2023-08-17
+582	1	2019	8670	1736593	99	1719200	Modern/Contemp	Residential	Excellent+10	1.75	4	3	1	10	 	16286	8670	2024-07-15
 584	1	1978	2729	509402	72	366800	Colonial	Residential	Average +20	2	4	3	1	10	01	5580	2729	2023-08-17
 584	2		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 59	1	1840	2864	417970	85	355300	Antique	Residential	Average +20	2	4	2	1	10	01	5574	2864	2023-08-17
@@ -963,18 +1023,22 @@
 593	1	1965	1840	316508	67	212100	Colonial	Residential	Average +10	2	4	1	1	8	01	3435	1840	2023-08-17
 594	1	1957	3360	623490	85	530000	Modern/Contemp	Residential	Good	2	3	3	1	7	01	8131	3360	2023-08-17
 594	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+597	1	2007	3008	719625	93	669300	Modern/Contemp	Residential	Excellent	1.5	3	3	1	10	01	7180	3008	2024-07-15
 597	1	2007	3008	723941	93	673300	Modern/Contemp	Residential	Excellent	1.5	3	3	1	10	01	7499	3008	2023-08-17
 598	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 60	1	1823	3319	542185	85	460900	Family Conver.	Residential	Good	1.75	4	3	0	11	02	7594	3319	2023-08-17
 600	1	1979	1404	237890	52	123700	Ranch	Residential	Average	1	3	2	1	7	01	3266	1404	2023-08-17
 603	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 605	1	1949	2128	204110	85	173500	Conventional	Residential	Average +10	2	3	2	1	8	01	2962	2128	2023-08-17
+605	1	1949	2128	204149	85	173500	Conventional	Residential	Average +10	2	3	2	1	8	01	2967	2128	2024-07-15
 607	1	1960	1728	230219	64	147300	Ranch	Residential	Average	1	3	1	0	7	01	3848	1728	2023-08-17
+607	2	1971	2880	124913	60	74900	Service-Shops	Industrial	Minimum	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	2880	2880	2024-07-15
 607	2	1971	2880	126274	60	75800	Service-Shops	Industrial	Minimum	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	2880	2880	2023-08-17
 611	1	2013	2098	686062	96	658600	Modern/Contemp	Residential	Excellent	1	3	3	1	8	01	6743	2098	2023-08-17
 611	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 616	1	1968	3137	412375	76	313400	Family Conver.	Residential	Average +10	1	4	2	1	9	02	8012	3137	2023-08-17
 617	1	1975	1344	201066	76	152800	Ranch	Residential	Average	1	3	1	1	5	01	3330	1344	2023-08-17
+618	1	1900	1272	108177	50	54100	Conventional	Residential	Below Average	1	2	1	0	6	01	2584	1272	2024-07-15
 618	1	1900	1272	115493	50	57700	Conventional	Residential	Below Average	1	2	1	0	6	01	2704	1272	2023-08-17
 618	2	1985	672	32404	73	23700	Mobile Home	Mobile Home	Average	1	1	1	0	3	01	672	672	2023-08-17
 618	3		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -987,9 +1051,11 @@
 623	1	1790	1092	134188	60	80500	Antique	Residential	Below Average	1.5	3	1	0	6	01	2380	1092	2023-08-17
 623	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 624	1	1988	2274	292042	79	230700	Raised Ranch	Residential	Average	1	3	2	0	8	01	4496	2274	2023-08-17
+624	1	1988	2440	329734	79	260500	Raised Ranch	Residential	Average	1	3	3	0	8	01	4852	2440	2024-07-15
 624	2	1989	3000	96503	64	61800	Pre-Eng Warhse	Industrial	Minimum	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	3000	3000	2023-08-17
+625	1	1803	3315	508474	90	457600	Antique	Residential	Good	1.5	4	4	0	10	01	5498	3315	2024-07-15
 625	1	1803	3315	512027	90	460800	Antique	Residential	Good	1.5	4	4	0	10	01	5838	3315	2023-08-17
-626	1	1955	2520	480070	80	384100	Colonial	Residential	Average +20	2	3	3	1	8	01	5664	2520	2023-08-17
+626	1	1955	2520	480070	80	384100	Colonial	Residential	Average +20	2	3	3	1	8	01	5625	2520	2024-07-15
 627	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 63	1	1870	3801	385735	67	258400	Apartments	Commercial	Average	1.5	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	6532	3801	2023-08-17
 633	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
@@ -1000,8 +1066,10 @@
 638	1	1980	1708	210751	76	160200	Ranch	Residential	Average	1	3	2	0	6	01	2448	1708	2023-08-17
 638	2	1972	1300	119289	71	84700	Conventional	Residential	Below Average	1.5	2	1	0	6	01	2370	1300	2023-08-17
 639	1	2004	5606	1338567	91	1218100	Modern/Contemp	Residential	Excellent+10	1.75	4	4	1	12	 	11745	5606	2023-08-17
+639	1	2004	5606	1338627	91	1218200	Modern/Contemp	Residential	Excellent+10	1.75	4	4	1	12	 	11750	5606	2024-07-15
 639	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 639	3	2013	1816	320292	96	307500	Studio/Garage	Residential	Excellent+10	1	00	1	0	 	 	3958	1816	2023-08-17
+639	3	2013	1816	330585	96	317400	Studio/Garage	Residential	Excellent+10	1	 	1	0	 	 	3980	1816	2024-07-15
 64	1	1840	1640	181822	50	90900	Antique	Residential	Below Average	1.75	2	1	0	7	01	2762	1640	2023-08-17
 643	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 645	1	1790	1908	294919	80	235900	Antique	Residential	Average +20	1.75	3	2	0	8	01	3423	1908	2023-08-17
@@ -1055,8 +1123,10 @@
 717	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 719	1	1830	3106	374006	80	299200	Antique	Residential	Average +10	1.5	3	3	0	7	01	4586	3106	2023-08-17
 720	1	1930	1547	258945	76	196800	Colonial	Residential	Average +10	1.75	4	2	0	7	01	2506	1547	2023-08-17
+723	1	1958	3258	315579	72	227200	Ranch	Residential	Below Average	1	5	3	0	9	01	4578	3258	2024-07-15
 723	1	1958	3258	315637	72	227300	Ranch	Residential	Below Average	1	5	3	0	9	01	4596	3258	2023-08-17
 724	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+724	1	2023	2586	681204	100	681200	Colonial	Residential	Good +20	2	4	2	1	 	 	6417	2586	2024-07-15
 725	1	1790	3728	516191	85	438800	Antique	Residential	Average +20	1.5	5	2	2	11	01	7655	3728	2023-08-17
 725	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 734	1	1999	3520	665076	83	552000	Cape Cod	Residential	Good +20	1.5	4	4	1	12	01	8040	3520	2023-08-17
@@ -1074,6 +1144,7 @@
 742	1	1997	4181	736096	81	596200	Modern/Contemp	Residential	Good +20	1.5	4	2	1	9	01	8928	4181	2023-08-17
 743	1	1992	2328	321378	74	237800	Cape Cod	Residential	Average +20	1.5	3	2	1	8	01	5576	2328	2023-08-17
 744	1	1968	3612	615465	45	277000	Cape Cod	Residential	Good +10	1.75	5	4	1	11	00	7696	3612	2023-08-17
+744	1	1968	3612	625449	60	375300	Cape Cod	Residential	Good +10	1.75	5	4	1	11	00	8152	3612	2024-07-15
 744	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 745	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 746	1	1993	3734	799030	77	615300	Modern/Contemp	Residential	Good +20	2	6	4	0	12	01	9202	3734	2023-08-17
@@ -1097,6 +1168,7 @@
 758	1	1997	864	127887	81	103600	Ranch	Residential	Average	1	2	1	0	4	01	1764	864	2023-08-17
 759	1	1973	906	131396	67	88000	Raised Ranch	Residential	Average	1	2	1	0	4	01	2159	906	2023-08-17
 76	1	1840	2818	571252	90	514100	Antique	Residential	Good +10	1.5	4	3	0	10	01	6560	2818	2023-08-17
+76	1	1840	2818	592044	90	532800	Antique	Residential	Good +10	1.5	4	3	0	10	01	6560	2818	2024-07-15
 760	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 762	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 764	1	1920	760	50766	90	45700	Conventional	Residential	Minimum	1	2	1	0	3	01	1360	760	2023-08-17
@@ -1107,6 +1179,7 @@
 769	1	1810	1386	212459	90	191200	Antique	Residential	Average +10	1.5	3	2	0	6	01	2448	1386	2023-08-17
 77	1	1998	2194	397527	85	337900	Cape Cod	Residential	Good +10	1.75	4	3	1	9	01	4560	2194	2023-08-17
 770	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+771	1	2018	1680	296779	88	261200	Colonial	Residential	Average +20	1.5	3	2	2	7	01	2725	1680	2024-07-15
 771	1	2018	2520	296779	88	261200	Colonial	Residential	Average +20	1.5	3	2	2	7	01	2725	2520	2023-08-17
 771	2		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 772	1	1788	2038	292636	80	234100	Antique	Residential	Average +10	1.5	4	2	0	7	01	4701	2038	2023-08-17
@@ -1157,6 +1230,7 @@
 815	1	1968	2656	419451	65	272600	Modern/Contemp	Residential	Average +20	2	2	3	1	10	01	5160	2656	2023-08-17
 815	2	1968	881	163147	60	97900	Modern/Contemp	Residential	Average +10	1	1	1	0	4	01	1842	881	2023-08-17
 816	1	1978	2524	517944	67	347000	Modern/Contemp	Residential	Good	1	2	2	1	11	01	6255	2524	2023-08-17
+816	1	1978	2524	537490	67	360100	Modern/Contemp	Residential	Good	1	2	2	1	11	01	6255	2524	2024-07-15
 816	2	2001	2420	292313	85	248500	Modern/Contemp	Residential	Average	2	1	2	0	7	01	4984	2420	2023-08-17
 82	1	1840	2496	283558	72	204200	Family Conver.	Residential	Average	1.5	4	2	1	11	02	4382	2496	2023-08-17
 820	1	1800	4614	1056949	89	940700	Antique	Residential	Excellent	2	4	4	2	11	01	9003	4614	2023-08-17
@@ -1182,6 +1256,7 @@
 835	1	1994	1957	379899	77	292500	Modern/Contemp	Residential	Good	1	3	2	1	7	01	3678	1957	2023-08-17
 835	2	2007	336	38539	91	35100	Studio/Garage	Residential	Average	1.5	 	0	0	 	 	1344	336	2023-08-17
 836	1		0	0		0	Accessory Bldg	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+837	1	1804	4523	597772	75	448300	Family Duplex	Residential	Average +20	2	7	5	1	15	02	7851	4523	2024-07-15
 837	1	1804	5135	597772	75	448300	Family Duplex	Residential	Average +20	2	7	5	1	15	02	7851	5135	2023-08-17
 837	2	1900	745	40506	10	4100	Camp	Residential	Average	1	2	1	0	4	01	1041	745	2023-08-17
 837	3	1900	600	30880	10	3100	Camp	Residential	Average	1	2	1	0	4	01	768	600	2023-08-17
@@ -1190,6 +1265,7 @@
 839	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 84	1	1959	35876	4334562	72	3120900	Public School	Commercial	Average +10	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	37641	35876	2023-08-17
 840	1	1963	1012	167973	72	120900	Ranch	Residential	Average +10	1	3	1	0	5	01	2264	1012	2023-08-17
+840	1	2020	1012	175083	99	173300	Ranch	Residential	Average +10	1	3	1	0	5	01	2264	1012	2024-07-15
 841	1	1983	2518	329480	67	220800	Office Bldg	Commercial	Average	1.75	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	11	MISSING-Num Kitchens:	4060	2518	2023-08-17
 841	2	1970	1248	110430	72	79500	Shop	Industrial	Average	1	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	2567	1248	2023-08-17
 841	3	2014	2400	252758	94	237600	Shop	Industrial	Average +20	2	MISSING-Total Bedrooms:	MISSING-Total Bthrms:	MISSING-Total Half Baths:	 	MISSING-Num Kitchens:	4800	2400	2023-08-17
@@ -1261,13 +1337,14 @@
 908	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 909	1	1994	6759	1301873	90	1171700	Cape Cod	Residential	Excellent+10	1.75	4	4	1	13	01	12205	6759	2023-08-17
 909	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
+909	3	2023	2934	348402	65	226500	Apt/Garage	Residential	Good	1.5	2	3	 	 	 	6958	2934	2024-07-15
 91	1	1942	3372	496001	85	421600	Cape Cod	Residential	Good	2	4	4	0	9	01	5670	3372	2023-08-17
 91	2	2004	728	115930	87	100900	Studio/Garage	Residential	Good	2	00	1	0	1	 	1456	728	2023-08-17
 910	1	1994	3300	227906	77	175500	Apt/Cust Stbl	Residential	Average	1.5	1	1	1	6	01	5256	3300	2023-08-17
 911	1	1804	2475	431818	85	367000	Antique	Residential	Good +10	1.5	3	2	1	9	01	5160	2475	2023-08-17
 911	2		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
 912	1		0	0		0	Vacant Land	 	 	 	 	 	 	 	 	MISSING-Gross	Missing-Living	2023-08-17
-913	1	2023	2456	424644	65	276000	Cape Cod	Residential	Good	1.5	3	2	1	7	01	6859	2456	2023-08-17
+913	1	2023	2456	424644	100	424600	Cape Cod	Residential	Good	1.5	3	2	1	7	01	6859	2456	2024-07-15
 915	1	1998	1176	165052	81	133700	Cape Cod	Residential	Average +10	1.75	2	1	1	4	01	2016	1176	2023-08-17
 916	1	1970	1638	229966	72	165600	Cape Cod	Residential	Average +10	1.75	3	1	1	6	01	4644	1638	2023-08-17
 917	1	1983	1992	245262	76	186400	Cape Cod	Residential	Average +10	1.5	3	2	0	7	01	3960	1992	2023-08-17

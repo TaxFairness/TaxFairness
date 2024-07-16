@@ -996,7 +996,7 @@ WITH table_1 AS (
   FROM
     "ScrapedData" AS sd
   WHERE
-    "SD_CollectedOn" = '2024-03-13'
+    "SD_CollectedOn" = '2024-07-15'
 ),
 table_0 AS (
   SELECT
