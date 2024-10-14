@@ -1,0 +1,15 @@
+# Properties with easements or tax-exempt status
+
+from EasementsFrontage
+filter (EF_Exempt != "" || EF_MuniEasement != "" || EF_ConsEasement != "")
+select {
+    EF_Street_Address,
+    EF_Map, EF_Lot,
+    EF_Unit,
+    EF_PID,
+    EF_LotSize,
+    EF_Exempt,
+    EF_MuniEasement,
+    EF_ConsEasement,
+    EF_Notes,
+}

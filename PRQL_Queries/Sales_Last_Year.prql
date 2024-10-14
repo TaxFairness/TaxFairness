@@ -1,0 +1,15 @@
+# Last Year's Sales from GCRoD
+from GraftonCtyRoD
+filter GC_Date >= s"date('now', '-1 year')"
+filter GC_Type == "DEED"
+filter GC_TransferTax != '-'
+filter GC_TransferTax != ""
+filter GC_TransferTax != 40
+select {
+  GC_Date,
+  GC_Book_Page,
+  GC_Consideration,
+  GC_TransferTax,
+  Imputed_Consideration = GC_TransferTax / 0.0015
+}
+sort { Imputed_Consideration }

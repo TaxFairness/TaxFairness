@@ -1,0 +1,38 @@
+# Appraised Land Value vs Assessed Land Value
+# Find the difference between the land values (Appraised and Assessed)
+# sort by the difference
+
+# Alternative #2: Assessed value < 10% of Appraised value
+
+# dollars displays a numeric value as dollars with commas
+let dollars = d -> s"""printf("$%,d",{d})"""
+
+# pct computes the amount (percent) the new differs from old
+let pct = o n -> 100.0*( n - o ) / o
+
+# prtpct prints a floating point number with "%"
+let prtpct = v -> s'printf("%1.1f%", {v})'
+
+from CleanScrapedData
+derive percentage = (Ass_LandCurr / App_LandCurr)*100
+filter percentage < 10 # assessed value less than 10%
+derive delta = App_LandCurr - Ass_LandCurr
+sort {-delta}
+# filter delta > 40_000
+
+select {
+   Map, Lot, Unit,
+   Street_Address,
+   Acres = Lot_Size,
+   `Land-Appraised`=(dollars App_LandCurr),
+   `Land-Assessed` = (dollars Ass_LandCurr),
+   `Delta_Value` = (dollars delta),
+   Pct = (prtpct percentage),
+   delta,
+}
+
+take 50
+aggregate (
+   Total = (dollars (sum delta))
+) 
+# filter (text.contains "ORFORD" Street_Address )

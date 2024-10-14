@@ -1,0 +1,17 @@
+# Test a prql query to see if it drives a qStudio error
+# java.sql.SQLException: getDouble failed on value (  ) in column 10
+# Answer: One of the values of the Map column is "4023-204" (or similar)
+# This drives the "getDouble()" fail message
+
+let foo = [ {a = "", b=1 },{ a = null, b=2,}, {a = "4083-0169", b=3,} ] 
+from foo
+filter b==3
+select {
+    a,
+    b,
+}
+#  
+#  from CleanScrapedData
+#  select {
+#      Book
+#      }

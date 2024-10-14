@@ -10,7 +10,8 @@
 #   - ZDistrict is coded value (RD, LCD, etc.)
 #   - RealDistrict is nice printable names 
 # - Create StateRoad column
-# - Someday, join in the Conservation data
+# - Join in the Exempt, muni and conservation easements
+# - also include frontage values
 # =======================================
 
 prql target:sql.sqlite
@@ -71,8 +72,9 @@ let SubDistrict = dist road -> case [
 # ============ begin  query ==============
 
 from sd=ScrapedData
-filter SD_CollectedOn == '2024-03-13' # latest data
+filter SD_CollectedOn == '2024-10-12' # latest data
 join side:left czd = CorrectedZoningDistrict (sd.SD_PID == czd.CZD_PID)
+join side:left ef = EasementsFrontage(sd.SD_PID == ef.EF_PID)
 
 derive { StateRoad = isStateRoad sd.SD_Street_Address }
 
@@ -104,6 +106,12 @@ select {
     #ZDistrict,
     DistrictName,
     StateRoad,
+    ef.EF_LotSize,
+    ef.EF_Exempt,
+    ef.EF_MuniEasement,
+    ef.EF_ConsEasement, 
+    ef.EF_Frontage,
+    ef.EF_FrontSuffix,
     Num_Buildings=sd.SD_Num_Buildings,
     Recent_Sale_Price=sd.SD_Recent_Sale_Price,
     Recent_Sale_Date=sd.SD_Recent_Sale_Date,

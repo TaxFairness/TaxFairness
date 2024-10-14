@@ -5,12 +5,13 @@ delete from CAMA2022;
 delete from ConservationEasements;
 delete from Equalization2022;
 delete from GraftonCtyRoD;
-delete from LymeOldToNew2022;
-delete from LymeOldToNew2023;
-delete from LymeOldToNew211202;
+# delete from OldVsNew;
+# delete from LymeOldToNew211202;
+# delete from LymeOldToNew2022;
+# delete from LymeOldToNew2023;
+delete from LymeOldToNew;
 delete from LymeUseCodes;
 delete from MS1_Data;
-delete from OldVsNew;
 delete from PA342022;
 delete from RatioStudy2021;
 delete from RatioStudy2022;
@@ -49,9 +50,7 @@ vacuum;
 .import "DefinitiveData/Vision-Occupancy-Codes.csv" VisionOccCodes
 .import "DefinitiveData/Recent Sales Data from Rusty-31Oct2021.csv" RecentSales
 .import "DefinitiveData/Lyme Zoning Permits-2016-2022-RB multi Year.csv" ZoningPermits
-.import "DefinitiveData/Old-NewValues2021-21Nov2021.csv" OldVsNew
 .import "DefinitiveData/002_Lyme Land Use Codes-17Nov2021.csv" LymeUseCodes
-.import "DefinitiveData/lyme old to new 21-1202-from-xls-cleaned.csv" LymeOldToNew211202
 .import "DefinitiveData/ASSESSED V. APPRAISED DINA W TTL LAND UNITS 21-1202-no-units.csv" RawAsVsAPDina
 .import "DefinitiveData/Lyme Conservation Easements as of 2-13-08.csv" ConservationEasements
 .import "DefinitiveData/ScrapedData12Jan2022.csv" ScrapedData2
@@ -61,7 +60,6 @@ vacuum;
 .import "DefinitiveData/Equalization Tables-29Apr2022.csv" Equalization2022
 .import "DefinitiveData/PA-34-29Aug2022.csv" PA342022
 .import "DefinitiveData/ScrapedData4-30Aug2022.csv" ScrapedData4
-.import "DefinitiveData/2022 OldToNew-JToland-11Oct2022.csv" LymeOldToNew2022
 .import "DefinitiveData/ScrapedData5-11Dec2022.csv" ScrapedData5
 .import "DefinitiveData/ScrapedData-31Dec2022.csv" ScrapedData6
 .import "DefinitiveData/GCRoD-All-Data.csv" GraftonCtyRoD
@@ -72,13 +70,18 @@ vacuum;
 .import "DefinitiveData/2021_final_ratiostudy.csv" RatioStudy2021
 .import "DefinitiveData/2022_final_ratiostudy.csv" RatioStudy2022
 .import "DefinitiveData/MS-1_Summary.csv" MS1_Data
-.import "DefinitiveData/2023_draft_oldtonew-21Sep2023.csv" LymeOldToNew2023
 .import "DefinitiveData/Lyme_CAMA_2022-HQ_10Oct2023.csv" CAMA2022
 .import "DefinitiveData/NH_DRA_Muni_Tax_Rates.csv" TaxRates
 .import "DefinitiveData/ScrapedData.csv" ScrapedData
 .import "DefinitiveData/Equalization and Property Values-2022-tables-by-county.csv" MuniPropVals
 .import "DefinitiveData/Corrected_Zoning_Districts.csv" CorrectedZoningDistrict
-.import "DefinitiveData/Easements_and_Frontage.csv" EasementsFrontage
+.import "DefinitiveData/Easements and Frontage.csv" EasementsFrontage
+# .import "DefinitiveData/lyme old to new 21-1202-from-xls-cleaned.csv" LymeOldToNew211202
+# .import "DefinitiveData/Old-NewValues2021-21Nov2021.csv" LymeOldToNew2021
+# .import "DefinitiveData/2022 OldToNew-JToland-11Oct2022.csv" LymeOldToNew2022
+# .import "DefinitiveData/2023_draft_oldtonew-21Sep2023.csv" LymeOldToNew2023
+# .import "DefinitiveData/2024_oldtonew-29Aug2024.csv" LymeOldToNew2024
+.import "DefinitiveData/OldToNewValues.csv" LymeOldToNew
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme
@@ -86,6 +89,6 @@ vacuum;
 .import "DefinitiveData/MergedAssmtHistory.tsv" AssessHistory
 .import "DefinitiveData/MergedApprlHistory.tsv" AppraisHistory
 .import "DefinitiveData/MergedOwnerHistory.tsv" OwnerHistory
-.import "DefinitiveData/MergedBuildings.tsv" Buildings
+.import "DefinitiveData/MergedBuildings.tsv"    Buildings
 
 

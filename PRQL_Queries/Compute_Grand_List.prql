@@ -16,7 +16,8 @@ let loVal = 0.85  # appraised at 85% of sales price
 # let hiVal = 0.80  # appraised at 80% of sales price
 # let loVal = 0.90  # appraised at 90% of sales price
 
-from sd=ScrapedData9
+from sd=ScrapedData
+filter SD_Version == 14
 join side:left tx=TaxableProperties (
      sd.SD_Map == tx.TX_Map 
   \ && sd.SD_Lot == tx.TX_Lot

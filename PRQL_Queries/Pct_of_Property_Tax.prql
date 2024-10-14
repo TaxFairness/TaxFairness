@@ -16,11 +16,14 @@ let twodig = v -> s"printf('%1.2f', {v})"
 
 let TaxRate = 25.35 # 2023 tax rate
 
+# implement a "like" function in lieu of a regex
+let like = fld str -> s"{fld} like '%' || {str} || '%' "
+
 from ScrapedData
 filter (SD_Version == 14)
 # filter SD_Appraisal != SD_Assessment
 derive District = case [
-  SD_Description ~= "CONDO" => "Condo",
+  (like SD_Description "CONDO") => "Condo",
   SD_Zoning_District == "" => "Unknown",
   SD_Zoning_District == "RD" => "Rural",
   SD_Zoning_District == "ES" => "Rural",

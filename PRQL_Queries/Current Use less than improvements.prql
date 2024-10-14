@@ -1,7 +1,6 @@
 # Current Use properties whose appraised improvements < assessed
 # 14Feb2023
 # NONE - WHEW!
-# Update to PRQL 0.10.0 language
 
 prql target:sql.sqlite
 
@@ -16,7 +15,8 @@ let prtpct = v -> s'printf("%1.1f%", {v})'
 
 let taxrate = 23.98
 
-from sd = ScrapedData7
+from sd = ScrapedData
+filter (sd.SD_Version == 15)
 select {
   Map=SD_Map,
   Lot=SD_Lot,
