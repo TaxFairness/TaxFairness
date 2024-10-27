@@ -75,3 +75,7 @@ remove_duplicates "AssmtHistory" 6
 remove_duplicates "ApprlHistory" 6
 remove_duplicates "OwnerHistory" 10
 remove_duplicates "Buildings" 19
+
+remove_duplicates "SpecialLand" 6
+remove_duplicates "Outbuildings" 10
+remove_duplicates "ExtraFeature" 8     # no "s" in the filename

@@ -892,6 +892,40 @@ CREATE TABLE "Buildings" (
 	"BL_Living_Area" INTEGER,
 	"BL_CollectedOn" TEXT
 );
+
+CREATE TABLE "Outbuildings" (
+	"OB_PID" TEXT,
+	"OB_Code" TEXT,
+	"OB_Description" TEXT,
+	"OB_Subcode" TEXT,
+	"OB_Subdescr" TEXT,
+	"OB_Size" INTEGER,
+	"OB_Units" TEXT,
+	"OB_Value" INTEGER,
+	"OB_BldgNum" INTEGER,
+	"OB_CollectedOn" TEXT
+);
+
+CREATE TABLE "ExtraFeatures" (
+	"XF_PID" TEXT,
+	"XF_Code" TEXT,
+	"XF_Description" TEXT,
+	"XF_Size" INTEGER,
+	"XF_Units" TEXT,
+	"XF_Value" INTEGER,
+	"XF_BldgNum" INTEGER,
+	"XF_CollectedOn" TEXT
+);
+
+CREATE TABLE "SpecialLand" (
+	"SL_PID" TEXT,
+	"SL_Code" TEXT,
+	"SL_Description" TEXT,
+	"SL_Units" TEXT,
+	"SL_UnitType" TEXT,
+	"SL_CollectedOn" TEXT
+
+);
 CREATE TABLE "TaxRates" (
 	"TR_Municipality" TEXT,
 	"TR_Tax_Year" TEXT,

@@ -1,1 +1,8 @@
-from LymeOldToNew2023
+from EasementsFrontage
+select {
+   EF_Map, EF_Lot, EF_Unnit,
+   EF_Street_Address,
+   EF_MuniEasement,
+}
+filter (EF_MuniEasement != "")
+# sort { difference }

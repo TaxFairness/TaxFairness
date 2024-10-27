@@ -90,5 +90,8 @@ vacuum;
 .import "DefinitiveData/MergedApprlHistory.tsv" AppraisHistory
 .import "DefinitiveData/MergedOwnerHistory.tsv" OwnerHistory
 .import "DefinitiveData/MergedBuildings.tsv"    Buildings
+.import "DefinitiveData/MergedSpecialLand.tsv"  SpecialLand
+.import "DefinitiveData/MergedOutbuildings.tsv" Outbuildings
+.import "DefinitiveData/MergedExtraFeature.tsv" ExtraFeatures
 
 
