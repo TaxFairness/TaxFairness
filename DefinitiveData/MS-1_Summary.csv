@@ -1,579 +1,696 @@
-Land Value Only,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26165,2069800,Acres / Valuation,Land Value,2013
-,1B,Conservation Restriction Assessment RSA 79-B,132,12000,Acres / Valuation,Land Value,2013
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2013
-,1D,Discretionary Preservation Easements RSA 79-D,1,30500,Acres / Valuation,Land Value,2013
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2013
-,1F,Residential Land,2364,116772800,Acres / Valuation,Land Value,2013
-,1G,Commercial/Industrial Land,86,5730400,Acres / Valuation,Land Value,2013
-,1H,Total of Taxable Land,28748,124615500,Acres / Valuation,Land Value,2013
-,1I,Tax Exempt and Non-Taxable Land,5268,15085800,Acres / Valuation,Land Value,2013
-,,,,,,,2013
-Buildings Value Only,,,Structures,Valuation,,,2013
-,2A,Residential,0,185173000,Structures / Valuation,Building Value,2013
-,2B,Manufactured Housing,0,977500,Structures / Valuation,Building Value,2013
-,2C,Commercial/Industrial,0,13414200,Structures / Valuation,Building Value,2013
-,2D,Discretionary Preservation Easements,0,73300,Structures / Valuation,Building Value,2013
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2013
-,2F,Total of Taxable Buildings,0,199638000,Structures / Valuation,Building Value,2013
-,2G,Tax Exempt and Non-Taxable Buildings,0,16354200,Structures / Valuation,Building Value,2013
-,,,,,,,2013
-Utilities & Timber,,,,,,,2013
-,3A,Utilities,,565700,--- / Valuation,Util&Timber,2013
-,3B,Other Utilities,,0,,Util&Timber,2013
-,4,Mature Wood and Timber,,0,,Util&Timber,2013
-,,,,,,,2013
-,5,Valuation before Exemption,,329911000,--- / Valuation,Value before Exemption,2013
-,,,,,,,2013
-Exemptions,,,Total,,,,2013
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2013
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2013
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2013
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2013
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2013
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2013
-,,,,,,,2013
-,11,Modified Assessed Value,,329911000,--- / Valuation,Mod Assess Value,2013
-Optional Exemptions,,,,,,,2013
-,12,Blind Exemption  $67500,2,135000,Count / Valuation,Exemption,2013
-,13,Elderly Exemption  ,20,3140200,Count / Valuation,Exemption,2013
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2013
-,15,"Disabled Exemption  $135,000",3,405000,Count / Valuation,Exemption,2013
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2013
-,17,Solar Energy Systems Exemption,0,0,Count / Valuation,Exemption,2013
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2013
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2013
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2013
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2013
-,,,,,,,2013
-,20,Total Dollar amount of Exemptions,,3680200,--- / Valuation,Total Exemption,2013
-,21A,Net Valuation,,326230800,--- / Valuation,Valuations,2013
-,21B,Less TIF Related Value,,,--- / Valuation,Valuations,2013
-,21C,Net Valuation Adj to remove TIF Retained Value,,,--- / Valuation,Valuations,2013
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2013
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0,--- / Valuation,Valuations,2013
-,22,Less Utilities,,5657500,--- / Valuation,Valuations,2013
-,23A,Net Valuation without Utilities,,320573300,--- / Valuation,Valuations,2013
-,23B,"Net Valuation without Util, Adj. to remove TIF",,0,--- / Valuation,Valuations,2013
+﻿MS1_Year,MS1_Null,MS1_Row,MS1_Description,MS1_AC_CT,MS1_Valuation,MS1_Key,MS1_Category
+Year,,,,Acres,Valuation,Key,Category
+2013,,1A,Current Use Land RSA 79-A,26165,"2,069,800 ",Acres / Valuation,Land Value
+2013,,1B,Conservation Restriction Assessment RSA 79-B,132,"12,000 ",Acres / Valuation,Land Value
+2013,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2013,,1D,Discretionary Preservation Easements RSA 79-D,1,"30,500 ",Acres / Valuation,Land Value
+2013,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2013,,1F,Residential Land,2364,"116,772,800 ",Acres / Valuation,Land Value
+2013,,1G,Commercial/Industrial Land,86,"5,730,400 ",Acres / Valuation,Land Value
+2013,,1H,Total of Taxable Land,28748,"124,615,500 ",Acres / Valuation,Land Value
+2013,,1I,Tax Exempt and Non-Taxable Land,5268,"15,085,800 ",Acres / Valuation,Land Value
+2013,,,,,,,
+2013,Buildings Value Only,,,Structures,Valuation,,
+2013,,2A,Residential,0,"185,173,000 ",Structures / Valuation,Building Value
+2013,,2B,Manufactured Housing,0,"977,500 ",Structures / Valuation,Building Value
+2013,,2C,Commercial/Industrial,0,"13,414,200 ",Structures / Valuation,Building Value
+2013,,2D,Discretionary Preservation Easements,0,"73,300 ",Structures / Valuation,Building Value
+2013,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2013,,2F,Total of Taxable Buildings,0,"199,638,000 ",Structures / Valuation,Building Value
+2013,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,354,200 ",Structures / Valuation,Building Value
+2013,,,,,,,
+2013,Utilities & Timber,,,,,,
+2013,,3A,Utilities,,"565,700 ",--- / Valuation,Util&Timber
+2013,,3B,Other Utilities,,0 ,,Util&Timber
+2013,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2013,,,,,,,
+2013,,5,Valuation before Exemption,,"329,911,000 ",--- / Valuation,Value before Exemption
+2013,,,,,,,
+2013,Exemptions,,,Total,,,
+2013,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2013,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2013,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2013,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2013,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2013,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2013,,,,,,,
+2013,,11,Modified Assessed Value,,"329,911,000 ",--- / Valuation,Mod Assess Value
+2013,Optional Exemptions,,,,,,
+2013,,12,Blind Exemption $67500,2,"135,000 ",Count / Valuation,Exemption
+2013,,13,Elderly Exemption,20,"3,140,200 ",Count / Valuation,Exemption
+2013,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2013,,15,"Disabled Exemption $135,000",3,"405,000 ",Count / Valuation,Exemption
+2013,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2013,,17,Solar Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2013,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2013,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2013,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2013,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2013,,,,,,,
+2013,,20,Total Dollar amount of Exemptions,,"3,680,200 ",--- / Valuation,Total Exemption
+2013,,21A,Net Valuation,,"326,230,800 ",--- / Valuation,Valuations
+2013,,21B,Less TIF Related Value,,,--- / Valuation,Valuations
+2013,,21C,Net Valuation Adj to remove TIF Retained Value,,,--- / Valuation,Valuations
+2013,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2013,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0 ,--- / Valuation,Valuations
+2013,,22,Less Utilities,,"5,657,500 ",--- / Valuation,Valuations
+2013,,23A,Net Valuation without Utilities,,"320,573,300 ",--- / Valuation,Valuations
+2013,,23B,"Net Valuation without Util, Adj. to remove TIF",,0 ,--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26192,2032900,Acres / Valuation,Land Value,2014
-,1B,Conservation Restriction Assessment RSA 79-B,108,10300,Acres / Valuation,Land Value,2014
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2014
-,1D,Discretionary Preservation Easements RSA 79-D,1,28300,Acres / Valuation,Land Value,2014
-,1E,Taxation of Land under Farm Structures RSA 79-F,1.26,1300,Acres / Valuation,Land Value,2014
-,1F,Residential Land,2361,117137000,Acres / Valuation,Land Value,2014
-,1G,Commercial/Industrial Land,86,5730400,Acres / Valuation,Land Value,2014
-,1H,Total of Taxable Land,28749.26,124940200,Acres / Valuation,Land Value,2014
-,1I,Tax Exempt and Non-Taxable Land,5268,15085800,Acres / Valuation,Land Value,2014
-,,,,,,,2014
-,,,Structures,Valuation,,,2014
-,2A,Residential,0,188105200,Structures / Valuation,Building Value,2014
-,2B,Manufactured Housing,0,966400,Structures / Valuation,Building Value,2014
-,2C,Commercial/Industrial,0,13022900,Structures / Valuation,Building Value,2014
-,2D,Discretionary Preservation Easements,10,92600,Structures / Valuation,Building Value,2014
-,2E,Taxation of Farm Structures,7,117500,Structures / Valuation,Building Value,2014
-,2F,Total of Taxable Buildings,0,202304600,Structures / Valuation,Building Value,2014
-,2G,Tax Exempt and Non-Taxable Buildings,0,16354200,Structures / Valuation,Building Value,2014
-,,,,,,,2014
-,,,,,,,2014
-,3A,Utilities,,4880600,--- / Valuation,Util&Timber,2014
-,3B,Other Utilities,,0,,Util&Timber,2014
-,4,Mature Wood and Timber,,0,,Util&Timber,2014
-,,,,,,,2014
-,5,Valuation before Exemption,,332125400,--- / Valuation,Value before Exemption,2014
-,,,,,,,2014
-,,,Total,,,,2014
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2014
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2014
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2014
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2014
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2014
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2014
-,,,,,,,2014
-,11,Modified Assessed Value,,0,--- / Valuation,Mod Assess Value,2014
-,,,,,,,2014
-,12,"Blind Exemption                               $67,500",3,139700,Count / Valuation,Exemption,2014
-,13,Elderly Exemption,17,2738000,Count / Valuation,Exemption,2014
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2014
-,15,"Disabled Exemption                          $135,000",2,270000,Count / Valuation,Exemption,2014
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2014
-,17,Solar Energy Systems Exemption,0,0,Count / Valuation,Exemption,2014
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2014
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2014
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2014
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2014
-,,,,,,,2014
-,20,Total Dollar amount of Exemptions,,3147700,--- / Valuation,Total Exemption,2014
-,21A,Net Valuation,,328977700,--- / Valuation,Valuations,2014
-,21B,Less TIF Related Value,,,--- / Valuation,Valuations,2014
-,21C,Net Valuation Adj to remove TIF Retained Value,,,--- / Valuation,Valuations,2014
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2014
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,,--- / Valuation,Valuations,2014
-,22,Less Utilities,,4880600,--- / Valuation,Valuations,2014
-,23A,Net Valuation without Utilities,,324097100,--- / Valuation,Valuations,2014
-,23B,"Net Valuation without Util, Adj. to remove TIF",,0,--- / Valuation,Valuations,2014
+Year,,,,Acres,Valuation,Key,Category
+2014,,1A,Current Use Land RSA 79-A,26192,"2,032,900 ",Acres / Valuation,Land Value
+2014,,1B,Conservation Restriction Assessment RSA 79-B,108,"10,300 ",Acres / Valuation,Land Value
+2014,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2014,,1D,Discretionary Preservation Easements RSA 79-D,1,"28,300 ",Acres / Valuation,Land Value
+2014,,1E,Taxation of Land under Farm Structures RSA 79-F,1.26,"1,300 ",Acres / Valuation,Land Value
+2014,,1F,Residential Land,2361,"117,137,000 ",Acres / Valuation,Land Value
+2014,,1G,Commercial/Industrial Land,86,"5,730,400 ",Acres / Valuation,Land Value
+2014,,1H,Total of Taxable Land,28749.26,"124,940,200 ",Acres / Valuation,Land Value
+2014,,1I,Tax Exempt and Non-Taxable Land,5268,"15,085,800 ",Acres / Valuation,Land Value
+2014,,,,,,,
+2014,,,,Structures,Valuation,,
+2014,,2A,Residential,0,"188,105,200 ",Structures / Valuation,Building Value
+2014,,2B,Manufactured Housing,0,"966,400 ",Structures / Valuation,Building Value
+2014,,2C,Commercial/Industrial,0,"13,022,900 ",Structures / Valuation,Building Value
+2014,,2D,Discretionary Preservation Easements,10,"92,600 ",Structures / Valuation,Building Value
+2014,,2E,Taxation of Farm Structures,7,"117,500 ",Structures / Valuation,Building Value
+2014,,2F,Total of Taxable Buildings,0,"202,304,600 ",Structures / Valuation,Building Value
+2014,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,354,200 ",Structures / Valuation,Building Value
+2014,,,,,,,
+2014,,,,,,,
+2014,,3A,Utilities,,"4,880,600 ",--- / Valuation,Util&Timber
+2014,,3B,Other Utilities,,0 ,,Util&Timber
+2014,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2014,,,,,,,
+2014,,5,Valuation before Exemption,,"332,125,400 ",--- / Valuation,Value before Exemption
+2014,,,,,,,
+2014,,,,Total,,,
+2014,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2014,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2014,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2014,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2014,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2014,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2014,,,,,,,
+2014,,11,Modified Assessed Value,,0 ,--- / Valuation,Mod Assess Value
+2014,,,,,,,
+2014,,12,"Blind Exemption $67,500",3,"139,700 ",Count / Valuation,Exemption
+2014,,13,Elderly Exemption,17,"2,738,000 ",Count / Valuation,Exemption
+2014,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2014,,15,"Disabled Exemption $135,000",2,"270,000 ",Count / Valuation,Exemption
+2014,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2014,,17,Solar Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2014,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2014,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2014,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2014,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2014,,,,,,,
+2014,,20,Total Dollar amount of Exemptions,,"3,147,700 ",--- / Valuation,Total Exemption
+2014,,21A,Net Valuation,,"328,977,700 ",--- / Valuation,Valuations
+2014,,21B,Less TIF Related Value,,,--- / Valuation,Valuations
+2014,,21C,Net Valuation Adj to remove TIF Retained Value,,,--- / Valuation,Valuations
+2014,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2014,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,,--- / Valuation,Valuations
+2014,,22,Less Utilities,,"4,880,600 ",--- / Valuation,Valuations
+2014,,23A,Net Valuation without Utilities,,"324,097,100 ",--- / Valuation,Valuations
+2014,,23B,"Net Valuation without Util, Adj. to remove TIF",,0 ,--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26246,2031400,Acres / Valuation,Land Value,2015
-,1B,Conservation Restriction Assessment RSA 79-B,108,10400,Acres / Valuation,Land Value,2015
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2015
-,1D,Discretionary Preservation Easements RSA 79-D,1,28700,Acres / Valuation,Land Value,2015
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2015
-,1F,Residential Land,2317,116858900,Acres / Valuation,Land Value,2015
-,1G,Commercial/Industrial Land,86,5807800,Acres / Valuation,Land Value,2015
-,1H,Total of Taxable Land,28758,124737200,Acres / Valuation,Land Value,2015
-,1I,Tax Exempt and Non-Taxable Land,5268,15085800,Acres / Valuation,Land Value,2015
-,,,,,,,2015
-,,,Structures,Valuation,,,2015
-,2A,Residential,0,190007000,Structures / Valuation,Building Value,2015
-,2B,Manufactured Housing,0,966400,Structures / Valuation,Building Value,2015
-,2C,Commercial/Industrial,0,12536800,Structures / Valuation,Building Value,2015
-,2D,Discretionary Preservation Easements,12,92800,Structures / Valuation,Building Value,2015
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2015
-,2F,Total of Taxable Buildings,0,203603000,Structures / Valuation,Building Value,2015
-,2G,Tax Exempt and Non-Taxable Buildings,0,16354200,Structures / Valuation,Building Value,2015
-,,,,,,,2015
-,,,,,,,2015
-,3A,Utilities,,5514600,--- / Valuation,Util&Timber,2015
-,3B,Other Utilities,,0,,Util&Timber,2015
-,4,Mature Wood and Timber,,0,,Util&Timber,2015
-,,,,,,,2015
-,5,Valuation before Exemption,,333854800,--- / Valuation,Value before Exemption,2015
-,,,,,,,2015
-,,,Total,,,,2015
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2015
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2015
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2015
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2015
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2015
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2015
-,,,,,,,2015
-,11,Modified Assessed Value,,0,--- / Valuation,Mod Assess Value,2015
-,,,,,,,2015
-,12,"Blind Exemption      $67,500",3,202500,Count / Valuation,Exemption,2015
-,13,Elderly Exemption,18,2873000,Count / Valuation,Exemption,2015
-,14,"Deaf Exemption             $135,000",0,0,Count / Valuation,Exemption,2015
-,15,"Disabled Exemption       $135,000",2,270000,Count / Valuation,Exemption,2015
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2015
-,17,Solar Energy Systems Exemption,0,0,Count / Valuation,Exemption,2015
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2015
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2015
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2015
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2015
-,,,,,,,2015
-,20,Total Dollar amount of Exemptions,,33455000,--- / Valuation,Total Exemption,2015
-,21A,Net Valuation,,330509300,--- / Valuation,Valuations,2015
-,21B,Less TIF Related Value,,,--- / Valuation,Valuations,2015
-,21C,Net Valuation Adj to remove TIF Retained Value,,0,--- / Valuation,Valuations,2015
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2015
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0,--- / Valuation,Valuations,2015
-,22,Less Utilities,,5514600,--- / Valuation,Valuations,2015
-,23A,Net Valuation without Utilities,,324994700,--- / Valuation,Valuations,2015
-,23B,"Net Valuation without Util, Adj. to remove TIF",,0,--- / Valuation,Valuations,2015
+Year,,,,Acres,Valuation,Key,Category
+2015,,1A,Current Use Land RSA 79-A,26246,"2,031,400 ",Acres / Valuation,Land Value
+2015,,1B,Conservation Restriction Assessment RSA 79-B,108,"10,400 ",Acres / Valuation,Land Value
+2015,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2015,,1D,Discretionary Preservation Easements RSA 79-D,1,"28,700 ",Acres / Valuation,Land Value
+2015,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2015,,1F,Residential Land,2317,"116,858,900 ",Acres / Valuation,Land Value
+2015,,1G,Commercial/Industrial Land,86,"5,807,800 ",Acres / Valuation,Land Value
+2015,,1H,Total of Taxable Land,28758,"124,737,200 ",Acres / Valuation,Land Value
+2015,,1I,Tax Exempt and Non-Taxable Land,5268,"15,085,800 ",Acres / Valuation,Land Value
+2015,,,,,,,
+2015,,,,Structures,Valuation,,
+2015,,2A,Residential,0,"190,007,000 ",Structures / Valuation,Building Value
+2015,,2B,Manufactured Housing,0,"966,400 ",Structures / Valuation,Building Value
+2015,,2C,Commercial/Industrial,0,"12,536,800 ",Structures / Valuation,Building Value
+2015,,2D,Discretionary Preservation Easements,12,"92,800 ",Structures / Valuation,Building Value
+2015,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2015,,2F,Total of Taxable Buildings,0,"203,603,000 ",Structures / Valuation,Building Value
+2015,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,354,200 ",Structures / Valuation,Building Value
+2015,,,,,,,
+2015,,,,,,,
+2015,,3A,Utilities,,"5,514,600 ",--- / Valuation,Util&Timber
+2015,,3B,Other Utilities,,0 ,,Util&Timber
+2015,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2015,,,,,,,
+2015,,5,Valuation before Exemption,,"333,854,800 ",--- / Valuation,Value before Exemption
+2015,,,,,,,
+2015,,,,Total,,,
+2015,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2015,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2015,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2015,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2015,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2015,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2015,,,,,,,
+2015,,11,Modified Assessed Value,,0 ,--- / Valuation,Mod Assess Value
+2015,,,,,,,
+2015,,12,"Blind Exemption $67,500",3,"202,500 ",Count / Valuation,Exemption
+2015,,13,Elderly Exemption,18,"2,873,000 ",Count / Valuation,Exemption
+2015,,14,"Deaf Exemption $135,000",0,0 ,Count / Valuation,Exemption
+2015,,15,"Disabled Exemption $135,000",2,"270,000 ",Count / Valuation,Exemption
+2015,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2015,,17,Solar Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2015,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2015,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2015,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2015,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2015,,,,,,,
+2015,,20,Total Dollar amount of Exemptions,,"33,455,000 ",--- / Valuation,Total Exemption
+2015,,21A,Net Valuation,,"330,509,300 ",--- / Valuation,Valuations
+2015,,21B,Less TIF Related Value,,,--- / Valuation,Valuations
+2015,,21C,Net Valuation Adj to remove TIF Retained Value,,0 ,--- / Valuation,Valuations
+2015,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2015,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0 ,--- / Valuation,Valuations
+2015,,22,Less Utilities,,"5,514,600 ",--- / Valuation,Valuations
+2015,,23A,Net Valuation without Utilities,,"324,994,700 ",--- / Valuation,Valuations
+2015,,23B,"Net Valuation without Util, Adj. to remove TIF",,0 ,--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26222,2283900,Acres / Valuation,Land Value,2016
-,1B,Conservation Restriction Assessment RSA 79-B,134.15,10700,Acres / Valuation,Land Value,2016
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2016
-,1D,Discretionary Preservation Easements RSA 79-D,1,19500,Acres / Valuation,Land Value,2016
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2016
-,1F,Residential Land,2314,120770900,Acres / Valuation,Land Value,2016
-,1G,Commercial/Industrial Land,87,5946300,Acres / Valuation,Land Value,2016
-,1H,Total of Taxable Land,28758.15,129031300,Acres / Valuation,Land Value,2016
-,1I,Tax Exempt and Non-Taxable Land,5258,13669300,Acres / Valuation,Land Value,2016
-,,,,,,,2016
-,,,Structures,Valuation,,,2016
-,2A,Residential,0,199329600,Structures / Valuation,Building Value,2016
-,2B,Manufactured Housing,0,861600,Structures / Valuation,Building Value,2016
-,2C,Commercial/Industrial,0,12137800,Structures / Valuation,Building Value,2016
-,2D,Discretionary Preservation Easements,0,71500,Structures / Valuation,Building Value,2016
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2016
-,2F,Total of Taxable Buildings,0,212400500,Structures / Valuation,Building Value,2016
-,2G,Tax Exempt and Non-Taxable Buildings,0,16584200,Structures / Valuation,Building Value,2016
-,,,,,,,2016
-,,,,,,,2016
-,3A,Utilities,,6156700,--- / Valuation,Util&Timber,2016
-,3B,Other Utilities,,0,,Util&Timber,2016
-,4,Mature Wood and Timber,,0,,Util&Timber,2016
-,,,,,,,2016
-,5,Valuation before Exemption,,347588500,--- / Valuation,Value before Exemption,2016
-,,,,,,,2016
-,,,Total,,,,2016
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2016
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2016
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2016
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2016
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2016
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2016
-,,,,,,,2016
-,11,Modified Assessed Value,,347588700,--- / Valuation,Mod Assess Value,2016
-,,,,,,,2016
-,12,Blind Exemption,3,145100,Count / Valuation,Exemption,2016
-,13,Elderly Exemption,23,3503900,Count / Valuation,Exemption,2016
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2016
-,15,Disabled Exemption,3,332300,Count / Valuation,Exemption,2016
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2016
-,17,Solar Energy Systems Exemption,0,0,Count / Valuation,Exemption,2016
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2016
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2016
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2016
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2016
-,,,,,,,2016
-,20,Total Dollar amount of Exemptions,,3981300,--- / Valuation,Total Exemption,2016
-,21A,Net Valuation,,343607200,--- / Valuation,Valuations,2016
-,21B,Less TIF Related Value,,6156700,--- / Valuation,Valuations,2016
-,21C,Net Valuation Adj to remove TIF Retained Value,,337450500,--- / Valuation,Valuations,2016
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2016
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0,--- / Valuation,Valuations,2016
-,22,Less Utilities,,6156700,--- / Valuation,Valuations,2016
-,23A,Net Valuation without Utilities,,0,--- / Valuation,Valuations,2016
-,23B,"Net Valuation without Util, Adj. to remove TIF",,0,--- / Valuation,Valuations,2016
+Year,,,,Acres,Valuation,Key,Category
+2016,,1A,Current Use Land RSA 79-A,26222,"2,283,900 ",Acres / Valuation,Land Value
+2016,,1B,Conservation Restriction Assessment RSA 79-B,134.15,"10,700 ",Acres / Valuation,Land Value
+2016,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2016,,1D,Discretionary Preservation Easements RSA 79-D,1,"19,500 ",Acres / Valuation,Land Value
+2016,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2016,,1F,Residential Land,2314,"120,770,900 ",Acres / Valuation,Land Value
+2016,,1G,Commercial/Industrial Land,87,"5,946,300 ",Acres / Valuation,Land Value
+2016,,1H,Total of Taxable Land,28758.15,"129,031,300 ",Acres / Valuation,Land Value
+2016,,1I,Tax Exempt and Non-Taxable Land,5258,"13,669,300 ",Acres / Valuation,Land Value
+2016,,,,,,,
+2016,,,,Structures,Valuation,,
+2016,,2A,Residential,0,"199,329,600 ",Structures / Valuation,Building Value
+2016,,2B,Manufactured Housing,0,"861,600 ",Structures / Valuation,Building Value
+2016,,2C,Commercial/Industrial,0,"12,137,800 ",Structures / Valuation,Building Value
+2016,,2D,Discretionary Preservation Easements,0,"71,500 ",Structures / Valuation,Building Value
+2016,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2016,,2F,Total of Taxable Buildings,0,"212,400,500 ",Structures / Valuation,Building Value
+2016,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,584,200 ",Structures / Valuation,Building Value
+2016,,,,,,,
+2016,,,,,,,
+2016,,3A,Utilities,,"6,156,700 ",--- / Valuation,Util&Timber
+2016,,3B,Other Utilities,,0 ,,Util&Timber
+2016,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2016,,,,,,,
+2016,,5,Valuation before Exemption,,"347,588,500 ",--- / Valuation,Value before Exemption
+2016,,,,,,,
+2016,,,,Total,,,
+2016,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2016,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2016,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2016,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2016,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2016,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2016,,,,,,,
+2016,,11,Modified Assessed Value,,"347,588,700 ",--- / Valuation,Mod Assess Value
+2016,,,,,,,
+2016,,12,Blind Exemption,3,"145,100 ",Count / Valuation,Exemption
+2016,,13,Elderly Exemption,23,"3,503,900 ",Count / Valuation,Exemption
+2016,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2016,,15,Disabled Exemption,3,"332,300 ",Count / Valuation,Exemption
+2016,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2016,,17,Solar Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2016,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2016,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2016,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2016,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2016,,,,,,,
+2016,,20,Total Dollar amount of Exemptions,,"3,981,300 ",--- / Valuation,Total Exemption
+2016,,21A,Net Valuation,,"343,607,200 ",--- / Valuation,Valuations
+2016,,21B,Less TIF Related Value,,"6,156,700 ",--- / Valuation,Valuations
+2016,,21C,Net Valuation Adj to remove TIF Retained Value,,"337,450,500 ",--- / Valuation,Valuations
+2016,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2016,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0 ,--- / Valuation,Valuations
+2016,,22,Less Utilities,,"6,156,700 ",--- / Valuation,Valuations
+2016,,23A,Net Valuation without Utilities,,0 ,--- / Valuation,Valuations
+2016,,23B,"Net Valuation without Util, Adj. to remove TIF",,0 ,--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26330.36,2296400,Acres / Valuation,Land Value,2017
-,1B,Conservation Restriction Assessment RSA 79-B,110.32,14100,Acres / Valuation,Land Value,2017
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2017
-,1D,Discretionary Preservation Easements RSA 79-D,1,19500,Acres / Valuation,Land Value,2017
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2017
-,1F,Residential Land,2315.42,121172500,Acres / Valuation,Land Value,2017
-,1G,Commercial/Industrial Land,87,5946300,Acres / Valuation,Land Value,2017
-,1H,Total of Taxable Land,28844.1,129448800,Acres / Valuation,Land Value,2017
-,1I,Tax Exempt and Non-Taxable Land,5258,13669300,Acres / Valuation,Land Value,2017
-,,,,,,,2017
-,,,Structures,Valuation,,,2017
-,2A,Residential,0,201582200,Structures / Valuation,Building Value,2017
-,2B,Manufactured Housing,0,886300,Structures / Valuation,Building Value,2017
-,2C,Commercial/Industrial,0,12129500,Structures / Valuation,Building Value,2017
-,2D,Discretionary Preservation Easements,10,71500,Structures / Valuation,Building Value,2017
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2017
-,2F,Total of Taxable Buildings,0,214669500,Structures / Valuation,Building Value,2017
-,2G,Tax Exempt and Non-Taxable Buildings,0,16610700,Structures / Valuation,Building Value,2017
-,,,,,,,2017
-,,,,,,,2017
-,3A,Utilities,,6302300,--- / Valuation,Util&Timber,2017
-,3B,Other Utilities,,0,,Util&Timber,2017
-,4,Mature Wood and Timber,,0,,Util&Timber,2017
-,,,,,,,2017
-,5,Valuation before Exemption,,350420600,--- / Valuation,Value before Exemption,2017
-,,,,,,,2017
-,,,Total,,,,2017
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2017
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2017
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2017
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2017
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2017
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2017
-,,,,,,,2017
-,11,Modified Assessed Value,,350420600,--- / Valuation,Mod Assess Value,2017
-,,,,,,,2017
-,12,Blind Exemption                                        3,67500,202500,Count / Valuation,Exemption,2017
-,13,Elderly Exemption                                   24,0,4310000,Count / Valuation,Exemption,2017
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2017
-,15, Disabled                                                  4,135000,405000,Count / Valuation,Exemption,2017
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2017
-,17,Solar Energy Systems Exemption,0,0,Count / Valuation,Exemption,2017
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2017
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2017
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2017
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2017
-,,,,,,,2017
-,20,Total Dollar amount of Exemptions,,4917500,--- / Valuation,Total Exemption,2017
-,21A,Net Valuation,,345503100,--- / Valuation,Valuations,2017
-,21B,Less TIF Related Value,,0,--- / Valuation,Valuations,2017
-,21C,Net Valuation Adj to remove TIF Retained Value,,0,--- / Valuation,Valuations,2017
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2017
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0,--- / Valuation,Valuations,2017
-,22,Less Utilities,,6302300,--- / Valuation,Valuations,2017
-,23A,Net Valuation without Utilities,,339200800,--- / Valuation,Valuations,2017
-,23B,"Net Valuation without Util, Adj. to remove TIF",,0,--- / Valuation,Valuations,2017
+Year,,,,Acres,Valuation,Key,Category
+2017,,1A,Current Use Land RSA 79-A,26330.36,"2,296,400 ",Acres / Valuation,Land Value
+2017,,1B,Conservation Restriction Assessment RSA 79-B,110.32,"14,100 ",Acres / Valuation,Land Value
+2017,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2017,,1D,Discretionary Preservation Easements RSA 79-D,1,"19,500 ",Acres / Valuation,Land Value
+2017,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2017,,1F,Residential Land,2315.42,"121,172,500 ",Acres / Valuation,Land Value
+2017,,1G,Commercial/Industrial Land,87,"5,946,300 ",Acres / Valuation,Land Value
+2017,,1H,Total of Taxable Land,28844.1,"129,448,800 ",Acres / Valuation,Land Value
+2017,,1I,Tax Exempt and Non-Taxable Land,5258,"13,669,300 ",Acres / Valuation,Land Value
+2017,,,,,,,
+2017,,,,Structures,Valuation,,
+2017,,2A,Residential,0,"201,582,200 ",Structures / Valuation,Building Value
+2017,,2B,Manufactured Housing,0,"886,300 ",Structures / Valuation,Building Value
+2017,,2C,Commercial/Industrial,0,"12,129,500 ",Structures / Valuation,Building Value
+2017,,2D,Discretionary Preservation Easements,10,"71,500 ",Structures / Valuation,Building Value
+2017,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2017,,2F,Total of Taxable Buildings,0,"214,669,500 ",Structures / Valuation,Building Value
+2017,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,610,700 ",Structures / Valuation,Building Value
+2017,,,,,,,
+2017,,,,,,,
+2017,,3A,Utilities,,"6,302,300 ",--- / Valuation,Util&Timber
+2017,,3B,Other Utilities,,0 ,,Util&Timber
+2017,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2017,,,,,,,
+2017,,5,Valuation before Exemption,,"350,420,600 ",--- / Valuation,Value before Exemption
+2017,,,,,,,
+2017,,,,Total,,,
+2017,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2017,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2017,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2017,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2017,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2017,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2017,,,,,,,
+2017,,11,Modified Assessed Value,,"350,420,600 ",--- / Valuation,Mod Assess Value
+2017,,,,,,,
+2017,,12,Blind Exemption 3,67500,"202,500 ",Count / Valuation,Exemption
+2017,,13,Elderly Exemption 24,0,"4,310,000 ",Count / Valuation,Exemption
+2017,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2017,,15,Disabled 4,135000,"405,000 ",Count / Valuation,Exemption
+2017,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2017,,17,Solar Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2017,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2017,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2017,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2017,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2017,,,,,,,
+2017,,20,Total Dollar amount of Exemptions,,"4,917,500 ",--- / Valuation,Total Exemption
+2017,,21A,Net Valuation,,"345,503,100 ",--- / Valuation,Valuations
+2017,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2017,,21C,Net Valuation Adj to remove TIF Retained Value,,0 ,--- / Valuation,Valuations
+2017,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2017,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0 ,--- / Valuation,Valuations
+2017,,22,Less Utilities,,"6,302,300 ",--- / Valuation,Valuations
+2017,,23A,Net Valuation without Utilities,,"339,200,800 ",--- / Valuation,Valuations
+2017,,23B,"Net Valuation without Util, Adj. to remove TIF",,0 ,--- / Valuation,Valuations
 ,,,,,,,
-,Line,Description,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26162.32,2276600,Acres / Valuation,Land Value,2018
-,1B,Conservation Restriction Assessment RSA 79-B,110.32,13300,Acres / Valuation,Land Value,2018
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2018
-,1D,Discretionary Preservation Easements RSA 79-D,4.61,19500,Acres / Valuation,Land Value,2018
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2018
-,1F,Residential Land,2329.14,121341500,Acres / Valuation,Land Value,2018
-,1G,Commercial/Industrial Land,86.99,5946300,Acres / Valuation,Land Value,2018
-,1H,Total of Taxable Land,28693.38,129597200,Acres / Valuation,Land Value,2018
-,1I,Tax Exempt and Non-Taxable Land,5251.24,13651800,Acres / Valuation,Land Value,2018
-,,,,,,,2018
-,,,Structures,Valuation,,,2018
-,2A,Residential,0,205399600,Structures / Valuation,Building Value,2018
-,2B,Manufactured Housing,0,943400,Structures / Valuation,Building Value,2018
-,2C,Commercial/Industrial,0,12528700,Structures / Valuation,Building Value,2018
-,2D,Discretionary Preservation Easements,10,71500,Structures / Valuation,Building Value,2018
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2018
-,2F,Total of Taxable Buildings,0,218943200,Structures / Valuation,Building Value,2018
-,2G,Tax Exempt and Non-Taxable Buildings,0,16649700,Structures / Valuation,Building Value,2018
-,,,,,,,2018
-,,,,,,,2018
-,3A,Utilities,,6585100,--- / Valuation,Util&Timber,2018
-,3B,Other Utilities,,0,,Util&Timber,2018
-,4,Mature Wood and Timber,,0,,Util&Timber,2018
-,,,,,,,2018
-,5,Valuation before Exemption,,355125500,--- / Valuation,Value before Exemption,2018
-,,,,,,,2018
-,,,Total,,,,2018
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2018
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2018
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2018
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2018
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2018
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2018
-,,,,,,,2018
-,11,Modified Assessed Value,,355125500,--- / Valuation,Mod Assess Value,2018
-,,,,,,,2018
-,12,Blind Exemption,2,135000,Count / Valuation,Exemption,2018
-,13,Elderly Exemption,24,3686500,Count / Valuation,Exemption,2018
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2018
-,15,Disabled Exemption,6,767100,Count / Valuation,Exemption,2018
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2018
-,17,Solar Energy Systems Exemption,49,700000,Count / Valuation,Exemption,2018
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2018
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2018
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2018
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2018
-,,,,,,,2018
-,20,Total Dollar amount of Exemptions,,5288600,--- / Valuation,Total Exemption,2018
-,21A,Net Valuation,,349836900,--- / Valuation,Valuations,2018
-,21B,Less TIF Related Value,,0,--- / Valuation,Valuations,2018
-,21C,Net Valuation Adj to remove TIF Retained Value,,349836900,--- / Valuation,Valuations,2018
-,21D,Less Commercial/Industrial Construction Exemption,,,--- / Valuation,Valuations,2018
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0,--- / Valuation,Valuations,2018
-,22,Less Utilities,,6585100,--- / Valuation,Valuations,2018
-,23A,Net Valuation without Utilities,,343251800,--- / Valuation,Valuations,2018
-,23B,"Net Valuation without Util, Adj. to remove TIF",,343251800,--- / Valuation,Valuations,2018
+Year,,,,Acres,Valuation,Key,Category
+2018,,1A,Current Use Land RSA 79-A,26162.32,"2,276,600 ",Acres / Valuation,Land Value
+2018,,1B,Conservation Restriction Assessment RSA 79-B,110.32,"13,300 ",Acres / Valuation,Land Value
+2018,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2018,,1D,Discretionary Preservation Easements RSA 79-D,4.61,"19,500 ",Acres / Valuation,Land Value
+2018,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2018,,1F,Residential Land,2329.14,"121,341,500 ",Acres / Valuation,Land Value
+2018,,1G,Commercial/Industrial Land,86.99,"5,946,300 ",Acres / Valuation,Land Value
+2018,,1H,Total of Taxable Land,28693.38,"129,597,200 ",Acres / Valuation,Land Value
+2018,,1I,Tax Exempt and Non-Taxable Land,5251.24,"13,651,800 ",Acres / Valuation,Land Value
+2018,,,,,,,
+2018,,,,Structures,Valuation,,
+2018,,2A,Residential,0,"205,399,600 ",Structures / Valuation,Building Value
+2018,,2B,Manufactured Housing,0,"943,400 ",Structures / Valuation,Building Value
+2018,,2C,Commercial/Industrial,0,"12,528,700 ",Structures / Valuation,Building Value
+2018,,2D,Discretionary Preservation Easements,10,"71,500 ",Structures / Valuation,Building Value
+2018,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2018,,2F,Total of Taxable Buildings,0,"218,943,200 ",Structures / Valuation,Building Value
+2018,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,649,700 ",Structures / Valuation,Building Value
+2018,,,,,,,
+2018,,,,,,,
+2018,,3A,Utilities,,"6,585,100 ",--- / Valuation,Util&Timber
+2018,,3B,Other Utilities,,0 ,,Util&Timber
+2018,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2018,,,,,,,
+2018,,5,Valuation before Exemption,,"355,125,500 ",--- / Valuation,Value before Exemption
+2018,,,,,,,
+2018,,,,Total,,,
+2018,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2018,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2018,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2018,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2018,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2018,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2018,,,,,,,
+2018,,11,Modified Assessed Value,,"355,125,500 ",--- / Valuation,Mod Assess Value
+2018,,,,,,,
+2018,,12,Blind Exemption,2,"135,000 ",Count / Valuation,Exemption
+2018,,13,Elderly Exemption,24,"3,686,500 ",Count / Valuation,Exemption
+2018,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2018,,15,Disabled Exemption,6,"767,100 ",Count / Valuation,Exemption
+2018,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2018,,17,Solar Energy Systems Exemption,49,"700,000 ",Count / Valuation,Exemption
+2018,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2018,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2018,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2018,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2018,,,,,,,
+2018,,20,Total Dollar amount of Exemptions,,"5,288,600 ",--- / Valuation,Total Exemption
+2018,,21A,Net Valuation,,"349,836,900 ",--- / Valuation,Valuations
+2018,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2018,,21C,Net Valuation Adj to remove TIF Retained Value,,"349,836,900 ",--- / Valuation,Valuations
+2018,,21D,Less Commercial/Industrial Construction Exemption,,,--- / Valuation,Valuations
+2018,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,0 ,--- / Valuation,Valuations
+2018,,22,Less Utilities,,"6,585,100 ",--- / Valuation,Valuations
+2018,,23A,Net Valuation without Utilities,,"343,251,800 ",--- / Valuation,Valuations
+2018,,23B,"Net Valuation without Util, Adj. to remove TIF",,"343,251,800 ",--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26203.33,2489100,Acres / Valuation,Land Value,2019
-,1B,Conservation Restriction Assessment RSA 79-B,117.88,15900,Acres / Valuation,Land Value,2019
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2019
-,1D,Discretionary Preservation Easements RSA 79-D,4.61,19500,Acres / Valuation,Land Value,2019
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2019
-,1F,Residential Land,2285.27,121206600,Acres / Valuation,Land Value,2019
-,1G,Commercial/Industrial Land,86.09,5659400,Acres / Valuation,Land Value,2019
-,1H,Total of Taxable Land,28697.18,129390500,Acres / Valuation,Land Value,2019
-,1I,Tax Exempt and Non-Taxable Land,5252.02,13938200,Acres / Valuation,Land Value,2019
-,,,,,,,2019
-,,,Structures,Valuation,,,2019
-,2A,Residential,0,206618700,Structures / Valuation,Building Value,2019
-,2B,Manufactured Housing,0,1047000,Structures / Valuation,Building Value,2019
-,2C,Commercial/Industrial,0,12185400,Structures / Valuation,Building Value,2019
-,2D,Discretionary Preservation Easements,10,71500,Structures / Valuation,Building Value,2019
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2019
-,2F,Total of Taxable Buildings,0,219922600,Structures / Valuation,Building Value,2019
-,2G,Tax Exempt and Non-Taxable Buildings,0,16991400,Structures / Valuation,Building Value,2019
-,,,,,,,2019
-,,,,,,,2019
-,3A,Utilities,,5745700,--- / Valuation,Util&Timber,2019
-,3B,Other Utilities,,0,,Util&Timber,2019
-,4,Mature Wood and Timber,,0,,Util&Timber,2019
-,,,,,,,2019
-,5,Valuation before Exemption,,355058800,--- / Valuation,Value before Exemption,2019
-,,,,,,,2019
-,,,Total,,,,2019
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2019
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2019
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2019
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2019
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2019
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2019
-,,,,,,,2019
-,11,Modified Assessed Value,,355058800,--- / Valuation,Mod Assess Value,2019
-,,,,,,,2019
-,12,Blind Exemption,0,0,Count / Valuation,Exemption,2019
-,13,Elderly Exemption,20,3745000,Count / Valuation,Exemption,2019
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2019
-,15,Disabled Exemption,6,810000,Count / Valuation,Exemption,2019
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2019
-,17,Solar Energy Systems Exemption,51,735000,Count / Valuation,Exemption,2019
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2019
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2019
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2019
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2019
-,,,,,,,2019
-,20,Total Dollar amount of Exemptions,,5290000,--- / Valuation,Total Exemption,2019
-,21A,Net Valuation,,349768800,--- / Valuation,Valuations,2019
-,21B,Less TIF Related Value,,0,--- / Valuation,Valuations,2019
-,21C,Net Valuation Adj to remove TIF Retained Value,,349768800,--- / Valuation,Valuations,2019
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2019
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,349768800,--- / Valuation,Valuations,2019
-,22,Less Utilities,,5745700,--- / Valuation,Valuations,2019
-,23A,Net Valuation without Utilities,,344023100,--- / Valuation,Valuations,2019
-,23B,"Net Valuation without Util, Adj. to remove TIF",,344023100,--- / Valuation,Valuations,2019
+Year,,,,Acres,Valuation,Key,Category
+2019,,1A,Current Use Land RSA 79-A,26203.33,"2,489,100 ",Acres / Valuation,Land Value
+2019,,1B,Conservation Restriction Assessment RSA 79-B,117.88,"15,900 ",Acres / Valuation,Land Value
+2019,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2019,,1D,Discretionary Preservation Easements RSA 79-D,4.61,"19,500 ",Acres / Valuation,Land Value
+2019,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2019,,1F,Residential Land,2285.27,"121,206,600 ",Acres / Valuation,Land Value
+2019,,1G,Commercial/Industrial Land,86.09,"5,659,400 ",Acres / Valuation,Land Value
+2019,,1H,Total of Taxable Land,28697.18,"129,390,500 ",Acres / Valuation,Land Value
+2019,,1I,Tax Exempt and Non-Taxable Land,5252.02,"13,938,200 ",Acres / Valuation,Land Value
+2019,,,,,,,
+2019,,,,Structures,Valuation,,
+2019,,2A,Residential,0,"206,618,700 ",Structures / Valuation,Building Value
+2019,,2B,Manufactured Housing,0,"1,047,000 ",Structures / Valuation,Building Value
+2019,,2C,Commercial/Industrial,0,"12,185,400 ",Structures / Valuation,Building Value
+2019,,2D,Discretionary Preservation Easements,10,"71,500 ",Structures / Valuation,Building Value
+2019,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2019,,2F,Total of Taxable Buildings,0,"219,922,600 ",Structures / Valuation,Building Value
+2019,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,991,400 ",Structures / Valuation,Building Value
+2019,,,,,,,
+2019,,,,,,,
+2019,,3A,Utilities,,"5,745,700 ",--- / Valuation,Util&Timber
+2019,,3B,Other Utilities,,0 ,,Util&Timber
+2019,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2019,,,,,,,
+2019,,5,Valuation before Exemption,,"355,058,800 ",--- / Valuation,Value before Exemption
+2019,,,,,,,
+2019,,,,Total,,,
+2019,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2019,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2019,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2019,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2019,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2019,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2019,,,,,,,
+2019,,11,Modified Assessed Value,,"355,058,800 ",--- / Valuation,Mod Assess Value
+2019,,,,,,,
+2019,,12,Blind Exemption,0,0 ,Count / Valuation,Exemption
+2019,,13,Elderly Exemption,20,"3,745,000 ",Count / Valuation,Exemption
+2019,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2019,,15,Disabled Exemption,6,"810,000 ",Count / Valuation,Exemption
+2019,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2019,,17,Solar Energy Systems Exemption,51,"735,000 ",Count / Valuation,Exemption
+2019,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2019,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2019,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2019,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2019,,,,,,,
+2019,,20,Total Dollar amount of Exemptions,,"5,290,000 ",--- / Valuation,Total Exemption
+2019,,21A,Net Valuation,,"349,768,800 ",--- / Valuation,Valuations
+2019,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2019,,21C,Net Valuation Adj to remove TIF Retained Value,,"349,768,800 ",--- / Valuation,Valuations
+2019,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2019,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,"349,768,800 ",--- / Valuation,Valuations
+2019,,22,Less Utilities,,"5,745,700 ",--- / Valuation,Valuations
+2019,,23A,Net Valuation without Utilities,,"344,023,100 ",--- / Valuation,Valuations
+2019,,23B,"Net Valuation without Util, Adj. to remove TIF",,"344,023,100 ",--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26146.88,2478200,Acres / Valuation,Land Value,2020
-,1B,Conservation Restriction Assessment RSA 79-B,125.26,18400,Acres / Valuation,Land Value,2020
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2020
-,1D,Discretionary Preservation Easements RSA 79-D,4.61,19500,Acres / Valuation,Land Value,2020
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2020
-,1F,Residential Land,2282.89,121193200,Acres / Valuation,Land Value,2020
-,1G,Commercial/Industrial Land,86.09,5659400,Acres / Valuation,Land Value,2020
-,1H,Total of Taxable Land,28645.73,129368700,Acres / Valuation,Land Value,2020
-,1I,Tax Exempt and Non-Taxable Land,5252.02,13938200,Acres / Valuation,Land Value,2020
-,,,,,,,2020
-,,,Structures,Valuation,,,2020
-,2A,Residential,0,209641200,Structures / Valuation,Building Value,2020
-,2B,Manufactured Housing,0,1246400,Structures / Valuation,Building Value,2020
-,2C,Commercial/Industrial,0,12624500,Structures / Valuation,Building Value,2020
-,2D,Discretionary Preservation Easements,0,70500,Structures / Valuation,Building Value,2020
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2020
-,2F,Total of Taxable Buildings,0,223582600,Structures / Valuation,Building Value,2020
-,2G,Tax Exempt and Non-Taxable Buildings,0,16989600,Structures / Valuation,Building Value,2020
-,,,,,,,2020
-,,,,,,,2020
-,3A,Utilities,,6478000,--- / Valuation,Util&Timber,2020
-,3B,Other Utilities,,0,,Util&Timber,2020
-,4,Mature Wood and Timber,,0,,Util&Timber,2020
-,,,,,,,2020
-,5,Valuation before Exemption,,359429300,--- / Valuation,Value before Exemption,2020
-,,,,,,,2020
-,,,Total,,,,2020
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2020
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2020
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2020
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2020
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2020
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2020
-,,,,,,,2020
-,11,Modified Assessed Value,,359429300,--- / Valuation,Mod Assess Value,2020
-,,,,,,,2020
-,12,Blind Exemption,0,0,Count / Valuation,Exemption,2020
-,13,Elderly Exemption,19,3610000,Count / Valuation,Exemption,2020
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2020
-,15,Disabled Exemption,6,810000,Count / Valuation,Exemption,2020
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2020
-,17,Solar Energy Systems Exemption,55,835000,Count / Valuation,Exemption,2020
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2020
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2020
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2020
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2020
-,,,,,,,2020
-,20,Total Dollar amount of Exemptions,,5255000,--- / Valuation,Total Exemption,2020
-,21A,Net Valuation,,354174300,--- / Valuation,Valuations,2020
-,21B,Less TIF Related Value,,0,--- / Valuation,Valuations,2020
-,21C,Net Valuation Adj to remove TIF Retained Value,,354174300,--- / Valuation,Valuations,2020
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2020
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,354174300,--- / Valuation,Valuations,2020
-,22,Less Utilities,,6478000,--- / Valuation,Valuations,2020
-,23A,Net Valuation without Utilities,,347696300,--- / Valuation,Valuations,2020
-,23B,"Net Valuation without Util, Adj. to remove TIF",,347696300,--- / Valuation,Valuations,2020
+Year,,,,Acres,Valuation,Key,Category
+2020,,1A,Current Use Land RSA 79-A,26146.88,"2,478,200 ",Acres / Valuation,Land Value
+2020,,1B,Conservation Restriction Assessment RSA 79-B,125.26,"18,400 ",Acres / Valuation,Land Value
+2020,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2020,,1D,Discretionary Preservation Easements RSA 79-D,4.61,"19,500 ",Acres / Valuation,Land Value
+2020,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2020,,1F,Residential Land,2282.89,"121,193,200 ",Acres / Valuation,Land Value
+2020,,1G,Commercial/Industrial Land,86.09,"5,659,400 ",Acres / Valuation,Land Value
+2020,,1H,Total of Taxable Land,28645.73,"129,368,700 ",Acres / Valuation,Land Value
+2020,,1I,Tax Exempt and Non-Taxable Land,5252.02,"13,938,200 ",Acres / Valuation,Land Value
+2020,,,,,,,
+2020,,,,Structures,Valuation,,
+2020,,2A,Residential,0,"209,641,200 ",Structures / Valuation,Building Value
+2020,,2B,Manufactured Housing,0,"1,246,400 ",Structures / Valuation,Building Value
+2020,,2C,Commercial/Industrial,0,"12,624,500 ",Structures / Valuation,Building Value
+2020,,2D,Discretionary Preservation Easements,0,"70,500 ",Structures / Valuation,Building Value
+2020,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2020,,2F,Total of Taxable Buildings,0,"223,582,600 ",Structures / Valuation,Building Value
+2020,,2G,Tax Exempt and Non-Taxable Buildings,0,"16,989,600 ",Structures / Valuation,Building Value
+2020,,,,,,,
+2020,,,,,,,
+2020,,3A,Utilities,,"6,478,000 ",--- / Valuation,Util&Timber
+2020,,3B,Other Utilities,,0 ,,Util&Timber
+2020,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2020,,,,,,,
+2020,,5,Valuation before Exemption,,"359,429,300 ",--- / Valuation,Value before Exemption
+2020,,,,,,,
+2020,,,,Total,,,
+2020,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2020,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2020,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2020,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2020,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2020,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2020,,,,,,,
+2020,,11,Modified Assessed Value,,"359,429,300 ",--- / Valuation,Mod Assess Value
+2020,,,,,,,
+2020,,12,Blind Exemption,0,0 ,Count / Valuation,Exemption
+2020,,13,Elderly Exemption,19,"3,610,000 ",Count / Valuation,Exemption
+2020,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2020,,15,Disabled Exemption,6,"810,000 ",Count / Valuation,Exemption
+2020,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2020,,17,Solar Energy Systems Exemption,55,"835,000 ",Count / Valuation,Exemption
+2020,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2020,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2020,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2020,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2020,,,,,,,
+2020,,20,Total Dollar amount of Exemptions,,"5,255,000 ",--- / Valuation,Total Exemption
+2020,,21A,Net Valuation,,"354,174,300 ",--- / Valuation,Valuations
+2020,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2020,,21C,Net Valuation Adj to remove TIF Retained Value,,"354,174,300 ",--- / Valuation,Valuations
+2020,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2020,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,"354,174,300 ",--- / Valuation,Valuations
+2020,,22,Less Utilities,,"6,478,000 ",--- / Valuation,Valuations
+2020,,23A,Net Valuation without Utilities,,"347,696,300 ",--- / Valuation,Valuations
+2020,,23B,"Net Valuation without Util, Adj. to remove TIF",,"347,696,300 ",--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26196.21,2658800,Acres / Valuation,Land Value,2021
-,1B,Conservation Restriction Assessment RSA 79-B,125.26,19900,Acres / Valuation,Land Value,2021
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2021
-,1D,Discretionary Preservation Easements RSA 79-D,4.67,22700,Acres / Valuation,Land Value,2021
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2021
-,1F,Residential Land,2282.77,145989100,Acres / Valuation,Land Value,2021
-,1G,Commercial/Industrial Land,86.09,7769700,Acres / Valuation,Land Value,2021
-,1H,Total of Taxable Land,28695,156460200,Acres / Valuation,Land Value,2021
-,1I,Tax Exempt and Non-Taxable Land,5252.51,16639900,Acres / Valuation,Land Value,2021
-,,,,,,,2021
-,,,Structures,Valuation,,,2021
-,2A,Residential,0,235802300,Structures / Valuation,Building Value,2021
-,2B,Manufactured Housing,0,1314000,Structures / Valuation,Building Value,2021
-,2C,Commercial/Industrial,0,13216000,Structures / Valuation,Building Value,2021
-,2D,Discretionary Preservation Easements,11,305300,Structures / Valuation,Building Value,2021
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2021
-,2F,Total of Taxable Buildings,0,250637600,Structures / Valuation,Building Value,2021
-,2G,Tax Exempt and Non-Taxable Buildings,0,18976300,Structures / Valuation,Building Value,2021
-,,,,,,,2021
-,,,,,,,2021
-,3A,Utilities,,5445500,--- / Valuation,Util&Timber,2021
-,3B,Other Utilities,,0,,Util&Timber,2021
-,4,Mature Wood and Timber,,0,,Util&Timber,2021
-,,,,,,,2021
-,5,Valuation before Exemption,,412543300,--- / Valuation,Value before Exemption,2021
-,,,,,,,2021
-,,,Total,,,,2021
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2021
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2021
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2021
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2021
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2021
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2021
-,,,,,,,2021
-,11,Modified Assessed Value,,412543300,--- / Valuation,Mod Assess Value,2021
-,,,,,,,2021
-,12,Blind Exemption,0,0,Count / Valuation,Exemption,2021
-,13,Elderly Exemption,17,3355500,Count / Valuation,Exemption,2021
-,14,Deaf Exemption,0,0,Count / Valuation,Exemption,2021
-,15,Disabled Exemption,5,675000,Count / Valuation,Exemption,2021
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2021
-,17,Solar Energy Systems Exemption,60,945000,Count / Valuation,Exemption,2021
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2021
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2021
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2021
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2021
-,,,,,,,2021
-,20,Total Dollar amount of Exemptions,,4975000,--- / Valuation,Total Exemption,2021
-,21A,Net Valuation,,407568300,--- / Valuation,Valuations,2021
-,21B,Less TIF Related Value,,0,--- / Valuation,Valuations,2021
-,21C,Net Valuation Adj to remove TIF Retained Value,,407568300,--- / Valuation,Valuations,2021
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2021
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,407568300,--- / Valuation,Valuations,2021
-,22,Less Utilities,,5445500,--- / Valuation,Valuations,2021
-,23A,Net Valuation without Utilities,,402122800,--- / Valuation,Valuations,2021
-,23B,"Net Valuation without Util, Adj. to remove TIF",,402122800,--- / Valuation,Valuations,2021
+Year,,,,Acres,Valuation,Key,Category
+2021,,1A,Current Use Land RSA 79-A,26196.21,"2,658,800 ",Acres / Valuation,Land Value
+2021,,1B,Conservation Restriction Assessment RSA 79-B,125.26,"19,900 ",Acres / Valuation,Land Value
+2021,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2021,,1D,Discretionary Preservation Easements RSA 79-D,4.67,"22,700 ",Acres / Valuation,Land Value
+2021,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2021,,1F,Residential Land,2282.77,"145,989,100 ",Acres / Valuation,Land Value
+2021,,1G,Commercial/Industrial Land,86.09,"7,769,700 ",Acres / Valuation,Land Value
+2021,,1H,Total of Taxable Land,28695,"156,460,200 ",Acres / Valuation,Land Value
+2021,,1I,Tax Exempt and Non-Taxable Land,5252.51,"16,639,900 ",Acres / Valuation,Land Value
+2021,,,,,,,
+2021,,,,Structures,Valuation,,
+2021,,2A,Residential,0,"235,802,300 ",Structures / Valuation,Building Value
+2021,,2B,Manufactured Housing,0,"1,314,000 ",Structures / Valuation,Building Value
+2021,,2C,Commercial/Industrial,0,"13,216,000 ",Structures / Valuation,Building Value
+2021,,2D,Discretionary Preservation Easements,11,"305,300 ",Structures / Valuation,Building Value
+2021,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2021,,2F,Total of Taxable Buildings,0,"250,637,600 ",Structures / Valuation,Building Value
+2021,,2G,Tax Exempt and Non-Taxable Buildings,0,"18,976,300 ",Structures / Valuation,Building Value
+2021,,,,,,,
+2021,,,,,,,
+2021,,3A,Utilities,,"5,445,500 ",--- / Valuation,Util&Timber
+2021,,3B,Other Utilities,,0 ,,Util&Timber
+2021,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2021,,,,,,,
+2021,,5,Valuation before Exemption,,"412,543,300 ",--- / Valuation,Value before Exemption
+2021,,,,,,,
+2021,,,,Total,,,
+2021,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2021,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2021,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2021,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2021,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2021,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2021,,,,,,,
+2021,,11,Modified Assessed Value,,"412,543,300 ",--- / Valuation,Mod Assess Value
+2021,,,,,,,
+2021,,12,Blind Exemption,0,0 ,Count / Valuation,Exemption
+2021,,13,Elderly Exemption,17,"3,355,500 ",Count / Valuation,Exemption
+2021,,14,Deaf Exemption,0,0 ,Count / Valuation,Exemption
+2021,,15,Disabled Exemption,5,"675,000 ",Count / Valuation,Exemption
+2021,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2021,,17,Solar Energy Systems Exemption,60,"945,000 ",Count / Valuation,Exemption
+2021,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2021,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2021,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2021,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2021,,,,,,,
+2021,,20,Total Dollar amount of Exemptions,,"4,975,000 ",--- / Valuation,Total Exemption
+2021,,21A,Net Valuation,,"407,568,300 ",--- / Valuation,Valuations
+2021,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2021,,21C,Net Valuation Adj to remove TIF Retained Value,,"407,568,300 ",--- / Valuation,Valuations
+2021,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2021,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,"407,568,300 ",--- / Valuation,Valuations
+2021,,22,Less Utilities,,"5,445,500 ",--- / Valuation,Valuations
+2021,,23A,Net Valuation without Utilities,,"402,122,800 ",--- / Valuation,Valuations
+2021,,23B,"Net Valuation without Util, Adj. to remove TIF",,"402,122,800 ",--- / Valuation,Valuations
 ,,,,,,,
-,,,Acres,Valuation,Key,Category,Year
-,1A,Current Use Land RSA 79-A,26163.09,2664700,Acres / Valuation,Land Value,2022
-,1B,Conservation Restriction Assessment RSA 79-B,125.26,19900,Acres / Valuation,Land Value,2022
-,1C,Discretionary Easements RSA 79-C,0,0,Acres / Valuation,Land Value,2022
-,1D,Discretionary Preservation Easements RSA 79-D,4.67,22700,Acres / Valuation,Land Value,2022
-,1E,Taxation of Land under Farm Structures RSA 79-F,0,0,Acres / Valuation,Land Value,2022
-,1F,Residential Land,2458.72,144780600,Acres / Valuation,Land Value,2022
-,1G,Commercial/Industrial Land,72.64,6865900,Acres / Valuation,Land Value,2022
-,1H,Total of Taxable Land,28824.38,154363800,Acres / Valuation,Land Value,2022
-,1I,Tax Exempt and Non-Taxable Land,5252.51,16639900,Acres / Valuation,Land Value,2022
-,,,,,,,2022
-,,,Structures,Valuation,,,2022
-,2A,Residential,0,242355300,Structures / Valuation,Building Value,2022
-,2B,Manufactured Housing,0,1339100,Structures / Valuation,Building Value,2022
-,2C,Commercial/Industrial,0,13691700,Structures / Valuation,Building Value,2022
-,2D,Discretionary Preservation Easements,11,305300,Structures / Valuation,Building Value,2022
-,2E,Taxation of Farm Structures,0,0,Structures / Valuation,Building Value,2022
-,2F,Total of Taxable Buildings,0,257691400,Structures / Valuation,Building Value,2022
-,2G,Tax Exempt and Non-Taxable Buildings,0,18980000,Structures / Valuation,Building Value,2022
-,,,,,,,2022
-,,,,,,,2022
-,3A,Utilities,,5679900,--- / Valuation,Util&Timber,2022
-,3B,Other Utilities,,0,,Util&Timber,2022
-,4,Mature Wood and Timber,,0,,Util&Timber,2022
-,,,,,,,2022
-,5,Valuation before Exemption,,417735100,--- / Valuation,Value before Exemption,2022
-,,,,,,,2022
-,,,Total,,,,2022
-,6,Certain Disabled Veterans,0,0,Count / Valuation,Exemption,2022
-,7,Improvements to Assist the Deaf,0,0,Count / Valuation,Exemption,2022
-,8,Improvements to Assist Persons with Disabilities,0,0,Count / Valuation,Exemption,2022
-,9,School Dining/Dormitory/Kitchen Exemption,0,0,Count / Valuation,Exemption,2022
-,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0,Count / Valuation,Exemption,2022
-,10B,Utility Water & Air Pollution Control Exemption,0,0,Count / Valuation,Exemption,2022
-,,,,,,,2022
-,11,Modified Assessed Value,,417735100,--- / Valuation,Mod Assess Value,2022
-,,,,,,,2022
-,12,Blind Exemption,1,67500,Count / Valuation,Exemption,2022
-,13,Elderly Exemption,20,5040000,Count / Valuation,Exemption,2022
-,14,Deaf Exemption,1,67500,Count / Valuation,Exemption,2022
-,15,Disabled Exemption,4,540000,Count / Valuation,Exemption,2022
-,16,Wood Heating Energy Systems Exemption,0,0,Count / Valuation,Exemption,2022
-,17,Solar Energy Systems Exemption,67,1125000,Count / Valuation,Exemption,2022
-,18,Wind Powered Energy Systems Exemption,0,0,Count / Valuation,Exemption,2022
-,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0,Count / Valuation,Exemption,2022
-,19A,Electric Energy Storage Systems,0,0,Count / Valuation,Exemption,2022
-,19B,Renewable Generation Facility & Elec. Energy Sys,0,0,Count / Valuation,Exemption,2022
-,,,,,,,2022
-,20,Total Dollar amount of Exemptions,,6840000,--- / Valuation,Total Exemption,2022
-,21A,Net Valuation,,410895100,--- / Valuation,Valuations,2022
-,21B,Less TIF Related Value,,0,--- / Valuation,Valuations,2022
-,21C,Net Valuation Adj to remove TIF Retained Value,,410895100,--- / Valuation,Valuations,2022
-,21D,Less Commercial/Industrial Construction Exemption,,0,--- / Valuation,Valuations,2022
-,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,410895100,--- / Valuation,Valuations,2022
-,22,Less Utilities,,5679900,--- / Valuation,Valuations,2022
-,23A,Net Valuation without Utilities,,405215200,--- / Valuation,Valuations,2022
-,23B,"Net Valuation without Util, Adj. to remove TIF",,405215200,--- / Valuation,Valuations,2022
+Year,,,,Acres,Valuation,Key,Category
+2022,,1A,Current Use Land RSA 79-A,26163.09,"2,664,700 ",Acres / Valuation,Land Value
+2022,,1B,Conservation Restriction Assessment RSA 79-B,125.26,"19,900 ",Acres / Valuation,Land Value
+2022,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2022,,1D,Discretionary Preservation Easements RSA 79-D,4.67,"22,700 ",Acres / Valuation,Land Value
+2022,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2022,,1F,Residential Land,2458.72,"144,780,600 ",Acres / Valuation,Land Value
+2022,,1G,Commercial/Industrial Land,72.64,"6,865,900 ",Acres / Valuation,Land Value
+2022,,1H,Total of Taxable Land,28824.38,"154,363,800 ",Acres / Valuation,Land Value
+2022,,1I,Tax Exempt and Non-Taxable Land,5252.51,"16,639,900 ",Acres / Valuation,Land Value
+2022,,,,,,,
+2022,,,,Structures,Valuation,,
+2022,,2A,Residential,0,"242,355,300 ",Structures / Valuation,Building Value
+2022,,2B,Manufactured Housing,0,"1,339,100 ",Structures / Valuation,Building Value
+2022,,2C,Commercial/Industrial,0,"13,691,700 ",Structures / Valuation,Building Value
+2022,,2D,Discretionary Preservation Easements,11,"305,300 ",Structures / Valuation,Building Value
+2022,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2022,,2F,Total of Taxable Buildings,0,"257,691,400 ",Structures / Valuation,Building Value
+2022,,2G,Tax Exempt and Non-Taxable Buildings,0,"18,980,000 ",Structures / Valuation,Building Value
+2022,,,,,,,
+2022,,,,,,,
+2022,,3A,Utilities,,"5,679,900 ",--- / Valuation,Util&Timber
+2022,,3B,Other Utilities,,0 ,,Util&Timber
+2022,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2022,,,,,,,
+2022,,5,Valuation before Exemption,,"417,735,100 ",--- / Valuation,Value before Exemption
+2022,,,,,,,
+2022,,,,Total,,,
+2022,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2022,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2022,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2022,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2022,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2022,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2022,,,,,,,
+2022,,11,Modified Assessed Value,,"417,735,100 ",--- / Valuation,Mod Assess Value
+2022,,,,,,,
+2022,,12,Blind Exemption,1,"67,500 ",Count / Valuation,Exemption
+2022,,13,Elderly Exemption,20,"5,040,000 ",Count / Valuation,Exemption
+2022,,14,Deaf Exemption,1,"67,500 ",Count / Valuation,Exemption
+2022,,15,Disabled Exemption,4,"540,000 ",Count / Valuation,Exemption
+2022,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2022,,17,Solar Energy Systems Exemption,67,"1,125,000 ",Count / Valuation,Exemption
+2022,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2022,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2022,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2022,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2022,,,,,,,
+2022,,20,Total Dollar amount of Exemptions,,"6,840,000 ",--- / Valuation,Total Exemption
+2022,,21A,Net Valuation,,"410,895,100 ",--- / Valuation,Valuations
+2022,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2022,,21C,Net Valuation Adj to remove TIF Retained Value,,"410,895,100 ",--- / Valuation,Valuations
+2022,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2022,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,"410,895,100 ",--- / Valuation,Valuations
+2022,,22,Less Utilities,,"5,679,900 ",--- / Valuation,Valuations
+2022,,23A,Net Valuation without Utilities,,"405,215,200 ",--- / Valuation,Valuations
+2022,,23B,"Net Valuation without Util, Adj. to remove TIF",,"405,215,200 ",--- / Valuation,Valuations
+,,,,,,,
+Year,,,,Acres,Valuation,Key,Category
+2023,,1A,Current Use Land RSA 79-A,26003.84,"2,511,100 ",Acres / Valuation,Land Value
+2023,,1B,Conservation Restriction Assessment RSA 79-B,125.26,"19,900 ",Acres / Valuation,Land Value
+2023,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2023,,1D,Discretionary Preservation Easements RSA 79-D,3.09,"11,500 ",Acres / Valuation,Land Value
+2023,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2023,,1F,Residential Land,2485.75,"145,353,700 ",Acres / Valuation,Land Value
+2023,,1G,Commercial/Industrial Land,72.64,"6,865,900 ",Acres / Valuation,Land Value
+2023,,1H,Total of Taxable Land,28690.58,"154,762,100 ",Acres / Valuation,Land Value
+2023,,1I,Tax Exempt and Non-Taxable Land,5252.51,"16,639,900 ",Acres / Valuation,Land Value
+2023,,,,,,,
+2023,,,,Structures,Valuation,,
+2023,,2A,Residential,0,"242,291,000 ",Structures / Valuation,Building Value
+2023,,2B,Manufactured Housing,0,"1,339,100 ",Structures / Valuation,Building Value
+2023,,2C,Commercial/Industrial,0,"13,418,900 ",Structures / Valuation,Building Value
+2023,,2D,Discretionary Preservation Easements,6,"84,100 ",Structures / Valuation,Building Value
+2023,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2023,,2F,Total of Taxable Buildings,0,"257,133,100 ",Structures / Valuation,Building Value
+2023,,2G,Tax Exempt and Non-Taxable Buildings,0,"19,142,200 ",Structures / Valuation,Building Value
+2023,,,,,,,
+2023,,,,,,,
+2023,,3A,Utilities,,"4,725,200 ",--- / Valuation,Util&Timber
+2023,,3B,Other Utilities,,0 ,,Util&Timber
+2023,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2023,,,,,,,
+2023,,5,Valuation before Exemption,,"416,620,400 ",--- / Valuation,Value before Exemption
+2023,,,,,,,
+2023,,,,Total,,,
+2023,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2023,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2023,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2023,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2023,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2023,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2023,,,,,,,
+2023,,11,Modified Assessed Value,,"416,620,400 ",--- / Valuation,Mod Assess Value
+2023,,,,,,,
+2023,,12,Blind Exemption,1,"67,500 ",Count / Valuation,Exemption
+2023,,13,Elderly Exemption,20,"4,138,300 ",Count / Valuation,Exemption
+2023,,14,Deaf Exemption,1,"67,500 ",Count / Valuation,Exemption
+2023,,15,Disabled Exemption,2,"270,000 ",Count / Valuation,Exemption
+2023,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2023,,17,Solar Energy Systems Exemption,71,"1,215,000 ",Count / Valuation,Exemption
+2023,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2023,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2023,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2023,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2023,,,,,,,
+2023,,20,Total Dollar amount of Exemptions,,"5,758,300 ",--- / Valuation,Total Exemption
+2023,,21A,Net Valuation,,"410,862,100 ",--- / Valuation,Valuations
+2023,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2023,,21C,Net Valuation Adj to remove TIF Retained Value,,"410,862,100 ",--- / Valuation,Valuations
+2023,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2023,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,"410,862,100 ",--- / Valuation,Valuations
+2023,,22,Less Utilities,,"4,725,200 ",--- / Valuation,Valuations
+2023,,23A,Net Valuation without Utilities,,"406,136,900 ",--- / Valuation,Valuations
+2023,,23B,"Net Valuation without Util, Adj. to remove TIF",,"406,136,900 ",--- / Valuation,Valuations
+,,,,,,,
+Year,,,,Acres,Valuation,Key,Category
+2024,,1A,Current Use Land RSA 79-A,25988.81,"2,112,300 ",Acres / Valuation,Land Value
+2024,,1B,Conservation Restriction Assessment RSA 79-B,125.26,"19,900 ",Acres / Valuation,Land Value
+2024,,1C,Discretionary Easements RSA 79-C,0,0 ,Acres / Valuation,Land Value
+2024,,1D,Discretionary Preservation Easements RSA 79-D,3.67,"20,400 ",Acres / Valuation,Land Value
+2024,,1E,Taxation of Land under Farm Structures RSA 79-F,0,0 ,Acres / Valuation,Land Value
+2024,,1F,Residential Land,2490.33,"145,477,500 ",Acres / Valuation,Land Value
+2024,,1G,Commercial/Industrial Land,72.64,"6,865,900 ",Acres / Valuation,Land Value
+2024,,1H,Total of Taxable Land,28680.71,"154,496,000 ",Acres / Valuation,Land Value
+2024,,1I,Tax Exempt and Non-Taxable Land,5251.21,"16,639,900 ",Acres / Valuation,Land Value
+2024,,,,,,,
+2024,,,,Structures,Valuation,,
+2024,,2A,Residential,0,"247,134,000 ",Structures / Valuation,Building Value
+2024,,2B,Manufactured Housing,0,"1,376,600 ",Structures / Valuation,Building Value
+2024,,2C,Commercial/Industrial,0,"12,693,400 ",Structures / Valuation,Building Value
+2024,,2D,Discretionary Preservation Easements,6,"31,000 ",Structures / Valuation,Building Value
+2024,,2E,Taxation of Farm Structures,0,0 ,Structures / Valuation,Building Value
+2024,,2F,Total of Taxable Buildings,0,"261,235,000 ",Structures / Valuation,Building Value
+2024,,2G,Tax Exempt and Non-Taxable Buildings,0,"21,135,100 ",Structures / Valuation,Building Value
+2024,,,,,,,
+2024,,,,,,,
+2024,,3A,Utilities,,"3,858,800 ",--- / Valuation,Util&Timber
+2024,,3B,Other Utilities,,0 ,,Util&Timber
+2024,,4,Mature Wood and Timber,,0 ,,Util&Timber
+2024,,,,,,,
+2024,,5,Valuation before Exemption,,"419,589,800 ",--- / Valuation,Value before Exemption
+2024,,,,,,,
+2024,,,,Total,,,
+2024,,6,Certain Disabled Veterans,0,0 ,Count / Valuation,Exemption
+2024,,7,Improvements to Assist the Deaf,0,0 ,Count / Valuation,Exemption
+2024,,8,Improvements to Assist Persons with Disabilities,0,0 ,Count / Valuation,Exemption
+2024,,9,School Dining/Dormitory/Kitchen Exemption,0,0 ,Count / Valuation,Exemption
+2024,,10A,Non-Utility Water & Air Pollution Control Exempt.,0,0 ,Count / Valuation,Exemption
+2024,,10B,Utility Water & Air Pollution Control Exemption,0,0 ,Count / Valuation,Exemption
+2024,,,,,,,
+2024,,11,Modified Assessed Value,,"418,888,000 ",--- / Valuation,Mod Assess Value
+2024,,,,,,,
+2024,,12,Blind Exemption,1,"67,500 ",Count / Valuation,Exemption
+2024,,13,Elderly Exemption,20,"4,909,100 ",Count / Valuation,Exemption
+2024,,14,Deaf Exemption,1,"67,500 ",Count / Valuation,Exemption
+2024,,15,Disabled Exemption,2,"270,000 ",Count / Valuation,Exemption
+2024,,16,Wood Heating Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2024,,17,Solar Energy Systems Exemption,81,"1,435,000 ",Count / Valuation,Exemption
+2024,,18,Wind Powered Energy Systems Exemption,0,0 ,Count / Valuation,Exemption
+2024,,19,Additional School/Dining/Dorm/Kitchen Exemptions,0,0 ,Count / Valuation,Exemption
+2024,,19A,Electric Energy Storage Systems,0,0 ,Count / Valuation,Exemption
+2024,,19B,Renewable Generation Facility & Elec. Energy Sys,0,0 ,Count / Valuation,Exemption
+2024,,,,,,,
+2024,,20,Total Dollar amount of Exemptions,,"6,749,100 ",--- / Valuation,Total Exemption
+2024,,21A,Net Valuation,,"412,840,700 ",--- / Valuation,Valuations
+2024,,21B,Less TIF Related Value,,0 ,--- / Valuation,Valuations
+2024,,21C,Net Valuation Adj to remove TIF Retained Value,,"412,840,700 ",--- / Valuation,Valuations
+2024,,21D,Less Commercial/Industrial Construction Exemption,,0 ,--- / Valuation,Valuations
+2024,,21E,Net Valuation Adj. to Remove TIF and Comm/Ind,,"412,840,700 ",--- / Valuation,Valuations
+2024,,22,Less Utilities,,"3,858,800 ",--- / Valuation,Valuations
+2024,,23A,Net Valuation without Utilities,,"408,981,900 ",--- / Valuation,Valuations
+2024,,23B,"Net Valuation without Util, Adj. to remove TIF",,"408,981,900 ",--- / Valuation,Valuations
