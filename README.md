@@ -106,9 +106,11 @@ It contains:
 
 ## Convert from PDF to Excel
 
-* [https://www.ilovepdf.com/pdf\_to\_excel](https://www.ilovepdf.com/pdf_to_excel) works on Town Budget
+* [SmallPDF](https://smallpdf.com/pdf-to-excel#r=result&t=cc6e68d972bedca2613d9ec967a288a9&i=convert-to-excel) worked great on 2024 Old-to-New
 
-* Rich used [https://onlineocr.net](https://onlineocr.net) to convert it to a
+* [https://www.ilovepdf.com](https://www.ilovepdf.com/pdf_to_excel) works on Town Budget
+
+* Used [https://onlineocr.net](https://onlineocr.net) to convert it to a
      text file that could be imported into a spreadsheet. 
 * PDF OCR X Enterprise Edition and a bunch of regexes to produce
      the Town Assessment-from PDF-12Oct2021.xlsx spreadsheet.
@@ -143,10 +145,22 @@ from the other file where the Map/Lot/Unit are the same for both._
 I used [SQLite](https://sqlite.org/index.html) because it's small, fast, free,
 and runs on Macs and Windows (and Linux, too).
 
-I recommend [DB Browser for SQLite](https://sqlitebrowser.org/)
-as a database manager since it has a GUI to view the tables
-and run the SQL queries.
-It, too, is small, fast, free, and runs on Macs and Windows, and Linux.
+I now recommend [qStudio](https://timestored.com/qstudio)
+as the preferred tool for looking at SQLite databases
+especially if you want to use the
+[PRQL](https://prql-lang.org) alternative to SQL.
+There's a double-clickable macOS version described in
+Lesson #2 of the
+[qStudio-PRQL Quick Start](https://github.com/richb-hanover/qStudio-PRQL_Quick_Start/blob/main/qStudio-PRQL_Quick_Start_%232.md) along with links to other 
+OS versions.
+
+~~I recommend [DB Browser for SQLite](https://sqlitebrowser.org/) (DB4S)
+as a database manager.~~
+Although DB4S has a GUI to view the tables
+and run the SQL queries, and is small, fast, free, and runs on Macs and Windows, and Linux,
+it requires other tools for building and compiling
+the PRQL queries.
+
 
 ## Creating the database
 

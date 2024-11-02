@@ -671,11 +671,12 @@ CREATE TABLE "LymeUseCodes" (
 );
 CREATE TABLE "LymeOldToNew" (
 	"LO_Ignore1" TEXT,
-	"LO_Ignore2" TEXT,
 	"LO_PID" TEXT,
+	"LO_MBLU" TEXT,
 	"LO_Map" INTEGER,
 	"LO_Lot" INTEGER,
 	"LO_Unit" TEXT,
+	"LO_Subunit" TEXT,
 	"LO_Location" TEXT,
 	"LO_Owner" TEXT,
 	"LO_UseCode" TEXT,
@@ -684,7 +685,25 @@ CREATE TABLE "LymeOldToNew" (
 	"LO_Ratio" REAL,
 	"LO_Difference" INTEGER,
 	"LO_Year" TEXT,
-	"LO_Ignore3" TEXT
+	"LO_CollectedOn" TEXT
+);
+CREATE TABLE "Oct2024O2N" (
+	"LO_Ignore2" TEXT,
+	"LO_PID" TEXT,
+	"LO_MBLU" TEXT,
+	"LO_Map" INTEGER,
+	"LO_Lot" INTEGER,
+	"LO_Unit" TEXT,
+	"LO_Subunit" TEXT,
+	"LO_Location" TEXT,
+	"LO_Owner" TEXT,
+	"LO_UseCode" TEXT,
+	"LO_OldValue" INTEGER,
+	"LO_NewValue" INTEGER,
+	"LO_Ratio" REAL,
+	"LO_Difference" INTEGER,
+	"LO_Year" TEXT,
+	"LO_CollectedOn" TEXT
 );
 --This table has multiple rows per property
 --Use the UniqueAssessVsApprais view for actual work
