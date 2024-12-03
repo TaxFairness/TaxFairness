@@ -1,0 +1,44 @@
+# Compare 2024 revised OldToNew values to "scrape" of Vision from 4 Nov 2024
+
+let OldToNewValues = (
+    from LymeOldToNew
+    filter (LO_CollectedOn == @2024-10-31)
+    filter (LO_PID != "")
+    
+    select {
+        PID = LO_PID,
+        Location = LO_Location,
+        OldToNewOld = LO_OldValue,
+        OldToNewValue = LO_NewValue,
+        
+    }
+)
+
+let NovScrape = (
+    from ScrapedData
+    filter (SD_CollectedOn == @2024-11-04)
+    select {
+        SD_PID,
+        SD_Assessment,
+    }
+)
+
+from OldToNewValues 
+join side:left NovScrape (PID == SD_PID) 
+# derive Difference = OldToNewValue - SD_Assessment
+# filter (Difference != 0)
+
+# Good news - zero rows are different
+# But OldToNewValues has 1092 rows
+# NovScrape has 1086 values: why the different number of rows?
+
+# ======================
+# Check which PIDs exist in OldToNew that aren't in ScrapedData
+filter (SD_PID == null)
+
+# 39	14 ON THE COMMON	0		
+# 102642	6-6 ON THE COMMON UNIT	0		
+# 100061	PLEASANT ST	0		
+# 102643	85-85 DARTMOUTH COLLEGE HY	0		
+# 859	70 ORFORD RD	0		
+# 103223	70 ORFORD                 RD	0		

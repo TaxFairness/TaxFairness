@@ -138,6 +138,12 @@ let AllowedRoadFrontage = zd -> case [
 ]
 # ============ begin  query ==============
 from buildings
+
+# Only keep the latest entry for each unique building
+group { BL_PID, BL_BuildingNum } (
+    sort { BL_CollectedOn }
+    take 1
+)
 # filter BL_Model == "Residential"
 select {
   BL_PID,
@@ -256,7 +262,7 @@ select {
   AllowedFrontage_ft,
 }
 
-# # ===== Summarize by district to get percentage non-conforming =====
+# ===== Summarize by district to get percentage non-conforming =====
 group { ZoningDistrict } (
    aggregate {
     #  MinLotSize = (AllowedMinLotSize ZoningDistrict),
@@ -268,48 +274,49 @@ group { ZoningDistrict } (
      NumBldgTooBig = sum BldgTooBig,
      NumOverCoverage = sum CovTooBig,
      NumGFATooBig = sum GFATooBig,
-     NumLotTooNarrow = sum FrontageTooSmall,
+     NumSmallFrontage = sum FrontageTooSmall,
    }
  )
-# derive `LotTooSmall%` = (prtpct 100.0*NumLotTooSmall/TotalParcels)
-# derive `BldgTooBig%` = (prtpct 100.0*NumBldgTooBig/TotalParcels)
-# derive `OverCoverage%` = (prtpct 100.0*NumOverCoverage/TotalParcels)
-# derive `GFATooBig%` = (prtpct 100.0*NumGFATooBig/TotalParcels)
-# derive `LotTooNarrow%` = (prtpct 100.0*NumLotTooNarrow/TotalParcels)
+derive `LotTooSmall%` = (prtpct 100.0*NumLotTooSmall/TotalParcels)
+derive `BldgTooBig%` = (prtpct 100.0*NumBldgTooBig/TotalParcels)
+derive `OverCoverage%` = (prtpct 100.0*NumOverCoverage/TotalParcels)
+derive `GFATooBig%` = (prtpct 100.0*NumGFATooBig/TotalParcels)
+derive `SmallFrontage%` = (prtpct 100.0*NumSmallFrontage/TotalParcels)
 
-# === Filters for testing results ===
-
-# filter (like StreetAddress "84 ORFORD")
-# filter (like ZoningDistrict "Rural")
-# filter (text.contains "Rural")
-
-# Find any non-conforming lots
-# filter (
-#   LotTooSmall == 1
-#   \ || BldgTooBig == 1 
-#   \ || CovTooBig == 1
-#   \ || GFATooBig == 1
-#   \ || FrontageTooSmall == 1
-#   ) 
-  
-# Single out individual non-conformance
-# filter (
-#   # LotTooSmall == 1
-#   # BldgTooBig == 1 
-#   # CovTooBig == 1
-#   # GFATooBig == 1
-#   FrontageTooSmall == 1
-#   )
-
+# # === Filters for testing results ===
+# # === NOT NEEDED FOR THE REPORT   ===
+# 
+# # filter (like StreetAddress "84 ORFORD")
+# # filter (like ZoningDistrict "Rural")
+# # filter (text.contains "Rural")
+# 
+# # Find any non-conforming lots
+# # filter (
+# #   LotTooSmall == 1
+# #   \ || BldgTooBig == 1 
+# #   \ || CovTooBig == 1
+# #   \ || GFATooBig == 1
+# #   \ || FrontageTooSmall == 1
+# #   ) 
+#   
+# # Single out individual non-conformance
+# # filter (
+# #   # LotTooSmall == 1
+# #   # BldgTooBig == 1 
+# #   # CovTooBig == 1
+# #   # GFATooBig == 1
+# #   FrontageTooSmall == 1
+# #   )
+# 
 sort { ZoningDistrict }
-
+# sort { PID }
 
 #  === Percent of properties where lot coverage is too high =========
-# ZoningDistrict	TotalParcels	NumSmallLots	NumOverCoverage	NumBldgTooBig	NumOverGFA	NumNarrowLots	PctLotTooSmall	PctFullParcels	PctBldgTooBig	PctGFATooBig	PctLotTooNarrow
+# ZoningDistrict	TotalParcels	NumLotTooSmall	NumBldgTooBig	NumOverCoverage	NumGFATooBig	NumSmallFrontage	LotTooSmall%	BldgTooBig%	OverCoverage%	GFATooBig%	SmallFrontage%
 # Commercial	1	0	0	0	0	0	0.0%	0.0%	0.0%	0.0%	0.0%
-# EastLyme	54	31	2	17	0	37	57.4%	3.7%	31.5%	0.0%	68.5%
-# LymeCommon/Ctr	147	62	30	57	37	47	42.2%	20.4%	38.8%	25.2%	32.0%
+# EastLyme	54	31	17	2	0	37	57.4%	31.5%	3.7%	0.0%	68.5%
+# LymeCommon/Ctr	146	62	57	30	36	47	42.5%	39.0%	20.5%	24.7%	32.2%
 # MtnForest	37	9	0	0	0	25	24.3%	0.0%	0.0%	0.0%	67.6%
-# Rural-State Road	178	57	2	49	3	62	32.0%	1.1%	27.5%	1.7%	34.8%
-# Rural-Town Road	599	198	12	132	13	198	33.1%	2.0%	22.0%	2.2%	33.1%
+# Rural-State Road	178	57	49	2	1	62	32.0%	27.5%	1.1%	0.6%	34.8%
+# Rural-Town Road	596	198	132	10	8	197	33.2%	22.1%	1.7%	1.3%	33.1%
 # Skiway	4	0	0	0	2	2	0.0%	0.0%	0.0%	50.0%	50.0%

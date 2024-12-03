@@ -1,1 +1,24 @@
-from CAMA2022
+let TaxRate = 27.50/1000
+
+from Buildings
+group { BL_PID, BL_BuildingNum } (
+    sort { BL_CollectedOn }
+    take 1
+)
+filter (BL_PID == 837)
+# from sd=CleanScrapedData
+# filter (PID == 837)
+# join b = Buildings(sd.PID == b.BL_PID)
+# select {
+#     PID,
+#     Map, Lot, Unit, Subunit,
+#     Street_Address,
+#     Assessment,
+#     Appraisal,
+#     Tax2024 = Assessment * TaxRate,
+#     delta = Assessment - Appraisal,
+#     
+# }
+# filter (Map == 408 && (Lot == 22 || Lot == 20) )
+# sort { Unit * 1.0 }
+
