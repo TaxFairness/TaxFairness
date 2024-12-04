@@ -72,7 +72,7 @@ let SubDistrict = dist road -> case [
 # ============ begin  query ==============
 
 from sd=ScrapedData
-filter SD_CollectedOn == '2024-12-03' # latest data
+filter SD_CollectedOn == @2024-12-04 # latest data
 join side:left czd = CorrectedZoningDistrict (sd.SD_PID == czd.CZD_PID)
 join side:left ef = EasementsFrontage(sd.SD_PID == ef.EF_PID)
 
@@ -105,6 +105,13 @@ select {
     District,
     #ZDistrict,
     DistrictName,
+    Neighborhood=sd.SD_Neighborhood,
+    AltLandApproved=sd.SD_AltLandApproved,
+    Category=sd.SD_Category,
+    Frontage=sd.SD_Frontage,
+    Depth=sd.SD_Depth,
+    LandAsmt=sd.SD_LandAsmt,
+    LandAppr=sd.SD_LandAppr,
     StateRoad,
     ef.EF_LotSize,
     ef.EF_Exempt,

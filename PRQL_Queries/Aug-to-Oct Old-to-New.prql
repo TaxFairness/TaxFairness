@@ -22,19 +22,19 @@ let oct24 = (
         OctNew = LO_NewValue,
     }
 )
-let propertydata = (
-    from CleanScrapedData
-    derive Has_CU = case [
-        Ass_LandCurr == App_LandCurr => 0,
-        true => 1
-    ]
-    select {
-        PID,
-        App_LandCurr,
-        Ass_LandCurr,
-        Has_CU,
-    }
-)
+# let propertydata = (
+#     from CleanScrapedData
+#     derive Has_CU = case [
+#         Ass_LandCurr == App_LandCurr => 0,
+#         true => 1
+#     ]
+#     select {
+#         PID,
+#         App_LandCurr,
+#         Ass_LandCurr,
+#         Has_CU,
+#     }
+# )
 
 # from LymeOldToNew
 
@@ -49,18 +49,20 @@ let propertydata = (
 #     Has_CU,
 # 
 # }
-from aug24
-join oct24 (aug24.PID == oct24.LO_PID)
+from oct24
 
-filter (aug24.PID != '')
-
-# join propertydata (propertydata.PID == oct24.LO_PID)
-derive AugToOctDiff = OctNew - AugNew
-
+# from aug24
+# join oct24 (PID == LO_PID)
 # 
-filter (AugToOctDiff != 0)
+# filter (PID != '')
 # 
-sort { AugToOctDiff }
-# select !{LO_PID, propertydata.PID}
-
-# sort {aug24.PID*1.0}
+# # join propertydata (propertydata.PID == oct24.LO_PID)
+# derive AugToOctDiff = OctNew - AugNew
+# 
+# # 
+# filter (AugToOctDiff != 0)
+# # 
+# sort { AugToOctDiff }
+# # select !{LO_PID, propertydata.PID}
+# 
+# # sort {aug24.PID*1.0}

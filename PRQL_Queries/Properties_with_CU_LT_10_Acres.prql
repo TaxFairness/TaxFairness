@@ -1,0 +1,18 @@
+# Properties with Current Use Tax Treatment under 10 acres
+
+from CleanScrapedData
+select {
+    PID,
+    Map, Lot, Unit,
+    Owner,
+    Street_Address,
+    Lot_size,
+    Appraisal,
+    Assessment,
+    delta=Appraisal - Assessment,
+    Savings=1.0 - (Assessment / Appraisal),
+}
+filter (Lot_size < 10.0)
+filter (Appraisal != Assessment)
+sort { -Lot_size }
+take 100

@@ -1,0 +1,17 @@
+# Properties that have both a Conservation Easement and Current Use
+
+from cleanscrapeddata
+filter ((EF_ConsEasement == "CE") || (EF_MuniEasement == "ME"))
+filter (Appraisal != Assessment)
+
+select {
+    PID,
+    Map, Lot, Unit,
+    Owner,
+    Street_Address,
+    Easement = f"{EF_MuniEasement} {EF_ConsEasement}",
+#     EF_ConsEasement,
+    Appraisal,
+    Assessment,
+}
+sort { Easement, -Appraisal }

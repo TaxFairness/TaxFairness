@@ -1,0 +1,15 @@
+# Top 100 parcels with the largest Current Use Tax Treatment
+
+from CleanScrapedData
+select {
+    PID,
+    Map, Lot, Unit,
+    Owner,
+    Street_Address,
+    Appraisal,
+    Assessment,
+    delta=Appraisal - Assessment,
+    savings= 1 - (Assessment / Appraisal),
+}
+sort { -delta }
+take 100

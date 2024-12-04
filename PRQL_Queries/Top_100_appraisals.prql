@@ -1,0 +1,16 @@
+# Top 100 property values in Lyme
+# Use Appraisal as an approximation of the Market Value
+
+from CleanScrapedData
+select {
+    PID,
+    Map, Lot, Unit,
+    Owner,
+    Street_Address,
+    Appraisal,
+    Assessment,
+    delta=Appraisal - Assessment,
+    pct=Assessment / Appraisal,
+}
+sort { -Appraisal }
+take 100

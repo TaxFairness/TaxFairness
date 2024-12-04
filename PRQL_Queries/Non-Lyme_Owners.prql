@@ -1,0 +1,11 @@
+# Non-03768/03769 owners
+
+from CleanScrapedData
+filter !( (text.contains "03768" Label_Address) || (text.contains "03769" Label_Address))
+select {
+    PID,
+    Map, Lot, Unit,
+    OwnerOfRecord,
+    Label_Address,
+    Street_Address,
+}
