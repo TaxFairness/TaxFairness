@@ -1,0 +1,24 @@
+# ==== ad-hoc queries - #2 ====
+
+# ==== all the Land Use codes in ScrapedData
+
+# from ScrapedData
+# select {
+#     code=SD_Land_Use_Code,
+#     descr=SD_Description,
+# }
+# group { code } (
+#     take 1
+# ) 
+# sort { code }
+
+# ==== All the special land codes
+from SpecialLand
+select {
+    code=SL_Code,
+    descr=SL_Description,
+}
+group { code } (
+    take 1
+) 
+sort { code } 

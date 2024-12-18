@@ -83,6 +83,8 @@ vacuum;
 # .import "DefinitiveData/2024_oldtonew-29Aug2024.csv" LymeOldToNew2024
 .import "DefinitiveData/OldToNewValues.csv" LymeOldToNew
 .import "DefinitiveData/OldToNewValues-31Oct2024.csv" Oct2024O2N
+.import "DefinitiveData/Land_Use_Codes_and_Explanations.csv" SpecialLandExplanations
+.import "DefinitiveData/xall_use_codes.csv" xAllUseCodes
 
 .mode tabs
 .import "DefinitiveData/Land_Use_Codes_from_VGSI.txt" VGSIinLyme

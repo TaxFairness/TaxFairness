@@ -1,0 +1,20 @@
+# Join the SpecialLand and SpecialLandExplanations
+
+from a=SpecialLand
+join b=SpecialLandExplanations (a.SL_Code == b.SLE_Code)
+select {
+   a.SL_Code,
+   a.SL_Description,
+   b.SLE_Explanation   
+}
+# group { a.SL_Code, a.SL_Description, b.SLE_Explanation } (
+#     aggregate {
+#         count this      
+# 
+#     }
+# )
+
+group { a.SL_Code, a.SL_Description, b.SLE_Explanation } (
+    take 1
+)
+sort { a.SL_Code }

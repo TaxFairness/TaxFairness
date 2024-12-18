@@ -75,6 +75,7 @@ from sd=ScrapedData
 filter SD_CollectedOn == @2024-12-04 # latest data
 join side:left czd = CorrectedZoningDistrict (sd.SD_PID == czd.CZD_PID)
 join side:left ef = EasementsFrontage(sd.SD_PID == ef.EF_PID)
+join side:left lu = AllUseCodes (sd.SD_Land_Use_Code == lu.UseCode)
 
 derive { StateRoad = isStateRoad sd.SD_Street_Address }
 
@@ -99,8 +100,10 @@ select {
     Assessment=sd.SD_Assessment,
     Appraisal=sd.SD_Appraisal,
     Lot_Size=sd.SD_Lot_Size,
-    Land_Use_Code=sd.SD_Land_Use_Code,
-    Description=sd.SD_Description,
+    UseCode=sd.SD_Land_Use_Code,
+    UseClass=lu.UseClass,
+    UseDesc=lu.UseDesc,
+    UseExpl=lu.UseExpl,
     #Zoning_District=sd.SD_Zoning_District,
     District,
     #ZDistrict,
@@ -113,12 +116,12 @@ select {
     LandAsmt=sd.SD_LandAsmt,
     LandAppr=sd.SD_LandAppr,
     StateRoad,
-    ef.EF_LotSize,
-    ef.EF_Exempt,
-    ef.EF_MuniEasement,
-    ef.EF_ConsEasement, 
-    ef.EF_Frontage,
-    ef.EF_FrontSuffix,
+#     ef.EF_LotSize,
+    Exempt=ef.EF_Exempt,
+    MuniEasement=ef.EF_MuniEasement,
+    ConsEasement=ef.EF_ConsEasement, 
+    Frontage=ef.EF_Frontage,
+    FrontSuffix=ef.EF_FrontSuffix,
     Num_Buildings=sd.SD_Num_Buildings,
     Recent_Sale_Price=sd.SD_Recent_Sale_Price,
     Recent_Sale_Date=sd.SD_Recent_Sale_Date,

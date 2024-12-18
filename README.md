@@ -104,7 +104,7 @@ It contains:
 3. Assorted "raw data" files that hav been processed to produce
    the files in the **DefinitiveData** folder
 
-## Convert from PDF to Excel
+## Converting a PDF to Excel
 
 * [SmallPDF](https://smallpdf.com/pdf-to-excel#r=result&t=cc6e68d972bedca2613d9ec967a288a9&i=convert-to-excel) worked great on 2024 Old-to-New
 
@@ -117,6 +117,13 @@ It contains:
 
 * [PDFtables.com](https://pdftables.com) seemed to work for one dataset...
 
+* [https://www.pdftoexcel.com/](https://www.pdftoexcel.com/)
+
+* [https://software.online-convert.com/convert-to-excel](https://software.online-convert.com/convert-to-excel)
+
+* [https://www.freepdfconvert.com/pdf-to-excel](https://www.freepdfconvert.com/pdf-to-excel)
+* [Adobe Converter](https://www.adobe.com/in/acrobat/online/pdf-to-excel.html) Free trial, then $$$
+
 ## Why use a database?
 
 The files here all get loaded into a SQLite database.
@@ -124,7 +131,7 @@ The files here all get loaded into a SQLite database.
 Doing this has two major advantages:
 
 1. It's easy to load the database _repeatably_ from the raw data files.
-   In fact the `create_database.sh` file discussed below automatically pulls
+   In fact the `build_database.sh` file discussed below automatically pulls
    in all the files above into separate tables of a single database,
    so these can be combined and compared automatically.
    If we revise the raw data, we can simply re-import and
@@ -145,13 +152,13 @@ from the other file where the Map/Lot/Unit are the same for both._
 I used [SQLite](https://sqlite.org/index.html) because it's small, fast, free,
 and runs on Macs and Windows (and Linux, too).
 
-I now recommend [qStudio](https://timestored.com/qstudio)
+I now recommend [QStudio](https://timestored.com/qstudio)
 as the preferred tool for looking at SQLite databases
 especially if you want to use the
 [PRQL](https://prql-lang.org) alternative to SQL.
 There's a double-clickable macOS version described in
 Lesson #2 of the
-[qStudio-PRQL Quick Start](https://github.com/richb-hanover/qStudio-PRQL_Quick_Start/blob/main/qStudio-PRQL_Quick_Start_%232.md) along with links to other 
+[QStudio-PRQL Quick Start](https://github.com/richb-hanover/qStudio-PRQL_Quick_Start/blob/main/QStudio-PRQL_Quick_Start_%232.md) along with links to other 
 OS versions.
 
 ~~I recommend [DB Browser for SQLite](https://sqlitebrowser.org/) (DB4S)

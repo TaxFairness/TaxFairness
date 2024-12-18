@@ -1,0 +1,16 @@
+# ==== Create view of UseCode, UseDescr, UseExplanation
+from a = xAllUseCodes
+join side:left e = SpecialLandExplanations (a.AU_Code == e.SLE_Code)
+join side:left x = SpecialLand (a.AU_Code == x.SL_Code)
+join side:left c = LymeUseCodes (a.AU_Code == c.LC_UseCode)
+group { a.AU_Code } (
+        take 1
+)
+select {
+    UseCode = a.AU_Code,
+    UseDesc = a.AU_Descr,
+    UseClass = c.LC_LandClass,
+    UseExpl = e.SLE_Explanation,
+    a.AU_Source,
+}
+sort { UseCode }

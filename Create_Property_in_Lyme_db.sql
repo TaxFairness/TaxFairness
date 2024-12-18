@@ -1,5 +1,13 @@
---Create the tables and views for the database
---INSERT INTO  "dates" (startDate,endDate) VALUES ('2014-01-01','2014-12-31');
+-- =====================================================
+-- =====================================================
+-- =====================================================
+-- 
+-- Create the tables and views for the database
+-- 
+-- =====================================================
+-- =====================================================
+-- =====================================================
+
 CREATE TABLE "ScrapedData" (
 	"SD_PID" INTEGER,
 	"SD_Owner" TEXT,
@@ -49,6 +57,8 @@ CREATE TABLE "ScrapedData" (
 	"SD_CollectedOn" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "EasementsFrontage" (
 	"EF_PID" INTEGER,
 	"EF_Map" TEXT,
@@ -72,6 +82,8 @@ CREATE TABLE "EasementsFrontage" (
 	"EF_Notes" TEXT,
 	"EF_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData1" (
 	"SD_PID" TEXT,
 	"SD_Street_Address" TEXT,
@@ -100,6 +112,8 @@ CREATE TABLE "ScrapedData1" (
 	"SD_Prev_Assess2020" INTEGER,
 	"SD_Prev_Apprais2020" INTEGER
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData2" (
 	"SD_PID" TEXT,
 	"SD_Street_Address" TEXT,
@@ -134,6 +148,8 @@ CREATE TABLE "ScrapedData2" (
 	"SD_Empty1" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData3" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -171,6 +187,8 @@ CREATE TABLE "ScrapedData3" (
 	"SD_Empty1" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData4" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -208,6 +226,8 @@ CREATE TABLE "ScrapedData4" (
 	"SD_Empty1" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData5" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -245,6 +265,8 @@ CREATE TABLE "ScrapedData5" (
 	"SD_Empty1" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData6" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -285,6 +307,8 @@ CREATE TABLE "ScrapedData6" (
 	"Collected" TEXT,
 	"Notes" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData7" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -323,6 +347,8 @@ CREATE TABLE "ScrapedData7" (
 	"SD_CollectedOn" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData9" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -361,6 +387,8 @@ CREATE TABLE "ScrapedData9" (
 	"SD_CollectedOn" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData10" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -399,6 +427,8 @@ CREATE TABLE "ScrapedData10" (
 	"SD_CollectedOn" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ScrapedData11" (
 	"SD_PID" TEXT,
 	"SD_Owner" TEXT,
@@ -437,6 +467,8 @@ CREATE TABLE "ScrapedData11" (
 	"SD_CollectedOn" TEXT,
 	"SD_Empty2" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "MuniPropVals" (
 	"MP_Municipality" INTEGER,
 	"MP_Year" INTEGER,
@@ -471,6 +503,8 @@ CREATE TABLE "MuniPropVals" (
 	"MP_2022_Resident_Tax" INTEGER,
 	"MP_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "CorrectedZoningDistrict" (
 	"CZD_PID" INTEGER,
 	"CZD_Address" TEXT,
@@ -481,6 +515,8 @@ CREATE TABLE "CorrectedZoningDistrict" (
 	"CZD_Actual" TEXT,
 	"CZD_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "OwnerHistory" (
 	"OH_PID" INTEGER,
 	"OH_Owner" TEXT,
@@ -493,6 +529,8 @@ CREATE TABLE "OwnerHistory" (
 	"OH_Sale_Date" TEXT,
 	"OH_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "AppraisHistory" (
 	"AP_PID" INTEGER,
 	"AP_Year" TEXT,
@@ -501,6 +539,8 @@ CREATE TABLE "AppraisHistory" (
 	"AP_Total" INTEGER,
 	"AP_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "AssessHistory" (
 	"AS_PID" INTEGER,
 	"AS_Year" TEXT,
@@ -509,6 +549,8 @@ CREATE TABLE "AssessHistory" (
 	"AS_Total" INTEGER,
 	"AS_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "TownAssessment" (
 	"TA_Owner Name" TEXT,
 	"TA_Map" INTEGER,
@@ -519,6 +561,8 @@ CREATE TABLE "TownAssessment" (
 	"TA_Improvements" INTEGER,
 	"TA_Parcel_Value" INTEGER
 );
+-- =====================================================
+
 CREATE TABLE "CAMA2022" (
 	"CAMA_Name" TEXT,
 	"CAMA_LocalCamaId" TEXT,
@@ -613,6 +657,8 @@ CREATE TABLE "CAMA2022" (
 	"CAMA_CamaCount" TEXT,
 	"CAMA_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "TaxableProperties" (
 	"TX_Code" TEXT,
 	"TX_Account" TEXT,
@@ -631,6 +677,8 @@ CREATE TABLE "TaxableProperties" (
 	"TX_Ratio" INTEGER,
 	"TX_Diff" INTEGER
 );
+-- =====================================================
+
 CREATE TABLE "RecentSales" (
 	"RS_PID" TEXT,
 	"RS_Prev_Owner" TEXT,
@@ -646,7 +694,15 @@ CREATE TABLE "RecentSales" (
 	"RS_TransferTax" INTEGER,
 	"RS_BackCalc" TEXT
 );
-CREATE TABLE "VGSIinLyme" ("VL_Code" TEXT, "VL_Description" TEXT);
+-- =====================================================
+
+CREATE TABLE "VGSIinLyme" (
+	"VL_Code" TEXT, 
+	"VL_Description" TEXT
+);
+
+-- =====================================================
+
 CREATE TABLE "VISIONOccCodes" (
 	"VC_Code" TEXT,
 	"VC_Description" TEXT,
@@ -654,6 +710,8 @@ CREATE TABLE "VISIONOccCodes" (
 	"VC_empty" TEXT,
 	"VC_Type" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ZoningPermits" (
 	"ZP_PermitNumber" TEXT,
 	"ZP_DateApplication" TEXT,
@@ -669,6 +727,8 @@ CREATE TABLE "ZoningPermits" (
 	"ZP_CollectedOn" TEXT,
 	"ZP_Duplicate" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "LymeUseCodes" (
 	"LC_Row" INTEGER,
 	"LC_UseCode" TEXT,
@@ -679,6 +739,15 @@ CREATE TABLE "LymeUseCodes" (
 	"LC_Bldgs" TEXT,
 	"LC_Obldgs" TEXT
 );
+
+-- Manually appended all use codes from ScrapedData & SpecialLand table
+CREATE TABLE "xAllUseCodes" (
+	"AU_Code" TEXT,
+	"AU_Descr" TEXT,
+	"AU_Source" TEXT
+);
+-- =====================================================
+
 CREATE TABLE "LymeOldToNew" (
 	"LO_Ignore1" TEXT,
 	"LO_PID" TEXT,
@@ -697,6 +766,8 @@ CREATE TABLE "LymeOldToNew" (
 	"LO_Year" TEXT,
 	"LO_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "Oct2024O2N" (
 	"LO_Ignore2" TEXT,
 	"LO_PID" TEXT,
@@ -715,6 +786,7 @@ CREATE TABLE "Oct2024O2N" (
 	"LO_Year" TEXT,
 	"LO_CollectedOn" TEXT
 );
+
 --This table has multiple rows per property
 --Use the UniqueAssessVsApprais view for actual work
 CREATE TABLE "RawAsVsApDina" (
@@ -738,6 +810,8 @@ CREATE TABLE "RawAsVsApDina" (
 	"AA_State" TEXT,
 	"AA_Zip" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "ConservationEasements" (
 	"CE_Map" INTEGER,
 	"CE_Lot-Unit" TEXT,
@@ -762,6 +836,7 @@ CREATE TABLE "ConservationEasements" (
 	"CE_Description3" TEXT,
 	"CE_Description4" TEXT
 );
+
 --Table of 61 sales considered for 2021 Revaluation
 CREATE TABLE "SalesConsidered61" (
 	"SC_PID" TEXT,
@@ -795,6 +870,8 @@ CREATE TABLE "SalesNotUsed" (
 	"NU_Page" INTEGER,
 	"NU_Line" INTEGER
 );
+-- =====================================================
+
 CREATE TABLE "Equalization2022" (
 	"EQ22_IncExc" TEXT,
 	"EQ22_Verno" INTEGER,
@@ -813,6 +890,8 @@ CREATE TABLE "Equalization2022" (
 	"EQ22_Buyer" TEXT,
 	"EQ22_Notes" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "PA342022" (
 	"PA_SeqNo" INTEGER,
 	"PA_TransDate" TEXT,
@@ -838,6 +917,8 @@ CREATE TABLE "PA342022" (
 	"PA_Notes" TEXT,
 	"PA_RKNQ" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "GraftonCtyRoD" (
 	"GC_ID" TEXT,
 	"GC_DateTime" TEXT,
@@ -859,6 +940,8 @@ CREATE TABLE "GraftonCtyRoD" (
 	"GC_CollectedOn" TEXT,
 	"GC_Null" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "RatioStudy2021" (
 	"RS_Verno" TEXT,
 	"RS_Book_Page" TEXT,
@@ -874,6 +957,8 @@ CREATE TABLE "RatioStudy2021" (
 	"RS_Notes" TEXT,
 	"RS_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "RatioStudy2022" (
 	"RS_Verno" TEXT,
 	"RS_Old_Verno" TEXT,
@@ -890,6 +975,8 @@ CREATE TABLE "RatioStudy2022" (
 	"RS_Notes" TEXT,
 	"RS_CollectedOn" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "MS1_Data" (
 	"MS1_Null" TEXT,
 	"MS1_Row" TEXT,
@@ -900,6 +987,8 @@ CREATE TABLE "MS1_Data" (
 	"MS1_Category" TEXT,
 	"MS1_Year" TEXT
 );
+-- =====================================================
+
 CREATE TABLE "Buildings" (
 	"BL_PID" TEXT,
 	"BL_BuildingNum" TEXT,
@@ -922,6 +1011,8 @@ CREATE TABLE "Buildings" (
 	"BL_CollectedOn" TEXT
 );
 
+-- =====================================================
+
 CREATE TABLE "Outbuildings" (
 	"OB_PID" TEXT,
 	"OB_Code" TEXT,
@@ -935,6 +1026,8 @@ CREATE TABLE "Outbuildings" (
 	"OB_CollectedOn" TEXT
 );
 
+-- =====================================================
+
 CREATE TABLE "ExtraFeatures" (
 	"XF_PID" TEXT,
 	"XF_Code" TEXT,
@@ -946,6 +1039,8 @@ CREATE TABLE "ExtraFeatures" (
 	"XF_CollectedOn" TEXT
 );
 
+-- =====================================================
+
 CREATE TABLE "SpecialLand" (
 	"SL_PID" TEXT,
 	"SL_Code" TEXT,
@@ -955,6 +1050,9 @@ CREATE TABLE "SpecialLand" (
 	"SL_CollectedOn" TEXT
 
 );
+
+-- =====================================================
+
 CREATE TABLE "TaxRates" (
 	"TR_Municipality" TEXT,
 	"TR_Tax_Year" TEXT,
@@ -969,7 +1067,23 @@ CREATE TABLE "TaxRates" (
 	"TR_Total_Commitment" INTEGER,
 	"TR_CollectedOn" TEXT
 );
--- VIEWS --
+
+-- =====================================================
+
+CREATE TABLE "SpecialLandExplanations" (
+	"SLE_Code" TEXT,
+	"SLE_Explanation" TEXT
+);
+
+-- =====================================================
+-- =====================================================
+-- =====================================================
+-- 
+-- Views
+-- 
+-- =====================================================
+-- =====================================================
+-- =====================================================
 
 -- 
 CREATE VIEW "CleanScrapedData" as
@@ -1004,7 +1118,6 @@ WITH table_1 AS (
     "SD_Category",
     "SD_AltLandApproved",
     "SD_Neighborhood",
-    "SD_Description",
     "SD_Land_Use_Code",
     "SD_Lot_Size",
     "SD_Appraisal",
@@ -1028,6 +1141,9 @@ WITH table_1 AS (
 ),
 table_0 AS (
   SELECT
+    lu."UseClass",
+    lu."UseDesc",
+    lu."UseExpl",
     CASE
       WHEN table_1."SD_Street_Address" like '%' || 'ORFORD ' || '%' THEN 1
       WHEN table_1."SD_Street_Address" like '%' || 'DARTMOUTH COLLEGE' || '%' THEN 1
@@ -1035,12 +1151,6 @@ table_0 AS (
       WHEN table_1."SD_Street_Address" like '%' || 'THETFORD' || '%' THEN 1
       ELSE 0
     END AS "StateRoad",
-    ef."EF_LotSize",
-    ef."EF_Exempt",
-    ef."EF_MuniEasement",
-    ef."EF_ConsEasement",
-    ef."EF_Frontage",
-    ef."EF_FrontSuffix",
     table_1."SD_CollectedOn",
     table_1."SD_Version",
     table_1."SD_LabelAddress",
@@ -1063,6 +1173,11 @@ table_0 AS (
     table_1."SD_Recent_Sale_Date",
     table_1."SD_Recent_Sale_Price",
     table_1."SD_Num_Buildings",
+    ef."EF_FrontSuffix",
+    ef."EF_Frontage",
+    ef."EF_ConsEasement",
+    ef."EF_MuniEasement",
+    ef."EF_Exempt",
     table_1."SD_LandAppr",
     table_1."SD_LandAsmt",
     table_1."SD_Depth",
@@ -1070,7 +1185,6 @@ table_0 AS (
     table_1."SD_Category",
     table_1."SD_AltLandApproved",
     table_1."SD_Neighborhood",
-    table_1."SD_Description",
     table_1."SD_Land_Use_Code",
     table_1."SD_Lot_Size",
     table_1."SD_Appraisal",
@@ -1104,6 +1218,7 @@ table_0 AS (
     table_1
     LEFT JOIN "CorrectedZoningDistrict" AS czd ON table_1."SD_PID" = czd."CZD_PID"
     LEFT JOIN "EasementsFrontage" AS ef ON table_1."SD_PID" = ef."EF_PID"
+    LEFT JOIN "AllUseCodes" AS lu ON table_1."SD_Land_Use_Code" = lu."UseCode"
 )
 SELECT
   "SD_PID" AS "PID",
@@ -1120,8 +1235,10 @@ SELECT
   "SD_Assessment" AS "Assessment",
   "SD_Appraisal" AS "Appraisal",
   "SD_Lot_Size" AS "Lot_Size",
-  "SD_Land_Use_Code" AS "Land_Use_Code",
-  "SD_Description" AS "Description",
+  "SD_Land_Use_Code" AS "UseCode",
+  "UseClass",
+  "UseDesc",
+  "UseExpl",
   COALESCE(_expr_0, "CZD_Actual") AS "District",
   CASE
     WHEN COALESCE(_expr_0, "CZD_Actual") = 'RD'
@@ -1138,17 +1255,16 @@ SELECT
   "SD_Neighborhood" AS "Neighborhood",
   "SD_AltLandApproved" AS "AltLandApproved",
   "SD_Category" AS "Category",
-  "SD_Frontage" AS "Frontage",
+  "SD_Frontage" AS _expr_1,
   "SD_Depth" AS "Depth",
   "SD_LandAsmt" AS "LandAsmt",
   "SD_LandAppr" AS "LandAppr",
   "StateRoad",
-  "EF_LotSize",
-  "EF_Exempt",
-  "EF_MuniEasement",
-  "EF_ConsEasement",
-  "EF_Frontage",
-  "EF_FrontSuffix",
+  "EF_Exempt" AS "Exempt",
+  "EF_MuniEasement" AS "MuniEasement",
+  "EF_ConsEasement" AS "ConsEasement",
+  "EF_Frontage" AS "Frontage",
+  "EF_FrontSuffix" AS "FrontSuffix",
   "SD_Num_Buildings" AS "Num_Buildings",
   "SD_Recent_Sale_Price" AS "Recent_Sale_Price",
   "SD_Recent_Sale_Date" AS "Recent_Sale_Date",
@@ -1178,8 +1294,39 @@ ORDER BY
 
 -- Generated by PRQL compiler version:0.13.2 (https://prql-lang.org)
 
---- ========= END OF CleanScrapedData ==============
 
+--- ========= END OF CleanScrapedData ==============
+;
+
+
+CREATE VIEW "AllUseCodes" as 
+WITH table_0 AS (
+  SELECT
+    a."AU_Code" AS "UseCode",
+    a."AU_Source",
+    a."AU_Descr" AS "UseDesc",
+    c."LC_LandClass" AS "UseClass",
+    e."SLE_Explanation" AS "UseExpl",
+    ROW_NUMBER() OVER (PARTITION BY a."AU_Code") AS _expr_0
+  FROM
+    "xAllUseCodes" AS a
+    LEFT JOIN "SpecialLandExplanations" AS e ON a."AU_Code" = e."SLE_Code"
+    LEFT JOIN "SpecialLand" AS x ON a."AU_Code" = x."SL_Code"
+    LEFT JOIN "LymeUseCodes" AS c ON a."AU_Code" = c."LC_UseCode"
+)
+SELECT
+  "UseCode",
+  "AU_Source",
+  "UseDesc",
+  "UseClass",
+  "UseExpl"
+FROM
+  table_0
+WHERE
+  _expr_0 <= 1
+
+-- Generated by PRQL compiler version:0.13.2 (https://prql-lang.org)
+-- End of AllUseCodes
 ;
 
 -- Current Appraisal values (from Todd's latest spreadsheet via Dina) plus scraped values
@@ -1248,6 +1395,8 @@ FROM RecentSales
 	LEFT JOIN LymeUseCodes ON SD_Land_Use_Code != ""
 	AND SD_Land_Use_Code = LC_UseCode;
 
+-- =====================================================
+
 CREATE VIEW "Sanity_ScrapedNotInOldNew" as
 select ON_Map,
 	ON_Lot,
@@ -1269,6 +1418,8 @@ select ON_Map,
 	ON_Unit
 from OldVsNew;
 
+-- =====================================================
+
 CREATE VIEW "UniqueAssessVsApprais" as
 select distinct "AA_Map",
 	"AA_Lot",
@@ -1281,6 +1432,8 @@ select distinct "AA_Map",
 	"AA_Appraisal_Total",
 	"AA_Assessment_Total"
 from RawAsVsAPDina;
+
+-- =====================================================
 
 CREATE VIEW "Actual_Deeds" AS
 SELECT GC_Type,
