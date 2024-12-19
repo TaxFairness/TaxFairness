@@ -1,9 +1,23 @@
-﻿,Use Code,"Use Land
-Desc Class",Land Class,"Assess
-Lnd Ln","Land Use Codes
-LYME, NH
-Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs",,
+﻿,Use Code,Use Land,,,,,
+"Desc Class""",Land Class,Assess,,,,,
+"Lnd Ln""",Land Use Codes,,,,,,
+LYME, NH,,,,,,
+"Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs""",,,,,,,
 Row,Use Code,Use Desc,Land Class,Lnd Ln 1,Lnd Ln 2,Bldgs,Obldgs
+1,101,Single Fam ,R,0101,0101,0101,0101
+2,130,PRI RES ,R,0130,0130,0130,0130
+3,134,PRI RS C/I ,R,0134,0134,0134,0134
+4,140,PR RES IND ,R,0140,0140,0140,0140
+5,302,INNS ,C,0302,0302,0302,0302
+6,310,PRI COMM ,C,0310,0310,0310,0310
+7,322,STORE ,C,0322,0322,0322,0322
+8,334,,,0334,0334,0334,0334
+9,338,PRI COM ,C,0338,0338,0338,0338
+10,422,ELEC PLANT ,I,0422,0422,0422,0422
+11,601,FARM LAND ,S,0601,0601,0601,0601
+12,602,WET LAND ,S,0602,0602,0602,0602
+13,911,BARN EASE ,E,0911,0911,0911,0911
+14,912,HISTORICAL/APT ,E,0912,0912,0912,0912
 1,0101,Single Fam ,R,0101,0101,0101,0101
 2,0130,PRI RES ,R,0130,0130,0130,0130
 3,0134,PRI RS C/I ,R,0134,0134,0134,0134
@@ -66,11 +80,11 @@ Row,Use Code,Use Desc,Land Class,Lnd Ln 1,Lnd Ln 2,Bldgs,Obldgs
 60,3040,NURSING HM ,C,3040,3040,3040,3040
 61,,,,,,,
 62,11/17/20210:14:10AM Page 1,,,,,,
-63,Use Cede,"Use Land
-Desc Class",Land Class,"Assess
-Lnd Ln","Land Use Codes
-LYME, NH
-Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs",,
+63,Use Cede,Use Land,,,,,
+"Desc Class""",Land Class,Assess,,,,,
+"Lnd Ln""",Land Use Codes,,,,,,
+LYME, NH,,,,,,
+"Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs""",,,,,,,
 64,3050,HOSP PVT ,C,3050,3050,3050,3050
 65,3130,LUMBER YRD ,C,3130,3130,3130,3130
 66,3160,COMM WHSE ,C,3160,3160,3160,3160
@@ -135,10 +149,10 @@ Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs",,
 125,,,,,,,
 126,11/17/20210:14:10AM,,,,,,
 127,Page 2,,,,,,
-128,Use Code,Use Des,Land Class,"Assess
-Lnd Ln","Land Use Codes
-LYME , NH
-Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obidgs",,
+128,Use Code,Use Des,Land Class,Assess,,,
+"Lnd Ln""",Land Use Codes,,,,,,
+LYME , NH,,,,,,
+"Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obidgs""",,,,,,,
 129,4300,TEL X STA,I,4300,4300,4300,4300
 130,4310,TEL REL TW,I,4310,4310,4310,4310
 131,4320,CBL-TV T,I,4320,4320,4320,4320
@@ -202,11 +216,11 @@ Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obidgs",,
 189,6230,HWUNR-0,S,6230,6230,6230,6230
 190,,,,,,,
 191,11/17/20210:14:10AM Page 3,,,,,,
-192,"Use
-Code",Use Des,Land Class,"Assess
-Lnd Ln","Land Use Codes
-LYME, NH
-Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs",,
+192,Use,,,,,,
+"Code""",Use Des,Land Class,Assess,,,,
+"Lnd Ln""",Land Use Codes,,,,,,
+LYME, NH,,,,,,
+"Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs""",,,,,,,
 193,6231,HWUNR-1,S,6231,6231,6231,6231
 194,6232,HWUNR-2,S,6232,6232,6232,6232
 195,6233,HWUNR-3,S,6233,6233,6233,6233
@@ -273,11 +287,11 @@ Sum Assess Sum Assess Sum Assess Sum 1 Lnd Ln 2 Bldgs Obldgs",,
 256,Page 4,,,,,,
 257,Land Use Codes,,,,,,
 258,"LYME, NH",,,,,,
-259,Use Code,"Use Land
-Desc Class",Land Class,"Assess
-Lnd Ln","Sum Assess
-1 Lnd Ln",Sum Assess 2 Bldgs,"Sum Assess Sum
-Obldgs"
+259,Use Code,Use Land,,,,,
+"Desc Class""",Land Class,Assess,,,,,
+"Lnd Ln""",Sum Assess,,,,,,
+"1 Lnd Ln""",Sum Assess 2 Bldgs,Sum Assess Sum,,,,,
+"Obldgs""",,,,,,,
 260,6436,XMUNR-6,S,6436,6436,6436,6436
 261,6500,FARM-0 ,S,6500,6500,6500,6500
 262,6501,FARM-1 ,S,6501,6501,6501,6501
