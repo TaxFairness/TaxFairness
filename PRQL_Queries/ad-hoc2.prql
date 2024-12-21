@@ -12,13 +12,59 @@
 # ) 
 # sort { code }
 
-# ==== All the special land codes
-from SpecialLand
-select {
-    code=SL_Code,
-    descr=SL_Description,
-}
-group { code } (
-    take 1
-) 
-sort { code } 
+
+# # ==== from #4947
+# from `albums`
+# select { `album_id`, `title` }
+# sort {+`album_id`}
+# take 2
+# append (
+#   from `albums`
+#   select { `album_id`, `title` }
+#   sort {-`album_id`}
+#   take 2
+# )
+# 
+# # # ==== from #4947 - rewritten
+# # let a = (
+# # from `albums`
+# # select { `album_id`, `title` }
+# # sort {+`album_id`}
+# # take 2
+# # )
+# # # append (
+# # let b = (
+# #   from `albums`
+# #   select { `album_id`, `title` }
+# #   sort {-`album_id`}
+# #   take 2
+# # )
+# # from a
+# # append b
+# 
+# ==== from #5055
+
+let table1 = (
+    from ScrapedData
+    select { sd=SD_Land_Use_Code }
+    derive source="SD"
+    sort { sd }
+    #     group { sd } (
+        take 1
+#        )
+
+)
+
+let table2 = (
+    from SpecialLand
+    select { sd = SL_Code }
+    derive source = "SL"
+    sort { sd }
+    #     group { sd } (
+        take 1
+#     )
+
+)
+
+from table1
+append table2

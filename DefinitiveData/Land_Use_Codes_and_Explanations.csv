@@ -1,38 +1,85 @@
+101,Residential Improved
+104,Residential Improved
+105,Residential Improved
+111,Residential Apartments
+112,Residential Apartments
+130,Residential Improved
+911,Historic Pres. Easement
+912,Exempt
+0101,Residential Improved
+0104,Residential Improved
+0105,Residential Improved
+0111,Residential Apartments
+0112,Residential Apartments
+0130,Residential Improved
+0911,Historic Pres. Easement
+0912,Exempt
+1010,Residential Improved
+1011,Residential Improved
+1012,Residential Improved
+1013,Residential Improved
+1020,Residential Condo
+1021,Residential Condo
+1030,Residential Mobile Home
+1031,Residential Mobile Home
+1040,Residential Improved
+1041,Residential Improved
+1050,Residential Improved
+1051,Residential Improved
+1060,Residential Improved
+1061,Residential Improved
+1080,Residential Improved
+1090,Residential Improved
+1091,Residential Improved
+1093,Residential Improved
+1110,Residential Apartments
+1111,Residential Apartments
+1112,Residential Apartments
+1120,Residential Apartments
+1121,Residential Apartments
+1300,Residential Vacant
+1310,Residential Vacant
+1320,Residential Vacant
 3900,Commercial Vacant
 3910,Commercial Vacant
 3920,Commercial Vacant
 3930,Commercial Vacant
 3960,Commercial Vacant
-9XXX,Exempt
-0912,Exempt
-7200,Farm CE
-7201,Farm CE Rec
+4400,Industrial Vacant
+4410,Industrial Vacant
+4420,Industrial Vacant
+4430,Industrial Vacant
 6017,Farm Land
-6500,Farm Land
-6501,Farm Land
-6502,Farm Land
-6503,Farm Land
-6504,Farm Land
-6505,Farm Land
-6506,Farm Land
-6600,Farm Land
 6019,Farm Land Rec
-6510,Farm Land Rec
-6511,Farm Land Rec
-6512,Farm Land Rec
-6513,Farm Land Rec
-6514,Farm Land Rec
-6515,Farm Land Rec
-6516,Farm Land Rec
-6610,Farm Land Rec
-6611,Farm Land Rec
-6900,Flood Plains
-7026,Flood Plains
-7106,Hard wd un CE
-7107,Hard wood un rec CE
-7104,Hardwd man CE
-7105,Hardwd man CE Rec
-0911,Historic Pres. Easement
+6030,Wtr Front FF in Cu
+6100,Wht Pine Managed
+6101,Wht Pine Managed
+6102,Wht Pine Managed
+6103,Wht Pine Managed
+6104,Wht Pine Managed
+6105,Wht Pine Managed
+6106,Wht Pine Managed
+6110,Wht Pine Man Rec
+6111,Wht Pine Man Rec
+6112,Wht Pine Man Rec
+6113,Wht Pine Man Rec
+6114,Wht Pine Man Rec
+6115,Wht Pine Man Rec
+6116,Wht Pine Man Rec
+6120,Wht Pine Unman
+6121,Wht Pine Unman
+6122,Wht Pine Unman
+6123,Wht Pine Unman
+6124,Wht Pine Unman
+6125,Wht Pine Unman
+6126,Wht Pine Unman
+6130,Wht Pine Unman Rec
+6131,Wht Pine Unman Rec
+6132,Wht Pine Unman Rec
+6133,Wht Pine Unman Rec
+6134,Wht Pine Unman Rec
+6135,Wht Pine Unman Rec
+6136,Wht Pine Unman Rec
 6200,Hrdwd Managed
 6201,Hrdwd Managed
 6202,Hrdwd Managed
@@ -61,14 +108,6 @@
 6234,Hrdwd Unmngd-Rec
 6235,Hrdwd Unmngd-Rec
 6236,Hrdwd Unmngd-Rec
-040X,Industrial Improved
-40XX,Industrial Improved
-041X,Industrial Improved
-41XX,Industrial Improved
-4400,Industrial Vacant
-4410,Industrial Vacant
-4420,Industrial Vacant
-4430,Industrial Vacant
 6300,Other Managed
 6301,Other Managed
 6302,Other Managed
@@ -97,95 +136,64 @@
 6334,Other Unmngd-Rec
 6335,Other Unmngd-Rec
 6336,Other Unmngd-Rec
+6500,Farm Land
+6501,Farm Land
+6502,Farm Land
+6503,Farm Land
+6504,Farm Land
+6505,Farm Land
+6506,Farm Land
+6510,Farm Land Rec
+6511,Farm Land Rec
+6512,Farm Land Rec
+6513,Farm Land Rec
+6514,Farm Land Rec
+6515,Farm Land Rec
+6516,Farm Land Rec
+6600,Farm Land
+6610,Farm Land Rec
+6611,Farm Land Rec
+6700,Unproductive
+6710,Unproductive Rec
+6800,Unproductive Wet
+6810,Unproductive Wet-Rec
+6900,Flood Plains
+7000,Wht Pine Managed
+7001,Wht Pine Man Rec
+7002,Wht Pine Unman
+7003,Wht Pine Unman Rec
+7020,Unproductive
+7021,Unproductive Rec
+7024,Unproductive Wet
+7025,Unproductive Wet-Rec
+7026,Flood Plains
+7100,WP Mgd CE
+7101,WP Mgd CE Rec
+7104,Hardwd man CE
+7105,Hardwd man CE Rec
+7106,Hard wd un CE
+7106,WP Un CE
+7107,Hard wood un rec CE
+7107,WP Un CE Rec
 7108,Othr Mg CE
 7109,Othr Mg CE Rec
 7110,Othr Unmg CE
 7111,Othr Unmg CE Rec
-0111,Residential Apartments
-0112,Residential Apartments
-1110,Residential Apartments
-1120,Residential Apartments
-1111,Residential Apartments
-1112,Residential Apartments
-1121,Residential Apartments
-111C,Residential Apartments
-1020,Residential Condo
-1021,Residential Condo
-102R,Residential Condo
-0101,Residential Improved
-0104,Residential Improved
-0105,Residential Improved
-1061,Residential Improved
-1010,Residential Improved
-1011,Residential Improved
-101A,Residential Improved
-1012,Residential Improved
-1013,Residential Improved
-1040,Residential Improved
-1041,Residential Improved
-1050,Residential Improved
-1093,Residential Improved
-1051,Residential Improved
-1060,Residential Improved
-1090,Residential Improved
-1091,Residential Improved
-0130,Residential Improved
-1080,Residential Improved
-1030,Residential Mobile Home
-1031,Residential Mobile Home
-103R,Residential Mobile Home
-1300,Residential Vacant
-1310,Residential Vacant
-1320,Residential Vacant
-106V,Residential Vacant
-102V,Residential Vacant
-XXXX,UNKNOWN
-6700,Unproductive
-7020,Unproductive
-6710,Unproductive Rec
-7021,Unproductive Rec
-6800,Unproductive Wet
-7024,Unproductive Wet
-6810,Unproductive Wet-Rec
-7025,Unproductive Wet-Rec
+7200,Farm CE
+7201,Farm CE Rec
+040X,Industrial Improved
+041X,Industrial Improved
 042X,Utilities
 043X,Utilities
+101A,Residential Improved
+102R,Residential Condo
+102V,Residential Vacant
+103R,Residential Mobile Home
+106V,Residential Vacant
+111C,Residential Apartments
+40XX,Industrial Improved
+41XX,Industrial Improved
 42XX,Utilities
 43XX,Utilities
-6110,Wht Pine Man Rec
-6111,Wht Pine Man Rec
-6112,Wht Pine Man Rec
-6113,Wht Pine Man Rec
-6114,Wht Pine Man Rec
-6115,Wht Pine Man Rec
-6116,Wht Pine Man Rec
-7001,Wht Pine Man Rec
-6100,Wht Pine Managed
-6101,Wht Pine Managed
-6102,Wht Pine Managed
-6103,Wht Pine Managed
-6104,Wht Pine Managed
-6105,Wht Pine Managed
-6106,Wht Pine Managed
-7000,Wht Pine Managed
-6120,Wht Pine Unman
-6121,Wht Pine Unman
-6122,Wht Pine Unman
-6123,Wht Pine Unman
-6124,Wht Pine Unman
-6125,Wht Pine Unman
-6126,Wht Pine Unman
-7002,Wht Pine Unman
-6130,Wht Pine Unman Rec
-6131,Wht Pine Unman Rec
-6132,Wht Pine Unman Rec
-6133,Wht Pine Unman Rec
-6134,Wht Pine Unman Rec
-6135,Wht Pine Unman Rec
-6136,Wht Pine Unman Rec
-7003,Wht Pine Unman Rec
-7100,WP Mgd CE
-7101,WP Mgd CE Rec
-7106,WP Un CE
-7107,WP Un CE Rec
-6030,Wtr Front FF in Cu
+9XXX,Exempt
+XXXX,UNKNOWN
